@@ -1,0 +1,16 @@
+name: "twitter-stats"
+output_dir: "../docs"
+navbar:
+  title: "Twitter stats"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/lazappi/twitter-stats
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate

@@ -1,0 +1,6 @@
+---
+title: "About"
+---
+
+This website displays the results of analysing Twitter activity for various
+hashtags. The analysis code is covered by an MIT license.
