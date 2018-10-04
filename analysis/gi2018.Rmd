@@ -85,13 +85,13 @@ An analysis of tweets from the `r conf_name` conference.
 
 ```{r tweets-by-day}
 tweets %>% 
-  mutate(date = as_date(created_at, tz = timezone)) %>% 
-  count(date) %>% 
-  ggplot(aes(date, n)) + geom_col(fill = accent) +  
-    labs(x = "Date", y = "Tweets",
-         title = paste(hashtag, "tweets per day")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    mutate(date = as_date(created_at, tz = timezone)) %>% 
+    count(date) %>% 
+    ggplot(aes(date, n)) + geom_col(fill = accent) +  
+        labs(x = "Date", y = "Tweets",
+             title = paste(hashtag, "tweets per day")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Tweets by day and time
@@ -100,20 +100,20 @@ Filtered for dates `r min(days)` - `r max(days)` in the `r timezone` timezone.
 
 ```{r tweets-by-day-hour}
 tweets_days <- tweets %>% 
-  mutate(datetime = as_datetime(created_at, tz = timezone),
+    mutate(datetime = as_datetime(created_at, tz = timezone),
          hour = hour(datetime)) %>% 
-  group_by(date = as_date(datetime), hour) %>% 
-  filter(date >= as_date(min(days)), date <= as_date(max(days)))
+    group_by(date = as_date(datetime), hour) %>% 
+    filter(date >= as_date(min(days)), date <= as_date(max(days)))
 
 tweets_days %>%
     summarise(count = n()) %>% 
     ggplot(aes(hour, count)) +
-    geom_col(fill = accent) +
-    facet_grid(strftime(date, "%b %d") ~ .) + 
-    labs(x = "Hour", y = "Tweets",
-         title = paste(hashtag, "tweets by time of day")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+        geom_col(fill = accent) +
+        facet_grid(strftime(date, "%b %d") ~ .) + 
+        labs(x = "Hour", y = "Tweets",
+             title = paste(hashtag, "tweets by time of day")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 # Users
@@ -122,17 +122,17 @@ tweets_days %>%
 
 ```{r tweets-top-users}
 tweets %>% 
-  count(screen_name) %>% 
-  arrange(desc(n)) %>%
-  slice(1:20) %>% 
-  ggplot(aes(reorder(screen_name, n), n)) +
-    geom_col(fill = accent) +
-    coord_flip() + 
-    labs(x = "Screen Name", y = "Tweets",
-         title = paste(hashtag, "tweets by user"),
-         subtitle = "top 20 users") + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    count(screen_name) %>% 
+    arrange(desc(n)) %>%
+    slice(1:20) %>% 
+    ggplot(aes(reorder(screen_name, n), n)) +
+        geom_col(fill = accent) +
+        coord_flip() + 
+        labs(x = "Screen Name", y = "Tweets",
+             title = paste(hashtag, "tweets by user"),
+             subtitle = "top 20 users") + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Top original tweeters
@@ -163,16 +163,16 @@ plot_data <- tweets %>%
     mutate(total = orig + retweet)
 
 ggplot(plot_data, aes(total, (orig / total) - (retweet / total))) +
-        geom_hline(yintercept = 0, colour = "red") +
-        geom_point(colour = accent) +
-        geom_text_repel(data = top_n(plot_data, 10, total), 
-                        aes(label = screen_name)) +
-        labs(x = "Total tweets",
-             y = "<<< more retweets : more original tweets >>>",
-             title = paste(hashtag, "original tweets compared to retweets"),
-             subtitle = "top 10 users labelled") + 
-        theme(axis.text = element_text(size = 12),
-              axis.title = element_text(size = 12))
+    geom_hline(yintercept = 0, colour = "red") +
+    geom_point(colour = accent) +
+    geom_text_repel(data = top_n(plot_data, 10, total), 
+                    aes(label = screen_name)) +
+    labs(x = "Total tweets",
+         y = "<<< more retweets : more original tweets >>>",
+         title = paste(hashtag, "original tweets compared to retweets"),
+         subtitle = "top 10 users labelled") + 
+    theme(axis.text = element_text(size = 12),
+          axis.title = element_text(size = 12))
 ```
 
 ## Top tweeters by time
@@ -280,17 +280,17 @@ out <- knit_child(text = unlist(src_list))
 
 ```{r tweets-top-sources}
 tweets %>% 
-  distinct(screen_name, source) %>%
-  count(source) %>% 
-  filter(n >= 5) %>% 
-  ggplot(aes(reorder(source, n), n)) +
-    geom_col(fill = accent) +
-    coord_flip() + 
-    labs(x = "Source", y = "Tweets",
-         title = paste(hashtag, "tweets by source"),
-         subtitle = "distinct(screen_name, source) with >= 5 tweets") + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    distinct(screen_name, source) %>%
+    count(source) %>% 
+    filter(n >= 5) %>% 
+    ggplot(aes(reorder(source, n), n)) +
+        geom_col(fill = accent) +
+        coord_flip() + 
+        labs(x = "Source", y = "Tweets",
+             title = paste(hashtag, "tweets by source"),
+             subtitle = "distinct(screen_name, source) with >= 5 tweets") + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 # Networks
@@ -302,9 +302,9 @@ coloured by page rank.
 
 ```{r reply-network}
 tweets_replies <- tweets %>% 
-  filter(!is.na(reply_to_screen_name)) %>% 
-  select(screen_name, reply_to_screen_name) %>% 
-  graph.data.frame(directed = TRUE)
+    filter(!is.na(reply_to_screen_name)) %>% 
+    select(screen_name, reply_to_screen_name) %>% 
+    graph.data.frame(directed = TRUE)
 
 V(tweets_replies)$label <- V(tweets_replies)$name
 V(tweets_replies)$id    <- V(tweets_replies)$name
@@ -315,7 +315,7 @@ ggraph(tweets_replies, layout = "fr") +
                    end_cap = circle(1, 'mm'),
                    colour = "darkgrey") +
     geom_node_point(aes(colour = pr)) +
-    geom_node_text(aes(label = label), colour = "skyblue", repel = TRUE) +
+    geom_node_text(aes(label = label), colour = accent, repel = TRUE) +
     viridis::scale_colour_viridis() +
     theme_graph() +
     theme(legend.position = "none")
@@ -327,12 +327,12 @@ The "mentions network", where users mention other users in their tweets.
 
 ```{r mentions-network}
 tweets_mentions <- tweets %>% 
-  filter(!is.na(mentions_screen_name)) %>% 
-  select(screen_name, mentions_screen_name) %>% 
-  unnest(mentions_screen_name) %>% 
-  mutate(mentions_screen_name = strsplit(mentions_screen_name, " ")) %>% 
-  unnest(mentions_screen_name) %>% 
-  graph.data.frame()
+    filter(!is.na(mentions_screen_name)) %>% 
+    select(screen_name, mentions_screen_name) %>% 
+    unnest(mentions_screen_name) %>% 
+    mutate(mentions_screen_name = strsplit(mentions_screen_name, " ")) %>% 
+    unnest(mentions_screen_name) %>% 
+    graph.data.frame()
 
 V(tweets_mentions)$label <- V(tweets_mentions)$name
 V(tweets_mentions)$id    <- V(tweets_mentions)$name
@@ -360,36 +360,36 @@ ggraph(tweets_mentions, layout = "fr") +
 
 ```{r is-retweet}
 tweets %>% 
-  count(is_retweet) %>% 
-  ggplot(aes(is_retweet, n)) + geom_col(fill = accent) + 
-    labs(x = "Is retweet", y = "Tweets",
-         title = paste(hashtag, "tweets by retweet status")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    count(is_retweet) %>% 
+    ggplot(aes(is_retweet, n)) + geom_col(fill = accent) + 
+        labs(x = "Is retweet", y = "Tweets",
+             title = paste(hashtag, "tweets by retweet status")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Retweet count
 
 ```{r retweet-count}
 tweets %>% 
-  ggplot(aes(retweet_count)) +
-    geom_histogram(bins = max(tweets$retweet_count), fill = accent) +
-    labs(x = "Retweet count", y = "Tweets",
-         title = paste(hashtag, "distribution of retweets per tweet")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    ggplot(aes(retweet_count)) +
+        geom_histogram(bins = max(tweets$retweet_count), fill = accent) +
+        labs(x = "Retweet count", y = "Tweets",
+             title = paste(hashtag, "distribution of retweets per tweet")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Top retweets
 
 ```{r most-retweeted}
 tweets %>% 
-  filter(is.na(retweet_status_id)) %>% 
-  select(screen_name, text, retweet_count) %>% 
-  arrange(desc(retweet_count)) %>% 
-  distinct() %>%
-  slice(1:10) %>% 
-  kable(format = "html")
+    filter(is.na(retweet_status_id)) %>% 
+    select(screen_name, text, retweet_count) %>% 
+    arrange(desc(retweet_count)) %>% 
+    distinct() %>%
+    slice(1:10) %>% 
+    kable(format = "html")
 ```
 
 # Favourites
@@ -398,36 +398,36 @@ tweets %>%
 
 ```{r has-favorite}
 tweets %>% 
-  mutate(has_favorite = ifelse(favorite_count > 0, TRUE, FALSE)) %>% 
-  count(has_favorite) %>%
-  ggplot(aes(has_favorite, n)) + geom_col(fill = accent) + 
-    labs(x = "Has favorite", y = "Tweets",
-         title = paste(hashtag, "tweets by favorited status")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    mutate(has_favorite = ifelse(favorite_count > 0, TRUE, FALSE)) %>% 
+    count(has_favorite) %>%
+    ggplot(aes(has_favorite, n)) + geom_col(fill = accent) + 
+        labs(x = "Has favorite", y = "Tweets",
+             title = paste(hashtag, "tweets by favorited status")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Favourite count
 
 ```{r favorite-count}
 tweets %>% 
-  ggplot(aes(favorite_count)) +
-    geom_histogram(bins = max(tweets$favorite_count), fill = accent) +
-    labs(x = "Favorite count", y = "Tweets",
-         title = paste(hashtag, "distribution of favorites per tweet")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    ggplot(aes(favorite_count)) +
+        geom_histogram(bins = max(tweets$favorite_count), fill = accent) +
+        labs(x = "Favorite count", y = "Tweets",
+             title = paste(hashtag, "distribution of favorites per tweet")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Top favourites
 
 ```{r most-favorited}
 tweets %>% 
-  select(screen_name, text, favorite_count) %>% 
-  arrange(desc(favorite_count)) %>% 
-  distinct() %>%
-  slice(1:10) %>% 
-  kable(format = "html")
+    select(screen_name, text, favorite_count) %>% 
+    arrange(desc(favorite_count)) %>% 
+    distinct() %>%
+    slice(1:10) %>% 
+    kable(format = "html")
 ```
 
 # Quotes
@@ -436,45 +436,44 @@ tweets %>%
 
 ```{r is-quote}
 tweets %>% 
-  count(is_quote) %>% 
-  ggplot(aes(is_quote, n)) +
-    geom_col(fill = accent) + 
-    labs(x = "Is quote", y = "Tweets",
-         title = paste(hashtag, "tweets by quote status")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    count(is_quote) %>% 
+    ggplot(aes(is_quote, n)) +
+        geom_col(fill = accent) + 
+        labs(x = "Is quote", y = "Tweets",
+             title = paste(hashtag, "tweets by quote status")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Quote count
 
 ```{r quotes-count}
 tweets %>% 
-  filter(!is.na(quoted_status_id)) %>% 
-  count(quoted_status_id) %>% 
-  ggplot(aes(n)) + geom_histogram(bins = 10, fill = accent) +
-    labs(x = "Quote count", y = "Tweets",
-         title = paste(hashtag, "distribution of quotes per tweet")) + 
-    scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2)) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    filter(!is.na(quoted_status_id)) %>% 
+    count(quoted_status_id) %>% 
+    ggplot(aes(n)) + geom_histogram(bins = 10, fill = accent) +
+        labs(x = "Quote count", y = "Tweets",
+             title = paste(hashtag, "distribution of quotes per tweet")) + 
+        scale_x_continuous(limits = c(0, 10), breaks = seq(0, 10, 2)) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Top quotes
 
 ```{r most-quoted}
 tweets %>% 
-  filter(!is.na(quoted_status_id)) %>% 
-  count(quoted_status_id) %>% 
-  filter(n > 1) %>% 
-  arrange(desc(n)) %>% 
-#  slice(1:10) %>% 
-  inner_join(select(tweets, screen_name, quoted_status_id,
+    filter(!is.na(quoted_status_id)) %>% 
+    count(quoted_status_id) %>% 
+    filter(n > 1) %>% 
+    arrange(desc(n)) %>% 
+    inner_join(select(tweets, screen_name, quoted_status_id,
                     is_retweet, text)) %>% 
-  filter(is_retweet == FALSE) %>% 
-  select(screen_name, text, quote_count = n) %>%
-  distinct() %>%
-  slice(1:10) %>%
-  kable(format = "html")
+    filter(is_retweet == FALSE) %>% 
+    select(screen_name, text, quote_count = n) %>%
+    distinct() %>%
+    slice(1:10) %>%
+    kable(format = "html")
 ```
 
 # Media
@@ -483,28 +482,28 @@ tweets %>%
 
 ```{r has-media}
 tweets %>% 
-  mutate(has_media = !is.na(media_url)) %>% 
-  count(has_media) %>% 
-  ggplot(aes(has_media, n)) +
-    geom_col(fill = accent) + 
-    labs(x = "Has media", y = "Tweets",
-         title = paste(hashtag, "tweets by media status")) + 
-    theme(axis.text = element_text(size = 12),
-          axis.title = element_text(size = 12))
+    mutate(has_media = !is.na(media_url)) %>% 
+    count(has_media) %>% 
+    ggplot(aes(has_media, n)) +
+        geom_col(fill = accent) + 
+        labs(x = "Has media", y = "Tweets",
+             title = paste(hashtag, "tweets by media status")) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12))
 ```
 
 ## Top media
 
 ```{r liked-media}
 tweets_media <- tweets %>% 
-  filter(!is.na(media_url)) %>% 
-  arrange(desc(favorite_count)) %>%
-  filter(favorite_count > 0)
+    filter(!is.na(media_url)) %>% 
+    arrange(desc(favorite_count)) %>%
+    filter(favorite_count > 0)
 
 tweets_media %>%
-  slice(1:10) %>% 
-  select(screen_name, text, favorite_count) %>%
-  kable(format = "html")
+    slice(1:10) %>% 
+    select(screen_name, text, favorite_count) %>%
+    kable(format = "html")
 ```
 
 ### Most liked media image
@@ -513,20 +512,56 @@ tweets_media %>%
 
 # Tweet text
 
+## Word cloud
+
 The top 100 words used 3 or more times.
 
 ```{r count-words}
 data("stop_words")
 
 tweets %>% 
-  filter(is_retweet == FALSE) %>% 
-  unnest_tokens(word, text) %>% 
-  select(word) %>% 
-  filter(!word %in% c(gsub("#", "", hashtag), "https", "t.co", "amp"),
-         !word %in% tolower(tweets$screen_name), 
-         !grepl("^\\d+$", word)) %>% 
-  anti_join(stop_words) %>% 
-  count(word) %>% 
-  with(wordcloud(word, n, max.words = 100, min.freq = 3,
+    filter(is_retweet == FALSE) %>% 
+    unnest_tokens(word, text) %>% 
+    select(word) %>% 
+    filter(!word %in% c(gsub("#", "", hashtag), "https", "t.co", "amp"),
+           !word %in% tolower(tweets$screen_name), 
+           !grepl("^\\d+$", word)) %>% 
+    anti_join(stop_words, by = "word") %>%
+    count(word) %>% 
+    with(wordcloud(word, n, max.words = 100, min.freq = 3,
                  colors = brewer.pal(6, "Spectral")))
 ```
+
+## Bigram graph
+
+Words that were tweeted next to each other at least 5 times.
+
+```{r bigram-graph}
+tweets %>% 
+    filter(is_retweet == FALSE) %>%
+    select(text) %>%
+    unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+    separate(bigram, c("word1", "word2"), sep = " ") %>%
+    filter(!word1 %in% stop_words$word,
+           !word1 %in% c(gsub("#", "", hashtag), "https", "t.co", "amp"),
+           !word1 %in% tolower(tweets$screen_name), 
+           !grepl("^\\d+$", word1)) %>%
+    filter(!word2 %in% stop_words$word,
+           !word2 %in% c(gsub("#", "", hashtag), "https", "t.co", "amp"),
+           !word2 %in% tolower(tweets$screen_name), 
+           !grepl("^\\d+$", word2)) %>%
+    count(word1, word2, sort = TRUE) %>%
+    filter(n > 5) %>%
+    graph_from_data_frame() %>%
+    ggraph(layout = "fr") +
+        geom_edge_link(aes(edge_colour = n),
+                       arrow = arrow(type = "closed",
+                                     length = unit(2, 'mm')),
+                       end_cap = circle(1, 'mm')) +
+        geom_node_point(size = 2, colour = accent) +
+        geom_node_text(aes(label = name), vjust = 1, hjust = 0.5,
+                       repel = TRUE, segment.colour = "pink") +
+        scale_edge_color_gradientn(colours = viridis::viridis(100)) +
+        theme_graph()
+```
+
