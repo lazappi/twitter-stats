@@ -4,4 +4,4 @@ title: "Twitter stats"
 
 Analysis of the following Twitter hashtags:
 
-* 
+* [GI2018](gi2018.html) - Genome Informatics conference 2018
