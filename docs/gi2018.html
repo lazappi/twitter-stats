@@ -307,7 +307,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Twitter coverage of the Genome Informatics 2018 conference</h1>
 <h4 class="author"><em>Luke Zappia</em></h4>
-<h4 class="date"><em>2018-10-04 16:06:11</em></h4>
+<h4 class="date"><em>2018-10-08 14:55:46</em></h4>
 
 </div>
 
@@ -401,7 +401,7 @@ div.tocify {
 </div>
 <div id="mentions" class="section level2">
 <h2><span class="header-section-number">4.2</span> Mentions</h2>
-<p>The “mentions network”, where users mention other users in their tweets.</p>
+<p>The “mentions network”, where users mention other users in their tweets. Node colour, label size and alpha adjusted according to PageRank score.</p>
 <p><img src="figures/gi2018/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -933,6 +933,997 @@ Front row at #gi2018 .. ⁦<span class="citation">@rafalab</span>⁩ <a href="ht
 <h2><span class="header-section-number">9.2</span> Bigram graph</h2>
 <p>Words that were tweeted next to each other at least 5 times.</p>
 <p><img src="figures/gi2018/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">9.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/gi2018/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">9.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+JC: De novo SV in parents can be verified lacking grandparents and transmitted in offsprint. High power to verify true de novo SV. Can visually audit de novo SV calls with SV-Plaudit. Scored using academic mechanical turk (Pizza) #GI2018
+</td>
+<td style="text-align:right;">
+0.9930245
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+JB: explanation of 5K deletion, non-allelic homologous recombination, most likely a variant but not de novoe. Estimate of 1SV per 10samples, (compare to 50-70 SNPs per sample de novo), based on 7 calls in 74 parents. Finds lower (possibly) de novo SV in second generation #GI2018
+</td>
+<td style="text-align:right;">
+0.9925124
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+IF: scRNA detection rate of variants is a function of gene expression. Highly sparse data. Mutations identify tumor cells, overlays variant assignments with clustering based on expression. Detected TP53 mutant cluster with allele specific expression. #GI2018
+</td>
+<td style="text-align:right;">
+0.9925124
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+ST: <span class="citation">@humancellatlas</span> project, 22 tissues, 185 projects. Highlighting the maternal-fetal interface. How is fetal co-existence possible wrt immune response? Single cell reveals clusters of maternal and fetal cells (clustered by expression, revealed by dna sequecing). #GI2018
+</td>
+<td style="text-align:right;">
+0.9922271
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+.@koenvdberge_Be: several papers have noted that bulk RNA-seq DE methods are not worse than fine tuned scRNA-seq tools. BUT zero inflation in scRNA-seq data still has an effect -&amp;gt; lets make bulk RNA-seq DE methods account for zero inflation! #gi2018
+</td>
+<td style="text-align:right;">
+0.9922271
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: Sequence motifs fail to explain key aspects of protein-DNA binding. Evidence for high affinity, but no nucleotide sequence motif. Different sequences can have the same DNA shape. Hypothesis: DBPs can detect other things than sequence motifs. #GI2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+KPollard: nice introduction of the hypotesis that DNA binding proteins (DBPs) recognize shape of DNA and not sequence motifs! one of the many arguments: most DNA binding proteins have high affinity for sequences that lack a nucleotide sequence motif #gi2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+.@nishadi_desilva talking about fungus Z. tritici, a pathogen for wheat. MFS1 gene seems to be the main player in multi-drug resistance (showing an #Ensembl GeneTree, taking me down memory lane). Community annotation allows to give pathogen genomes some extra TLC. #gi2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+NDS: Multidrug resistance in Z. tritici fungi, high mutation rates, overexpression of MFS1 confers resistance to drugs, inactivation of MFS1 increases efficiency. PHI-Base: annotations to find orthologs in related fungi #GI2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+Teichmann: CellPhoneDB: that combines<br />
+1. selected and membrane proteins 2. curated protein complexes 3 protein-protein interactions to build cell-cell communication networks from single-cell transcriptomes , paper in press #gi2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+RC: Index reference graph, map to collection of graphs, generate consensus and genotype. Indexed using minimizers rather than k-mers. Sketch reads (seed) compare to index, pick path between hits using maximum likelihood (extend). Genotyping using a poisson model. #GI2018
+</td>
+<td style="text-align:right;">
+0.9925124
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+LB: Long read alignment, find anchor k-mers (seed) that are in long and short reads. Find paths between anchors (extend). Heuristics developed for genomic data (e.g. uniform cov) don’t translate to transcriptome data. Coverage varies more, branching nodes for splicing #GI2018
+</td>
+<td style="text-align:right;">
+0.9922271
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+LB: IGV plot after correction shows cleaner data with fewer errors and accurate splice junctions. Two methodologies, align short reads to long reads and correct, second is to build a graph structure from short reads, align long reads to graph. #GI2018
+</td>
+<td style="text-align:right;">
+0.9919192
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Prithika Sritharan: using variation graphs to encode yeast diversity #GI2018 National Collection of Yeast Cultures, contains 4K strains from 530 species. Looking at variant discovery, limitations of reference based variant calling. Worse for diverse strains.
+</td>
+<td style="text-align:right;">
+0.9915859
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+AnillaManrique
+</td>
+<td style="text-align:left;">
+My design team is looking for enterprise data science professionals with &amp;gt;3 years experience as research subjects. Help us create intuitive and painless user experiences for your field! #gi2018 #DataScientist #DataScience #DataGovernance #DataOps #Data
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+nmensah5
+</td>
+<td style="text-align:left;">
+Patrick Brennan at #GI2018 : <span class="citation">@nationwidekids</span> plan to build a big data warehouse (using #hadoop and #spark) for querying genomic variants, but currently no data sharing with other hospitals. Would be a v. good future direction for the national #bioinformatics solution <span class="citation">@NHSgmc</span>
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+LB: Methods designed for genomic data. Short read alignments suffer from bias towards major isoform, CPU time. Long reads graph alignment faster, but graph complexity is hard #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ksamocha
+</td>
+<td style="text-align:left;">
+Guillaume Gautreau #GI2018: The pangenome is the union of sequence entities shared by genomes of interest. Can partition the pangenome to show core elements shared across genomes vs accessory elements. As you add more elements, though, the number of core genes drops.
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+Sritharan: comparing the read alignment quality between linear and graph-based reference, the graph based ref alignments lead to 8-41% of reads having increased read alignment quality scores! #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+.@NikkaRyanK — Supernova outputs phased diploid genome. Supernova v2.0 produces higher contig N50. From contigs, generate lines, micro-assemblies, super-scaffolding… several steps to get the final assembly #gi2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+<p>First <span class="citation">@rafalab</span> goes through a toy example that makes a great point:</p>
+<p>Summary statistics of height: Average: 6.1 ft Standard deviation: 7.8 ft</p>
+<p>EDA shows an outlier - b/c EU student reported in cm, not inches.</p>
+Fix this: Average 5.75 ft, StDev 3 inches #GI2018 #LookAtData
+</td>
+<td style="text-align:right;">
+0.9922271
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+ksamocha
+</td>
+<td style="text-align:left;">
+.@ellenleffler #GI2018: Testing for host-parasite associations using 1690 SNPs in merozoite surface genes (parasite) and 4055 SNPs in blood group genes (host). Flat QQ plot, but one apparent association signal (parasite: MSP4 and MSP2).
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+asier_gonzalez_
+</td>
+<td style="text-align:left;">
+Nice work of Minerva Trejo Arellano studying the links of methylation and darkness induced senescence in Arabidopsis. Only modest methylation changes were found, but differential gene expression and pathway analyses support the finding of local changes in methylation #gi2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+.@RmMasa — Evolutionary turnover: conserved or diverged if elements is present but not active. Active promoter evolve more slowly than active enhancers and than primed enhancers. Differences between tissue-specific vs tissue shared elements EXCEPT for primed enhancers. #gi2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+MKarimzade
+</td>
+<td style="text-align:left;">
+#GI2018 Ellen Leffler tested for 7 million pairwise association of 1690 SNPs in 148 malaria merozite surface genes with 4055 SNPs in 39 human blood group genes. Two hits: both close to each other at chromosome 2, with OR of 0.39 for GCNT2 and 2.89 for GBGT1
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+EL: new view: take parasite variation into account. sequence parasite genomes, test for assoc between host and parasite, infected blood samples should yield dna from the parasite at good coverage. Sequenced 900 blood samples #GI2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+ksamocha
+</td>
+<td style="text-align:left;">
+Gaither #GI2018: Use ViennaRNA package to estimate structural tendencies of all human synonymous SNPs. Focusing on delta minimum free energy (dMFE) measure. Low dMFE = stabilizing; high dMFE = destabilizing.
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+EL: Look for associations between 1.6K snps in parasites vs 4K snps in blood group genes. 7million pairwise tests. Flat QQ plot corresponding to lack of structure between the two sets. Two peaks on the manhattan plot #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+First talk of 3rd session, <span class="citation">@ellenleffler</span> on host and parasite genomes in malaria. How does genetic variation influence susceptibility to severe malaria? Gwas approach using 5K cases and controls. new assoca with large structural variant #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+aaronquinlan
+</td>
+<td style="text-align:left;">
+Fabulous, engaging story from <span class="citation">@nishadi_desilva</span> about wheat domestication and the consequent many mode of pathogen attack. Weaving in data resources, pathogen-host interactions, and cool biology. A truly enthralling, exceptional talk. #gi2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+GG: highlighting Bandage (fantastic software from <span class="citation">@rrwick</span> ) which supports GFA. New software GfaViz, interactive and cli mode, supports GFA2, selection of layout algorithms, can save layout/options into the GFA file (I can haz software?) #GI2018
+</td>
+<td style="text-align:right;">
+0.9919192
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+NDS: Z. tritici 519bp insert on accessory chromosome in anti-fungal resistance strains, overexpresses MFS1. EnsemblFungi community based projects to spread knowledge, neccessary to standardize gene names (often using manual annotation) #GI2018
+</td>
+<td style="text-align:right;">
+0.9915859
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+MWS: mask out PAR, look for evidence of Y, if there is not evidence of Y, remove it from the reference. Depth ratio of chr19 to Y shows that reads map to Y, but lower depth ratio. Read balance of variants, typically two copies ratio of 0.5, for hets. Y is messed up #GI2018
+</td>
+<td style="text-align:right;">
+0.9915859
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+SY: plotting metrics from cloud VMs allows users to identify issues. Worklow engine allows “self healing”, detect anomalies and restart/relaunch workers automatically, outputs to email and slack for human consumption #GI2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+SY: separating data analysis from workflow execution. Focusing on operations management: tracking and monitoring execution of workflow in the cloud. Using <a href="https://t.co/FabIANAAzH" class="uri">https://t.co/FabIANAAzH</a> for cross cloud operations, <a href="https://t.co/VFb2YZeZew" class="uri">https://t.co/VFb2YZeZew</a> for config, workflows using airflow #GI2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+.@JeffreyMKidd : current genome reference is a boxer-derived genome BUT not perfect 19k gaps, 3.2k unplaced contigs, missing gene models … -&amp;gt; genome assembly of a new individual will capture more genetic diversity #gi2018
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+MKarimzade
+</td>
+<td style="text-align:left;">
+#GI2018 Ever wonder how large scale data processing is managed in #PCAWG? Sergei Yakneen discusses 4 main steps: Provisioning with Terraform, configuration with Saltstack, workflow with Airflow, and an in-house developed self-healing operation management.
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+GG: GfaViz can vizualize scaffolding between contigs, can visualize read to read alignments, pipeline taking minimap2 PAF output to GFA2, also for read to contigs (sam to GFA2). GfaViz coming out later this year #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+JK: Breed structure enables trait mapping. Existing genome, canfam3, 19K gaps, incomplete or missing gene models. From the old days of yore done with sanger sequencing of plasmids and fosmids #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Sarah Carey: Genome analysis in a polymorphic moss with large ancient sex chromosomes. Haploid genome, with UV sex chromosomes. U (female) and (V) male. Third of the genome is sex chromosomes. Assembled using PacBio #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+SK: rare variants seem to play a role in underexpression. inserted synthetic library into exons to report splicing. Took 28K variants from ExAC in exons. Splice disrupting variants, occur at exon intron boundaries, but SNP density is lower at boundary #GI2018
+</td>
+<td style="text-align:right;">
+0.9925124
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+RI: Batch effect from sequencer removed, turns out to be similar. Showing earlier results from microarray with similar results (species signal stronger than tissues). What are the “probe effects” in RNA-Seq. Number of transcripts in genes explains variability, GC bias too #GI2018
+</td>
+<td style="text-align:right;">
+0.9919192
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+BE: tGPLVM, Q factors (latent vars), noiseless obs drawn from Gaussian process, composite kernel and observations with heavy tail residuals (I’m pretty sure that explains the acronym), trust me the slides were comprehensible as well as the delivery, not this tweet though #GI2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+.@rmcolq: Pangenome variation inference from nanopore of illumina data #GI2018. Looking for variation within genes accross species/strains as well as inclusion of genes. 3K core genes, 90K total number of genes, normal E. coli has 5K genes
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: in autism patients, we don’t see depletion of deletions at TAD boundaries, not enough time for evolution to act. Keynote message: Variant effect predictor tools should model the TAD explicitly. First results of tools look like Hi-C generated maps #GI2018
+</td>
+<td style="text-align:right;">
+0.9912239
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+imarmean
+</td>
+<td style="text-align:left;">
+.@rafalab Comparing species (mouse/human) RNA-seq from microarrays and RNA-seq: initially no correlation BUT there are probe effects, difference in no of transcripts per species, GC content effects that interfere .. #gi2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+SY: Pan Cancer Analysis of Whole Genomes, analysing genomes from 2834 donors. Data processing timeline, across 2 years, 16K compute cores, processing issues cause delays, hard to keep sustained throughput #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+.@HKhiabanian —LOHGIC: LOH-Germline Inference Calculator. Tested on 64 patients. Generally correct. One curious case where a BRCA2 mutation was inferred to be somatic instead of germline. In that patient, mutation was indeed germline but reverted in the tumour #gi2018
+</td>
+<td style="text-align:right;">
+0.9893998
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+MKarimzade
+</td>
+<td style="text-align:left;">
+#GI2018 <span class="citation">@HKhiabanian</span>: 1/ Often in clinic you have tumour only data. Your expected allele frequency for each depends on tumour purity, estimated by a pathologist without estimate of variance. Solution? Use binomial likelihood of each possible genotype in an interval of purity.
+</td>
+<td style="text-align:right;">
+0.9893998
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: deleterious deletions will be depleted over time, looking at rare variants in patients and healthy people, fixed differences between primates. Deletions are depleted at the BE, 10-fold reduction compared to background #GI2018
+</td>
+<td style="text-align:right;">
+0.9893998
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+MKarimzade
+</td>
+<td style="text-align:left;">
+#GI2018 1/ <span class="citation">@nameluem</span> used 733 DNase-seq data from 439 different human cell types, covering 21% of the genome in total and 3.5 million DNase hypersensitive sites. They used NMF with k=16 and labeled each DHS based on its assigned cell type. This provides a new vocabulary ..
+</td>
+<td style="text-align:right;">
+0.9908294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: enters minefield territory, “challenges and limitations of ML in genomics”. Training data: pairs of enhancer promoter sites, annotated by strength of interaction (actually binary). Predictions are better than “closest gene”. #GI2018
+</td>
+<td style="text-align:right;">
+0.9903978
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+RI: Technical vs biological variability. Need technical replicates to distinguish variability that is natural vs variability due to technologies. NGS does not eliminate biological variability. Moves into DNA methylation examples #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: cryptic errors made: most ML models assume IID, methods use this aggressively. Genomic data is not IID, dependent observations can appear in training and test set, they “bleeding over” overestimating performance #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+17 years after the first #Genome #Informatics conference (in 2001), today participants arrive for #GI2018. Thanks to advances in technology this continues to be one of our most popular topics, as the human #genetics community strives to progress in this fast moving field. #ACSC30 <a href="https://t.co/2LSRvQ2XcY" class="uri">https://t.co/2LSRvQ2XcY</a>
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+Patrick Brennan: Nationwide Children’s has both clinical genetics (CLIA) and research genetics to interplay and improve diagnosis and treatment of childhood cancers (typically fresh-frozen, but sometimes fixed samples). #GI2018
+</td>
+<td style="text-align:right;">
+0.9899234
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+ksamocha
+</td>
+<td style="text-align:left;">
+Jordana Bell (<span class="citation">@jordanatbell</span>) #GI2018: Studied methylation variability in 400 twins from the TwinsUK cohort. Looked at 772k CpGs after QC. Correlation in twin methylation profiles were consistent with heritability.
+</td>
+<td style="text-align:right;">
+0.9893998
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+.@nameluem — Uses DNAse I to look at accessible chromatin. Current maps of the human regulatory regions have scope for improvements. Unclear what the landscape is for any particular gene. Still unclear how to interpret non-coding regulatory elements. #gi2018
+</td>
+<td style="text-align:right;">
+0.9888188
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+deniseOme
+</td>
+<td style="text-align:left;">
+.@jon_belyeu Great to see a talk at #gi2018 using the CEPH Human Genome Diversity Cell Line Panel. The precursors of 1000G, 10K, 100K genome resources for human genetics/genomics. <a href="https://t.co/lUyZnoACac" class="uri">https://t.co/lUyZnoACac</a>
+</td>
+<td style="text-align:right;">
+0.9888188
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+KP: Results revealed distinct genomic signatures of looping DNA. Common ML errors: “always no” predictors can give good performance in unbalanced sets (most E-P sites are not interacting) #GI2018
+</td>
+<td style="text-align:right;">
+0.9881705
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 

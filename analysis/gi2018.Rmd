@@ -37,6 +37,7 @@ library("forcats")
 
 # Text analysis
 library("tidytext")
+library("topicmodels")
 
 # Graphs
 library("igraph")
@@ -46,6 +47,7 @@ library("ggplot2")
 library("ggrepel")
 library("wordcloud")
 library("ggraph")
+library("viridis")
 
 # Presentation
 library("knitr")
@@ -55,11 +57,15 @@ library("here")
 ```
 
 ```{r params}
+set.seed(1)
+
 hashtag <- "#gi2018"
 conf_name <- "Genome Informatics 2018"
 timezone <- "Europe/London"
 days <- c("2018-09-17", "2018-09-18", "2018-09-19", "2018-09-20")
 accent <- "skyblue3"
+pal <- "Set1"
+topics_k <- 6
 ```
 
 ```{r load, include = FALSE}
@@ -192,7 +198,7 @@ tweets %>%
     mutate(datetime = as_datetime(created_at, tz = timezone)) %>%
     ggplot(aes(datetime, 1, shape = is_retweet, colour = screen_name)) +
         geom_jitter(width = 0, height = 1) +
-        scale_color_brewer(palette = "Set1", guide = FALSE) +
+        scale_color_brewer(palette = pal, guide = FALSE) +
         facet_wrap(~ screen_name, ncol = 1) +
         labs(x = "Datetime",
              title = paste(hashtag, "top users timeline"),
@@ -323,7 +329,8 @@ ggraph(tweets_replies, layout = "fr") +
 
 ## Mentions
 
-The "mentions network", where users mention other users in their tweets.
+The "mentions network", where users mention other users in their tweets. Node
+colour, label size and alpha adjusted according to PageRank score.
 
 ```{r mentions-network}
 tweets_mentions <- tweets %>% 
@@ -341,15 +348,16 @@ V(tweets_mentions)$kcore <- coreness(tweets_mentions)
 
 lo_kcore <- V(tweets_mentions)$kcore < 3
 
-tweets_mentions <- delete_vertices(tweets_mentions, V(tweets_mentions)[lo_kcore])
+tweets_mentions <- delete_vertices(tweets_mentions,
+                                   V(tweets_mentions)[lo_kcore])
 
 ggraph(tweets_mentions, layout = "fr") +
     geom_edge_link(arrow = arrow(length = unit(2, 'mm')), 
                    end_cap = circle(1, 'mm'),
                    width = 0.1, colour = "darkgrey") +
     geom_node_point(aes(colour = pr)) +
-    geom_node_text(aes(label = label, size = pr), colour = "blue") +
-    viridis::scale_colour_viridis() +
+    geom_node_text(aes(label = label, size = pr, alpha = pr), colour = accent, repel = TRUE) +
+    scale_colour_viridis() +
     theme_graph() +
     theme(legend.position = "none")
 ```
@@ -561,7 +569,78 @@ tweets %>%
         geom_node_point(size = 2, colour = accent) +
         geom_node_text(aes(label = name), vjust = 1, hjust = 0.5,
                        repel = TRUE, segment.colour = "pink") +
-        scale_edge_color_gradientn(colours = viridis::viridis(100)) +
+        scale_edge_color_gradientn(colours = viridis(100)) +
         theme_graph()
 ```
 
+## Topic modelling
+
+Top 10 words associated with `r topics_k` topics identified by LDA.
+
+```{r topic-modelling}
+topics <- tweets %>% 
+    filter(is_retweet == FALSE) %>%
+    select(document = status_id, text) %>%
+    unnest_tokens(word, text) %>%
+    filter(!word %in% stop_words$word,
+           !word %in% c(gsub("#", "", hashtag), "https", "t.co", "amp"),
+           !word %in% tolower(tweets$screen_name), 
+           !grepl("^\\d+$", word)) %>%
+    count(document, word, sort = TRUE) %>%
+    ungroup() %>%
+    cast_dtm(document, word, n) %>%
+    LDA(k = topics_k, control = list(seed = 1))
+```
+
+```{r topics-words}
+topics %>%
+    tidy(matrix = "beta") %>%
+    group_by(topic) %>%
+    top_n(10, beta) %>%
+    ungroup() %>%
+    arrange(topic, -beta) %>%
+    mutate(term = reorder(term, beta)) %>%
+    ggplot(aes(x = term, y = beta, fill = factor(topic))) +
+        geom_col(show.legend = FALSE) +
+        scale_fill_brewer(palette = pal) +
+        facet_wrap(~ topic, scales = "free") +
+        coord_flip() +
+        labs(y = "beta (occurence in topics)",
+             title = "Topic modelling",
+             subtitle = paste("Top terms for", topics_k,
+                              "LDA topics associated with", hashtag)) + 
+        theme(axis.text = element_text(size = 12),
+              axis.title = element_text(size = 12),
+              axis.title.y = element_blank())
+```
+
+### Representative tweets {.tabset}
+
+Most representative tweets for each topic
+
+```{r topics-tweets, results = "hide"}
+topics_list <- topics %>%
+    tidy(matrix = "gamma") %>%
+    group_by(document) %>%
+    top_n(1, gamma) %>%
+    ungroup() %>%
+    group_by(topic) %>%
+    top_n(10, gamma) %>%
+    arrange(-gamma) %>%
+    left_join(tweets, by = c(document = "status_id")) %>%
+    select(topic, screen_name, text, gamma) %>%
+    split(.$topic)
+    
+src_list <- lapply(seq_along(topics_list), function(ind) {
+    src <- c("#### Topic {{ind}} {.unnumbered}",
+             "```{r topics-tweets-topic{{ind}}}",
+             "kable(topics_list[[{{ind}}]], format = 'html')",
+             "```",
+             "")
+    knit_expand(text = src)
+})
+
+out <- knit_child(text = unlist(src_list))
+```
+
+`r out`
