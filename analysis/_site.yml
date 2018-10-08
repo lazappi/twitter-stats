@@ -1,0 +1,20 @@
+name: "twitter-stats"
+output_dir: "../docs"
+navbar:
+  title: "lazappi's Twitter stats"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Hashtags"
+      menu:
+        - text: "GI2018"
+          href: gi2018.html
+  right:
+    - text: "About"
+      href: about.html
+    - icon: fa-github fa-lg
+      href: https://github.com/lazappi/twitter-stats
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
