@@ -379,7 +379,8 @@ ggraph(tweets_mentions, layout = "fr") +
                    end_cap = circle(1, 'mm'),
                    width = 0.1, colour = "darkgrey") +
     geom_node_point(aes(colour = pr)) +
-    geom_node_text(aes(label = label, size = pr, alpha = pr), colour = accent, repel = TRUE) +
+    geom_node_text(aes(label = label, size = pr, alpha = pr),
+                   colour = accent, repel = TRUE) +
     scale_colour_viridis() +
     theme_graph() +
     theme(legend.position = "none")
