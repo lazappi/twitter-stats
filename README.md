@@ -2,7 +2,7 @@
 
 This repository contains the results of analysing Twitter activity for various
 hashtags, mostly scientific conferences. The results can be easily viewed on the
-website at https://lazappi.github.io/twitter-stats.
+website at https://lazappi.github.io/twitter-stats/index.html.
 
 ## Acknowledgements
 
