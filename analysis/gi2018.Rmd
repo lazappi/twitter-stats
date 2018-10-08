@@ -66,6 +66,7 @@ days <- c("2018-09-17", "2018-09-18", "2018-09-19", "2018-09-20")
 accent <- "skyblue3"
 pal <- "Set1"
 topics_k <- 6
+fixed <- TRUE # Set to TRUE to stop adding new tweets
 ```
 
 ```{r load, include = FALSE}
@@ -73,17 +74,39 @@ theme_set(theme_light())
 
 data_file <- here("data", paste0(DOCNAME, ".Rds"))
 
-if (file.exists(data_file)) {
-    tweets <- readRDS(data_file)
+if (fixed) {
+    if (file.exists(data_file)) {
+        tweets <- readRDS(data_file)
+    } else {
+        stop("fixed is TRUE but no data file exits", call. = FALSE)
+    }
 } else {
-    tweets <- search_tweets(hashtag, 10000)
+    if (file.exists(data_file)) {
+        existing_tweets <- readRDS(data_file)
+        message(nrow(existing_tweets), " tweets already downloaded")
+        
+        new_tweets <- search_tweets(hashtag, 10000) %>%
+            mutate(collected_at = Sys.time())
+        message("Found ", nrow(new_tweets), " new tweets")
+        
+        tweets <- new_tweets %>%
+            rbind(existing_tweets) %>%
+            group_by(status_id) %>%
+            top_n(1, collected_at) %>%
+            ungroup()
+    } else {
+        tweets <- search_tweets(hashtag, 10000) %>%
+            mutate(collected_at = Sys.time())
+        message("Found ", nrow(tweets), " tweets")
+    }
     saveRDS(tweets, data_file)
 }
 ```
 
 # Introduction
-An analysis of tweets from the `r conf_name` conference.
-`r nrow(tweets)` tweets were collected using the `rtweet` R package:
+An analysis of tweets from the `r conf_name` conference. A total of
+`r nrow(tweets)` tweets from `r length(unique(tweets$screen_name))` users were 
+collected using the `rtweet` R package.
 
 # Timeline
 
@@ -644,3 +667,10 @@ out <- knit_child(text = unlist(src_list))
 ```
 
 `r out`
+
+# Session info {.unnumbered}
+
+```{r session-info}
+devtools::session_info()
+```
+
