@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "Hashtags"
       menu:
+        - text: "ASHG18"
+          href: ASHG18.html
         - text: "GI2018"
           href: gi2018.html
   right:

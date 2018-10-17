@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Luke Zappia" />
+
+
+<title>Twitter coverage of the American Society of Human Genetics 68th Annual Meeting</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Hashtags
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="gi2018.html">GI2018</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Twitter coverage of the American Society of Human Genetics 68th Annual Meeting</h1>
+<h4 class="author"><em>Luke Zappia</em></h4>
+<h4 class="date"><em>2018-10-17 12:36:18</em></h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hashtag</td>
+<td align="left">#ASHG18</td>
+</tr>
+<tr class="even">
+<td align="left">Conference</td>
+<td align="left">American Society of Human Genetics 68th Annual Meeting</td>
+</tr>
+<tr class="odd">
+<td align="left">Time Zone</td>
+<td align="left">America/Los_Angeles</td>
+</tr>
+<tr class="even">
+<td align="left">Days</td>
+<td align="left">c(“2018-10-16”, “2018-10-17”, “2018-10-18”, “2018-10-19”, “2018-10-20”)</td>
+</tr>
+<tr class="odd">
+<td align="left">Accent colour</td>
+<td align="left">skyblue3</td>
+</tr>
+<tr class="even">
+<td align="left">Pallete</td>
+<td align="left">Set1</td>
+</tr>
+<tr class="odd">
+<td align="left">Topics k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">Fixed</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the American Society of Human Genetics 68th Annual Meeting conference. A total of 3612 tweets from 1482 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/ASHG18/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2018-10-16 - 2018-10-20 in the America/Los_Angeles timezone.</p>
+<p><img src="figures/ASHG18/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<p><img src="figures/ASHG18/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-original-tweeters" class="section level2">
+<h2><span class="header-section-number">3.2</span> Top original tweeters</h2>
+<p><img src="figures/ASHG18/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.3</span> Retweet proportion</h2>
+<p><img src="figures/ASHG18/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-time" class="section level2">
+<h2><span class="header-section-number">3.4</span> Top tweeters by time</h2>
+<p><img src="figures/ASHG18/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2">
+<h2><span class="header-section-number">3.5</span> Top tweeters by day</h2>
+<div id="all-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">3.5.1</span> All tweets</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/ASHG18/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/ASHG18/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/ASHG18/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/ASHG18/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/ASHG18/tweets-top-users-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">3.5.2</span> Original tweets</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/ASHG18/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/ASHG18/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/ASHG18/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-1" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/ASHG18/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5-1" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/ASHG18/tweets-top-users-orig-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="sources" class="section level2">
+<h2><span class="header-section-number">3.6</span> Sources</h2>
+<p><img src="figures/ASHG18/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by page rank.</p>
+<p><img src="figures/ASHG18/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Node colour, label size and alpha adjusted according to PageRank score.</p>
+<p><img src="figures/ASHG18/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets" class="section level1">
+<h1><span class="header-section-number">5</span> Retweets</h1>
+<div id="retweet-proportion-1" class="section level2">
+<h2><span class="header-section-number">5.1</span> Retweet proportion</h2>
+<p><img src="figures/ASHG18/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweet-count" class="section level2">
+<h2><span class="header-section-number">5.2</span> Retweet count</h2>
+<p><img src="figures/ASHG18/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-retweets" class="section level2">
+<h2><span class="header-section-number">5.3</span> Top retweets</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+david_a_knowles
+</td>
+<td style="text-align:left;">
+ML, functional genomics, RNA-splicing regulation or hi-throughput screens float your ⛵️? I have postdoc positions available in my shiny new lab at <span class="citation">@nygenome</span> / <span class="citation">@Columbia</span>. Lets chat at #ASHG18 or go to <a href="https://t.co/cY6qPVnhqb" class="uri">https://t.co/cY6qPVnhqb</a> Please RT!
+</td>
+<td style="text-align:right;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+erlichya
+</td>
+<td style="text-align:left;">
+<p>So what did we have this week in human genetics? * A Senator taking a DNA test to fight political opponents * Major parts of US can be under genetic surveillance via DTC tests * UKBB reports results for 500K people * Nature calls for PRS in clinic</p>
+The revolution is here #ASHG18
+</td>
+<td style="text-align:right;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KeoluFox
+</td>
+<td style="text-align:left;">
+Interested in Senator Warren’s DNA test? 😈 Join <span class="citation">@NanibaaGarrison</span> and I, WED Oct 17th @ 10:30 am to discuss, “Silent Genomes: Indigenous-led Initiatives on Addressing Equity in Genomics Health Care and Research” We’ll discuss tribal identity, genetics, and much MUCH more #ASHG18 <a href="https://t.co/dLICun72xC" class="uri">https://t.co/dLICun72xC</a>
+</td>
+<td style="text-align:right;">
+47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+heikorunz
+</td>
+<td style="text-align:left;">
+On spot for #ASHG18 our ~700k participant study out in <span class="citation">@NatureComms</span> asking: Can meta-PheWAS across large biobanks (<span class="citation">@uk_biobank</span>, <span class="citation">@23andMe</span>, <span class="citation">@FIMM_UH</span>, <span class="citation">@ChildrensPhila</span>) facilitate decision-making during drug discovery? 1/n <a href="https://t.co/80HMiDWPPl" class="uri">https://t.co/80HMiDWPPl</a>
+</td>
+<td style="text-align:right;">
+39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hutton
+</td>
+<td style="text-align:left;">
+GRC: “indefinite postponement of GRCh39”, instead will provide iterative improvements to GRCh38. “If you have been holding off on adoption of 38 and are instead waiting to jump to 39…please don’t!” #ASHG18
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IBJIYONGI
+</td>
+<td style="text-align:left;">
+Tomorrow <span class="citation">@KeoluFox</span> and <span class="citation">@NanibaaGarrison</span> – two indigenous scientists – will be giving conference talks on genomes and identity, and the session will be livetweeted on the hashtags: #SilentGenomes #ASHG18
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@GeneticsSociety</span> for expanding the code of conduct for #ASHG18. Let’s make the meeting safe, productive, and fun! <a href="https://t.co/CLu84vonSD" class="uri">https://t.co/CLu84vonSD</a> <a href="https://t.co/lT4bycqHxG" class="uri">https://t.co/lT4bycqHxG</a>
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GeneticsSociety
+</td>
+<td style="text-align:left;">
+“We must recognize the disruptive nature of our work…maintaining sensitivity to the nature of our work is important, but we must recognize what exciting work it is.” –<span class="citation">@nelsondl</span> at #ASHG18 presidential address <a href="https://t.co/begWoDEVhm" class="uri">https://t.co/begWoDEVhm</a>
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nicolesoranzo
+</td>
+<td style="text-align:left;">
+An amazing opportunity to join the Human Genetics faculty at <span class="citation">@sangerinstitute</span>. <span class="citation">@anderson_carl</span> and I will be at #ASHG18, so please catch us if you want to discuss the position!
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dermitzakis
+</td>
+<td style="text-align:left;">
+Open positions for data analysts at Health 2030 Genome Center <span class="citation">@swissgenomics</span> for data analysis pipelines and post-docs at the Dermitzakis lab on the study of genetics of gene regulation, 3D genome interactions and cancer non-coding variants. Please e-mail or DM me #ASHG18
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="favourites" class="section level1">
+<h1><span class="header-section-number">6</span> Favourites</h1>
+<div id="favourite-proportion" class="section level2">
+<h2><span class="header-section-number">6.1</span> Favourite proportion</h2>
+<p><img src="figures/ASHG18/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="favourite-count" class="section level2">
+<h2><span class="header-section-number">6.2</span> Favourite count</h2>
+<p><img src="figures/ASHG18/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-favourites" class="section level2">
+<h2><span class="header-section-number">6.3</span> Top favourites</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+erlichya
+</td>
+<td style="text-align:left;">
+<p>So what did we have this week in human genetics? * A Senator taking a DNA test to fight political opponents * Major parts of US can be under genetic surveillance via DTC tests * UKBB reports results for 500K people * Nature calls for PRS in clinic</p>
+The revolution is here #ASHG18
+</td>
+<td style="text-align:right;">
+146
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+skathire
+</td>
+<td style="text-align:left;">
+<p>Arrive in SD for <span class="citation">@GeneticsSociety</span> #ASHG18</p>
+<p>Cab driver a Greek Orthodox Palestinian from Jerusalem Tell him that I am here for genetics meeting</p>
+<p>And his 1st ?: “Is the ancestry stuff accurate?…<span class="citation">@Ancestry</span> test told me that I’m 27% Greek and I know I am more than that.”</p>
+😳
+</td>
+<td style="text-align:right;">
+94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+emo_davenport
+</td>
+<td style="text-align:left;">
+Sad to be missing out on #ASHG18 this year due to my own little genetic experiment, but my amazing advisor <span class="citation">@ClarkLabCornell</span> is giving my talk on incorporating the microbiome into GWAS on Thursday at 12pm in Room 6C. Check it out! <a href="https://t.co/OPN85lkz7y" class="uri">https://t.co/OPN85lkz7y</a>
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KeoluFox
+</td>
+<td style="text-align:left;">
+Interested in Senator Warren’s DNA test? 😈 Join <span class="citation">@NanibaaGarrison</span> and I, WED Oct 17th @ 10:30 am to discuss, “Silent Genomes: Indigenous-led Initiatives on Addressing Equity in Genomics Health Care and Research” We’ll discuss tribal identity, genetics, and much MUCH more #ASHG18 <a href="https://t.co/dLICun72xC" class="uri">https://t.co/dLICun72xC</a>
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jcbarret
+</td>
+<td style="text-align:left;">
+Spot the Europeans. #ASHG18 <a href="https://t.co/eEFVGzhEEi" class="uri">https://t.co/eEFVGzhEEi</a>
+</td>
+<td style="text-align:right;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dgmacarthur
+</td>
+<td style="text-align:left;">
+Yes, it’s time for another overwhelming week of science at the American Society of Human Genetics #ASHG18 meeting. Here’s what our team (and close affiliates!) will be presenting at the meeting this year: <a href="https://t.co/eUxnFobJYR" class="uri">https://t.co/eUxnFobJYR</a> <a href="https://t.co/6RjsF69OXe" class="uri">https://t.co/6RjsF69OXe</a>
+</td>
+<td style="text-align:right;">
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+heikorunz
+</td>
+<td style="text-align:left;">
+On spot for #ASHG18 our ~700k participant study out in <span class="citation">@NatureComms</span> asking: Can meta-PheWAS across large biobanks (<span class="citation">@uk_biobank</span>, <span class="citation">@23andMe</span>, <span class="citation">@FIMM_UH</span>, <span class="citation">@ChildrensPhila</span>) facilitate decision-making during drug discovery? 1/n <a href="https://t.co/80HMiDWPPl" class="uri">https://t.co/80HMiDWPPl</a>
+</td>
+<td style="text-align:right;">
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+david_a_knowles
+</td>
+<td style="text-align:left;">
+ML, functional genomics, RNA-splicing regulation or hi-throughput screens float your ⛵️? I have postdoc positions available in my shiny new lab at <span class="citation">@nygenome</span> / <span class="citation">@Columbia</span>. Lets chat at #ASHG18 or go to <a href="https://t.co/cY6qPVnhqb" class="uri">https://t.co/cY6qPVnhqb</a> Please RT!
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+Getting excited for #ASHG18! Who’s going? <a href="https://t.co/Zo2KaY9tVx" class="uri">https://t.co/Zo2KaY9tVx</a>
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genetisaur
+</td>
+<td style="text-align:left;">
+I’m getting really excited for #ASHG18! Always awesome to see great colleagues. I’ll be talking about improving polygenic risk score accuracy in diverse populations on Saturday (10/20) at 9:15. More details on this and other cool talks here! <a href="https://t.co/CmjeJcjM24" class="uri">https://t.co/CmjeJcjM24</a>
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="quotes" class="section level1">
+<h1><span class="header-section-number">7</span> Quotes</h1>
+<div id="quote-proportion" class="section level2">
+<h2><span class="header-section-number">7.1</span> Quote proportion</h2>
+<p><img src="figures/ASHG18/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="quote-count" class="section level2">
+<h2><span class="header-section-number">7.2</span> Quote count</h2>
+<p><img src="figures/ASHG18/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-quotes" class="section level2">
+<h2><span class="header-section-number">7.3</span> Top quotes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+drsarahdoom
+</td>
+<td style="text-align:left;">
+I’ll be attending #ASHG18 next week. Come chat with me about de novo assembly in humans and our recent release of a phased diploid genome <a href="https://t.co/rpuHQ1qL7L" class="uri">https://t.co/rpuHQ1qL7L</a> <span class="citation">@PacBio</span> <span class="citation">@zevkronenberg</span> <span class="citation">@PhaseGenomics</span> <a href="https://t.co/x7SQmDRpkL" class="uri">https://t.co/x7SQmDRpkL</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AydenizRiki
+</td>
+<td style="text-align:left;">
+I’ll be at #ASHG18 next week. Loads of interesting talks and posters about the advances made using <span class="citation">@pacbio</span> long reads and rumour has it there will be socks to give away! (Socks not guaranteed) <a href="https://t.co/HDXiDhSRJH" class="uri">https://t.co/HDXiDhSRJH</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Magdoll
+</td>
+<td style="text-align:left;">
+I’ll be talking at the <span class="citation">@PacBio</span> workshop at #ASHG18 about Iso-Seq, Thu 1230-145PM! Also, Co-lab on Fri 10-1030AM. Also a platform talk Wed 9AM “New Frontiers in Computational Genomics” <a href="https://t.co/lIpmmiCBoz" class="uri">https://t.co/lIpmmiCBoz</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+excitingrole
+</td>
+<td style="text-align:left;">
+RT GenentechJobs “We’re excited for #ASHG18! Our scientists hope to see you next week in San Diego. If you’d like to join our Human Genetics team, we have an open Senior Scientist position here: <a href="https://t.co/d1ocesn2TQ" class="uri">https://t.co/d1ocesn2TQ</a>. <a href="https://t.co/7nUu7yefG4%22" class="uri">https://t.co/7nUu7yefG4&quot;</a>;
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenentechJobs
+</td>
+<td style="text-align:left;">
+We’re excited for #ASHG18! Our scientists hope to see you next week in San Diego. If you’d like to join our Human Genetics team, we have an open Senior Scientist position here: <a href="https://t.co/njeZ4VLTUY" class="uri">https://t.co/njeZ4VLTUY</a>. <a href="https://t.co/OAzmpIwJzo" class="uri">https://t.co/OAzmpIwJzo</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GWASCatalog
+</td>
+<td style="text-align:left;">
+Are you going to #ashg18?? <span class="citation">@GWASCatalog</span> team too!! Check our posters, go to the workshop about #ancestry and meet some us there!! We will show you all the changes in new interface and answer your doubts!! Details explained in this entry from <span class="citation">@ensembl</span> blog #ASHG18 <a href="https://t.co/lIRsWpOdO5" class="uri">https://t.co/lIRsWpOdO5</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genenames
+</td>
+<td style="text-align:left;">
+HGNC <a href="https://t.co/ujyEXwb27W" class="uri">https://t.co/ujyEXwb27W</a> is off to #ASHG18 too! <a href="https://t.co/nYflMfXeTs" class="uri">https://t.co/nYflMfXeTs</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GENES_PK
+</td>
+<td style="text-align:left;">
+My inbox is filling up with draft presentations, and I’ve been attending a lot of practice talks. Getting excited for #IGES18 and #ASHG18! <a href="https://t.co/H6xPzGpxRI" class="uri">https://t.co/H6xPzGpxRI</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MohSaad2012
+</td>
+<td style="text-align:left;">
+Excited to be heading tomorrow from Doha <span class="citation">@QatarComputing</span> to San Diego to attend the amazing #iges2018 and #ASHG18. This is going to be awesome! <a href="https://t.co/B6w7N0M11b" class="uri">https://t.co/B6w7N0M11b</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MegDoerr
+</td>
+<td style="text-align:left;">
+Honored to be speaking tomorrow at #ASHG18 <span class="citation">@GeneticCouns</span> forum. Please come join the conversation! <a href="https://t.co/HOl36k5agR" class="uri">https://t.co/HOl36k5agR</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="media" class="section level1">
+<h1><span class="header-section-number">8</span> Media</h1>
+<div id="media-count" class="section level2">
+<h2><span class="header-section-number">8.1</span> Media count</h2>
+<p><img src="figures/ASHG18/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-media" class="section level2">
+<h2><span class="header-section-number">8.2</span> Top media</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+emo_davenport
+</td>
+<td style="text-align:left;">
+Sad to be missing out on #ASHG18 this year due to my own little genetic experiment, but my amazing advisor <span class="citation">@ClarkLabCornell</span> is giving my talk on incorporating the microbiome into GWAS on Thursday at 12pm in Room 6C. Check it out! <a href="https://t.co/OPN85lkz7y" class="uri">https://t.co/OPN85lkz7y</a>
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jcbarret
+</td>
+<td style="text-align:left;">
+Spot the Europeans. #ASHG18 <a href="https://t.co/eEFVGzhEEi" class="uri">https://t.co/eEFVGzhEEi</a>
+</td>
+<td style="text-align:right;">
+80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dgmacarthur
+</td>
+<td style="text-align:left;">
+Yes, it’s time for another overwhelming week of science at the American Society of Human Genetics #ASHG18 meeting. Here’s what our team (and close affiliates!) will be presenting at the meeting this year: <a href="https://t.co/eUxnFobJYR" class="uri">https://t.co/eUxnFobJYR</a> <a href="https://t.co/6RjsF69OXe" class="uri">https://t.co/6RjsF69OXe</a>
+</td>
+<td style="text-align:right;">
+74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+Getting excited for #ASHG18! Who’s going? <a href="https://t.co/Zo2KaY9tVx" class="uri">https://t.co/Zo2KaY9tVx</a>
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GeneticsSociety
+</td>
+<td style="text-align:left;">
+“We must recognize the disruptive nature of our work…maintaining sensitivity to the nature of our work is important, but we must recognize what exciting work it is.” –<span class="citation">@nelsondl</span> at #ASHG18 presidential address <a href="https://t.co/begWoDEVhm" class="uri">https://t.co/begWoDEVhm</a>
+</td>
+<td style="text-align:right;">
+52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RyanTewhey
+</td>
+<td style="text-align:left;">
+Nice to be back in San Diego for #ASHG18 . It is only Monday and I’ve already feasted on 🌮 , 🏄, did a beach 🏃 and caught up with old friends. Life is good here. <a href="https://t.co/NuvngUViut" class="uri">https://t.co/NuvngUViut</a>
+</td>
+<td style="text-align:right;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+genetisaur
+</td>
+<td style="text-align:left;">
+<p>Delay out of BOS, sprint across airport, miss connection in PHL. But wait! Another delay in PHL due to tire issue. Missed SAN curfew, so maybe flying to LAX then bus to SAN</p>
+In other words, westbound red eye can’t hold us from #ASHG18! (Time travel maybe optimistic though) <a href="https://t.co/8YLZwPbEEY" class="uri">https://t.co/8YLZwPbEEY</a>
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jessicapolka
+</td>
+<td style="text-align:left;">
+Pretty swish new <span class="citation">@biorxivpreprint</span> fliers! #asapbio <span class="citation">@HindleSamantha</span> will be bringing these to #ascbembo18 #ASHG18 #sfn18 <a href="https://t.co/YMKAoDoGMn" class="uri">https://t.co/YMKAoDoGMn</a>
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nanopore
+</td>
+<td style="text-align:left;">
+Are you attending #ASHG18 this week? Join us for a seminar on the 18th from 6pm. <span class="citation">@Clive_G_Brown</span> is scheduled to give a talk on “Nanopore accuracy; overtaking the competition…” Register here: #genetics #genomics #nanopore <a href="https://t.co/JCybjnlRNG" class="uri">https://t.co/JCybjnlRNG</a>
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@GeneticsSociety</span> for expanding the code of conduct for #ASHG18. Let’s make the meeting safe, productive, and fun! <a href="https://t.co/CLu84vonSD" class="uri">https://t.co/CLu84vonSD</a> <a href="https://t.co/lT4bycqHxG" class="uri">https://t.co/lT4bycqHxG</a>
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+</tbody>
+</table>
+<div id="most-liked-media-image" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Most liked media image</h3>
+<p><img src="http://pbs.twimg.com/media/DppisImXcAAtNV6.jpg" /></p>
+</div>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">9</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">9.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/ASHG18/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">9.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 5 times.</p>
+<p><img src="figures/ASHG18/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">9.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/ASHG18/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset">
+<h3><span class="header-section-number">9.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+ayana_yamazaki
+</td>
+<td style="text-align:left;">
+グラフィックさんに印刷お願いしたら、配送先以外にも注文者に試し刷り分無料で配送してくれて嬉しかった。 今回はマットコート紙135kg。インクがのった部分にツヤが出るので白背景にすると映える感じ！ #ASHG18 #genomelink <a href="https://t.co/1OgouVKxce" class="uri">https://t.co/1OgouVKxce</a>
+</td>
+<td style="text-align:right;">
+0.9960017
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+StatGenDan
+</td>
+<td style="text-align:left;">
+JK: Strong selection against autism spectrum disorder =&amp;gt; rare variants. 36K sequenced: families &amp;amp; case/control. Improved constraint-based metrics of deleteriousness: more signal for de novo mutations. Constraint metrics enrich for new variants. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9920415
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+dermitzakis
+</td>
+<td style="text-align:left;">
+Open positions for data analysts at Health 2030 Genome Center <span class="citation">@swissgenomics</span> for data analysis pipelines and post-docs at the Dermitzakis lab on the study of genetics of gene regulation, 3D genome interactions and cancer non-coding variants. Please e-mail or DM me #ASHG18
+</td>
+<td style="text-align:right;">
+0.9917263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+CharlestonCWKC
+</td>
+<td style="text-align:left;">
+JK: currently largest exome sequencing dataset of ASD: families and case/control dataset. Found excess (significant but modest) of de novo variants, particularly those with missense variants with MPC &amp;gt; 2 or PTV with pLI &amp;gt; 0.9. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9913852
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Kirangirdhar
+</td>
+<td style="text-align:left;">
+ML,stat genetics, HiC and data manager positions opening at mount Sinai in NYC. For details check here <a href="https://t.co/FQDRuFvNyT" class="uri">https://t.co/FQDRuFvNyT</a>… Interested in working at Sinai facing Central Park???? Let’s chat at #ASHG18 #statgen #nycraisesthecreativity #roussoslab #mountsinai Please RT!
+</td>
+<td style="text-align:right;">
+0.9913852
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+EpgntxEinstein
+</td>
+<td style="text-align:left;">
+If you are at #ASHG18 next week, and would be interested in joining our lab as a postdoctoral fellow, a project studying ageing of human CD4+ T cells, contact me. Lots of genome-wide assays, we can train you up in analysis, nice lab personnel, we welcome diversity, let’s talk.
+</td>
+<td style="text-align:right;">
+0.9913852
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+cgonzagaj
+</td>
+<td style="text-align:left;">
+David Valle giving a 5 min summary of Jim Lupski’s prolific and outstanding contributions to human genetics from genomic disorders, copy-number variation, mechanisms of genomic rearrangements, Mendelian disorders to clan genomics #ASHG18
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+saf6
+</td>
+<td style="text-align:left;">
+#ASHG2018 #ASHG18 tweeps, I’m looking for postdoc positions in the area of quantitative genetics! 😊 Please stop by my poster PgmNr 2646/W called “Deciphering sex-specific genetic architectures using Bayesian Methods”. Flexible frameworks to map gene-by-sex interactions!
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+diseaseontology
+</td>
+<td style="text-align:left;">
+<span class="citation">@GeneticsSociety</span> #ASHG18 Check out the latest Human Disease Classification at DO’s poster (#1413W) Precision etiology for complex disease classification 2:00 pm October 17th, and see DO’s collaborator posters: <span class="citation">@wikidata</span> Poster #1599/W; <span class="citation">@mgi_mouse</span> Poster#1595F,
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+priya4genes
+</td>
+<td style="text-align:left;">
+We are looking for great post-docs in statistical genetics/genetic epidemiology to work with us on the Environmental Influences on Child Health Outcomes study (ECHO)–skills in GWAS, seq, epigenetics, population and dyad/trio methods are all welcome. #iges18 #ashg18 write me!
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+SK: What can we do to prevent heart attack? Risk: 1/Interpret genome (early in life) to identify individuals at risk for premature heart attack. 2/Deliver proven, risk-reducing interventions. Resistance: 3/Understand non-lipid pathways [I like numbered lists too] #ASHG18
+</td>
+<td style="text-align:right;">
+0.9917263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+erlichya
+</td>
+<td style="text-align:left;">
+<p>So what did we have this week in human genetics? * A Senator taking a DNA test to fight political opponents * Major parts of US can be under genetic surveillance via DTC tests * UKBB reports results for 500K people * Nature calls for PRS in clinic</p>
+The revolution is here #ASHG18
+</td>
+<td style="text-align:right;">
+0.9917263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pgrnhub
+</td>
+<td style="text-align:left;">
+Dr. J-C Marshall #ASHG18 – I-PWG – Mission: Improve patient care through the integration of Pgx in drug development. Goals: 1. Impact integration of Pgx research; 2. Facilitate the use of genomic data in drug label; 3. Promote education
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+PB: Real push at NIH to close the loop. Data sharing plan should be actionable and machine-readable. Easy to know what is deposited, where it is. Data deposits should have grants acknowledged in medadata. People will say all sorts of things to get papers published. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+pgrnhub
+</td>
+<td style="text-align:left;">
+#ASHG18 <span class="citation">@Dr_R_Kurrock</span> Pembrolizumab (anti-PD1) for solid tumors. For the very first time the drug was approved by FDA in 2017 - The first tissue agnostic approval. The first approval based on genomic marker. The first approval based on retrospective data.
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+jvkohl
+</td>
+<td style="text-align:left;">
+#ASHG18 See: <a href="https://t.co/7VCWw1GpYm" class="uri">https://t.co/7VCWw1GpYm</a> “The biochemical basis of microRNA targeting efficacy” for comparison to “Evidence that RNA Viruses Drove Adaptive Introgression between Neanderthals and Modern Humans” <a href="https://t.co/pfIfaaDJPA" class="uri">https://t.co/pfIfaaDJPA</a> Follow-up on the nonsense by searching for “miRNA”
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+KCKonvinse
+</td>
+<td style="text-align:left;">
+Stimulating final #PGRN-#ASHG18 Symposium presentation by <span class="citation">@VUMChealth</span>’s Elizabeth Phillips: We must look beyond HLA associations to answer the question “Why do only a subset of a patients with #genetic risk develop an adverse reaction after drug exposure?” <span class="citation">@pgrnhub</span>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+introspection
+</td>
+<td style="text-align:left;">
+“Cloud-based apps are very different from desktop apps. There is no Central processing unit (CPU) nor Shared Memory. We need a new computing framework! <span class="citation">@broadinstitute</span> proposes WDL: <a href="https://t.co/RS0Vm4pNYP" class="uri">https://t.co/RS0Vm4pNYP</a> “ Jason Flannick #ASHG18 #ASHG2018 <a href="https://t.co/oqMncKVTut" class="uri">https://t.co/oqMncKVTut</a>
+</td>
+<td style="text-align:right;">
+0.9896835
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+thatdnaguy
+</td>
+<td style="text-align:left;">
+#ASHG18 GA: SK most recently leader in large scale genomics efforts. GA first met SK several years ago. Sek loves numbered lists, particularly in emails. Loved early morning phone calls.
+</td>
+<td style="text-align:right;">
+0.9896835
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+MC: SNP-targeted multimodal CRISPR screen identifies reproducible hit SNPs, linked to hit genes. Different genome editors preferentially identify different types of functional SNPs. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9896835
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+genetisaur
+</td>
+<td style="text-align:left;">
+<p>Delay out of BOS, sprint across airport, miss connection in PHL. But wait! Another delay in PHL due to tire issue. Missed SAN curfew, so maybe flying to LAX then bus to SAN</p>
+In other words, westbound red eye can’t hold us from #ASHG18! (Time travel maybe optimistic though) <a href="https://t.co/8YLZwPbEEY" class="uri">https://t.co/8YLZwPbEEY</a>
+</td>
+<td style="text-align:right;">
+0.9930938
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Single_Molecule
+</td>
+<td style="text-align:left;">
+I will be live tweeting #ASHG18 meeting starting today. To avoid getting 100s of genetics-related tweets this week, go to Settings and privacy from profile image drop-down. Click Muted words. Click Add. Enter #ASHG18 Of course, that means you will miss lots of exciting stuff
+</td>
+<td style="text-align:right;">
+0.9920415
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+gene42inc
+</td>
+<td style="text-align:left;">
+1/4 This is the box containing our exhibit booth for #ASHG18. It left Toronto for San Diego on October 4th, was supposed to arrive last week Thursday via <span class="citation">@UPS</span>. We’ve now learned that it won’t arrive until this Thursday - a day after the exhibits start! #dudewheresmybooth <a href="https://t.co/JfTtqu8quS" class="uri">https://t.co/JfTtqu8quS</a>
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+GenooxTeam
+</td>
+<td style="text-align:left;">
+<p>Getting ready for ASHG San Diego OCT 16-20, 2018!!! Come visit us (booth #711) to learn learn how the Genoox platform can help accelerate your genetic testing and reporting capabilities.</p>
+<p>Schedule your personal demo - <a href="https://t.co/Me9QGnOrLh" class="uri">https://t.co/Me9QGnOrLh</a></p>
+#ASHG18 #ngs #genomics <a href="https://t.co/SKll6GOkTS" class="uri">https://t.co/SKll6GOkTS</a>
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+FujifilmUS
+</td>
+<td style="text-align:left;">
+From Irvine Scientific: In just two short weeks, we’ll be heading down to San Diego for #ASHG18! Plan to stop by our booth to speak with our #cellculture media experts and enter for your chance to win an Apple Watch! #cytogenetics <a href="https://t.co/h1TSPdSbBU" class="uri">https://t.co/h1TSPdSbBU</a>
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+willwphoto
+</td>
+<td style="text-align:left;">
+From Irvine Scientific: In just two short weeks, we’ll be heading down to San Diego for #ASHG18! Plan to stop by our booth to speak with our #cellculture media experts and enter for your chance to win an Apple Watch! #cytogenetics <a href="https://t.co/KVFL2bPECC" class="uri">https://t.co/KVFL2bPECC</a>
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+SwiftBioSci
+</td>
+<td style="text-align:left;">
+<p>A little over a week until #ASHG18 in San Diego! Seq out our Swift team to hear about our newest offerings, Swift 2S Turbo and Swift Normalase (launching at the show). See our events here + schedule a meeting: <a href="https://t.co/CBI3931jXi" class="uri">https://t.co/CBI3931jXi</a></p>
+#NGS #SwiftBiosciences #Normalase <a href="https://t.co/UC4eytU53x" class="uri">https://t.co/UC4eytU53x</a>
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+TheACMG
+</td>
+<td style="text-align:left;">
+Planning to attend #ASHG18 this week in San Diego? Stop by the ACMG Booth (#323) to learn more about ACMG programs, events, and membership discounts. Plus, enter our drawings for an Apple iPad Mini and #ACMGMtg19 registration!
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+CatCafeSanDiego
+</td>
+<td style="text-align:left;">
+.@GeneticsSociety take a break from #ashg18 with our cute #cats and enjoy good #coffee Maybe you can help us understand the genetics of cat coloration. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes food or drink. <a href="https://t.co/PJjHzHiOsV" class="uri">https://t.co/PJjHzHiOsV</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+trajnp
+</td>
+<td style="text-align:left;">
+If you want to validate many of these splicing/non-coding targets, come join the Raj Lab at <span class="citation">@SinaiBrain</span>. We are looking for experimental #postdocs to work on genome editing projects (in iPSC neurons/microglia). Please e-mail or DM me #Alzheimer #Parkinson #ALS #ASHG18 <a href="https://t.co/NkOURS7Tbe" class="uri">https://t.co/NkOURS7Tbe</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+KeoluFox
+</td>
+<td style="text-align:left;">
+Interested in Senator Warren’s DNA test? 😈 Join <span class="citation">@NanibaaGarrison</span> and I, WED Oct 17th @ 10:30 am to discuss, “Silent Genomes: Indigenous-led Initiatives on Addressing Equity in Genomics Health Care and Research” We’ll discuss tribal identity, genetics, and much MUCH more #ASHG18 <a href="https://t.co/dLICun72xC" class="uri">https://t.co/dLICun72xC</a>
+</td>
+<td style="text-align:right;">
+0.9917263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+CharlestonCWKC
+</td>
+<td style="text-align:left;">
+PN: Maternal UPD ~1.5x more common, many observed on chr 6,7,11,14,15 because of cluster of imprinted genes. Q1: what’s the prevalence of UPD in general population (some are asymptomatic) Q2: rate of maternal/paternal UPD? Q3: what phenotypes associated with UPD? #ASHG18
+</td>
+<td style="text-align:right;">
+0.9913852
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+jvkohl
+</td>
+<td style="text-align:left;">
+#ASHG18 Elizabeth Warren’s “ancestry test” links her lineage to racial differences and differences in Neanderthals, Chimpanzees, and Gorillas via the EDAR V370A allele (one food energy-dependent amino acid substitution) in mice. <a href="https://t.co/1L4KxmuMSy" class="uri">https://t.co/1L4KxmuMSy</a>
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+CharlestonCWKC
+</td>
+<td style="text-align:left;">
+PN: applied classifier to 1.3M individual without parents in 23andMe – find 304 putative UPDs. PheWAS association with UPD (206 phenotypes across 5 categories). Found UPD association with lower weight, lower height, and ASD. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+PB: Great open source software driving a revolution in data science, and accessibility via programming languages like #Rstats and #python. GPUs developed for gaming made a huge difference too. Architecture great for ML [and cryptocurrency mining ☹️] #ASHG18 <a href="https://t.co/c8BFzIzeZ4" class="uri">https://t.co/c8BFzIzeZ4</a>
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+sed9
+</td>
+<td style="text-align:left;">
+Priyanka Nakka talks about the incidence of uniparental disomy in huge <span class="citation">@23andMe</span> sample (1/2000 individuals via IBD analysis -twice as common as thought!) Happily back to grad school days and the land of #chromosome misegregation and #meiosis #ASHG18 #genetics
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>I’m glad that I sent both the PDF and the PPTX (Mac) versions of my poster. One was printed with missing figures. Paulina from <span class="citation">@FedEx</span> was super helpful! ✅ 💯</p>
+<p>On the other hand, I still don’t understand why the PPTX versions are not OS-portable <span class="citation">@Microsoft</span> :(</p>
+#ASHG18
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+StatGenDan
+</td>
+<td style="text-align:left;">
+PN: Uniparental disomy rates prevalence in general population, as measured in 916,712 parent-child pairs from the 23andMe database: 199 individuals with UPD. Overall rate is 1/2000 or 0.05% [0.04%, 0.06%l]. Twice as common as previously thought. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+tanghaibao
+</td>
+<td style="text-align:left;">
+Fritz Sedlazeck <span class="citation">@sedlazeck</span>: SV caller (hi FP, low FN) and SV genotyper (hi FN, low FP), call SV with Delly, Manta and Lumpy, and merge with SURVIVOR, input to SV genotyper #ASHG18
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+23andMeResearch
+</td>
+<td style="text-align:left;">
+We’re super proud of our intern Priyanka Nakka of <span class="citation">@BrownUniversity</span> for receiving a Featured Plenary spot at #ASHG18! Check out her talk “Incidence of uniparental disomy in 2 million individuals from the 23andMe database” tonight at 5:50 in Hall C
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+infoecho
+</td>
+<td style="text-align:left;">
+AP, with current technology, we can resolve 90% of the human genome… unresolved regions: - CEN/ Peri-CEN, 254.5 Mb - Low depth, 0.4 Mbp - Unresolved DUP, 19.9Mb, high-identity set-dup #ASHG18
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+jvkohl
+</td>
+<td style="text-align:left;">
+#ASHG18 Light-tracking in Brugmansia and light-activated microRNA biogenesis link biophysically constrained viral latency to all biodiversity via games for ages 10+. See for examples: Cytosis <a href="https://t.co/QKWSMw0Aqh" class="uri">https://t.co/QKWSMw0Aqh</a> and Subatomic <a href="https://t.co/Pm3gU9Y84T" class="uri">https://t.co/Pm3gU9Y84T</a> <a href="https://t.co/nklp5YkSxb" class="uri">https://t.co/nklp5YkSxb</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+23andMeResearch
+</td>
+<td style="text-align:left;">
+MC: Focuses on red blood cell traits (count, mean volume, etc). Performed GWAS, followed up with CRISPR KO screen to identify genes required for red blood cell survival and differentiation #ASHG18
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+ClementYChow
+</td>
+<td style="text-align:left;">
+<span class="citation">@ChowLab</span> Our postdoc, Dr. Rebecca Palu, <span class="citation">@RebeccaPalu</span>, will be presenting her poster (Thursday PgmNr 991) on how ELOVL6 modifies retinitis pigmentosa and other ER stress related conditions. This is a really nice example of going from variation to function. #raredisease #rp #ASHG18
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+MPBiomedicals
+</td>
+<td style="text-align:left;">
+Today at 5:15, the presentation of the Curt Stern Award at #ASHG18. This award recognizes genetics &amp;amp; genomics researchers who have made significant scientific contributions during the past decade. Congratulations to Sekar Kathiresan, MD. Read more here <a href="https://t.co/7GBIfHq7Vw" class="uri">https://t.co/7GBIfHq7Vw</a> <a href="https://t.co/w7R6cBTMer" class="uri">https://t.co/w7R6cBTMer</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+jvkohl
+</td>
+<td style="text-align:left;">
+#ASHG18 Here’s another refutation of neo-Darwinian pseudoscientific nonsense: <a href="https://t.co/wzCqoNefik" class="uri">https://t.co/wzCqoNefik</a> …the expression levels of six miRNAs… showed that freezing/thawing [blood] and a high concentration of oxidant solution affects the absolute expression of miRNA significantly
+</td>
+<td style="text-align:right;">
+0.9896835
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+GenomeBiology
+</td>
+<td style="text-align:left;">
+Mitchel Cole - did a KO CRISPR screen for genes involved in red blood cell differentiation. Then looked for variants either close to genes on the genome or close in 3D space (in same TAD) #ASHG18
+</td>
+<td style="text-align:right;">
+0.9896835
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>¿Quién más de la <span class="citation">@lcgunam</span> va a estar en #ASHG18?</p>
+Sé que ya está <span class="citation">@AleMedinaRivera</span> allá (póster 1870/T) y creo que <span class="citation">@paleogenomics</span> (póster 2706/W) no podrá venir. <a href="https://t.co/JGcFESN3rk" class="uri">https://t.co/JGcFESN3rk</a>
+</td>
+<td style="text-align:right;">
+0.9891476
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+gene42inc
+</td>
+<td style="text-align:left;">
+Exhibit Hall Tip: Did you know that the #ASHG18 organizers have created 6 custom itineraries to help you navigate the exhibit hall? #scientificmeeting #SanDiego #GCchat #exhibithall #exhibitors #posters #ashg2018 <span class="citation">@GeneticsSociety</span> <span class="citation">@phenotips</span> <a href="https://t.co/oIgJoVSRAY" class="uri">https://t.co/oIgJoVSRAY</a>
+</td>
+<td style="text-align:right;">
+0.9891476
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+<em>klkeys</em>
+</td>
+<td style="text-align:left;">
+<p>In his ASHG President’s Welcome, David L. Nelson dwells on the science done by past scientists.</p>
+<p>In contrast, the address from ASHG past president Nancy J. Cox’s address last year focused on the changing face behind the science done now.</p>
+<p>Who are we? We are the latter.</p>
+#ASHG18
+</td>
+<td style="text-align:right;">
+0.9891476
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+medisapiens
+</td>
+<td style="text-align:left;">
+Check out our poster 1561T “Efficient curation and real-time querying of clinical and genomic data for 500,000 samples” in #ASHG18. Our poster session starts on Thursday October 18th at 2PM. Meet us there! #genetics #datascience #datacuration
+</td>
+<td style="text-align:right;">
+0.9913852
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+BK: <span class="citation">@IHEC_Epigenomes</span> is a <span class="citation">@GA4GH</span> member committed to providing free access to epigenetic data. Access standards developed by member projects. 7 different data access committees. Could not come to data access agreement. This means longer delays for data access than ICGC. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+DKemaladewi
+</td>
+<td style="text-align:left;">
+Big picture conclusion from Nico Katsanis’ talk on Unraveling Human Genetics to Decipher the Causes of Diseases. Officially my fave #raredisease scientist! Great geneticist, terrific speaker! Jokes directly correlate with absorption of knowledge at #ASHG18 😁🤓 <span class="citation">@ionispharma</span> <a href="https://t.co/iyxIkxuKkF" class="uri">https://t.co/iyxIkxuKkF</a>
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+seqster
+</td>
+<td style="text-align:left;">
+Seqster team collaborates <a href="mailto:w/@ATorkamani">w/@ATorkamani</a> <span class="citation">@ScrippsRTI</span> <span class="citation">@GeneticsSociety</span> combining <span class="citation">@23andMe</span> #DNA + #healthrecords giving genetic risk scores for CAD a new enagagment tool in consumer genomics <a href="mailto:w/@MyGeneRank">w/@MyGeneRank</a> #peopledriven #cardiovasculardisease #DNA #EHR #ASHG18 <a href="https://t.co/4CoWo99YvK" class="uri">https://t.co/4CoWo99YvK</a>
+</td>
+<td style="text-align:right;">
+0.9910146
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+NCIEpiTraining
+</td>
+<td style="text-align:left;">
+Comparison of intra-tumor heterogeneity and clonal evolution across lung cancer subtypes by multi-region whole genome sequencing, presented by Tongwu Zhang at poster session tomorrow, Wednesday at 2pm PT: #ASHG18 #genomics
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+introspection
+</td>
+<td style="text-align:left;">
+The PCAWG variant-calling pipeline, combining multiple callers together (ML ensemble model?) deployed on 14 compute cloud/HPC to analyse 800TB of WGS data… Wow! #CancerResearchStyle #ASHG2018 #ASHG18 <a href="https://t.co/rL1vlNeu8H" class="uri">https://t.co/rL1vlNeu8H</a>
+</td>
+<td style="text-align:right;">
+0.9906108
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+BK: One cornerstone of the international consortium is controlled access. Data access committee confirms professional status, aspects of proposed studies, and agreement not to misuse data by e.g. reidentifying participants. #ASHG18
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+AAAS_DoSER
+</td>
+<td style="text-align:left;">
+Learn best practices to effectively engage at the intersection of science, culture &amp;amp; faith! On 10/6 we’re hosting a workshop on effective public science engagement <a href="mailto:w/@MeetAScientist">w/@MeetAScientist</a> at <span class="citation">@GeneticsSociety</span> #ASHG18. Register for the free workshop&amp;amp;breakfast at <a href="https://t.co/QdZbHd4WGN" class="uri">https://t.co/QdZbHd4WGN</a> <a href="https://t.co/F1BIYyVm8B" class="uri">https://t.co/F1BIYyVm8B</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+To hear more about privacy of genetic data, please join us 10:30a tomorrow for “Technical Approaches and Guidelines for Protecting Privacy of Genetic Data” in Room 6D. With <span class="citation">@erlichya</span> <span class="citation">@bradmalin</span> <span class="citation">@Hoon_Cho</span>. Organized by and moderated by <span class="citation">@R_minp</span>. #ASHG18 <a href="https://t.co/InaD252v0B" class="uri">https://t.co/InaD252v0B</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+MyGenXys
+</td>
+<td style="text-align:left;">
+Millions of prescriptions are potentially affected by pharmacogenetics. Informing prescriptions with pharmacogenetics can save lives &amp;amp; improve symptom relief. Read the white paper: <a href="https://t.co/aV8au7iPAS" class="uri">https://t.co/aV8au7iPAS</a> #precisionmedicine #precisionprescribing #PGRN #ASHG18 <a href="https://t.co/vhQ0ViQI4M" class="uri">https://t.co/vhQ0ViQI4M</a>
+</td>
+<td style="text-align:right;">
+0.9901690
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>##  setting  value                       
+##  version  R version 3.5.1 (2018-07-02)
+##  system   x86_64, darwin15.6.0        
+##  ui       X11                         
+##  language (EN)                        
+##  collate  en_AU.UTF-8                 
+##  tz       Australia/Melbourne         
+##  date     2018-10-17                  
+## 
+##  package      * version    date       source                            
+##  assertthat     0.2.0      2017-04-11 CRAN (R 3.5.0)                    
+##  backports      1.1.2      2017-12-13 CRAN (R 3.5.0)                    
+##  base         * 3.5.1      2018-07-05 local                             
+##  bindr          0.1.1      2018-03-13 CRAN (R 3.5.0)                    
+##  bindrcpp     * 0.2.2      2018-03-29 CRAN (R 3.5.0)                    
+##  broom          0.5.0      2018-07-17 CRAN (R 3.5.0)                    
+##  cli            1.0.1      2018-09-25 CRAN (R 3.5.0)                    
+##  colorspace     1.3-2      2016-12-14 CRAN (R 3.5.0)                    
+##  compiler       3.5.1      2018-07-05 local                             
+##  crayon         1.3.4      2017-09-16 CRAN (R 3.5.0)                    
+##  curl           3.2        2018-03-28 CRAN (R 3.5.0)                    
+##  datasets     * 3.5.1      2018-07-05 local                             
+##  devtools       1.13.6     2018-06-27 CRAN (R 3.5.0)                    
+##  digest         0.6.17     2018-09-12 CRAN (R 3.5.0)                    
+##  dplyr        * 0.7.6      2018-06-29 cran (@0.7.6)                     
+##  evaluate       0.11       2018-07-17 CRAN (R 3.5.0)                    
+##  fansi          0.3.0      2018-08-13 CRAN (R 3.5.0)                    
+##  farver         1.0        2018-08-31 Github (thomasp85/farver@d29b48c) 
+##  forcats      * 0.3.0      2018-02-19 CRAN (R 3.5.0)                    
+##  ggforce        0.1.3      2018-07-07 CRAN (R 3.5.0)                    
+##  ggplot2      * 3.0.0.9000 2018-10-09 Github (tidyverse/ggplot2@3e1e6e4)
+##  ggraph       * 1.0.2      2018-07-07 CRAN (R 3.5.0)                    
+##  ggrepel      * 0.8.0      2018-05-09 CRAN (R 3.5.0)                    
+##  glue           1.3.0      2018-07-17 CRAN (R 3.5.0)                    
+##  graphics     * 3.5.1      2018-07-05 local                             
+##  grDevices    * 3.5.1      2018-07-05 local                             
+##  grid           3.5.1      2018-07-05 local                             
+##  gridExtra      2.3        2017-09-09 CRAN (R 3.5.0)                    
+##  gtable         0.2.0      2016-02-26 CRAN (R 3.5.0)                    
+##  here         * 0.1        2017-05-28 CRAN (R 3.5.0)                    
+##  highr          0.7        2018-06-09 CRAN (R 3.5.0)                    
+##  htmltools      0.3.6      2017-04-28 CRAN (R 3.5.0)                    
+##  httr           1.3.1      2017-08-20 CRAN (R 3.5.0)                    
+##  igraph       * 1.2.2      2018-07-27 CRAN (R 3.5.0)                    
+##  janeaustenr    0.1.5      2017-06-10 CRAN (R 3.5.0)                    
+##  jsonlite       1.5        2017-06-01 CRAN (R 3.5.0)                    
+##  knitr        * 1.20       2018-02-20 CRAN (R 3.5.0)                    
+##  labeling       0.3        2014-08-23 CRAN (R 3.5.0)                    
+##  lattice        0.20-35    2017-03-25 CRAN (R 3.5.1)                    
+##  lazyeval       0.2.1      2017-10-29 CRAN (R 3.5.0)                    
+##  lubridate    * 1.7.4      2018-04-11 CRAN (R 3.5.0)                    
+##  magrittr       1.5        2014-11-22 CRAN (R 3.5.0)                    
+##  MASS           7.3-50     2018-04-30 CRAN (R 3.5.1)                    
+##  Matrix         1.2-14     2018-04-13 CRAN (R 3.5.1)                    
+##  memoise        1.1.0      2017-04-21 CRAN (R 3.5.0)                    
+##  methods      * 3.5.1      2018-07-05 local                             
+##  modeltools     0.2-22     2018-07-16 CRAN (R 3.5.0)                    
+##  munsell        0.5.0      2018-06-12 CRAN (R 3.5.0)                    
+##  nlme           3.1-137    2018-04-07 CRAN (R 3.5.1)                    
+##  NLP            0.1-11     2017-08-15 CRAN (R 3.5.0)                    
+##  openssl        1.0.2      2018-07-30 CRAN (R 3.5.0)                    
+##  parallel       3.5.1      2018-07-05 local                             
+##  pillar         1.3.0      2018-07-14 CRAN (R 3.5.0)                    
+##  pkgconfig      2.0.2      2018-08-16 CRAN (R 3.5.0)                    
+##  plyr           1.8.4      2016-06-08 CRAN (R 3.5.0)                    
+##  purrr          0.2.5      2018-05-29 CRAN (R 3.5.0)                    
+##  R6             2.2.2      2017-06-17 CRAN (R 3.5.0)                    
+##  RColorBrewer * 1.1-2      2014-12-07 CRAN (R 3.5.0)                    
+##  Rcpp           0.12.19    2018-10-01 CRAN (R 3.5.0)                    
+##  reshape2       1.4.3      2017-12-11 CRAN (R 3.5.0)                    
+##  rlang          0.2.2      2018-08-16 cran (@0.2.2)                     
+##  rmarkdown      1.10       2018-06-11 CRAN (R 3.5.0)                    
+##  rprojroot      1.3-2      2018-01-03 CRAN (R 3.5.0)                    
+##  rtweet       * 0.6.8      2018-09-28 CRAN (R 3.5.0)                    
+##  scales         1.0.0      2018-08-09 CRAN (R 3.5.0)                    
+##  slam           0.1-43     2018-04-23 CRAN (R 3.5.0)                    
+##  SnowballC      0.5.1      2014-08-09 CRAN (R 3.5.0)                    
+##  stats        * 3.5.1      2018-07-05 local                             
+##  stats4         3.5.1      2018-07-05 local                             
+##  stringi        1.2.4      2018-07-20 CRAN (R 3.5.0)                    
+##  stringr        1.3.1      2018-05-10 CRAN (R 3.5.0)                    
+##  tibble         1.4.2      2018-01-22 CRAN (R 3.5.0)                    
+##  tidyr        * 0.8.1      2018-05-18 CRAN (R 3.5.0)                    
+##  tidyselect     0.2.4      2018-02-26 CRAN (R 3.5.0)                    
+##  tidytext     * 0.1.9      2018-05-29 CRAN (R 3.5.0)                    
+##  tm             0.7-5      2018-07-29 CRAN (R 3.5.0)                    
+##  tokenizers     0.2.1      2018-03-29 CRAN (R 3.5.0)                    
+##  tools          3.5.1      2018-07-05 local                             
+##  topicmodels  * 0.2-7      2017-11-03 CRAN (R 3.5.0)                    
+##  tweenr         1.0.0      2018-09-27 CRAN (R 3.5.0)                    
+##  units          0.6-1      2018-09-21 CRAN (R 3.5.0)                    
+##  utf8           1.1.4      2018-05-24 CRAN (R 3.5.0)                    
+##  utils        * 3.5.1      2018-07-05 local                             
+##  viridis      * 0.5.1      2018-03-29 CRAN (R 3.5.0)                    
+##  viridisLite  * 0.3.0      2018-02-01 CRAN (R 3.5.0)                    
+##  withr          2.1.2      2018-03-15 CRAN (R 3.5.0)                    
+##  wordcloud    * 2.6        2018-08-24 CRAN (R 3.5.0)                    
+##  xml2           1.2.0      2018-01-24 CRAN (R 3.5.0)                    
+##  yaml           2.2.0      2018-07-25 CRAN (R 3.5.0)</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
