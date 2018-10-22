@@ -322,7 +322,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Twitter coverage of the American Society of Human Genetics 68th Annual Meeting</h1>
 <h4 class="author"><em>Luke Zappia</em></h4>
-<h4 class="date"><em>2018-10-18 08:36:12</em></h4>
+<h4 class="date"><em>2018-10-22 12:29:07</em></h4>
 
 </div>
 
@@ -361,18 +361,26 @@ div.tocify {
 <td align="left">Set1</td>
 </tr>
 <tr class="odd">
+<td align="left">k-core</td>
+<td align="left">30</td>
+</tr>
+<tr class="even">
 <td align="left">Topics k</td>
-<td align="left">6</td>
+<td align="left">9</td>
+</tr>
+<tr class="odd">
+<td align="left">Bigram filter</td>
+<td align="left">15</td>
 </tr>
 <tr class="even">
 <td align="left">Fixed</td>
-<td align="left">FALSE</td>
+<td align="left">TRUE</td>
 </tr>
 </tbody>
 </table>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>An analysis of tweets from the American Society of Human Genetics 68th Annual Meeting conference. A total of 8120 tweets from 2334 users were collected using the <code>rtweet</code> R package.</p>
+<p>An analysis of tweets from the American Society of Human Genetics 68th Annual Meeting conference. A total of 18120 tweets from 4031 users were collected using the <code>rtweet</code> R package.</p>
 </div>
 <div id="timeline" class="section level1">
 <h1><span class="header-section-number">2</span> Timeline</h1>
@@ -467,7 +475,7 @@ div.tocify {
 </div>
 <div id="mentions" class="section level2">
 <h2><span class="header-section-number">4.2</span> Mentions</h2>
-<p>The “mentions network”, where users mention other users in their tweets. Node colour, label size and alpha adjusted according to PageRank score.</p>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 30. Node colour and size adjusted according to PageRank score.</p>
 <p><img src="figures/ASHG18/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -500,6 +508,28 @@ retweet_count
 <tbody>
 <tr>
 <td style="text-align:left;">
+jsdron
+</td>
+<td style="text-align:left;">
+With #ASHG18 ending, I want to share an unpleasant experience. After sharing my research with a “poster neighbour” and hearing about his in return, I was pleased that not only had I shared my own work, but I also learned something about a different area of genetics. 1/5
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+Dear #ASHG18, As human geneticists, we cannot “just focus on our research”. We cannot pretend that our research isn’t being misused. Doing so is being actively complicit with white supremacy/nationalism. Full stop. <a href="https://t.co/1iOlMRTuPt" class="uri">https://t.co/1iOlMRTuPt</a> (1/n)
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 erlichya
 </td>
 <td style="text-align:left;">
@@ -519,6 +549,17 @@ GRC: “indefinite postponement of GRCh39”, instead will provide iterative imp
 </td>
 <td style="text-align:right;">
 57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dgmacarthur
+</td>
+<td style="text-align:left;">
+“our code is on github and our preprint is up on bioRxiv” - things I love hearing during #ASHG18 talks. Instant credibility boost.
+</td>
+<td style="text-align:right;">
+56
 </td>
 </tr>
 <tr>
@@ -567,46 +608,13 @@ ML, functional genomics, RNA-splicing regulation or hi-throughput screens float 
 </tr>
 <tr>
 <td style="text-align:left;">
-KeoluFox
+ScienceNews
 </td>
 <td style="text-align:left;">
-Interested in Senator Warren’s DNA test? 😈 Join <span class="citation">@NanibaaGarrison</span> and I, WED Oct 17th @ 10:30 am to discuss, “Silent Genomes: Indigenous-led Initiatives on Addressing Equity in Genomics Health Care and Research” We’ll discuss tribal identity, genetics, and much MUCH more #ASHG18 <a href="https://t.co/dLICun72xC" class="uri">https://t.co/dLICun72xC</a>
+“There is no gay gene, but rather non- heterosexuality is influenced by many tiny-effect genetic factors.” #ASHG18 <a href="https://t.co/j2Qlm3kjwD" class="uri">https://t.co/j2Qlm3kjwD</a>
 </td>
 <td style="text-align:right;">
-48
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-dgmacarthur
-</td>
-<td style="text-align:left;">
-KK: The new data set is live, with an awesome new browser! <a href="https://t.co/uMAoxqh5jO" class="uri">https://t.co/uMAoxqh5jO</a> Thanks to the tireless work of our engineering team, Nick Watts and <span class="citation">@mattsolomonson</span>, working right up to about 3 minutes before this talk (DM: can confirm.). #ASHG18
-</td>
-<td style="text-align:right;">
-35
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-aaronquinlan
-</td>
-<td style="text-align:left;">
-<span class="citation">@mgymrek</span> introduces the Linked Reads Community Challenge (<span class="citation">@linkedreads</span>), a DREAM-like challenge to promote method development for linked read sequencing technologies. Further details at <a href="https://t.co/3kQB2HwlDC" class="uri">https://t.co/3kQB2HwlDC</a>! #ASHG18
-</td>
-<td style="text-align:right;">
-30
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-IBJIYONGI
-</td>
-<td style="text-align:left;">
-Tomorrow <span class="citation">@KeoluFox</span> and <span class="citation">@NanibaaGarrison</span> – two indigenous scientists – will be giving conference talks on genomes and identity, and the session will be livetweeted on the hashtags: #SilentGenomes #ASHG18
-</td>
-<td style="text-align:right;">
-26
+49
 </td>
 </tr>
 </tbody>
@@ -642,6 +650,28 @@ favorite_count
 <tbody>
 <tr>
 <td style="text-align:left;">
+dgmacarthur
+</td>
+<td style="text-align:left;">
+“our code is on github and our preprint is up on bioRxiv” - things I love hearing during #ASHG18 talks. Instant credibility boost.
+</td>
+<td style="text-align:right;">
+334
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jsdron
+</td>
+<td style="text-align:left;">
+With #ASHG18 ending, I want to share an unpleasant experience. After sharing my research with a “poster neighbour” and hearing about his in return, I was pleased that not only had I shared my own work, but I also learned something about a different area of genetics. 1/5
+</td>
+<td style="text-align:right;">
+300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 erlichya
 </td>
 <td style="text-align:left;">
@@ -650,6 +680,17 @@ The revolution is here #ASHG18
 </td>
 <td style="text-align:right;">
 188
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+Dear #ASHG18, As human geneticists, we cannot “just focus on our research”. We cannot pretend that our research isn’t being misused. Doing so is being actively complicit with white supremacy/nationalism. Full stop. <a href="https://t.co/1iOlMRTuPt" class="uri">https://t.co/1iOlMRTuPt</a> (1/n)
+</td>
+<td style="text-align:right;">
+153
 </td>
 </tr>
 <tr>
@@ -665,6 +706,39 @@ Sad to be missing out on #ASHG18 this year due to my own little genetic experime
 </tr>
 <tr>
 <td style="text-align:left;">
+Magdoll
+</td>
+<td style="text-align:left;">
+#ASHG18 is great, but you know what’s better? They have childcare on site, so I don’t have to think about childcare logistics while I’m here. #WomenInSTEM <a href="https://t.co/ZK9FclgyOy" class="uri">https://t.co/ZK9FclgyOy</a>
+</td>
+<td style="text-align:right;">
+143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+introspection
+</td>
+<td style="text-align:left;">
+🤗 Beautiful tSNE of gnomAD (N=125748 exomes) — Poster 1464.W by <span class="citation">@broadinstitute</span> #ASHG18 #ASHG2018 <a href="https://t.co/1sMLb2qnCh" class="uri">https://t.co/1sMLb2qnCh</a>
+</td>
+<td style="text-align:right;">
+139
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jimmyzliu
+</td>
+<td style="text-align:left;">
+Thinking about going to <span class="citation">@nanopore</span> reception tonight. Compared to <span class="citation">@illumina</span> last night, I heard the line to get in is longer, but the bartender keeps getting your drink wrong #ashg18
+</td>
+<td style="text-align:right;">
+129
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 GeneticsSociety
 </td>
 <td style="text-align:left;">
@@ -676,82 +750,13 @@ GeneticsSociety
 </tr>
 <tr>
 <td style="text-align:left;">
-skathire
+tuuliel
 </td>
 <td style="text-align:left;">
-<p>Arrive in SD for <span class="citation">@GeneticsSociety</span> #ASHG18</p>
-<p>Cab driver a Greek Orthodox Palestinian from Jerusalem Tell him that I am here for genetics meeting</p>
-<p>And his 1st ?: “Is the ancestry stuff accurate?…<span class="citation">@Ancestry</span> test told me that I’m 27% Greek and I know I am more than that.”</p>
-😳
+If you’re still at #ASHG18 - at 9:45am/Session 99 I’ll be presenting new work by the #GTEx consortium on the upcoming release of 17K multi-tissue RNA-seq samples from 838 individuals. It’s an eQTL/sQTL avalanche!
 </td>
 <td style="text-align:right;">
-114
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-NatureRevGenet
-</td>
-<td style="text-align:left;">
-Congrats to <span class="citation">@skathire</span> on the #ASHG18 Curt Stern Award! A free-to-read link to his Review on ‘Genetics of coronary artery disease: discovery, biology and clinical translation’ is here: <a href="https://t.co/NzqvWJIA0O" class="uri">https://t.co/NzqvWJIA0O</a> <a href="https://t.co/elVXYJmyUO" class="uri">https://t.co/elVXYJmyUO</a>
-</td>
-<td style="text-align:right;">
-113
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-jcbarret
-</td>
-<td style="text-align:left;">
-Spot the Europeans. #ASHG18 <a href="https://t.co/eEFVGzhEEi" class="uri">https://t.co/eEFVGzhEEi</a>
-</td>
-<td style="text-align:right;">
-113
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-heikorunz
-</td>
-<td style="text-align:left;">
-On spot for #ASHG18 our ~700k participant study out in <span class="citation">@NatureComms</span> asking: Can meta-PheWAS across large biobanks (<span class="citation">@uk_biobank</span>, <span class="citation">@23andMe</span>, <span class="citation">@FIMM_UH</span>, <span class="citation">@ChildrensPhila</span>) facilitate decision-making during drug discovery? 1/n <a href="https://t.co/80HMiDWPPl" class="uri">https://t.co/80HMiDWPPl</a>
-</td>
-<td style="text-align:right;">
-101
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-BroadGenomics
-</td>
-<td style="text-align:left;">
-Congratulations and thank you <span class="citation">@skathire</span> for all your contributions to the field of genomics and the positive impact on people’s lives. The #ASHG18 Curt Stern Award is well deserved. <a href="https://t.co/axJWQ9Ilsc" class="uri">https://t.co/axJWQ9Ilsc</a>
-</td>
-<td style="text-align:right;">
-89
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-KeoluFox
-</td>
-<td style="text-align:left;">
-Interested in Senator Warren’s DNA test? 😈 Join <span class="citation">@NanibaaGarrison</span> and I, WED Oct 17th @ 10:30 am to discuss, “Silent Genomes: Indigenous-led Initiatives on Addressing Equity in Genomics Health Care and Research” We’ll discuss tribal identity, genetics, and much MUCH more #ASHG18 <a href="https://t.co/dLICun72xC" class="uri">https://t.co/dLICun72xC</a>
-</td>
-<td style="text-align:right;">
-86
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-dgmacarthur
-</td>
-<td style="text-align:left;">
-KK: The new data set is live, with an awesome new browser! <a href="https://t.co/uMAoxqh5jO" class="uri">https://t.co/uMAoxqh5jO</a> Thanks to the tireless work of our engineering team, Nick Watts and <span class="citation">@mattsolomonson</span>, working right up to about 3 minutes before this talk (DM: can confirm.). #ASHG18
-</td>
-<td style="text-align:right;">
-79
+124
 </td>
 </tr>
 </tbody>
@@ -785,6 +790,72 @@ quote_count
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+Mill_lab
+</td>
+<td style="text-align:left;">
+Thank you <span class="citation">@jsdron</span> for bravely taking control of this #ASHG18 horrible experience &amp;amp; speaking out in a public forum. The strong support and outrage across the board it is garnering makes me hopeful this type of ‘mis’behaviour is on the way out- this thread is a ’must-read’ for all. <a href="https://t.co/IDzaHYbNCM" class="uri">https://t.co/IDzaHYbNCM</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+averydavisbell
+</td>
+<td style="text-align:left;">
+Read the thread. Unacceptable, infuriating, not nearly rare enough (rate of this type of harassment should be zero). #ASHG18 <a href="https://t.co/tNgXFYj2Nr" class="uri">https://t.co/tNgXFYj2Nr</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NeBanovich
+</td>
+<td style="text-align:left;">
+DONT. BE. THIS. GUY. #ASHG18 <a href="https://t.co/ifTDefWPrI" class="uri">https://t.co/ifTDefWPrI</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kerencarss
+</td>
+<td style="text-align:left;">
+What a horrible experience. This kind of behaviour is not rare at conferences. #ASHG18 <a href="https://t.co/aEYGQnDsQ4" class="uri">https://t.co/aEYGQnDsQ4</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ADilliott
+</td>
+<td style="text-align:left;">
+Forever looking up to this incredible person. I am proud of you for speaking up about this behaviour and it’s wonderful seeing the rest of the #ASHG18 community rally behind you. This behaviour is completely unacceptable. You are not alone 💪🏼 <a href="https://t.co/aBVn2kgpgG" class="uri">https://t.co/aBVn2kgpgG</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+saumyads02
+</td>
+<td style="text-align:left;">
+So sorry that you had that experience and outraged at that guy! People need to learn big time on how to behave in a professional setting! #ASHG18 <span class="citation">@GeneticsSociety</span> <a href="https://t.co/L2veUKFg0y" class="uri">https://t.co/L2veUKFg0y</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 <em>klkeys</em>
@@ -829,72 +900,6 @@ Fantastic panel of indigenous scientists in this #SilentGenomes session. #ASHG18
 5
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-blueyedgenes
-</td>
-<td style="text-align:left;">
-And so the #ASHG18 FOMO continues. I’ll be glad to see some live tweeting. Also ok to keep deleting all the vendor session emails I get, despite not being registered! <a href="https://t.co/BpthB4uLMq" class="uri">https://t.co/BpthB4uLMq</a>
-</td>
-<td style="text-align:right;">
-5
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-drsarahdoom
-</td>
-<td style="text-align:left;">
-I’ll be attending #ASHG18 next week. Come chat with me about de novo assembly in humans and our recent release of a phased diploid genome <a href="https://t.co/rpuHQ1qL7L" class="uri">https://t.co/rpuHQ1qL7L</a> <span class="citation">@PacBio</span> <span class="citation">@zevkronenberg</span> <span class="citation">@PhaseGenomics</span> <a href="https://t.co/x7SQmDRpkL" class="uri">https://t.co/x7SQmDRpkL</a>
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Magdoll
-</td>
-<td style="text-align:left;">
-I’ll be talking at the <span class="citation">@PacBio</span> workshop at #ASHG18 about Iso-Seq, Thu 1230-145PM! Also, Co-lab on Fri 10-1030AM. Also a platform talk Wed 9AM “New Frontiers in Computational Genomics” <a href="https://t.co/lIpmmiCBoz" class="uri">https://t.co/lIpmmiCBoz</a>
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-AydenizRiki
-</td>
-<td style="text-align:left;">
-I’ll be at #ASHG18 next week. Loads of interesting talks and posters about the advances made using <span class="citation">@pacbio</span> long reads and rumour has it there will be socks to give away! (Socks not guaranteed) <a href="https://t.co/HDXiDhSRJH" class="uri">https://t.co/HDXiDhSRJH</a>
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-ElenaSorokin
-</td>
-<td style="text-align:left;">
-<span class="citation">@NatalieTelis</span> is at it again, continuing the awesome project to understand question answering at #ashg18; link is below <a href="https://t.co/ZZUfqLgCgd" class="uri">https://t.co/ZZUfqLgCgd</a>
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-DNAmlin
-</td>
-<td style="text-align:left;">
-This is a bummer. BTW, are the intervals just from Binom(f;n) or are we all part of an elaborate intra-#ASHG18 bootstrapping procedure?? <a href="https://t.co/hMk5bvXh7n" class="uri">https://t.co/hMk5bvXh7n</a>
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -931,6 +936,28 @@ Sad to be missing out on #ASHG18 this year due to my own little genetic experime
 </td>
 <td style="text-align:right;">
 144
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Magdoll
+</td>
+<td style="text-align:left;">
+#ASHG18 is great, but you know what’s better? They have childcare on site, so I don’t have to think about childcare logistics while I’m here. #WomenInSTEM <a href="https://t.co/ZK9FclgyOy" class="uri">https://t.co/ZK9FclgyOy</a>
+</td>
+<td style="text-align:right;">
+143
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+introspection
+</td>
+<td style="text-align:left;">
+🤗 Beautiful tSNE of gnomAD (N=125748 exomes) — Poster 1464.W by <span class="citation">@broadinstitute</span> #ASHG18 #ASHG2018 <a href="https://t.co/1sMLb2qnCh" class="uri">https://t.co/1sMLb2qnCh</a>
+</td>
+<td style="text-align:right;">
+139
 </td>
 </tr>
 <tr>
@@ -979,58 +1006,35 @@ Congratulations and thank you <span class="citation">@skathire</span> for all yo
 </tr>
 <tr>
 <td style="text-align:left;">
-dgmacarthur
+LavidaBrooks
 </td>
 <td style="text-align:left;">
-Yes, it’s time for another overwhelming week of science at the American Society of Human Genetics #ASHG18 meeting. Here’s what our team (and close affiliates!) will be presenting at the meeting this year: <a href="https://t.co/eUxnFobJYR" class="uri">https://t.co/eUxnFobJYR</a> <a href="https://t.co/6RjsF69OXe" class="uri">https://t.co/6RjsF69OXe</a>
+Had fun sharing my findings from my meta-analysis on Alzheimer’s Disease project today at ASHG! #ASHG18 #ASHGtrainee Thanks to to <span class="citation">@msuagep</span> for my travel award! <span class="citation">@gmiaslab</span> #BlackWomeninSTEM <a href="https://t.co/VS8JtbnRjL" class="uri">https://t.co/VS8JtbnRjL</a>
 </td>
 <td style="text-align:right;">
-73
+86
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-RyanTewhey
+johnhawks
 </td>
 <td style="text-align:left;">
-Nice to be back in San Diego for #ASHG18 . It is only Monday and I’ve already feasted on 🌮 , 🏄, did a beach 🏃 and caught up with old friends. Life is good here. <a href="https://t.co/NuvngUViut" class="uri">https://t.co/NuvngUViut</a>
+Such an honor to talk about human origins in Africa last night at #ASHG18, and many thanks to <span class="citation">@nelsondl</span> and <span class="citation">@GeneticsSociety</span> for centering Africa in this Presidential forum. <a href="https://t.co/ayoCcuVFhh" class="uri">https://t.co/ayoCcuVFhh</a>
 </td>
 <td style="text-align:right;">
-59
+79
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-michaelhoffman
+Piwdb
 </td>
 <td style="text-align:left;">
-Getting excited for #ASHG18! Who’s going? <a href="https://t.co/Zo2KaY9tVx" class="uri">https://t.co/Zo2KaY9tVx</a>
+This just makes me happy #ASHG18 <span class="citation">@ceclindgren</span> <span class="citation">@saralpulit</span> so well deserved <a href="https://t.co/AsBhfF5fjr" class="uri">https://t.co/AsBhfF5fjr</a>
 </td>
 <td style="text-align:right;">
-58
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-rplenge
-</td>
-<td style="text-align:left;">
-Congratulations to <span class="citation">@skathire</span> on a deeply personal and successful scientific journey to understand the genetic basis of heart disease. #ASHG18 <a href="https://t.co/UiZHO2awNX" class="uri">https://t.co/UiZHO2awNX</a>
-</td>
-<td style="text-align:right;">
-51
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-genetisaur
-</td>
-<td style="text-align:left;">
-<p>Delay out of BOS, sprint across airport, miss connection in PHL. But wait! Another delay in PHL due to tire issue. Missed SAN curfew, so maybe flying to LAX then bus to SAN</p>
-In other words, westbound red eye can’t hold us from #ASHG18! (Time travel maybe optimistic though) <a href="https://t.co/8YLZwPbEEY" class="uri">https://t.co/8YLZwPbEEY</a>
-</td>
-<td style="text-align:right;">
-45
+76
 </td>
 </tr>
 </tbody>
@@ -1050,12 +1054,12 @@ In other words, westbound red eye can’t hold us from #ASHG18! (Time travel may
 </div>
 <div id="bigram-graph" class="section level2">
 <h2><span class="header-section-number">9.2</span> Bigram graph</h2>
-<p>Words that were tweeted next to each other at least 5 times.</p>
+<p>Words that were tweeted next to each other at least 15 times.</p>
 <p><img src="figures/ASHG18/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="topic-modelling" class="section level2">
 <h2><span class="header-section-number">9.3</span> Topic modelling</h2>
-<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p>Top 10 words associated with 9 topics identified by LDA.</p>
 <p><img src="figures/ASHG18/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
 <div id="representative-tweets" class="section level3 tabset">
 <h3><span class="header-section-number">9.3.1</span> Representative tweets</h3>
@@ -1085,13 +1089,13 @@ gamma
 1
 </td>
 <td style="text-align:left;">
-pmerel
+Lau_uribefig
 </td>
 <td style="text-align:left;">
-#ASHG18 G. Gursoy qui nous confirme que memes les données brutes de génomique fonctionnelle (RNAseq) sont la source de Privacy Leaks. Elle propose une methode de protection qui reduit meme la taille des bam files de 90% !!!!
+En el congreso más importante de Genética Humana, poca presencia de mexicanos. Destacan trabajos del <span class="citation">@TecdeMonterrey</span> <span class="citation">@H_Infantil_LAC</span> <span class="citation">@langebiomx</span> entre poquitos otros. La Genómica es de colaboración, mientras no se hagan consorcios, Mexico estará siempre atrás. #ASHG18
 </td>
 <td style="text-align:right;">
-0.2329029
+0.2136704
 </td>
 </tr>
 <tr>
@@ -1099,13 +1103,13 @@ pmerel
 1
 </td>
 <td style="text-align:left;">
-michaelhoffman
+mkveerpn
 </td>
 <td style="text-align:left;">
-YE: Information in common identifiers in bits: Sex: 1 Eye colour: 1.4 ABO/Rhesus blood group: 2.2 State of residence: 5.0 Height: 5.0 Year of birth: 6.3 Day and month of birth: 8.5 Surname: 12.9 Zip code: 13.8 #ASHG18
+At my last #ASHG17 talk, <span class="citation">@APalotie</span> sat with me before the talk started and nodded with fist bumps with lab mates during the talk. During the Q&amp;amp;A, would smile and finally a high five at the end. Awesome mentor and lab mates :) <span class="citation">@mitja_kurki</span> <span class="citation">@padgorm</span> #ashg18 <a href="https://t.co/2Txur73l3m" class="uri">https://t.co/2Txur73l3m</a>
 </td>
 <td style="text-align:right;">
-0.2279109
+0.1469580
 </td>
 </tr>
 <tr>
@@ -1113,41 +1117,13 @@ YE: Information in common identifiers in bits: Sex: 1 Eye colour: 1.4 ABO/Rhesus
 1
 </td>
 <td style="text-align:left;">
-ivivek87
+gmrepetto
 </td>
 <td style="text-align:left;">
-For next 9 nights 9 airports and amazing multitude of science and knowledge gathering. Excited as a kid and looking forward to learn. SEA&amp;gt;SAN&amp;gt;ORD&amp;gt;ARN&amp;gt;HEL&amp;gt;CPH&amp;gt;IAD&amp;gt;SAN&amp;gt;SEA #CKD #DKD #Genomics #Bioinformatics #PrecisionMedicine #biomarkers #healthcare #ASHG18
+Miembros de Soc Chilena de Genética #sochigen presentando en #ASHG18 #ashg2018 <span class="citation">@berebolledo</span> <span class="citation">@Jfcg2101</span> <span class="citation">@raverdugos</span> <span class="citation">@gmrepetto</span> y mas
 </td>
 <td style="text-align:right;">
-0.2260426
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-KempenLS
-</td>
-<td style="text-align:left;">
-Conferences: - #ASHG18 - San Diego, 16-20 Oct - #NACFC18- Denver, 18-20 Oct with $GLPG - #ESMO18 - Munich, 19-23 Oct with $GEN, $BCART, $NANO, $CYAD - #ACR18 - Chicago, 19-24 Oct with $GLPG, $MOR - #ANA18 - Atlanta, 21-23 Oct
-</td>
-<td style="text-align:right;">
-0.2203413
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:left;">
-iGenomics
-</td>
-<td style="text-align:left;">
-<span class="citation">@erlichya</span> : <span class="citation">@23andMe</span> files uploaded to Personal Genome Project (<span class="citation">@PGorg</span>), when unzipped, the filename may have person’s name. It only needs 28 bit info to identify a person. Zipcode provides 13.8bit, surname-12.9bit, hight-5.0, year of birth-6.3bit #ASHG18 #ASHG2018
-</td>
-<td style="text-align:right;">
-0.2162797
+0.1395139
 </td>
 </tr>
 <tr>
@@ -1158,10 +1134,10 @@ iGenomics
 jvkohl
 </td>
 <td style="text-align:left;">
-#ASHG18 Light-tracking in Brugmansia and light-activated microRNA biogenesis link biophysically constrained viral latency to all biodiversity via games for ages 10+. See for examples: Cytosis <a href="https://t.co/QKWSMw0Aqh" class="uri">https://t.co/QKWSMw0Aqh</a> and Subatomic <a href="https://t.co/Pm3gU9Y84T" class="uri">https://t.co/Pm3gU9Y84T</a> <a href="https://t.co/nklp5YkSxb" class="uri">https://t.co/nklp5YkSxb</a>
+#ASHG18 <a href="https://t.co/Rcw3uFIC17" class="uri">https://t.co/Rcw3uFIC17</a> microRNAs (miRNAs) regulate processes related to… cell proliferation, differentiation, survival, metabolism, inflammation, invasion, angiogenesis, and … miR-93-5p inhibited premature cellular senescence… See also <a href="https://t.co/K5Fz77tGAw" class="uri">https://t.co/K5Fz77tGAw</a>
 </td>
 <td style="text-align:right;">
-0.2083670
+0.1384369
 </td>
 </tr>
 <tr>
@@ -1169,13 +1145,13 @@ jvkohl
 1
 </td>
 <td style="text-align:left;">
-PittHUGEN
+databricks
 </td>
 <td style="text-align:left;">
-Muaaz Aslam presents his work w Frank Fan, <span class="citation">@EleanorFeingold</span>, Yeşim Demirci, &amp;amp; Ilyas Kamboh on rheumatoid arthritis in Pakistanis at Poster 2319. #ASHG18
+New Blog: Building the Fastest #DNASeq Pipeline at Scale. At roughly the same compute cost, run the Databricks DNASeq pipeline at speeds 3-4x faster than Edico while remaining concordant. #ASHG18 #GATK <a href="https://t.co/eowUK8x0vi" class="uri">https://t.co/eowUK8x0vi</a> <a href="https://t.co/fbO1CbsuYU" class="uri">https://t.co/fbO1CbsuYU</a>
 </td>
 <td style="text-align:right;">
-0.2070368
+0.1378112
 </td>
 </tr>
 <tr>
@@ -1183,13 +1159,13 @@ Muaaz Aslam presents his work w Frank Fan, <span class="citation">@EleanorFeingo
 1
 </td>
 <td style="text-align:left;">
-seqster
+megisarecruiter
 </td>
 <td style="text-align:left;">
-Seqster team collaborates <a href="mailto:w/@ATorkamani">w/@ATorkamani</a> <span class="citation">@ScrippsRTI</span> <span class="citation">@GeneticsSociety</span> combining <span class="citation">@23andMe</span> #DNA + #healthrecords giving genetic risk scores for CAD a new enagagment tool in consumer genomics <a href="mailto:w/@MyGeneRank">w/@MyGeneRank</a> #peopledriven #cardiovasculardisease #DNA #EHR #ASHG18 <a href="https://t.co/4CoWo99YvK" class="uri">https://t.co/4CoWo99YvK</a>
+New Blog: Building the Fastest #DNASeq Pipeline at Scale. At roughly the same compute cost, run the Databricks DNASeq pipeline at speeds 3-4x faster than Edico while remaining concordant. #ASHG18 #GATK <a href="https://t.co/BNxhXwqPxp" class="uri">https://t.co/BNxhXwqPxp</a> <a href="https://t.co/Zlw1Biqim1" class="uri">https://t.co/Zlw1Biqim1</a>
 </td>
 <td style="text-align:right;">
-0.2005149
+0.1371060
 </td>
 </tr>
 <tr>
@@ -1197,13 +1173,13 @@ Seqster team collaborates <a href="mailto:w/@ATorkamani">w/@ATorkamani</a> <span
 1
 </td>
 <td style="text-align:left;">
-jvkohl
+dgapgenes
 </td>
 <td style="text-align:left;">
-Compare #ASHG18 search results for #microRNAbiogenesis to results of a Pubmed search for microRNA and microRNA biogenesis. <a href="https://t.co/OhKmmO5Zr1" class="uri">https://t.co/OhKmmO5Zr1</a> <a href="https://t.co/2j7QVdniqD" class="uri">https://t.co/2j7QVdniqD</a> Ask population geneticists where microRNAs come from and vote for Republicans who know about light-activation
+Congratulations to Charles J. Epstein Trainee Award Semi-Finalists Netta Makinen and <span class="citation">@SamSchilit</span> (from the Morton lab) as well as to Charles J. Epstein Trainee Award Finalist <span class="citation">@RyanLCollins13</span> (from the Talkowski lab) for excellence in their human genetics research! #ASHG18 <a href="https://t.co/tlCccRxZnm" class="uri">https://t.co/tlCccRxZnm</a>
 </td>
 <td style="text-align:right;">
-0.2002385
+0.1315919
 </td>
 </tr>
 <tr>
@@ -1211,13 +1187,42 @@ Compare #ASHG18 search results for #microRNAbiogenesis to results of a Pubmed se
 1
 </td>
 <td style="text-align:left;">
-NCIEpiTraining
+broadinstitute
 </td>
 <td style="text-align:left;">
-Don’t miss <span class="citation">@colli_leandro</span> present “Functional characterization of the 14q24 renal cancer susceptibility locus implicates SWI/SNF complex member DPF3” today, Wednesday 6pm PT room 6B: #ASHG18 <span class="citation">@NCIChanock</span> <span class="citation">@mitchiela</span> <span class="citation">@daf421</span> <span class="citation">@tim_myers</span> <span class="citation">@kbrowngenetics</span>
+Andy Hollinger is featured in our #WhyIScience Q&amp;amp;A. Meet Andy &amp;amp; colleagues from <span class="citation">@BroadGenomics</span> at #ASHG18 booth 1634 &amp;amp; let them connect you with the Broad resources and researchers needed to get your #genomics studies to the finish line: <a href="https://t.co/Erv0LXtltg" class="uri">https://t.co/Erv0LXtltg</a> <a href="https://t.co/q40H062mBE" class="uri">https://t.co/q40H062mBE</a>
 </td>
 <td style="text-align:right;">
-0.1989427
+0.1310312
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>¿Quién más de la <span class="citation">@lcgunam</span> va a estar en #ASHG18?</p>
+Sé que ya está <span class="citation">@AleMedinaRivera</span> allá (póster 1870/T) y creo que <span class="citation">@paleogenomics</span> (póster 2706/W) no podrá venir. <a href="https://t.co/JGcFESN3rk" class="uri">https://t.co/JGcFESN3rk</a>
+</td>
+<td style="text-align:right;">
+0.1308349
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+EmbiTec
+</td>
+<td style="text-align:left;">
+What’s this big black box? Our photo hood makes it possible to visualize DNA bands without a protective mask, shield of filter obstructive your access to the gel. #ASHG18 <a href="https://t.co/AF2mTUOdNm" class="uri">https://t.co/AF2mTUOdNm</a>
+</td>
+<td style="text-align:right;">
+0.1297820
 </td>
 </tr>
 </tbody>
@@ -1248,13 +1253,14 @@ gamma
 2
 </td>
 <td style="text-align:left;">
-StatGenDan
+RDxWhatElse
 </td>
 <td style="text-align:left;">
-RD: 82 complex traits: widespread horizontal pleiotropy (21.7%); restrict to ‘putatively causal’ pairs of MR results: 48.7%. Outliers test: we can correct for pleiotropy in 45.8% of the tests. BMI -&amp;gt; C-reactive: one outlier SNV in APOE, causes 12% distortion in causal est #ASHG18
+<p>Prof Sally Davies <span class="citation">@CMO_England</span> Keep our Antibiotics Working …impressive words <a href="https://t.co/tuMdSNblVK" class="uri">https://t.co/tuMdSNblVK</a></p>
+#PrecisionMedicine #healthIT #WSC2018 #ASHG18 #worldstroke2018 #flaacos18 #ICRE2018 #JIBinnov18 #FAAM2018 #PRINT2018 #WONCA2018 #CUS18 #18IAEM #Connect2Health #SEMERGEN18
 </td>
 <td style="text-align:right;">
-0.2002409
+0.1779638
 </td>
 </tr>
 <tr>
@@ -1262,17 +1268,55 @@ RD: 82 complex traits: widespread horizontal pleiotropy (21.7%); restrict to ‘
 2
 </td>
 <td style="text-align:left;">
-big3bio
+tanghaibao
 </td>
 <td style="text-align:left;">
-<p>It’s going ON in #Big3Bio regions today!</p>
-<p>In Boston - #PODD2018 from <span class="citation">@ConferenceForum</span> (<a href="https://t.co/fWtr1avVgW" class="uri">https://t.co/fWtr1avVgW</a>), &amp;amp; later <span class="citation">@Xconomy</span>’s Life Sci Disruptors (<a href="https://t.co/LnCTSCzjPQ" class="uri">https://t.co/LnCTSCzjPQ</a>)</p>
-<p>In SF - the BIO Investor Forum #BIF18 (<a href="https://t.co/zx8YDpr1KZ" class="uri">https://t.co/zx8YDpr1KZ</a>)</p>
-<p>In SD - #ASHG18</p>
-#events #partnering <a href="https://t.co/AVL2qcPgOv" class="uri">https://t.co/AVL2qcPgOv</a>
+Fritz Sedlazeck <span class="citation">@sedlazeck</span>: SV caller (hi FP, low FN) and SV genotyper (hi FN, low FP), call SV with Delly, Manta and Lumpy, and merge with SURVIVOR, input to SV genotyper #ASHG18
 </td>
 <td style="text-align:right;">
-0.1969689
+0.1683671
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+YE: Information in common identifiers in bits: Sex: 1 Eye colour: 1.4 ABO/Rhesus blood group: 2.2 State of residence: 5.0 Height: 5.0 Year of birth: 6.3 Day and month of birth: 8.5 Surname: 12.9 Zip code: 13.8 #ASHG18
+</td>
+<td style="text-align:right;">
+0.1573755
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+genome_sheriff
+</td>
+<td style="text-align:left;">
+AN’ JUST SO YA KNOW, I’M AWARE THAT SKUNKS ARE EUTHERIAN MAMMALS THAT CAIN’T LAY NO EGGS. THEY’RE GOOD CRITTERS, AN’ I DEEPLY APOLOGIZE FER COMPARIN’ THEM TO NEFARIOUS GOOD-FER-NUTHINS. #ASHG18
+</td>
+<td style="text-align:right;">
+0.1539857
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+ElenaSorokin
+</td>
+<td style="text-align:left;">
+<span class="citation">@GillianBelbin</span>: Diaspora populations within #UKBiobank including non-British white pops from #India #Bangladesh and founder effects in outer British Isles eg Orkney, Outer Hebrides #ashg18
+</td>
+<td style="text-align:right;">
+0.1445376
 </td>
 </tr>
 <tr>
@@ -1283,10 +1327,10 @@ big3bio
 thatdnaguy
 </td>
 <td style="text-align:left;">
-#ASHG18 JK: Look at IQ in ASD. Individuals with ASD and an ID variant, lower IQ. ASD with ASD risk variant, higher IQ. Same trend for walking (earlier walking with ASD variants compared to ID variants).
+#ASHG18 JH: 2.5-1.0M years ago the Homo genus shows up. larger brains than australopiths. set on larger brain trajectory. Homo erectus human like in body size and shape. brain a little smaller, but larger than australopiths.
 </td>
 <td style="text-align:right;">
-0.1911093
+0.1406639
 </td>
 </tr>
 <tr>
@@ -1297,10 +1341,10 @@ thatdnaguy
 StatGenDan
 </td>
 <td style="text-align:left;">
-JK: some de novo variants for autism are even more enriched in non-autistic intellectual/developmental delay. Others are ASD preferential. Stronger neg selection in ID/DD- than ASD-preferential genes. ID/DD-preferential genes associated with walking later. #ASHG18
+WD: Q: What about the Type I error of your approach? A: BF converge almost surely to zero as the sample size grows. Not computed the FDR yet. Q2: How sensitive to pop admixture? A2: Not looked at yet. || Cited this paper by Shim &amp;amp; Stephens <a href="https://t.co/MceImTjqzu" class="uri">https://t.co/MceImTjqzu</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.1909994
+0.1365715
 </td>
 </tr>
 <tr>
@@ -1308,13 +1352,13 @@ JK: some de novo variants for autism are even more enriched in non-autistic inte
 2
 </td>
 <td style="text-align:left;">
-lizworthey
+pgrnhub
 </td>
 <td style="text-align:left;">
-ER: Studied age of walking in a cohort of patients with ASD and ID and IQ 30; found that patients with IQ 30 and ID walked later than IQ 30 and ASD; suggestive of different underlying mechanisms and pathways published as Bishop et al (think 2016?) #ASHG18
+Dr. A Shuldiner #ASHG18: The Old Order Amish: a homogenous founder population – founded by 200-600 migrating from Switzerland 15 generations ago. Cool findings in the Amish - inform biology and precision medicine - e.g. APOC3, CYP2C19, APOB, LIPE, KCNQ1
 </td>
 <td style="text-align:right;">
-0.1898970
+0.1325734
 </td>
 </tr>
 <tr>
@@ -1322,13 +1366,13 @@ ER: Studied age of walking in a cohort of patients with ASD and ID and IQ 30; fo
 2
 </td>
 <td style="text-align:left;">
-impc
+pgrnhub
 </td>
 <td style="text-align:left;">
-Guest post by Bum-Jun Kim (#ASHG18 talk: today, 4:30pm – 4:45pm in Room 6D) - RERE deficiency leads to downregulation of Gata4 and the development of ventricular septal defects <a href="https://t.co/WHGTAWXnhf" class="uri">https://t.co/WHGTAWXnhf</a>
+#ASHG18 <span class="citation">@PTurnbaugh</span> 1. Microbiome contributes to inter individual differences in ADME. 2. The microbiome is dynamic and responsive to environmental factors like diet. 3. Long way to go before microbiome-baed #precisionmedicine is a reality.
 </td>
 <td style="text-align:right;">
-0.1888008
+0.1312737
 </td>
 </tr>
 <tr>
@@ -1336,55 +1380,13 @@ Guest post by Bum-Jun Kim (#ASHG18 talk: today, 4:30pm – 4:45pm in Room 6D) - 
 2
 </td>
 <td style="text-align:left;">
-StatGenDan
+PittHUGEN
 </td>
 <td style="text-align:left;">
-JK: Strong selection against autism spectrum disorder =&amp;gt; rare variants. 36K sequenced: families &amp;amp; case/control. Improved constraint-based metrics of deleteriousness: more signal for de novo mutations. Constraint metrics enrich for new variants. #ASHG18
+Tanvi Nagpal in <span class="citation">@Pittdeptofmed</span> presents her work w Celeste Shelton on association b/w SLCO1B &amp;amp; alcohol-associated chronic pancreatitis at Poster 2289. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1871657
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-WuXiNextCODE
-</td>
-<td style="text-align:left;">
-#WXNCatASHG | Watch as Irene C Blat will explore the 500K sample U.K. Biobank data in order to uncover interesting phenotypic combinations and stratify the data in preparation for genomic analysis. Learn more at <a href="https://t.co/YPdT51O1mC" class="uri">https://t.co/YPdT51O1mC</a> #ASHG18 <a href="https://t.co/cfBoTwB1xA" class="uri">https://t.co/cfBoTwB1xA</a>
-</td>
-<td style="text-align:right;">
-0.1869845
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-NeBanovich
-</td>
-<td style="text-align:left;">
-Any students at #ASHG18 looking for a postdoc. We are using single cell omics and genetic variation to study disease - fibrotic lung disease - and treatment response - CAR T cell therapy. Please send me a DM if the work sounds interesting #ASHGtrainee #IPF #Cancer #immunotherapy <a href="https://t.co/9IBnD6yi9D" class="uri">https://t.co/9IBnD6yi9D</a>
-</td>
-<td style="text-align:right;">
-0.1860532
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:left;">
-ksamocha
-</td>
-<td style="text-align:left;">
-.@Jack_Kosmicki #ASHG18: Stronger negative selection in the ID-preferential genes compared to ASD-preferential genes. Those individuals with ID-preferential variant have lower IQ, walk later in life compared to ASD-pref variant cases.
-</td>
-<td style="text-align:right;">
-0.1855462
+0.1305776
 </td>
 </tr>
 </tbody>
@@ -1415,13 +1417,13 @@ gamma
 3
 </td>
 <td style="text-align:left;">
-BaylorGenetics
+JesperMaag
 </td>
 <td style="text-align:left;">
-#ASHG18 Oggi dale 11:00 am alle 12:00 pm Federica Gibellini sara’ al nostro stand per rispondere a tutte le vostre domande tecniche riguardanti NGS.
+gganatogram now includes a cell diagram (cellogram?)! Please also cite <span class="citation">@HumanProteome</span> if using the cell and <span class="citation">@ExpressionAtlas</span> if using the anatograms. <a href="https://t.co/f0KcBetmCe" class="uri">https://t.co/f0KcBetmCe</a> #rstats #ggplot2 #dataviz #gganatogram #ASHG18 <a href="https://t.co/MfZqSf9mCl" class="uri">https://t.co/MfZqSf9mCl</a>
 </td>
 <td style="text-align:right;">
-0.2140905
+0.1435292
 </td>
 </tr>
 <tr>
@@ -1429,13 +1431,13 @@ BaylorGenetics
 3
 </td>
 <td style="text-align:left;">
-VUMCgenetics
+bnlasse
 </td>
 <td style="text-align:left;">
-VGI investigators had a GREAT week: <span class="citation">@NancyGenetics</span> in <span class="citation">@NatureNV</span>, <span class="citation">@egamazon</span> in the VUMC Reporter, Tony Capra on PBS, and <span class="citation">@jdnashville</span> in <span class="citation">@NAMedicine</span>. Heading into another great week: #ASHG18 <a href="https://t.co/Vpo8iOy7L0" class="uri">https://t.co/Vpo8iOy7L0</a> <a href="https://t.co/nf9F3zpI9P" class="uri">https://t.co/nf9F3zpI9P</a> <a href="https://t.co/W3W7zV4zhO" class="uri">https://t.co/W3W7zV4zhO</a>
+JX: another ex: boundary del leading to over-express of ERBB4 oncogene in breast cancer (unpublished), again 4C and find this neo-TAD may cause activation of gene in cell line [missed cell line]; crispr editing to delete another boundary induces abberant gene expression #ASHG18
 </td>
 <td style="text-align:right;">
-0.2112832
+0.1432966
 </td>
 </tr>
 <tr>
@@ -1443,14 +1445,13 @@ VGI investigators had a GREAT week: <span class="citation">@NancyGenetics</span>
 3
 </td>
 <td style="text-align:left;">
-SwiftBioSci
+fluidigm
 </td>
 <td style="text-align:left;">
-<p>A little over a week until #ASHG18 in San Diego! Seq out our Swift team to hear about our newest offerings, Swift 2S Turbo and Swift Normalase (launching at the show). See our events here + schedule a meeting: <a href="https://t.co/CBI3931jXi" class="uri">https://t.co/CBI3931jXi</a></p>
-#NGS #SwiftBiosciences #Normalase <a href="https://t.co/UC4eytU53x" class="uri">https://t.co/UC4eytU53x</a>
+At #ASHG18? Join us for lunch today at 12:30pm. Hear how you can improve sample tracking and quality assessment with microfluidics from Tae-Hwi Schwantes-An, PhD, of Indiana U. School of Med. and David King, PhD, VP of RnD at Fluidigm. Rm 28B. #ASHG2018 <a href="https://t.co/Z2aPvbZdLI" class="uri">https://t.co/Z2aPvbZdLI</a> <a href="https://t.co/zfcHgds7QI" class="uri">https://t.co/zfcHgds7QI</a>
 </td>
 <td style="text-align:right;">
-0.2088804
+0.1430278
 </td>
 </tr>
 <tr>
@@ -1458,14 +1459,13 @@ SwiftBioSci
 3
 </td>
 <td style="text-align:left;">
-SwiftBioSci
+CellPressNews
 </td>
 <td style="text-align:left;">
-<p>#ASHG18 is finally here and so is Swift Normalase (for library normalization). See what Swift Normalase is all about and visit our scientists at Booth #610! <a href="https://t.co/fDAslfm3TA" class="uri">https://t.co/fDAslfm3TA</a></p>
-#NGS #Normalase #SwiftBiosciences <a href="https://t.co/x2O5NVfTqB" class="uri">https://t.co/x2O5NVfTqB</a>
+A proteome-wide assessment of thermal stability and solubility during the #eukaryotic cell cycle shows pervasive variation in #mitosis and G1 and a fundamental remodeling of the #biophysical environment of the mitotic cell #IDPs <span class="citation">@CellCellPress</span> #ASHG18 <a href="https://t.co/mkPKLznADv" class="uri">https://t.co/mkPKLznADv</a>
 </td>
 <td style="text-align:right;">
-0.1994464
+0.1427374
 </td>
 </tr>
 <tr>
@@ -1473,13 +1473,13 @@ SwiftBioSci
 3
 </td>
 <td style="text-align:left;">
-EmbiTec
+anikagupta18
 </td>
 <td style="text-align:left;">
-Man cannot live on conference hall french fries alone! Looking for a snack in downtown San Diego during #ASHG18? Try Taste&amp;amp;Thirst, GARAGE Kitchen + Bar, or La Puerta for delicious grub and drinks! <span class="citation">@GeneticsSociety</span>
+Crazy (incredible) seeing two of my worlds collide by going to lunch w labmates from a past home in <span class="citation">@dpwall00</span>’s group and current rotation home in Alkes Price lab. And tonight will be time w <span class="citation">@kasper_lage</span> lab friends, who graciously made this trip possible! Thanks #ASHG18 <a href="https://t.co/aDLmp3EoxY" class="uri">https://t.co/aDLmp3EoxY</a>
 </td>
 <td style="text-align:right;">
-0.1991558
+0.1399520
 </td>
 </tr>
 <tr>
@@ -1487,13 +1487,13 @@ Man cannot live on conference hall french fries alone! Looking for a snack in do
 3
 </td>
 <td style="text-align:left;">
-dgapgenes
+fluidigm
 </td>
 <td style="text-align:left;">
-We’re thrilled that the Morton lab has TWO speakers in the #ASHG18 Human Reproduction and Fertility session (#105) this Saturday! <span class="citation">@SamSchilit</span> will discuss her work on male infertility through DGAP and Netta Makinen will share her findings on GWAS for uterine fibroids! <a href="https://t.co/WLE6ybxFyE" class="uri">https://t.co/WLE6ybxFyE</a>
+At #ASHG18? Don’t miss the Fluidigm lunch symposium today at 12:30pm. Hear how you can improve sample tracking and quality assessment with microfluidics from Tae-Hwi Schwantes-An, PhD, of Indiana U. School of Med. and David King, PhD, VP of RnD at Fluidigm. Rm 28B. #ASHG2018 <a href="https://t.co/ZbWqfwB5mD" class="uri">https://t.co/ZbWqfwB5mD</a>
 </td>
 <td style="text-align:right;">
-0.1976457
+0.1393908
 </td>
 </tr>
 <tr>
@@ -1501,13 +1501,13 @@ We’re thrilled that the Morton lab has TWO speakers in the #ASHG18 Human Repro
 3
 </td>
 <td style="text-align:left;">
-michaelhoffman
+PacBio
 </td>
 <td style="text-align:left;">
-BM: Assumptions $45,000 max for sharing by publisher, recipient pays $180 for data, receives reward of $360 for successful detection. Allow 10% FPR, 50% TPR. Prior of 0.05. #ASHG18 <a href="https://t.co/1KYmCaexDb" class="uri">https://t.co/1KYmCaexDb</a>
+Studies of mobile element insertions in bulk &amp;amp; single cell experiments using standard WGS approaches may underestimate the # of L1Hs insertions near or nested within reference LINE-1s, according to <span class="citation">@ryan_e_mills</span> lab. Visit Weichen <span class="citation">@ArthurZhou10</span> now at poster 1701 #ASHG18 <a href="https://t.co/V4L6m7ZpAH" class="uri">https://t.co/V4L6m7ZpAH</a>
 </td>
 <td style="text-align:right;">
-0.1975585
+0.1388127
 </td>
 </tr>
 <tr>
@@ -1515,13 +1515,13 @@ BM: Assumptions $45,000 max for sharing by publisher, recipient pays $180 for da
 3
 </td>
 <td style="text-align:left;">
-StatGenDan
+averydavisbell
 </td>
 <td style="text-align:left;">
-Vincent Laville: 1) Contribution of GxE to multifactorial diseases depends on coding of variables. 2) Contrast heritability estimated by LD score in exposed/unexposed strata in CHARGE Gene-Lifestyle data set. Some nominal differences re smoking or alcohol consumption. #ASHG18
+<span class="citation">@fellgernon</span> <span class="citation">@BenjaminNeale</span> I prefer women/men or female/male - they’re not perfect since human gender and sex aren’t binary but they do a decent job as short hand. “Boys and girls” feels needlessly (verging in offensivey) infantilizing and perhaps extra gendered. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1957793
+0.1372217
 </td>
 </tr>
 <tr>
@@ -1529,13 +1529,13 @@ Vincent Laville: 1) Contribution of GxE to multifactorial diseases depends on co
 3
 </td>
 <td style="text-align:left;">
-RocheDiaUSA
+<em>klkeys</em>
 </td>
 <td style="text-align:left;">
-Need some evening chill-time at #ASHG18? The Torrey Pines Gliderport, a 25 min drive from the conference, is a perfect place to watch hang gliders soar across the Pacific sunset! <a href="https://t.co/3Jrd6PGvD9" class="uri">https://t.co/3Jrd6PGvD9</a> <a href="https://t.co/j4y9s49kLs" class="uri">https://t.co/j4y9s49kLs</a>
+GB: Four IBD-sharing among self-identified South Asians. As in BioME, we see signatures of founder effects. Diaspora populations very recent (~1960s onward). IBD by geography shows higher IBD in UK north, islands, rural areas, lower in S. England + metros. #ashg18
 </td>
 <td style="text-align:right;">
-0.1942824
+0.1363331
 </td>
 </tr>
 <tr>
@@ -1543,13 +1543,13 @@ Need some evening chill-time at #ASHG18? The Torrey Pines Gliderport, a 25 min d
 3
 </td>
 <td style="text-align:left;">
-DKemaladewi
+amymaxmen
 </td>
 <td style="text-align:left;">
-Big picture conclusion from Nico Katsanis’ talk on Unraveling Human Genetics to Decipher the Causes of Diseases. Officially my fave #raredisease scientist! Great geneticist, terrific speaker! Jokes directly correlate with absorption of knowledge at #ASHG18 😁🤓 <span class="citation">@ionispharma</span> <a href="https://t.co/iyxIkxuKkF" class="uri">https://t.co/iyxIkxuKkF</a>
+The ironic thing about nationalists flocking to genetic tests for confirmations of purity is that most large genomics studies uncover all sorts of mixing. Humans are just a bunch of tribes having sex with each other, making mixed babies, and forming new tribes. #ASHG18 #ASHG
 </td>
 <td style="text-align:right;">
-0.1940667
+0.1359693
 </td>
 </tr>
 </tbody>
@@ -1580,13 +1580,13 @@ gamma
 4
 </td>
 <td style="text-align:left;">
-ayana_yamazaki
+RichShaffer108
 </td>
 <td style="text-align:left;">
-グラフィックさんに印刷お願いしたら、配送先以外にも注文者に試し刷り分無料で配送してくれて嬉しかった。 今回はマットコート紙135kg。インクがのった部分にツヤが出るので白背景にすると映える感じ！ #ASHG18 #genomelink <a href="https://t.co/1OgouVKxce" class="uri">https://t.co/1OgouVKxce</a>
+Putin Lives in a World Without Rules #TrumpCrimeFamily boss of all bosses #toad #trump #PutinsPuppet #news #newspacerace #KashoggiMurder #Kabul #Kashoggi #ASHG18 #AADHum2018 #AKGOV #CGIU2018 #Dodgers #ESMO2018 #FBRParty #GCEC2018 #ImpeachTrump #Jeopardy <a href="https://t.co/6hZhdaI7g1" class="uri">https://t.co/6hZhdaI7g1</a>
 </td>
 <td style="text-align:right;">
-0.3530140
+0.1893232
 </td>
 </tr>
 <tr>
@@ -1594,13 +1594,13 @@ ayana_yamazaki
 4
 </td>
 <td style="text-align:left;">
-tanghaibao
+pmerel
 </td>
 <td style="text-align:left;">
-Fritz Sedlazeck <span class="citation">@sedlazeck</span>: SV caller (hi FP, low FN) and SV genotyper (hi FN, low FP), call SV with Delly, Manta and Lumpy, and merge with SURVIVOR, input to SV genotyper #ASHG18
+#ASHG18 G. Gursoy qui nous confirme que memes les données brutes de génomique fonctionnelle (RNAseq) sont la source de Privacy Leaks. Elle propose une methode de protection qui reduit meme la taille des bam files de 90% !!!!
 </td>
 <td style="text-align:right;">
-0.2309005
+0.1782443
 </td>
 </tr>
 <tr>
@@ -1608,13 +1608,84 @@ Fritz Sedlazeck <span class="citation">@sedlazeck</span>: SV caller (hi FP, low 
 4
 </td>
 <td style="text-align:left;">
-StatGenDan
+genetisaur
 </td>
 <td style="text-align:left;">
-Boyang Li: GWAS of smoking in Million Veteran Program. N=209,915 smoker vs. non =&amp;gt; 11 sig loci; 4 replicate in UK Biobank: SIX3-AS1, TEX41, ZBTB20, and NCAM1. Heritability enrichments highlight brain involvement. #ASHG18
+<p>Delay out of BOS, sprint across airport, miss connection in PHL. But wait! Another delay in PHL due to tire issue. Missed SAN curfew, so maybe flying to LAX then bus to SAN</p>
+In other words, westbound red eye can’t hold us from #ASHG18! (Time travel maybe optimistic though) <a href="https://t.co/8YLZwPbEEY" class="uri">https://t.co/8YLZwPbEEY</a>
 </td>
 <td style="text-align:right;">
-0.2271278
+0.1530620
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+23andMeResearch
+</td>
+<td style="text-align:left;">
+PV: From Visscher to Fisher: His wife, Naomi Wray, sister is Alison Wray, her husband is Mike Wallace, his mom Margaret Wallace was RA Fisher’s long term research assistant - cool scientific connection! #ASHG18
+</td>
+<td style="text-align:right;">
+0.1526290
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Lau_uribefig
+</td>
+<td style="text-align:left;">
+Interesados en datos de población latina y farmacogenomica. <a href="https://t.co/JE9Nsl5fVe" class="uri">https://t.co/JE9Nsl5fVe</a> de Stanford Uni tiene info de 22K latinos. #ASHG18
+</td>
+<td style="text-align:right;">
+0.1457702
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+michaelhoffman
+</td>
+<td style="text-align:left;">
+CL: Advice: - Lean in/hang on step up - Be positive, persistent, polite - Assertiveness ≠ aggression - Choose a work environment supportive of you - Choose a mentor supportive of you - Choose a mentor that you can buy into and respect #ASHG18
+</td>
+<td style="text-align:right;">
+0.1445235
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Covaris
+</td>
+<td style="text-align:left;">
+Todays the day! Come to CoLab #1 at 10:00 AM to hear Byung Woo Kim’s presentation titled: Standardization of the ChIP workflow using Covaris Adaptive Focused Acoustics® (AFA®) to study the transcriptional regulation of SOD1 in ALS pathogenesis. #ASHG18 #ChIP <a href="https://t.co/nZK3s28JqX" class="uri">https://t.co/nZK3s28JqX</a>
+</td>
+<td style="text-align:right;">
+0.1402309
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+BaylorGenetics
+</td>
+<td style="text-align:left;">
+#ASHG18 Oggi dale 11:00 am alle 12:00 pm Federica Gibellini sara’ al nostro stand per rispondere a tutte le vostre domande tecniche riguardanti NGS.
+</td>
+<td style="text-align:right;">
+0.1367680
 </td>
 </tr>
 <tr>
@@ -1625,12 +1696,13 @@ Boyang Li: GWAS of smoking in Million Veteran Program. N=209,915 smoker vs. non
 fellgernon
 </td>
 <td style="text-align:left;">
-<p>This is my 2nd #ASHG18 meeting. Overheard a lunch convo; they were loud + plenty of ASHG badges around</p>
-<p>P1 asked several questions after P2 said he/she couldn’t answer due to a NDA. Eventually P2 spilled the beans and said “you didn’t hear it from me”.</p>
-Is this common @ lunch?
+<p>Rujia Dai</p>
+<p>Oligodendrocyte, microglia, neuron upper cortex, neuron deeper cortex, astrocytes</p>
+<p>SCZD and BP are more related in the neurons from the upper cortex</p>
+#ASHG18
 </td>
 <td style="text-align:right;">
-0.2073532
+0.1323867
 </td>
 </tr>
 <tr>
@@ -1638,83 +1710,13 @@ Is this common @ lunch?
 4
 </td>
 <td style="text-align:left;">
-MyGenXys
+WebsEdge_Health
 </td>
 <td style="text-align:left;">
-Bousman et al proposed a minimum pharmacogenetic panel in psychiatry: 16 alleles - 5 genes (CYP2C9, CYP2C19, CYP2D6, HLA-A, HLA-B), on the basis of the highest levels of evidence. <a href="https://t.co/T8htTU8tII" class="uri">https://t.co/T8htTU8tII</a> #ASHG18 #precisionprescribing #psychiatry #antidepressant #antipsychotic <a href="https://t.co/4CC7j1u6mA" class="uri">https://t.co/4CC7j1u6mA</a>
+ASHG TV learns from members of the ASHG Information and Education Committee, Alexis Norris, PhD and Maurice Godfrey, PhD, to talk about what educational programs the ASHG offers its members and to K-12 students and teachers. <a href="https://t.co/uM2XUx2wej" class="uri">https://t.co/uM2XUx2wej</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.2068420
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-CharlestonCWKC
-</td>
-<td style="text-align:left;">
-ML: phase 1 melanoma GWAS found pigmentation genes, overlap with loci for nevus counts, etc. Phase 2 now up to 30K cases and 80K controls (N EUR, UK, USA, Australia, etc.). SNP h2 ~0.13 #ASHG18
-</td>
-<td style="text-align:right;">
-0.1988162
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-diseaseontology
-</td>
-<td style="text-align:left;">
-<span class="citation">@GeneticsSociety</span> #ASHG18 Check out the latest Human Disease Classification at DO’s poster (#1413W) Precision etiology for complex disease classification 2:00 pm October 17th, and see DO’s collaborator posters: <span class="citation">@wikidata</span> Poster #1599/W; <span class="citation">@mgi_mouse</span> Poster#1595F,
-</td>
-<td style="text-align:right;">
-0.1987146
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-pgrnhub
-</td>
-<td style="text-align:left;">
-#ASHG18 <span class="citation">@Dr_R_Kurrock</span> Best response for targeted therapy with a biomarker, especially a genomic biomarker. Worse response for targeted therapy with no biomarker (worse than chemotherapy). <a href="https://t.co/3KG10AxlwA" class="uri">https://t.co/3KG10AxlwA</a>
-</td>
-<td style="text-align:right;">
-0.1931636
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-thatdnaguy
-</td>
-<td style="text-align:left;">
-#ASHG18 WF: example exonic splice enhancers and splice silencers. MAPT exon 10 splice regulation.
-</td>
-<td style="text-align:right;">
-0.1920119
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:left;">
-MyGenXys
-</td>
-<td style="text-align:left;">
-Millions of prescriptions are potentially affected by pharmacogenetics. Informing prescriptions with pharmacogenetics can save lives &amp;amp; improve symptom relief. Read the white paper: <a href="https://t.co/aV8au7iPAS" class="uri">https://t.co/aV8au7iPAS</a> #precisionmedicine #precisionprescribing #PGRN #ASHG18 <a href="https://t.co/vhQ0ViQI4M" class="uri">https://t.co/vhQ0ViQI4M</a>
-</td>
-<td style="text-align:right;">
-0.1917170
+0.1316741
 </td>
 </tr>
 </tbody>
@@ -1745,13 +1747,14 @@ gamma
 5
 </td>
 <td style="text-align:left;">
-DaleYuzuki
+DiseasePrimers
 </td>
 <td style="text-align:left;">
-Konigshofer #ASHG18 UMI tech can be used, i5 or i7 indexes used in SureSelectXT/HS; NEBNext Direct, IDT. First bases ArcherDx. First bases of R1/R2 AVENIO.
+<p>#WilsonDisease is caused by mutations in ATP7B, which encodes a transmembrane copper-transporting ATPase, leading to impaired copper homeostasis and copper overload in the liver, brain and other organs.</p>
+<a href="https://t.co/8KEtXnvqcn" class="uri">https://t.co/8KEtXnvqcn</a> #ASHG18 <a href="https://t.co/X5fvkmsub6" class="uri">https://t.co/X5fvkmsub6</a>
 </td>
 <td style="text-align:right;">
-0.2170959
+0.1544435
 </td>
 </tr>
 <tr>
@@ -1759,13 +1762,13 @@ Konigshofer #ASHG18 UMI tech can be used, i5 or i7 indexes used in SureSelectXT/
 5
 </td>
 <td style="text-align:left;">
-RocheDiaUSA
+thatdnaguy
 </td>
 <td style="text-align:left;">
-Looking for in-house RNA-seq analysis? Roche and Genialis have teamed up to offer an automated, cloud-based solution for the entire KAPA RNA Hyper portfolio! Visit Roche and Genialis in #ASHG18 booths 715 and 741 to learn more! <a href="https://t.co/Pq0wY6gMvm" class="uri">https://t.co/Pq0wY6gMvm</a>
+#ASHG18 RM: 3 main clusters. 1 ws NEUROD1, 2d was NFIB, TBR1, 3rd was PAX6 and SOX2. Focused on TBR2 gene. Can see difference in peak heights at enhancers in progenitors.
 </td>
 <td style="text-align:right;">
-0.2007685
+0.1445392
 </td>
 </tr>
 <tr>
@@ -1773,42 +1776,13 @@ Looking for in-house RNA-seq analysis? Roche and Genialis have teamed up to offe
 5
 </td>
 <td style="text-align:left;">
-mazerunnrmovie
+mathiesoniain
 </td>
 <td style="text-align:left;">
-Get our best selling all #TheMazeRunner #Bracelet for just $14.95 Have it👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> Shop Now👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> #mazerunner #ScorhTrials #deathcure #pleasetommyplease #newtmas #dlymas #bfcm #NationalPastaDay #WednesdayWisdom #ASHG18 #PronounsDay #NXTUK <a href="https://t.co/7fcXMu2gA1" class="uri">https://t.co/7fcXMu2gA1</a>
+Check out our group’s presentations at #ASHG18. Wednesday: Dan Ju’s poster 2718W on the evolution of skin pigmentation in Europe . Saturday 9am room 20E: Bárbara Bitarello <span class="citation">@barbara_dutty</span> talking about polygenic scores in non-Europeans .
 </td>
 <td style="text-align:right;">
-0.1982887
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-AgilentGenomics
-</td>
-<td style="text-align:left;">
-Automated Sample Processing With Operational Simplicity. New Agilent 4150 TapeStation System. #ASHG18 See video and brochure <a href="https://t.co/stUqFNGBcM" class="uri">https://t.co/stUqFNGBcM</a> <a href="https://t.co/7QW7ZTaGTz" class="uri">https://t.co/7QW7ZTaGTz</a>
-</td>
-<td style="text-align:right;">
-0.1948548
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:left;">
-erlichya
-</td>
-<td style="text-align:left;">
-<p>So what did we have this week in human genetics? * A Senator taking a DNA test to fight political opponents * Major parts of US can be under genetic surveillance via DTC tests * UKBB reports results for 500K people * Nature calls for PRS in clinic</p>
-The revolution is here #ASHG18
-</td>
-<td style="text-align:right;">
-0.1910651
+0.1390841
 </td>
 </tr>
 <tr>
@@ -1819,10 +1793,10 @@ The revolution is here #ASHG18
 michaelhoffman
 </td>
 <td style="text-align:left;">
-VP: Lots of new enterprises claiming blockchain has something to do with genetic privacy. This is dangerous. Be very cautious. HC: Paying people in cryptocurrency for sharing their genomic data? Cryptocurrency value fluctuates too rapidly. #ASHG18
+RM: Cortex develops through waves oftranscription factors. Proliferation: SOX2, PAX6. Migration: NFIB, TBR1. Differentiation: NEUROD1. Responsible for development of neuronal deep layers [the original home of deep learning] #ASHG18
 </td>
 <td style="text-align:right;">
-0.1906538
+0.1386693
 </td>
 </tr>
 <tr>
@@ -1830,13 +1804,13 @@ VP: Lots of new enterprises claiming blockchain has something to do with genetic
 5
 </td>
 <td style="text-align:left;">
-Lau_uribefig
+StatGenDan
 </td>
 <td style="text-align:left;">
-Microsoft le apuesta duro a la Genómica !! #ASHG18 Microsoft unveils genomics innovation and new partners at ASHG 2018 - Microsoft Industry Blogs <a href="https://t.co/0Kaqbg35gX" class="uri">https://t.co/0Kaqbg35gX</a>
+PV: Can we recover the ‘still missing’ h^2 using WGS data? 39,699 WGS’d TOPMed adults =&amp;gt; 21,620 unrelated w European ancestry, 50,290,504 variants. GREML-LDMS, partitioning by 7 MAF bins &amp;amp; 2 LD bins. Height h^2 ~0.75; BMI h^2 ~0.35. Sensitivity analyses =&amp;gt; robust results #ASHG18
 </td>
 <td style="text-align:right;">
-0.1905833
+0.1373271
 </td>
 </tr>
 <tr>
@@ -1847,10 +1821,10 @@ Microsoft le apuesta duro a la Genómica !! #ASHG18 Microsoft unveils genomics i
 bnlasse
 </td>
 <td style="text-align:left;">
-#ASHG18 MW: human not a great model because impossible to study early cancer stages, difficult to isolate cancer cells from stromal cells, difficult to assign cause and effect; so using genetically engineered mouse models (Cre/LoxP-based Kras model; also with p53 and Lkb1 TSGs)
+ABW: ilot looking for health promoting variants based on lit search of 111 papers identified 18 variants in 15 genes found HP<em>2 (not sig after mult test) carriers have decr odds of being super-seniors, same with APOE</em>e4 (sig after multiple testing) <a href="https://t.co/xAQvFTbmNM" class="uri">https://t.co/xAQvFTbmNM</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.1903790
+0.1356959
 </td>
 </tr>
 <tr>
@@ -1858,13 +1832,13 @@ bnlasse
 5
 </td>
 <td style="text-align:left;">
-jvkohl
+pgrnhub
 </td>
 <td style="text-align:left;">
-#ASHG18 <a href="https://t.co/Rcw3uFIC17" class="uri">https://t.co/Rcw3uFIC17</a> microRNAs (miRNAs) regulate processes related to… cell proliferation, differentiation, survival, metabolism, inflammation, invasion, angiogenesis, and … miR-93-5p inhibited premature cellular senescence… See also <a href="https://t.co/K5Fz77tGAw" class="uri">https://t.co/K5Fz77tGAw</a>
+#ASHG18 D. Goldstein. Great examples of repurposing FDA approved drugs to treat diseases with rare mutations, e.g. using Pairnomix screen to identify compound to treat patients with SNC8A R1872A and use multi-electrode array to find drug to treat patients with GNB1 K78R
 </td>
 <td style="text-align:right;">
-0.1874181
+0.1354201
 </td>
 </tr>
 <tr>
@@ -1872,13 +1846,41 @@ jvkohl
 5
 </td>
 <td style="text-align:left;">
-parabricks
+cgonzagaj
 </td>
 <td style="text-align:left;">
-Our funding news yesterday for #GPU accelerated #NGS data analysis got coverage from <span class="citation">@GenomeWeb</span>, <span class="citation">@HPCwire</span> and others, we’d like to thank <span class="citation">@NSFSBIR</span> <span class="citation">@NSF</span> <a href="https://t.co/FqIOzeoOpl" class="uri">https://t.co/FqIOzeoOpl</a> #NSFFunded #HPC #ASHG18 #PersonalizedMedicine #Genomics
+MC: Identified a variant in the catalytic domain of UBE3B in a large consanguineous family segregating autism. Aimed to understand function and pathway. Ube3b KO mice have decreased growth and vocalizations consistent w/ patients growth retardation &amp;amp; lack of speech #ASHG18
 </td>
 <td style="text-align:right;">
-0.1867808
+0.1353569
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+PacBio
+</td>
+<td style="text-align:left;">
+We do ♥️ structural variant calling. But which variant caller is best? Folks at <span class="citation">@GWSMHS</span> compared the results from four SV callers on four mapping algorithms, including BWA-MEM, minimap2, NGMLR, and LAST. See what they found at poster 1579. <a href="https://t.co/KVsvxQCJ2H" class="uri">https://t.co/KVsvxQCJ2H</a> #ASHG18 <a href="https://t.co/VIpUjYNpOz" class="uri">https://t.co/VIpUjYNpOz</a>
+</td>
+<td style="text-align:right;">
+0.1341174
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+bionanogenomics
+</td>
+<td style="text-align:left;">
+#ASHG18 Poster Spotlight: 2:00pm - 3:00pm, Wed, Oct 17 “Rapid Isolation (&amp;lt;3 h) of Ultra-High Molecular Weight Genomic DNA from Fresh/Frozen Human Blood and Cultured Cells/Frozen Cell Pellets without the use of Agarose Plugs” Henry B. Sadowski #maketherightcall
+</td>
+<td style="text-align:right;">
+0.1340961
 </td>
 </tr>
 </tbody>
@@ -1909,13 +1911,13 @@ gamma
 6
 </td>
 <td style="text-align:left;">
-michaelhoffman
+ayana_yamazaki
 </td>
 <td style="text-align:left;">
-PB: Kodak invented the digital camera but didn’t do much with it. Deception: Didn’t seem like a big deal. Others ate their lunch. Disruption: film market collapsed. Demonetization: marginal cost of photo became 0. #ASHG18 <a href="https://t.co/L83qASMsxQ" class="uri">https://t.co/L83qASMsxQ</a>
+グラフィックさんに印刷お願いしたら、配送先以外にも注文者に試し刷り分無料で配送してくれて嬉しかった。 今回はマットコート紙135kg。インクがのった部分にツヤが出るので白背景にすると映える感じ！ #ASHG18 #genomelink <a href="https://t.co/1OgouVKxce" class="uri">https://t.co/1OgouVKxce</a>
 </td>
 <td style="text-align:right;">
-0.2195371
+0.2778444
 </td>
 </tr>
 <tr>
@@ -1923,13 +1925,13 @@ PB: Kodak invented the digital camera but didn’t do much with it. Deception: D
 6
 </td>
 <td style="text-align:left;">
-pgrnhub
+kicheolkim
 </td>
 <td style="text-align:left;">
-#ASHG18 D. Goldstein. Great examples of repurposing FDA approved drugs to treat diseases with rare mutations, e.g. using Pairnomix screen to identify compound to treat patients with SNC8A R1872A and use multi-electrode array to find drug to treat patients with GNB1 K78R
+#ASHG18 참석후 느낀점… 이제 단순히 변이 찾기를 넘어서 변이의 역할과 기능을 밝히는 연구들이 더 활발해지는 것 같다. 그동안 컴퓨팅쪽이 부각되었다면, 다시 생물학이 부각될 것 같은 느낌. rising biology again (하지만 앞으로는 코딩하는 생물학자가 필요할지도…) <a href="https://t.co/TcsVYk2MG2" class="uri">https://t.co/TcsVYk2MG2</a>
 </td>
 <td style="text-align:right;">
-0.2027198
+0.2213987
 </td>
 </tr>
 <tr>
@@ -1940,10 +1942,10 @@ pgrnhub
 amymaxmen
 </td>
 <td style="text-align:left;">
-Attention PR at #ASHG18 #ASHG2018. Please see what <span class="citation">@NatureNews</span> covers. We don’t randomly write about CEOs or series XYZ funding so stop spamming me. Write me if you think you have a STORY to tell, think about it first. Pst scientists you can write me w your new findings any time.
+Fantastic piece on how white supremacists distort genetics to suit tribalistic ideologies. They chug milk proudly, ignoring, for example, multiple origins of lactose digestion. By the amazing <span class="citation">@amy_harmon</span> HT <span class="citation">@bmaher</span> Impt reading for scientists #ASHG18 #ASHG <a href="https://t.co/OuDpIoGiYz" class="uri">https://t.co/OuDpIoGiYz</a>
 </td>
 <td style="text-align:right;">
-0.2022031
+0.1494336
 </td>
 </tr>
 <tr>
@@ -1951,13 +1953,13 @@ Attention PR at #ASHG18 #ASHG2018. Please see what <span class="citation">@Natur
 6
 </td>
 <td style="text-align:left;">
-EdoPerezP
+n_bouatianaji
 </td>
 <td style="text-align:left;">
-Que privilegio estar aqui nuevamente en la reunión anual de la sociedad americana de genética #ASHG18. Fascinante. <a href="https://t.co/m3lfvLEQht" class="uri">https://t.co/m3lfvLEQht</a>
+Looking forward to this afternoon #CRISPR hands on data workshop #ASHG18 to moderate with colleagues from <span class="citation">@GenPrecisionMed</span> early career committee <span class="citation">@sony_tuteja</span> <span class="citation">@stella</span> Anwar Chahal Jenny Huffman Stella Aslibekyan and <span class="citation">@kiranmusunuru</span>
 </td>
 <td style="text-align:right;">
-0.2004236
+0.1456457
 </td>
 </tr>
 <tr>
@@ -1965,13 +1967,13 @@ Que privilegio estar aqui nuevamente en la reunión anual de la sociedad america
 6
 </td>
 <td style="text-align:left;">
-Covaris
+manoliskellis
 </td>
 <td style="text-align:left;">
-Todays the day! Come to CoLab #1 at 10:00 AM to hear Byung Woo Kim’s presentation titled: Standardization of the ChIP workflow using Covaris Adaptive Focused Acoustics® (AFA®) to study the transcriptional regulation of SOD1 in ALS pathogenesis. #ASHG18 #ChIP <a href="https://t.co/nZK3s28JqX" class="uri">https://t.co/nZK3s28JqX</a>
+Mosaicism in #Alzheimers from #SingleCell RNA-seq. Up next in Rm 6A by <span class="citation">@MITCSBPhD</span> student Carles Boix, Maria Kousi, Li-Huei Tsai <span class="citation">@manoliskellis</span> et al #ASHG18 #ASHG2018 <a href="https://t.co/4UFKOEk3vY" class="uri">https://t.co/4UFKOEk3vY</a> <a href="https://t.co/kn0Cs9FOSo" class="uri">https://t.co/kn0Cs9FOSo</a>
 </td>
 <td style="text-align:right;">
-0.1957404
+0.1298428
 </td>
 </tr>
 <tr>
@@ -1979,69 +1981,559 @@ Todays the day! Come to CoLab #1 at 10:00 AM to hear Byung Woo Kim’s presentat
 6
 </td>
 <td style="text-align:left;">
-AAAS_DoSER
+thatdnaguy
 </td>
 <td style="text-align:left;">
-Learn best practices to effectively engage at the intersection of science, culture &amp;amp; faith! On 10/6 we’re hosting a workshop on effective public science engagement <a href="mailto:w/@MeetAScientist">w/@MeetAScientist</a> at <span class="citation">@GeneticsSociety</span> #ASHG18. Register for the free workshop&amp;amp;breakfast at <a href="https://t.co/QdZbHd4WGN" class="uri">https://t.co/QdZbHd4WGN</a> <a href="https://t.co/F1BIYyVm8B" class="uri">https://t.co/F1BIYyVm8B</a>
+#ASHG18 JV: 3 medical centers. 5 outpatient centers. 51428 unique patients. patients; enrolled by provider. 40-75 yo. elevated CVD risk by ACC/AHA 2013 criteria. No hx of statin use.
 </td>
 <td style="text-align:right;">
-0.1953049
+0.1291200
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
 6
+</td>
+<td style="text-align:left;">
+basel_bargho
+</td>
+<td style="text-align:left;">
+Parsana et al. show that WGCNA networks generated after PC-based correction contained fewer false positives, while using single or multiple covariates fails to remove artificial variation. #ASHG18
+</td>
+<td style="text-align:right;">
+0.1266504
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+CharlestonCWKC
+</td>
+<td style="text-align:left;">
+PV: repeating analysis using LD/MAF annotations from external dataset (UK10K) is qualitatively similar (but total h2 down to ~60%, because only 14M variants overlap between TOPMed and UK10K). #ASHG18
+</td>
+<td style="text-align:right;">
+0.1263157
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+appliedgenomics
+</td>
+<td style="text-align:left;">
+John Connolly will be presenting Reviewers Choice abstract 2531 on Screening for 22q11.2 dels and dups in a large biobank data-set uncovers new and undiagnosed cases @ 2PM #ASHG18 #22q <a href="https://t.co/fsg0IQempC" class="uri">https://t.co/fsg0IQempC</a>
+</td>
+<td style="text-align:right;">
+0.1259524
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Rob_O_Malley
+</td>
+<td style="text-align:left;">
+<span class="citation">@sexchrlab</span> Thank you for this powerful thread. There’s an odd subtext to a lot of the phrasing about genetics, esp. the 20th century incl. things heard at #ASHG18 e.g., “genetics was subverted to advance racist ideologies” vs. “racist ideologies were advanced by [some] leading geneticists”
+</td>
+<td style="text-align:right;">
+0.1251737
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-7" class="section level4 unnumbered">
+<h4>Topic 7</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+ivivek87
+</td>
+<td style="text-align:left;">
+For next 9 nights 9 airports and amazing multitude of science and knowledge gathering. Excited as a kid and looking forward to learn. SEA&amp;gt;SAN&amp;gt;ORD&amp;gt;ARN&amp;gt;HEL&amp;gt;CPH&amp;gt;IAD&amp;gt;SAN&amp;gt;SEA #CKD #DKD #Genomics #Bioinformatics #PrecisionMedicine #biomarkers #healthcare #ASHG18
+</td>
+<td style="text-align:right;">
+0.1600693
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+pmerel
+</td>
+<td style="text-align:left;">
+#ASHG18 Les congressistes sont accueillis dès l’entrée par un panneau de #sophiageneticss Bravo #bigup #suisse #france <a href="https://t.co/fLK8bFom3i" class="uri">https://t.co/fLK8bFom3i</a>
+</td>
+<td style="text-align:right;">
+0.1470022
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+KempenLS
+</td>
+<td style="text-align:left;">
+Conferences: - #ASHG18 - San Diego, 16-20 Oct - #NACFC18- Denver, 18-20 Oct with $GLPG - #ESMO18 - Munich, 19-23 Oct with $GEN, $BCART, $NANO, $CYAD - #ACR18 - Chicago, 19-24 Oct with $GLPG, $MOR - #ANA18 - Atlanta, 21-23 Oct
+</td>
+<td style="text-align:right;">
+0.1437746
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+iGenomics
+</td>
+<td style="text-align:left;">
+<span class="citation">@erlichya</span> : <span class="citation">@23andMe</span> files uploaded to Personal Genome Project (<span class="citation">@PGorg</span>), when unzipped, the filename may have person’s name. It only needs 28 bit info to identify a person. Zipcode provides 13.8bit, surname-12.9bit, hight-5.0, year of birth-6.3bit #ASHG18 #ASHG2018
+</td>
+<td style="text-align:right;">
+0.1415061
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+VUMCgenetics
+</td>
+<td style="text-align:left;">
+VGI investigators had a GREAT week: <span class="citation">@NancyGenetics</span> in <span class="citation">@NatureNV</span>, <span class="citation">@egamazon</span> in the VUMC Reporter, Tony Capra on PBS, and <span class="citation">@jdnashville</span> in <span class="citation">@NAMedicine</span>. Heading into another great week: #ASHG18 <a href="https://t.co/Vpo8iOy7L0" class="uri">https://t.co/Vpo8iOy7L0</a> <a href="https://t.co/nf9F3zpI9P" class="uri">https://t.co/nf9F3zpI9P</a> <a href="https://t.co/W3W7zV4zhO" class="uri">https://t.co/W3W7zV4zhO</a>
+</td>
+<td style="text-align:right;">
+0.1414393
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
 </td>
 <td style="text-align:left;">
 <em>klkeys</em>
 </td>
 <td style="text-align:left;">
-<span class="citation">@SINGConsortium</span> MT: Hawaiian communities are very small. Establishing own biobank too hard. Instead, infiltrate existing biobanks where Hawaiian data exist. Ensure that those spaces abide by ethical standards. Hawaiian reps now sit on biobank governing boards. #ashg18 #silentgenomes
+<span class="citation">@SINGConsortium</span> NC: Canada is 2nd largest country by landmass, 240th by density. Most live near border. Metis, 1st Nations and Inuit live farther north. Distance, remoteness complicate addressing health inequities. #indigenomes #silentgenomes #ashg18
 </td>
 <td style="text-align:right;">
-0.1952215
+0.1394308
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-6
+7
 </td>
 <td style="text-align:left;">
-Single_Molecule
+OmniInc
 </td>
 <td style="text-align:left;">
-#ASHG18 DC: have patient with RBPMS.NRG1 fusion, treated successfully then EGFR amplification emerged and RBPMS.NRG1 gone, treated again and EGFR gone and RBPMS.NRG1 back
+The Omni team is at #ASHG18 in San Diego! Don’t miss the largest human genetics meeting in the world. Visit us at booth 1240 to learn more about our innovative sample prep technology and get a live demo of the Bead Ruptor Elite bead mill #homogenizer. <a href="https://t.co/31IOAJ2H4j" class="uri">https://t.co/31IOAJ2H4j</a> <a href="https://t.co/xi3xOX389y" class="uri">https://t.co/xi3xOX389y</a>
 </td>
 <td style="text-align:right;">
-0.1930002
+0.1384330
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-6
+7
 </td>
 <td style="text-align:left;">
-saralpulit
+sawerkar
 </td>
 <td style="text-align:left;">
-“A test of whether a person is indigenous based on biology is not only scientifically untenable but contrary to international human rights principles.” -Australian Human Rights Commission (in Ngiare Brown’s presentation). #ASHG18 #SIlentGenomes
+World is going lot ahead of us #genetics #healthcare #raredisorders #PrecisionMedicine #ASHG18 #ashg2018 ; we are stuck in who is authority, medico or non-medico researcher in India #healthcareIndia #India #jammuKashmir <span class="citation">@raredisease_Ind</span>
 </td>
 <td style="text-align:right;">
-0.1928706
+0.1379626
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-6
+7
 </td>
 <td style="text-align:left;">
-PittHUGEN
+OmniInc
 </td>
 <td style="text-align:left;">
-Our own <span class="citation">@PittGCProgram</span> Director Robin Grubs served on the #ASHG18 Program Cttee. Many thanks to her for bringing her insights and expertise to the program.
+The Omni team is at #ASHG18 in San Diego! Where all the thought leaders in human genetics come together. Stop by booth 1240 to learn more about our innovative sample prep technology and get a live demo of the Bead Ruptor Elite bead mill #homogenizer. <a href="https://t.co/VQf4heBlUm" class="uri">https://t.co/VQf4heBlUm</a> <a href="https://t.co/TfkX9UA7jq" class="uri">https://t.co/TfkX9UA7jq</a>
 </td>
 <td style="text-align:right;">
-0.1927690
+0.1377526
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+princyparsana
+</td>
+<td style="text-align:left;">
+On the way to #ASHG18 to learn, meet, and share! interested in knowing how latent artifacts affect reconstruction of coexpression networks? Come to my talk on Fri, Room 6C #womeninSTEM #scientistMom cc Claire Ruberman, .@jtleek <span class="citation">@alexisjbattle</span> <span class="citation">@andrewejaffe</span> <span class="citation">@mike_schatz</span> <a href="https://t.co/n3VrclqHS3" class="uri">https://t.co/n3VrclqHS3</a>
+</td>
+<td style="text-align:right;">
+0.1375575
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-8" class="section level4 unnumbered">
+<h4>Topic 8</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+genotepes
+</td>
+<td style="text-align:left;">
+Deleting own tweets ? “Following the arrest and punishment of Lavrentiy Beria,. in 1953 the Soveiet Encyclopedia mailed subscribers .. instructing them to cut out and destroy the article on Beria and paste in its place .. articles on F. W. Bergholz, the Bering Sea”.. #ASHG18
+</td>
+<td style="text-align:right;">
+0.1721531
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+gene42inc
+</td>
+<td style="text-align:left;">
+2/4 Our booth went from Toronto to Regina, from Regina to Winnipeg, from Winnipeg to Pembina, from Pembina to Fargo and from Fargo to Eagan last we heard. It’s traveled 3,861km and has another 3,182km to go. Note: Toronto to San Diego is 4,153km #ASHG18 <a href="https://t.co/d9xIQK7KYZ" class="uri">https://t.co/d9xIQK7KYZ</a>
+</td>
+<td style="text-align:right;">
+0.1686861
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+sebatlab
+</td>
+<td style="text-align:left;">
+<span class="citation">@ChloeReuterCGC</span> My tips for best the Mexican in downtown. For upscale Mexican (including vegan) Puesto is the place. Also Serrano’s. For the real thing take a 10 min uber to Las Cuatro Milpas in Barrio Logan #ASHG18
+</td>
+<td style="text-align:right;">
+0.1512812
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+sebatlab
+</td>
+<td style="text-align:left;">
+My tips for the best Mexican in downtown: For upscale Mexican (including vegan) and KILLER margaritas, Puesto is the place. For the real thing go to Las Cuatro Milpas #ASHG18 <span class="citation">@GeneticsSociety</span>
+</td>
+<td style="text-align:right;">
+0.1450712
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Alpaqua
+</td>
+<td style="text-align:left;">
+Come see the brand new ALPAQUA Catalyst™ 96 Slotted Ring Magnet Plate at #ASHG18 - Booth 915 Get all the benefits of ring magnets in a format optimized for manual pipetting, and never worry about picking up beads again! <a href="https://t.co/qqffeJXpl5" class="uri">https://t.co/qqffeJXpl5</a>
+</td>
+<td style="text-align:right;">
+0.1421179
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+DaleYuzuki
+</td>
+<td style="text-align:left;">
+Lehmann #ASHG18 TCGA: 8K donors, collected matching RNA and WES data. Reprocessed entire dataset, included complementary data sources (GTEx, CPTAC, FIrehose), ID splicing QTLs, and char diff splicing
+</td>
+<td style="text-align:right;">
+0.1400288
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+CellPressNews
+</td>
+<td style="text-align:left;">
+TIA1 Mutations in Amyotrophic Lateral Sclerosis and Frontotemporal Dementia Promote Phase Separation and Alter Stress Granule Dynamics <span class="citation">@MayoClinic</span> <span class="citation">@StJude</span> <span class="citation">@NeuroCellPress</span> #ASHG18 <a href="https://t.co/MOnGUd1iea" class="uri">https://t.co/MOnGUd1iea</a>
+</td>
+<td style="text-align:right;">
+0.1378510
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+cgonzagaj
+</td>
+<td style="text-align:left;">
+LM Starita assayed all possible amino acid substitutions in BRCA1 using a Homology Dependent Repair (HDR) high-throughout functional assay to test the effect of variants in DSBR function Readout for &amp;gt;1000 variants, benign variants were able to rescue phenotype #ASHG18
+</td>
+<td style="text-align:right;">
+0.1368286
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+georgemias
+</td>
+<td style="text-align:left;">
+<span class="citation">@ETH_en</span> EW: Mass spec proteomics Technical Reproducibility: • Shotgun replicates:  r squared -.76 • SRM: r squared .98 [PMID 25215496] • Swath:  r squared .92 [pmid 29945935] #ASHG18 #proteomics
+</td>
+<td style="text-align:right;">
+0.1361263
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+CommsBio
+</td>
+<td style="text-align:left;">
+<p>Activated protein C reverses epigenetically sustained p66Shc expression in plaque-associated macrophages in #diabetes <a href="https://t.co/VcJyNhpgwu" class="uri">https://t.co/VcJyNhpgwu</a></p>
+#ASHG18 #epigenetics #3Dgenome <a href="https://t.co/x5wJxKmBvB" class="uri">https://t.co/x5wJxKmBvB</a>
+</td>
+<td style="text-align:right;">
+0.1345100
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-9" class="section level4 unnumbered">
+<h4>Topic 9</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+topic
+</th>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+mazerunnrmovie
+</td>
+<td style="text-align:left;">
+Get our best selling all #TheMazeRunner #Bracelet for just $14.95 Have it👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> Shop Now👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> #mazerunner #ScorhTrials #deathcure #pleasetommyplease #newtmas #dlymas #bfcm #NationalPastaDay #WednesdayWisdom #ASHG18 #PronounsDay #NXTUK <a href="https://t.co/7fcXMu2gA1" class="uri">https://t.co/7fcXMu2gA1</a>
+</td>
+<td style="text-align:right;">
+0.1710049
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+cathcoste
+</td>
+<td style="text-align:left;">
+RT <span class="citation">@pmerel</span> Je vais préparer un papier sur la présentation du BGI et ses 3,5 millions de génomes testés en prénatal non invasif #ASHG18 #Chine #genomics #Beijing <a href="https://t.co/Pnkpum6Zga" class="uri">https://t.co/Pnkpum6Zga</a> &amp;amp; <a href="https://t.co/iF5oc03uNy" class="uri">https://t.co/iF5oc03uNy</a>
+</td>
+<td style="text-align:right;">
+0.1705283
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+infoecho
+</td>
+<td style="text-align:left;">
+AP, with current technology, we can resolve 90% of the human genome… unresolved regions: - CEN/ Peri-CEN, 254.5 Mb - Low depth, 0.4 Mbp - Unresolved DUP, 19.9Mb, high-identity set-dup #ASHG18
+</td>
+<td style="text-align:right;">
+0.1544313
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+cathcoste
+</td>
+<td style="text-align:left;">
+Finalement la genetique est a l’honneur dans #TheVoiceKids et quelle meilleure ambassadrice qu’Emma ? 😍 <span class="citation">@portablegenomic</span> <span class="citation">@health20Paris</span> <span class="citation">@Billaut</span> #ASHG18 <a href="https://t.co/i9RzD3Ih6h" class="uri">https://t.co/i9RzD3Ih6h</a>
+</td>
+<td style="text-align:right;">
+0.1484954
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+GeneticsSociety
+</td>
+<td style="text-align:left;">
+<span class="citation">@dllt62</span> Bonjour! Pas cette année, mais consultez la liste complète des #ASHG18 exposants ici: <a href="https://t.co/MWmQVAJTO6" class="uri">https://t.co/MWmQVAJTO6</a>
+</td>
+<td style="text-align:right;">
+0.1433063
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+CatCafeSanDiego
+</td>
+<td style="text-align:left;">
+.@GeneticsSociety take a break from #ashg18 with our cute #cats and enjoy good #coffee And you can talk about cat coloration genetics with us. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes a food or drink item. <a href="https://t.co/hnibwf0ssU" class="uri">https://t.co/hnibwf0ssU</a>
+</td>
+<td style="text-align:right;">
+0.1414009
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+jvkohl
+</td>
+<td style="text-align:left;">
+#ASHG18 Light-tracking in Brugmansia and light-activated microRNA biogenesis link biophysically constrained viral latency to all biodiversity via games for ages 10+. See for examples: Cytosis <a href="https://t.co/QKWSMw0Aqh" class="uri">https://t.co/QKWSMw0Aqh</a> and Subatomic <a href="https://t.co/Pm3gU9Y84T" class="uri">https://t.co/Pm3gU9Y84T</a> <a href="https://t.co/nklp5YkSxb" class="uri">https://t.co/nklp5YkSxb</a>
+</td>
+<td style="text-align:right;">
+0.1403498
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+CatCafeSanDiego
+</td>
+<td style="text-align:left;">
+.@GeneticsSociety take a break from #ashg18 with our cute #cats and enjoy good #coffee Maybe you can help us understand the genetics of cat coloration. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes food or drink. <a href="https://t.co/PJjHzHiOsV" class="uri">https://t.co/PJjHzHiOsV</a>
+</td>
+<td style="text-align:right;">
+0.1388125
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+CatCafeSanDiego
+</td>
+<td style="text-align:left;">
+.@GeneticsSociety last chance to make our cute #cats and award winning locally roasted #coffee part of your #ashg18 experience. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes a food or drink item. <a href="https://t.co/B5FzRRQEfr" class="uri">https://t.co/B5FzRRQEfr</a>
+</td>
+<td style="text-align:right;">
+0.1362869
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:left;">
+lauren_tindale
+</td>
+<td style="text-align:left;">
+Astronauts and Super-Seniors and stem cells, OH MY! Check out the invited session “Novel Insights in Aging” at #ASHG18 with Dr Steve Horvath, Dr Angie Brooks-Wilson, Dr Danica Chen, and <span class="citation">@mason_lab</span> today at 10:30am! S/o to #ASHGtrainee moderators <span class="citation">@ripplesintime24</span> and <span class="citation">@BurcuDarst</span>!
+</td>
+<td style="text-align:right;">
+0.1346519
 </td>
 </tr>
 </tbody>
@@ -2059,7 +2551,7 @@ Our own <span class="citation">@PittGCProgram</span> Director Robin Grubs served
 ##  language (EN)                        
 ##  collate  en_AU.UTF-8                 
 ##  tz       Australia/Melbourne         
-##  date     2018-10-18                  
+##  date     2018-10-22                  
 ## 
 ##  package      * version    date       source                            
 ##  assertthat     0.2.0      2017-04-11 CRAN (R 3.5.0)                    
@@ -2072,7 +2564,6 @@ Our own <span class="citation">@PittGCProgram</span> Director Robin Grubs served
 ##  colorspace     1.3-2      2016-12-14 CRAN (R 3.5.0)                    
 ##  compiler       3.5.1      2018-07-05 local                             
 ##  crayon         1.3.4      2017-09-16 CRAN (R 3.5.0)                    
-##  curl           3.2        2018-03-28 CRAN (R 3.5.0)                    
 ##  datasets     * 3.5.1      2018-07-05 local                             
 ##  devtools       1.13.6     2018-06-27 CRAN (R 3.5.0)                    
 ##  digest         0.6.17     2018-09-12 CRAN (R 3.5.0)                    
@@ -2112,7 +2603,6 @@ Our own <span class="citation">@PittGCProgram</span> Director Robin Grubs served
 ##  munsell        0.5.0      2018-06-12 CRAN (R 3.5.0)                    
 ##  nlme           3.1-137    2018-04-07 CRAN (R 3.5.1)                    
 ##  NLP            0.1-11     2017-08-15 CRAN (R 3.5.0)                    
-##  openssl        1.0.2      2018-07-30 CRAN (R 3.5.0)                    
 ##  parallel       3.5.1      2018-07-05 local                             
 ##  pillar         1.3.0      2018-07-14 CRAN (R 3.5.0)                    
 ##  pkgconfig      2.0.2      2018-08-16 CRAN (R 3.5.0)                    

@@ -65,14 +65,16 @@ timezone <- "America/Los_Angeles"
 days <- c("2018-10-16", "2018-10-17", "2018-10-18", "2018-10-19", "2018-10-20")
 accent <- "skyblue3"
 pal <- "Set1"
-topics_k <- 6
-fixed <- FALSE # Set to TRUE to stop adding new tweets
+kcore <- 30
+topics_k <- 9
+bigram_filter <- 15
+fixed <- TRUE # Set to TRUE to stop adding new tweets
 
 params <- data.frame(Parameter = c("Hashtag", "Conference", "Time Zone", "Days",
-                                   "Accent colour", "Pallete", "Topics k",
-                                   "Fixed"))
-params_list <- list(hashtag, conf_name, timezone, days, accent, pal, topics_k,
-                    fixed)
+                                   "Accent colour", "Pallete", "k-core",
+                                   "Topics k", "Bigram filter", "Fixed"))
+params_list <- list(hashtag, conf_name, timezone, days, accent, pal, kcore, 
+                    topics_k, bigram_filter, fixed)
 params$Value <- params_list
 ```
 
@@ -355,7 +357,7 @@ ggraph(tweets_replies, layout = "fr") +
                    end_cap = circle(1, 'mm'),
                    colour = "darkgrey") +
     geom_node_point(aes(colour = pr)) +
-    geom_node_text(aes(label = label), colour = accent, repel = TRUE) +
+    geom_node_text(aes(label = label), colour = accent, repel = FALSE) +
     viridis::scale_colour_viridis() +
     theme_graph() +
     theme(legend.position = "none")
@@ -363,8 +365,9 @@ ggraph(tweets_replies, layout = "fr") +
 
 ## Mentions
 
-The "mentions network", where users mention other users in their tweets. Node
-colour, label size and alpha adjusted according to PageRank score.
+The "mentions network", where users mention other users in their tweets.
+Filtered for a k-core of `r kcore`. Node colour and size adjusted according to 
+PageRank score.
 
 ```{r mentions-network}
 tweets_mentions <- tweets %>% 
@@ -380,7 +383,7 @@ V(tweets_mentions)$id    <- V(tweets_mentions)$name
 V(tweets_mentions)$pr    <- page_rank(tweets_mentions)$vector
 V(tweets_mentions)$kcore <- coreness(tweets_mentions)
 
-lo_kcore <- V(tweets_mentions)$kcore < 3
+lo_kcore <- V(tweets_mentions)$kcore < kcore
 
 tweets_mentions <- delete_vertices(tweets_mentions,
                                    V(tweets_mentions)[lo_kcore])
@@ -390,8 +393,8 @@ ggraph(tweets_mentions, layout = "fr") +
                    end_cap = circle(1, 'mm'),
                    width = 0.1, colour = "darkgrey") +
     geom_node_point(aes(colour = pr)) +
-    geom_node_text(aes(label = label, size = pr, alpha = pr),
-                   colour = accent, repel = TRUE) +
+    geom_node_text(aes(label = label, size = pr,),
+                   colour = accent, repel = FALSE) +
     scale_colour_viridis() +
     theme_graph() +
     theme(legend.position = "none")
@@ -578,7 +581,7 @@ tweets %>%
 
 ## Bigram graph
 
-Words that were tweeted next to each other at least 5 times.
+Words that were tweeted next to each other at least `r bigram_filter` times.
 
 ```{r bigram-graph}
 tweets %>% 
@@ -597,7 +600,7 @@ tweets %>%
            !word2 %in% tolower(tweets$screen_name), 
            !grepl("^\\d+$", word2)) %>%
     count(word1, word2, sort = TRUE) %>%
-    filter(n > 5) %>%
+    filter(n > bigram_filter) %>%
     graph_from_data_frame() %>%
     ggraph(layout = "fr") +
         geom_edge_link(aes(edge_colour = n),
