@@ -34,6 +34,8 @@ library("dplyr")
 library("tidyr")
 library("lubridate")
 library("forcats")
+library("purrr")
+library("stringr")
 
 # Text analysis
 library("tidytext")
@@ -91,7 +93,7 @@ if (fixed) {
     if (file.exists(data_file)) {
         tweets <- readRDS(data_file)
     } else {
-        stop("fixed is TRUE but no data file exits", call. = FALSE)
+        stop("fixed is TRUE but no data file exists", call. = FALSE)
     }
 } else {
     if (file.exists(data_file)) {
@@ -686,6 +688,49 @@ out <- knit_child(text = unlist(src_list))
 ```
 
 `r out`
+
+# Software
+
+Software mentioned in Tweets with links to GitHub, Bioconductor or CRAN.
+
+```{r software}
+urls <- discard(tweets$urls_expanded_url, ~ all(is.na(.x))) %>%
+    flatten_chr() %>%
+    unique()
+
+regexes <- list(
+    c(Type = "GitHub",
+      re = "http[s]?://github.com/[\\w-]+/([\\w-]+).*"),
+    c(Type = "Bioconductor",
+      re = "https://bioconductor.org/packages.*/(\\w+).*"),
+    c(Type = "CRAN",
+      re = "https://cran.*/packages/(\\w+).*")
+)
+
+software <- map_df(regexes, function(re) {
+    urls %>%
+        str_match(re["re"]) %>%
+        as_tibble() %>%
+        rename(URL = V1, Name = V2) %>%
+        mutate(Type = re["Type"])
+})
+
+software <- software %>%
+    drop_na() %>%
+    mutate(
+        Link = case_when(
+            Type == "GitHub" ~ str_to_lower(str_replace(URL, "http:", "https:")),
+            Type == "Bioconductor" ~ paste0("https://bioconductor.org/packages/", Name),
+            Type == "CRAN" ~ paste0("https://CRAN.R-project.org/package=", Name),
+            TRUE ~ URL
+        )
+    ) %>%
+    select(-URL) %>%
+    distinct() %>%
+    arrange(Name)
+
+kable(software)
+```
 
 # Session info {.unnumbered}
 
