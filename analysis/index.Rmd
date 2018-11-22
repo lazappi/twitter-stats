@@ -4,9 +4,13 @@ title: "Twitter stats"
 
 Analysis of the following Twitter hashtags:
 
+* [ABACBS18](ABACBS18.html) - [Australian Bioinformatics and Computational Biology Society conference][ABACBS18], 26-28 November 2018, The University of Melbourne, Melbourne Australia
+* [COMBINE18](COMBINE18.html) - [COMBINE Symposium][COMBINE18], 26 November 2018, The University of Melbourne, Melbourne Australia
 * [ASHG18](ASHG18.html) - [American Society of Human Genetics 68th Annual meeting][ASHG18], 16-20 October 2018, San Diego Convention Center, San Diego USA
 * [GI2018](gi2018.html) - [Genome Informatics conference][GI2018], 17-20
   September 2018, Wellcome Genome Campus, Hinxton UK
 
+[ABACBS18]: https://www.abacbs.org/conference2018/about/ "ABACBS 2018"
+[COMBINE18]: https://combine.org.au/symposium-2018/ "COMBINE18"
 [ASHG18]: https://www.ashg.org/2018meeting/index.shtml "ASHG 2018"
 [GI2018]: https://coursesandconferences.wellcomegenomecampus.org/our-events/genome-informatics-2018/ "Genome Informatics 2018"

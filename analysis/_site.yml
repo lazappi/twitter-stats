@@ -7,6 +7,10 @@ navbar:
       href: index.html
     - text: "Hashtags"
       menu:
+        - text: "ABACBS18"
+          href: ABACBS18.html
+        - text: "COMBINE18"
+          href: COMBINE18.html
         - text: "ASHG18"
           href: ASHG18.html
         - text: "GI2018"
