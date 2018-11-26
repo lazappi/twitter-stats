@@ -68,8 +68,8 @@ days <- c("2018-11-26")
 accent <- "#4a86e8"
 pal <- "Set1"
 kcore <- 2
-topics_k <- 9
-bigram_filter <- 1
+topics_k <- 3
+bigram_filter <- 3
 fixed <- FALSE # Set to TRUE to stop adding new tweets
 
 params <- data.frame(Parameter = c("Hashtag", "Conference", "Time Zone", "Days",
