@@ -61,15 +61,15 @@ library("here")
 ```{r params}
 set.seed(1)
 
-hashtag <- "#ABACBS18"
+hashtag <- "#ABACBS2018"
 conf_name <- "ABACBS 2018 conference"
 timezone <- "Australia/Melbourne"
 days <- c("2018-11-26", "2018-11-27", "2018-11-28")
 accent <- "#dd0c15"
 pal <- "Set1"
 kcore <- 2
-topics_k <- 9
-bigram_filter <- 1
+topics_k <- 6
+bigram_filter <- 3
 fixed <- FALSE # Set to TRUE to stop adding new tweets
 
 params <- data.frame(Parameter = c("Hashtag", "Conference", "Time Zone", "Days",
@@ -701,6 +701,8 @@ urls <- discard(tweets$urls_expanded_url, ~ all(is.na(.x))) %>%
 regexes <- list(
     c(Type = "GitHub",
       re = "http[s]?://github.com/[\\w-]+/([\\w-]+).*"),
+    c(Type = "BitBucket",
+      re = "http[s]?://bitbucket.org/[\\w-]+/([\\w-]+).*"),
     c(Type = "Bioconductor",
       re = "https://bioconductor.org/packages.*/(\\w+).*"),
     c(Type = "CRAN",
@@ -720,6 +722,7 @@ software <- software %>%
     mutate(
         Link = case_when(
             Type == "GitHub" ~ str_to_lower(str_replace(URL, "http:", "https:")),
+            Type == "BitBucket" ~ str_to_lower(str_replace(URL, "http:", "https:")),
             Type == "Bioconductor" ~ paste0("https://bioconductor.org/packages/", Name),
             Type == "CRAN" ~ paste0("https://CRAN.R-project.org/package=", Name),
             TRUE ~ URL
