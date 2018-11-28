@@ -70,7 +70,7 @@ pal <- "Set1"
 kcore <- 2
 topics_k <- 6
 bigram_filter <- 3
-fixed <- FALSE # Set to TRUE to stop adding new tweets
+fixed <- TRUE # Set to TRUE to stop adding new tweets
 
 params <- data.frame(Parameter = c("Hashtag", "Conference", "Time Zone", "Days",
                                    "Accent colour", "Pallete", "k-core",
@@ -691,7 +691,8 @@ out <- knit_child(text = unlist(src_list))
 
 # Software
 
-Software mentioned in Tweets with links to GitHub, Bioconductor or CRAN.
+Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or
+CRAN.
 
 ```{r software}
 urls <- discard(tweets$urls_expanded_url, ~ all(is.na(.x))) %>%
