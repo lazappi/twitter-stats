@@ -8,7 +8,7 @@ navbar:
     - text: "Hashtags"
       menu:
         - text: "KSSingleCell19"
-          href: KSSingleCell18.html
+          href: KSSingleCell19.html
         - text: "ABACBS18"
           href: ABACBS18.html
         - text: "COMBINE18"
