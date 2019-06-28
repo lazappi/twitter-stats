@@ -70,7 +70,7 @@ pal <- "Set1"
 kcore <- 2
 topics_k <- 6
 bigram_filter <- 3
-fixed <- FALSE # Set to TRUE to stop adding new tweets
+fixed <- TRUE # Set to TRUE to stop adding new tweets
 
 params <- data.frame(Parameter = c("Hashtag", "Conference", "Time Zone", "Days",
                                    "Accent colour", "Pallete", "k-core",
