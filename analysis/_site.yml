@@ -1,27 +1,19 @@
 name: "twitter-stats"
 output_dir: "../docs"
 navbar:
-  title: "lazappi's Twitter stats"
+  title: "kevinrue's Twitter stats"
   left:
     - text: "Home"
       href: index.html
     - text: "Hashtags"
       menu:
-        - text: "KSSingleCell19"
-          href: KSSingleCell19.html
-        - text: "ABACBS18"
-          href: ABACBS18.html
-        - text: "COMBINE18"
-          href: COMBINE18.html
-        - text: "ASHG18"
-          href: ASHG18.html
-        - text: "GI2018"
-          href: gi2018.html
+        - text: "Bioc2019"
+          href: Bioc2019.html
   right:
     - text: "About"
       href: about.html
     - icon: fa-github fa-lg
-      href: https://github.com/lazappi/twitter-stats
+      href: https://github.com/kevinrue/twitter-stats
 output:
   html_document:
     theme: cosmo

@@ -4,4 +4,6 @@ title: "About"
 
 This website displays the results of analysing Twitter activity for various
 hashtags. The analysis code is covered by an MIT license and can be accessed
-on [GitHub](https://github.com/lazappi/twitter-stats).
+on [GitHub](https://github.com/kevinrue/twitter-stats).
+
+This repository was forked from [Luke Zappia](https://github.com/lazappi/twitter-stats).
