@@ -1,7 +1,13 @@
 ---
 title: "About"
+output:
+  html_document:
+    toc: no
 ---
 
 This website displays the results of analysing Twitter activity for various
 hashtags. The analysis code is covered by an MIT license and can be accessed
-on [GitHub](https://github.com/lazappi/twitter-stats).
+on [GitHub][]. It was created using the _[clamour][]_ package.
+
+[GitHub]: (https://github.com/lazappi/twitter-stats)
+[clamour]: https://lazappi.github.io/clamour "clamour package website"

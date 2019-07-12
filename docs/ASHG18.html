@@ -9,10 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Luke Zappia" />
 
 
-<title>Twitter coverage of the American Society of Human Genetics 68th Annual Meeting</title>
+<title>ASHG18</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,9 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -76,9 +74,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -103,6 +99,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -117,7 +116,6 @@ body {
   padding-top: 56px;
   margin-top: -56px;
 }
-
 .section h2 {
   padding-top: 56px;
   margin-top: -56px;
@@ -137,6 +135,43 @@ body {
 .section h6 {
   padding-top: 56px;
   margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -158,18 +193,75 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -247,8 +339,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -257,6 +347,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -285,21 +385,6 @@ div.tocify {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Hashtags
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="ASHG18.html">ASHG18</a>
-    </li>
-    <li>
-      <a href="gi2018.html">GI2018</a>
-    </li>
-  </ul>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -320,9 +405,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Twitter coverage of the American Society of Human Genetics 68th Annual Meeting</h1>
-<h4 class="author"><em>Luke Zappia</em></h4>
-<h4 class="date"><em>2018-11-22 10:41:45</em></h4>
+<h1 class="title toc-ignore">ASHG18</h1>
+<h3 class="subtitle">American Society of Human Genetics 68th Annual Meeting</h3>
+<h4 class="date">2019-07-12 14:54:44</h4>
 
 </div>
 
@@ -337,50 +422,59 @@ div.tocify {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Hashtag</td>
+<td align="left">hashtag</td>
 <td align="left">#ASHG18</td>
 </tr>
 <tr class="even">
-<td align="left">Conference</td>
-<td align="left">American Society of Human Genetics 68th Annual Meeting</td>
+<td align="left">start_day</td>
+<td align="left">2018-10-16</td>
 </tr>
 <tr class="odd">
-<td align="left">Time Zone</td>
+<td align="left">end_day</td>
+<td align="left">2018-10-20</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
 <td align="left">America/Los_Angeles</td>
 </tr>
-<tr class="even">
-<td align="left">Days</td>
-<td align="left">c(“2018-10-16”, “2018-10-17”, “2018-10-18”, “2018-10-19”, “2018-10-20”)</td>
-</tr>
 <tr class="odd">
-<td align="left">Accent colour</td>
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
 <td align="left">skyblue3</td>
 </tr>
-<tr class="even">
-<td align="left">Pallete</td>
-<td align="left">Set1</td>
-</tr>
 <tr class="odd">
-<td align="left">k-core</td>
+<td align="left">accent2</td>
+<td align="left">#B5D2E6</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
 <td align="left">30</td>
 </tr>
-<tr class="even">
-<td align="left">Topics k</td>
+<tr class="odd">
+<td align="left">topics_k</td>
 <td align="left">9</td>
 </tr>
-<tr class="odd">
-<td align="left">Bigram filter</td>
+<tr class="even">
+<td align="left">bigram_filter</td>
 <td align="left">15</td>
 </tr>
-<tr class="even">
-<td align="left">Fixed</td>
+<tr class="odd">
+<td align="left">fixed</td>
 <td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
 </tr>
 </tbody>
 </table>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>An analysis of tweets from the American Society of Human Genetics 68th Annual Meeting conference. A total of 18120 tweets from 4031 users were collected using the <code>rtweet</code> R package.</p>
+<p>An analysis of tweets from the #ASHG18 hashtag for the <a href="https://www.ashg.org/2018meeting/index.shtml" title="ASHG 2018">American Society of Human Genetics 68th Annual meeting</a>, 16-20 October 2018 at the San Diego Convention Center, San Diego USA.</p>
+<p>A total of 18120 tweets from 4031 users were collected using the <code>rtweet</code> R package.</p>
 </div>
 <div id="timeline" class="section level1">
 <h1><span class="header-section-number">2</span> Timeline</h1>
@@ -396,26 +490,33 @@ div.tocify {
 </div>
 <div id="users" class="section level1">
 <h1><span class="header-section-number">3</span> Users</h1>
-<div id="top-tweeters" class="section level2">
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
 <h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
 <p><img src="figures/ASHG18/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-original-tweeters" class="section level2">
-<h2><span class="header-section-number">3.2</span> Top original tweeters</h2>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
 <p><img src="figures/ASHG18/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/ASHG18/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
 <div id="retweet-proportion" class="section level2">
-<h2><span class="header-section-number">3.3</span> Retweet proportion</h2>
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
 <p><img src="figures/ASHG18/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-by-time" class="section level2">
-<h2><span class="header-section-number">3.4</span> Top tweeters by time</h2>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
 <p><img src="figures/ASHG18/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-by-day" class="section level2">
-<h2><span class="header-section-number">3.5</span> Top tweeters by day</h2>
-<div id="all-tweets" class="section level3 tabset">
-<h3><span class="header-section-number">3.5.1</span> All tweets</h3>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
 <div id="day-1" class="section level4 unnumbered">
 <h4>Day 1</h4>
 <p><img src="figures/ASHG18/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -437,8 +538,8 @@ div.tocify {
 <p><img src="figures/ASHG18/tweets-top-users-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="original-tweets" class="section level3 tabset">
-<h3><span class="header-section-number">3.5.2</span> Original tweets</h3>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
 <div id="day-1-1" class="section level4 unnumbered">
 <h4>Day 1</h4>
 <p><img src="figures/ASHG18/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -460,37 +561,62 @@ div.tocify {
 <p><img src="figures/ASHG18/tweets-top-users-orig-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/ASHG18/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="sources" class="section level2">
-<h2><span class="header-section-number">3.6</span> Sources</h2>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/ASHG18/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/ASHG18/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-2" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/ASHG18/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-5-2" class="section level4 unnumbered">
+<h4>Day 5</h4>
+<p><img src="figures/ASHG18/tweets-top-users-retweets-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
 <p><img src="figures/ASHG18/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-</div>
 <div id="networks" class="section level1">
-<h1><span class="header-section-number">4</span> Networks</h1>
+<h1><span class="header-section-number">5</span> Networks</h1>
 <div id="replies" class="section level2">
-<h2><span class="header-section-number">4.1</span> Replies</h2>
-<p>The “replies network”, composed from users who reply directly to one another, coloured by page rank.</p>
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
 <p><img src="figures/ASHG18/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mentions" class="section level2">
-<h2><span class="header-section-number">4.2</span> Mentions</h2>
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
 <p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 30. Node colour and size adjusted according to PageRank score.</p>
 <p><img src="figures/ASHG18/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="retweets" class="section level1">
-<h1><span class="header-section-number">5</span> Retweets</h1>
-<div id="retweet-proportion-1" class="section level2">
-<h2><span class="header-section-number">5.1</span> Retweet proportion</h2>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
 <p><img src="figures/ASHG18/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="retweet-count" class="section level2">
-<h2><span class="header-section-number">5.2</span> Retweet count</h2>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
 <p><img src="figures/ASHG18/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-retweets" class="section level2">
-<h2><span class="header-section-number">5.3</span> Top retweets</h2>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -620,19 +746,23 @@ ScienceNews
 </tbody>
 </table>
 </div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/ASHG18/most-retweeted-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="favourites" class="section level1">
-<h1><span class="header-section-number">6</span> Favourites</h1>
-<div id="favourite-proportion" class="section level2">
-<h2><span class="header-section-number">6.1</span> Favourite proportion</h2>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
 <p><img src="figures/ASHG18/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="favourite-count" class="section level2">
-<h2><span class="header-section-number">6.2</span> Favourite count</h2>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
 <p><img src="figures/ASHG18/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-favourites" class="section level2">
-<h2><span class="header-section-number">6.3</span> Top favourites</h2>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -762,19 +892,23 @@ If you’re still at #ASHG18 - at 9:45am/Session 99 I’ll be presenting new wor
 </tbody>
 </table>
 </div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/ASHG18/most-favorited-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="quotes" class="section level1">
-<h1><span class="header-section-number">7</span> Quotes</h1>
-<div id="quote-proportion" class="section level2">
-<h2><span class="header-section-number">7.1</span> Quote proportion</h2>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
 <p><img src="figures/ASHG18/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="quote-count" class="section level2">
-<h2><span class="header-section-number">7.2</span> Quote count</h2>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
 <p><img src="figures/ASHG18/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-quotes" class="section level2">
-<h2><span class="header-section-number">7.3</span> Top quotes</h2>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -903,15 +1037,20 @@ Fantastic panel of indigenous scientists in this #SilentGenomes session. #ASHG18
 </tbody>
 </table>
 </div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/ASHG18/most-quoted-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="media" class="section level1">
-<h1><span class="header-section-number">8</span> Media</h1>
-<div id="media-count" class="section level2">
-<h2><span class="header-section-number">8.1</span> Media count</h2>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
 <p><img src="figures/ASHG18/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-media" class="section level2">
-<h2><span class="header-section-number">8.2</span> Top media</h2>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
 <table>
 <thead>
 <tr>
@@ -1039,39 +1178,39 @@ This just makes me happy #ASHG18 <span class="citation">@ceclindgren</span> <spa
 </tr>
 </tbody>
 </table>
-<div id="most-liked-media-image" class="section level3">
-<h3><span class="header-section-number">8.2.1</span> Most liked media image</h3>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
 <p><img src="http://pbs.twimg.com/media/DppisImXcAAtNV6.jpg" /></p>
 </div>
 </div>
-</div>
 <div id="tweet-text" class="section level1">
-<h1><span class="header-section-number">9</span> Tweet text</h1>
+<h1><span class="header-section-number">8</span> Tweet text</h1>
 <div id="word-cloud" class="section level2">
-<h2><span class="header-section-number">9.1</span> Word cloud</h2>
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
 <p>The top 100 words used 3 or more times.</p>
 <p><img src="figures/ASHG18/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="bigram-graph" class="section level2">
-<h2><span class="header-section-number">9.2</span> Bigram graph</h2>
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
 <p>Words that were tweeted next to each other at least 15 times.</p>
 <p><img src="figures/ASHG18/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 <div id="topic-modelling" class="section level2">
-<h2><span class="header-section-number">9.3</span> Topic modelling</h2>
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
 <p>Top 10 words associated with 9 topics identified by LDA.</p>
 <p><img src="figures/ASHG18/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
-<div id="representative-tweets" class="section level3 tabset">
-<h3><span class="header-section-number">9.3.1</span> Representative tweets</h3>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
 <p>Most representative tweets for each topic</p>
 <div id="topic-1" class="section level4 unnumbered">
 <h4>Topic 1</h4>
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1085,9 +1224,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 Lau_uribefig
 </td>
@@ -1095,13 +1231,10 @@ Lau_uribefig
 En el congreso más importante de Genética Humana, poca presencia de mexicanos. Destacan trabajos del <span class="citation">@TecdeMonterrey</span> <span class="citation">@H_Infantil_LAC</span> <span class="citation">@langebiomx</span> entre poquitos otros. La Genómica es de colaboración, mientras no se hagan consorcios, Mexico estará siempre atrás. #ASHG18
 </td>
 <td style="text-align:right;">
-0.2136704
+0.2136710
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 mkveerpn
 </td>
@@ -1109,13 +1242,10 @@ mkveerpn
 At my last #ASHG17 talk, <span class="citation">@APalotie</span> sat with me before the talk started and nodded with fist bumps with lab mates during the talk. During the Q&amp;amp;A, would smile and finally a high five at the end. Awesome mentor and lab mates :) <span class="citation">@mitja_kurki</span> <span class="citation">@padgorm</span> #ashg18 <a href="https://t.co/2Txur73l3m" class="uri">https://t.co/2Txur73l3m</a>
 </td>
 <td style="text-align:right;">
-0.1469580
+0.1469587
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 gmrepetto
 </td>
@@ -1123,13 +1253,10 @@ gmrepetto
 Miembros de Soc Chilena de Genética #sochigen presentando en #ASHG18 #ashg2018 <span class="citation">@berebolledo</span> <span class="citation">@Jfcg2101</span> <span class="citation">@raverdugos</span> <span class="citation">@gmrepetto</span> y mas
 </td>
 <td style="text-align:right;">
-0.1395139
+0.1395136
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 jvkohl
 </td>
@@ -1137,13 +1264,10 @@ jvkohl
 #ASHG18 <a href="https://t.co/Rcw3uFIC17" class="uri">https://t.co/Rcw3uFIC17</a> microRNAs (miRNAs) regulate processes related to… cell proliferation, differentiation, survival, metabolism, inflammation, invasion, angiogenesis, and … miR-93-5p inhibited premature cellular senescence… See also <a href="https://t.co/K5Fz77tGAw" class="uri">https://t.co/K5Fz77tGAw</a>
 </td>
 <td style="text-align:right;">
-0.1384369
+0.1384381
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 databricks
 </td>
@@ -1151,13 +1275,10 @@ databricks
 New Blog: Building the Fastest #DNASeq Pipeline at Scale. At roughly the same compute cost, run the Databricks DNASeq pipeline at speeds 3-4x faster than Edico while remaining concordant. #ASHG18 #GATK <a href="https://t.co/eowUK8x0vi" class="uri">https://t.co/eowUK8x0vi</a> <a href="https://t.co/fbO1CbsuYU" class="uri">https://t.co/fbO1CbsuYU</a>
 </td>
 <td style="text-align:right;">
-0.1378112
+0.1378114
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 megisarecruiter
 </td>
@@ -1165,13 +1286,10 @@ megisarecruiter
 New Blog: Building the Fastest #DNASeq Pipeline at Scale. At roughly the same compute cost, run the Databricks DNASeq pipeline at speeds 3-4x faster than Edico while remaining concordant. #ASHG18 #GATK <a href="https://t.co/BNxhXwqPxp" class="uri">https://t.co/BNxhXwqPxp</a> <a href="https://t.co/Zlw1Biqim1" class="uri">https://t.co/Zlw1Biqim1</a>
 </td>
 <td style="text-align:right;">
-0.1371060
+0.1371062
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 dgapgenes
 </td>
@@ -1179,13 +1297,10 @@ dgapgenes
 Congratulations to Charles J. Epstein Trainee Award Semi-Finalists Netta Makinen and <span class="citation">@SamSchilit</span> (from the Morton lab) as well as to Charles J. Epstein Trainee Award Finalist <span class="citation">@RyanLCollins13</span> (from the Talkowski lab) for excellence in their human genetics research! #ASHG18 <a href="https://t.co/tlCccRxZnm" class="uri">https://t.co/tlCccRxZnm</a>
 </td>
 <td style="text-align:right;">
-0.1315919
+0.1315918
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 broadinstitute
 </td>
@@ -1193,13 +1308,10 @@ broadinstitute
 Andy Hollinger is featured in our #WhyIScience Q&amp;amp;A. Meet Andy &amp;amp; colleagues from <span class="citation">@BroadGenomics</span> at #ASHG18 booth 1634 &amp;amp; let them connect you with the Broad resources and researchers needed to get your #genomics studies to the finish line: <a href="https://t.co/Erv0LXtltg" class="uri">https://t.co/Erv0LXtltg</a> <a href="https://t.co/q40H062mBE" class="uri">https://t.co/q40H062mBE</a>
 </td>
 <td style="text-align:right;">
-0.1310312
+0.1310318
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1208,13 +1320,10 @@ fellgernon
 Sé que ya está <span class="citation">@AleMedinaRivera</span> allá (póster 1870/T) y creo que <span class="citation">@paleogenomics</span> (póster 2706/W) no podrá venir. <a href="https://t.co/JGcFESN3rk" class="uri">https://t.co/JGcFESN3rk</a>
 </td>
 <td style="text-align:right;">
-0.1308349
+0.1308355
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 EmbiTec
 </td>
@@ -1222,7 +1331,7 @@ EmbiTec
 What’s this big black box? Our photo hood makes it possible to visualize DNA bands without a protective mask, shield of filter obstructive your access to the gel. #ASHG18 <a href="https://t.co/AF2mTUOdNm" class="uri">https://t.co/AF2mTUOdNm</a>
 </td>
 <td style="text-align:right;">
-0.1297820
+0.1297826
 </td>
 </tr>
 </tbody>
@@ -1233,9 +1342,6 @@ What’s this big black box? Our photo hood makes it possible to visualize DNA b
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1249,9 +1355,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 RDxWhatElse
 </td>
@@ -1264,9 +1367,6 @@ RDxWhatElse
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 tanghaibao
 </td>
@@ -1274,13 +1374,10 @@ tanghaibao
 Fritz Sedlazeck <span class="citation">@sedlazeck</span>: SV caller (hi FP, low FN) and SV genotyper (hi FN, low FP), call SV with Delly, Manta and Lumpy, and merge with SURVIVOR, input to SV genotyper #ASHG18
 </td>
 <td style="text-align:right;">
-0.1683671
+0.1683657
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 michaelhoffman
 </td>
@@ -1288,13 +1385,10 @@ michaelhoffman
 YE: Information in common identifiers in bits: Sex: 1 Eye colour: 1.4 ABO/Rhesus blood group: 2.2 State of residence: 5.0 Height: 5.0 Year of birth: 6.3 Day and month of birth: 8.5 Surname: 12.9 Zip code: 13.8 #ASHG18
 </td>
 <td style="text-align:right;">
-0.1573755
+0.1573767
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 genome_sheriff
 </td>
@@ -1302,13 +1396,10 @@ genome_sheriff
 AN’ JUST SO YA KNOW, I’M AWARE THAT SKUNKS ARE EUTHERIAN MAMMALS THAT CAIN’T LAY NO EGGS. THEY’RE GOOD CRITTERS, AN’ I DEEPLY APOLOGIZE FER COMPARIN’ THEM TO NEFARIOUS GOOD-FER-NUTHINS. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1539857
+0.1539848
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 ElenaSorokin
 </td>
@@ -1316,13 +1407,10 @@ ElenaSorokin
 <span class="citation">@GillianBelbin</span>: Diaspora populations within #UKBiobank including non-British white pops from #India #Bangladesh and founder effects in outer British Isles eg Orkney, Outer Hebrides #ashg18
 </td>
 <td style="text-align:right;">
-0.1445376
+0.1445362
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 thatdnaguy
 </td>
@@ -1330,13 +1418,10 @@ thatdnaguy
 #ASHG18 JH: 2.5-1.0M years ago the Homo genus shows up. larger brains than australopiths. set on larger brain trajectory. Homo erectus human like in body size and shape. brain a little smaller, but larger than australopiths.
 </td>
 <td style="text-align:right;">
-0.1406639
+0.1406614
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 StatGenDan
 </td>
@@ -1344,13 +1429,10 @@ StatGenDan
 WD: Q: What about the Type I error of your approach? A: BF converge almost surely to zero as the sample size grows. Not computed the FDR yet. Q2: How sensitive to pop admixture? A2: Not looked at yet. || Cited this paper by Shim &amp;amp; Stephens <a href="https://t.co/MceImTjqzu" class="uri">https://t.co/MceImTjqzu</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.1365715
+0.1365776
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 pgrnhub
 </td>
@@ -1358,13 +1440,10 @@ pgrnhub
 Dr. A Shuldiner #ASHG18: The Old Order Amish: a homogenous founder population – founded by 200-600 migrating from Switzerland 15 generations ago. Cool findings in the Amish - inform biology and precision medicine - e.g. APOC3, CYP2C19, APOB, LIPE, KCNQ1
 </td>
 <td style="text-align:right;">
-0.1325734
+0.1325677
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 pgrnhub
 </td>
@@ -1372,13 +1451,10 @@ pgrnhub
 #ASHG18 <span class="citation">@PTurnbaugh</span> 1. Microbiome contributes to inter individual differences in ADME. 2. The microbiome is dynamic and responsive to environmental factors like diet. 3. Long way to go before microbiome-baed #precisionmedicine is a reality.
 </td>
 <td style="text-align:right;">
-0.1312737
+0.1312820
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 PittHUGEN
 </td>
@@ -1386,7 +1462,7 @@ PittHUGEN
 Tanvi Nagpal in <span class="citation">@Pittdeptofmed</span> presents her work w Celeste Shelton on association b/w SLCO1B &amp;amp; alcohol-associated chronic pancreatitis at Poster 2289. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1305776
+0.1305766
 </td>
 </tr>
 </tbody>
@@ -1397,9 +1473,6 @@ Tanvi Nagpal in <span class="citation">@Pittdeptofmed</span> presents her work w
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1413,9 +1486,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 JesperMaag
 </td>
@@ -1423,13 +1493,10 @@ JesperMaag
 gganatogram now includes a cell diagram (cellogram?)! Please also cite <span class="citation">@HumanProteome</span> if using the cell and <span class="citation">@ExpressionAtlas</span> if using the anatograms. <a href="https://t.co/f0KcBetmCe" class="uri">https://t.co/f0KcBetmCe</a> #rstats #ggplot2 #dataviz #gganatogram #ASHG18 <a href="https://t.co/MfZqSf9mCl" class="uri">https://t.co/MfZqSf9mCl</a>
 </td>
 <td style="text-align:right;">
-0.1435292
+0.1435266
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 bnlasse
 </td>
@@ -1437,13 +1504,10 @@ bnlasse
 JX: another ex: boundary del leading to over-express of ERBB4 oncogene in breast cancer (unpublished), again 4C and find this neo-TAD may cause activation of gene in cell line [missed cell line]; crispr editing to delete another boundary induces abberant gene expression #ASHG18
 </td>
 <td style="text-align:right;">
-0.1432966
+0.1432936
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 fluidigm
 </td>
@@ -1451,13 +1515,10 @@ fluidigm
 At #ASHG18? Join us for lunch today at 12:30pm. Hear how you can improve sample tracking and quality assessment with microfluidics from Tae-Hwi Schwantes-An, PhD, of Indiana U. School of Med. and David King, PhD, VP of RnD at Fluidigm. Rm 28B. #ASHG2018 <a href="https://t.co/Z2aPvbZdLI" class="uri">https://t.co/Z2aPvbZdLI</a> <a href="https://t.co/zfcHgds7QI" class="uri">https://t.co/zfcHgds7QI</a>
 </td>
 <td style="text-align:right;">
-0.1430278
+0.1430246
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 CellPressNews
 </td>
@@ -1465,13 +1526,10 @@ CellPressNews
 A proteome-wide assessment of thermal stability and solubility during the #eukaryotic cell cycle shows pervasive variation in #mitosis and G1 and a fundamental remodeling of the #biophysical environment of the mitotic cell #IDPs <span class="citation">@CellCellPress</span> #ASHG18 <a href="https://t.co/mkPKLznADv" class="uri">https://t.co/mkPKLznADv</a>
 </td>
 <td style="text-align:right;">
-0.1427374
+0.1427328
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 anikagupta18
 </td>
@@ -1479,13 +1537,10 @@ anikagupta18
 Crazy (incredible) seeing two of my worlds collide by going to lunch w labmates from a past home in <span class="citation">@dpwall00</span>’s group and current rotation home in Alkes Price lab. And tonight will be time w <span class="citation">@kasper_lage</span> lab friends, who graciously made this trip possible! Thanks #ASHG18 <a href="https://t.co/aDLmp3EoxY" class="uri">https://t.co/aDLmp3EoxY</a>
 </td>
 <td style="text-align:right;">
-0.1399520
+0.1399510
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 fluidigm
 </td>
@@ -1493,13 +1548,10 @@ fluidigm
 At #ASHG18? Don’t miss the Fluidigm lunch symposium today at 12:30pm. Hear how you can improve sample tracking and quality assessment with microfluidics from Tae-Hwi Schwantes-An, PhD, of Indiana U. School of Med. and David King, PhD, VP of RnD at Fluidigm. Rm 28B. #ASHG2018 <a href="https://t.co/ZbWqfwB5mD" class="uri">https://t.co/ZbWqfwB5mD</a>
 </td>
 <td style="text-align:right;">
-0.1393908
+0.1393876
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 PacBio
 </td>
@@ -1507,13 +1559,10 @@ PacBio
 Studies of mobile element insertions in bulk &amp;amp; single cell experiments using standard WGS approaches may underestimate the # of L1Hs insertions near or nested within reference LINE-1s, according to <span class="citation">@ryan_e_mills</span> lab. Visit Weichen <span class="citation">@ArthurZhou10</span> now at poster 1701 #ASHG18 <a href="https://t.co/V4L6m7ZpAH" class="uri">https://t.co/V4L6m7ZpAH</a>
 </td>
 <td style="text-align:right;">
-0.1388127
+0.1388108
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 averydavisbell
 </td>
@@ -1521,13 +1570,10 @@ averydavisbell
 <span class="citation">@fellgernon</span> <span class="citation">@BenjaminNeale</span> I prefer women/men or female/male - they’re not perfect since human gender and sex aren’t binary but they do a decent job as short hand. “Boys and girls” feels needlessly (verging in offensivey) infantilizing and perhaps extra gendered. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1372217
+0.1372269
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 <em>klkeys</em>
 </td>
@@ -1535,13 +1581,10 @@ averydavisbell
 GB: Four IBD-sharing among self-identified South Asians. As in BioME, we see signatures of founder effects. Diaspora populations very recent (~1960s onward). IBD by geography shows higher IBD in UK north, islands, rural areas, lower in S. England + metros. #ashg18
 </td>
 <td style="text-align:right;">
-0.1363331
+0.1363298
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 amymaxmen
 </td>
@@ -1549,7 +1592,7 @@ amymaxmen
 The ironic thing about nationalists flocking to genetic tests for confirmations of purity is that most large genomics studies uncover all sorts of mixing. Humans are just a bunch of tribes having sex with each other, making mixed babies, and forming new tribes. #ASHG18 #ASHG
 </td>
 <td style="text-align:right;">
-0.1359693
+0.1359739
 </td>
 </tr>
 </tbody>
@@ -1560,9 +1603,6 @@ The ironic thing about nationalists flocking to genetic tests for confirmations 
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1576,9 +1616,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 RichShaffer108
 </td>
@@ -1586,13 +1623,10 @@ RichShaffer108
 Putin Lives in a World Without Rules #TrumpCrimeFamily boss of all bosses #toad #trump #PutinsPuppet #news #newspacerace #KashoggiMurder #Kabul #Kashoggi #ASHG18 #AADHum2018 #AKGOV #CGIU2018 #Dodgers #ESMO2018 #FBRParty #GCEC2018 #ImpeachTrump #Jeopardy <a href="https://t.co/6hZhdaI7g1" class="uri">https://t.co/6hZhdaI7g1</a>
 </td>
 <td style="text-align:right;">
-0.1893232
+0.1893245
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 pmerel
 </td>
@@ -1600,13 +1634,10 @@ pmerel
 #ASHG18 G. Gursoy qui nous confirme que memes les données brutes de génomique fonctionnelle (RNAseq) sont la source de Privacy Leaks. Elle propose une methode de protection qui reduit meme la taille des bam files de 90% !!!!
 </td>
 <td style="text-align:right;">
-0.1782443
+0.1782509
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 genetisaur
 </td>
@@ -1615,13 +1646,10 @@ genetisaur
 In other words, westbound red eye can’t hold us from #ASHG18! (Time travel maybe optimistic though) <a href="https://t.co/8YLZwPbEEY" class="uri">https://t.co/8YLZwPbEEY</a>
 </td>
 <td style="text-align:right;">
-0.1530620
+0.1530702
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 23andMeResearch
 </td>
@@ -1629,13 +1657,10 @@ In other words, westbound red eye can’t hold us from #ASHG18! (Time travel may
 PV: From Visscher to Fisher: His wife, Naomi Wray, sister is Alison Wray, her husband is Mike Wallace, his mom Margaret Wallace was RA Fisher’s long term research assistant - cool scientific connection! #ASHG18
 </td>
 <td style="text-align:right;">
-0.1526290
+0.1526310
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 Lau_uribefig
 </td>
@@ -1643,13 +1668,10 @@ Lau_uribefig
 Interesados en datos de población latina y farmacogenomica. <a href="https://t.co/JE9Nsl5fVe" class="uri">https://t.co/JE9Nsl5fVe</a> de Stanford Uni tiene info de 22K latinos. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1457702
+0.1457718
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 michaelhoffman
 </td>
@@ -1657,13 +1679,10 @@ michaelhoffman
 CL: Advice: - Lean in/hang on step up - Be positive, persistent, polite - Assertiveness ≠ aggression - Choose a work environment supportive of you - Choose a mentor supportive of you - Choose a mentor that you can buy into and respect #ASHG18
 </td>
 <td style="text-align:right;">
-0.1445235
+0.1445255
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 Covaris
 </td>
@@ -1671,13 +1690,10 @@ Covaris
 Todays the day! Come to CoLab #1 at 10:00 AM to hear Byung Woo Kim’s presentation titled: Standardization of the ChIP workflow using Covaris Adaptive Focused Acoustics® (AFA®) to study the transcriptional regulation of SOD1 in ALS pathogenesis. #ASHG18 #ChIP <a href="https://t.co/nZK3s28JqX" class="uri">https://t.co/nZK3s28JqX</a>
 </td>
 <td style="text-align:right;">
-0.1402309
+0.1402401
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 BaylorGenetics
 </td>
@@ -1685,13 +1701,10 @@ BaylorGenetics
 #ASHG18 Oggi dale 11:00 am alle 12:00 pm Federica Gibellini sara’ al nostro stand per rispondere a tutte le vostre domande tecniche riguardanti NGS.
 </td>
 <td style="text-align:right;">
-0.1367680
+0.1367726
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1702,13 +1715,10 @@ fellgernon
 #ASHG18
 </td>
 <td style="text-align:right;">
-0.1323867
+0.1323717
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 WebsEdge_Health
 </td>
@@ -1716,7 +1726,7 @@ WebsEdge_Health
 ASHG TV learns from members of the ASHG Information and Education Committee, Alexis Norris, PhD and Maurice Godfrey, PhD, to talk about what educational programs the ASHG offers its members and to K-12 students and teachers. <a href="https://t.co/uM2XUx2wej" class="uri">https://t.co/uM2XUx2wej</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.1316741
+0.1316777
 </td>
 </tr>
 </tbody>
@@ -1727,9 +1737,6 @@ ASHG TV learns from members of the ASHG Information and Education Committee, Ale
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1743,9 +1750,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 DiseasePrimers
 </td>
@@ -1754,13 +1758,10 @@ DiseasePrimers
 <a href="https://t.co/8KEtXnvqcn" class="uri">https://t.co/8KEtXnvqcn</a> #ASHG18 <a href="https://t.co/X5fvkmsub6" class="uri">https://t.co/X5fvkmsub6</a>
 </td>
 <td style="text-align:right;">
-0.1544435
+0.1544423
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 thatdnaguy
 </td>
@@ -1768,13 +1769,10 @@ thatdnaguy
 #ASHG18 RM: 3 main clusters. 1 ws NEUROD1, 2d was NFIB, TBR1, 3rd was PAX6 and SOX2. Focused on TBR2 gene. Can see difference in peak heights at enhancers in progenitors.
 </td>
 <td style="text-align:right;">
-0.1445392
+0.1445394
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 mathiesoniain
 </td>
@@ -1782,13 +1780,10 @@ mathiesoniain
 Check out our group’s presentations at #ASHG18. Wednesday: Dan Ju’s poster 2718W on the evolution of skin pigmentation in Europe . Saturday 9am room 20E: Bárbara Bitarello <span class="citation">@barbara_dutty</span> talking about polygenic scores in non-Europeans .
 </td>
 <td style="text-align:right;">
-0.1390841
+0.1390839
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 michaelhoffman
 </td>
@@ -1796,13 +1791,10 @@ michaelhoffman
 RM: Cortex develops through waves oftranscription factors. Proliferation: SOX2, PAX6. Migration: NFIB, TBR1. Differentiation: NEUROD1. Responsible for development of neuronal deep layers [the original home of deep learning] #ASHG18
 </td>
 <td style="text-align:right;">
-0.1386693
+0.1386697
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 StatGenDan
 </td>
@@ -1810,13 +1802,10 @@ StatGenDan
 PV: Can we recover the ‘still missing’ h^2 using WGS data? 39,699 WGS’d TOPMed adults =&amp;gt; 21,620 unrelated w European ancestry, 50,290,504 variants. GREML-LDMS, partitioning by 7 MAF bins &amp;amp; 2 LD bins. Height h^2 ~0.75; BMI h^2 ~0.35. Sensitivity analyses =&amp;gt; robust results #ASHG18
 </td>
 <td style="text-align:right;">
-0.1373271
+0.1373240
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 bnlasse
 </td>
@@ -1824,13 +1813,10 @@ bnlasse
 ABW: ilot looking for health promoting variants based on lit search of 111 papers identified 18 variants in 15 genes found HP<em>2 (not sig after mult test) carriers have decr odds of being super-seniors, same with APOE</em>e4 (sig after multiple testing) <a href="https://t.co/xAQvFTbmNM" class="uri">https://t.co/xAQvFTbmNM</a> #ASHG18
 </td>
 <td style="text-align:right;">
-0.1356959
+0.1356957
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 pgrnhub
 </td>
@@ -1838,13 +1824,10 @@ pgrnhub
 #ASHG18 D. Goldstein. Great examples of repurposing FDA approved drugs to treat diseases with rare mutations, e.g. using Pairnomix screen to identify compound to treat patients with SNC8A R1872A and use multi-electrode array to find drug to treat patients with GNB1 K78R
 </td>
 <td style="text-align:right;">
-0.1354201
+0.1354213
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 cgonzagaj
 </td>
@@ -1852,13 +1835,10 @@ cgonzagaj
 MC: Identified a variant in the catalytic domain of UBE3B in a large consanguineous family segregating autism. Aimed to understand function and pathway. Ube3b KO mice have decreased growth and vocalizations consistent w/ patients growth retardation &amp;amp; lack of speech #ASHG18
 </td>
 <td style="text-align:right;">
-0.1353569
+0.1353574
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 PacBio
 </td>
@@ -1866,13 +1846,10 @@ PacBio
 We do ♥️ structural variant calling. But which variant caller is best? Folks at <span class="citation">@GWSMHS</span> compared the results from four SV callers on four mapping algorithms, including BWA-MEM, minimap2, NGMLR, and LAST. See what they found at poster 1579. <a href="https://t.co/KVsvxQCJ2H" class="uri">https://t.co/KVsvxQCJ2H</a> #ASHG18 <a href="https://t.co/VIpUjYNpOz" class="uri">https://t.co/VIpUjYNpOz</a>
 </td>
 <td style="text-align:right;">
-0.1341174
+0.1341175
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 bionanogenomics
 </td>
@@ -1880,7 +1857,7 @@ bionanogenomics
 #ASHG18 Poster Spotlight: 2:00pm - 3:00pm, Wed, Oct 17 “Rapid Isolation (&amp;lt;3 h) of Ultra-High Molecular Weight Genomic DNA from Fresh/Frozen Human Blood and Cultured Cells/Frozen Cell Pellets without the use of Agarose Plugs” Henry B. Sadowski #maketherightcall
 </td>
 <td style="text-align:right;">
-0.1340961
+0.1340964
 </td>
 </tr>
 </tbody>
@@ -1891,9 +1868,6 @@ bionanogenomics
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1907,9 +1881,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 ayana_yamazaki
 </td>
@@ -1917,13 +1888,10 @@ ayana_yamazaki
 グラフィックさんに印刷お願いしたら、配送先以外にも注文者に試し刷り分無料で配送してくれて嬉しかった。 今回はマットコート紙135kg。インクがのった部分にツヤが出るので白背景にすると映える感じ！ #ASHG18 #genomelink <a href="https://t.co/1OgouVKxce" class="uri">https://t.co/1OgouVKxce</a>
 </td>
 <td style="text-align:right;">
-0.2778444
+0.2778457
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 kicheolkim
 </td>
@@ -1931,13 +1899,10 @@ kicheolkim
 #ASHG18 참석후 느낀점… 이제 단순히 변이 찾기를 넘어서 변이의 역할과 기능을 밝히는 연구들이 더 활발해지는 것 같다. 그동안 컴퓨팅쪽이 부각되었다면, 다시 생물학이 부각될 것 같은 느낌. rising biology again (하지만 앞으로는 코딩하는 생물학자가 필요할지도…) <a href="https://t.co/TcsVYk2MG2" class="uri">https://t.co/TcsVYk2MG2</a>
 </td>
 <td style="text-align:right;">
-0.2213987
+0.2213996
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 amymaxmen
 </td>
@@ -1945,13 +1910,10 @@ amymaxmen
 Fantastic piece on how white supremacists distort genetics to suit tribalistic ideologies. They chug milk proudly, ignoring, for example, multiple origins of lactose digestion. By the amazing <span class="citation">@amy_harmon</span> HT <span class="citation">@bmaher</span> Impt reading for scientists #ASHG18 #ASHG <a href="https://t.co/OuDpIoGiYz" class="uri">https://t.co/OuDpIoGiYz</a>
 </td>
 <td style="text-align:right;">
-0.1494336
+0.1494348
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 n_bouatianaji
 </td>
@@ -1959,13 +1921,10 @@ n_bouatianaji
 Looking forward to this afternoon #CRISPR hands on data workshop #ASHG18 to moderate with colleagues from <span class="citation">@GenPrecisionMed</span> early career committee <span class="citation">@sony_tuteja</span> <span class="citation">@stella</span> Anwar Chahal Jenny Huffman Stella Aslibekyan and <span class="citation">@kiranmusunuru</span>
 </td>
 <td style="text-align:right;">
-0.1456457
+0.1456468
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 manoliskellis
 </td>
@@ -1973,13 +1932,10 @@ manoliskellis
 Mosaicism in #Alzheimers from #SingleCell RNA-seq. Up next in Rm 6A by <span class="citation">@MITCSBPhD</span> student Carles Boix, Maria Kousi, Li-Huei Tsai <span class="citation">@manoliskellis</span> et al #ASHG18 #ASHG2018 <a href="https://t.co/4UFKOEk3vY" class="uri">https://t.co/4UFKOEk3vY</a> <a href="https://t.co/kn0Cs9FOSo" class="uri">https://t.co/kn0Cs9FOSo</a>
 </td>
 <td style="text-align:right;">
-0.1298428
+0.1298433
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 thatdnaguy
 </td>
@@ -1987,13 +1943,10 @@ thatdnaguy
 #ASHG18 JV: 3 medical centers. 5 outpatient centers. 51428 unique patients. patients; enrolled by provider. 40-75 yo. elevated CVD risk by ACC/AHA 2013 criteria. No hx of statin use.
 </td>
 <td style="text-align:right;">
-0.1291200
+0.1291210
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 basel_bargho
 </td>
@@ -2001,13 +1954,10 @@ basel_bargho
 Parsana et al. show that WGCNA networks generated after PC-based correction contained fewer false positives, while using single or multiple covariates fails to remove artificial variation. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1266504
+0.1266513
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 CharlestonCWKC
 </td>
@@ -2015,13 +1965,10 @@ CharlestonCWKC
 PV: repeating analysis using LD/MAF annotations from external dataset (UK10K) is qualitatively similar (but total h2 down to ~60%, because only 14M variants overlap between TOPMed and UK10K). #ASHG18
 </td>
 <td style="text-align:right;">
-0.1263157
+0.1263170
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 appliedgenomics
 </td>
@@ -2029,21 +1976,18 @@ appliedgenomics
 John Connolly will be presenting Reviewers Choice abstract 2531 on Screening for 22q11.2 dels and dups in a large biobank data-set uncovers new and undiagnosed cases @ 2PM #ASHG18 #22q <a href="https://t.co/fsg0IQempC" class="uri">https://t.co/fsg0IQempC</a>
 </td>
 <td style="text-align:right;">
-0.1259524
+0.1259536
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 Rob_O_Malley
 </td>
 <td style="text-align:left;">
-<span class="citation">@sexchrlab</span> Thank you for this powerful thread. There’s an odd subtext to a lot of the phrasing about genetics, esp. the 20th century incl. things heard at #ASHG18 e.g., “genetics was subverted to advance racist ideologies” vs. “racist ideologies were advanced by [some] leading geneticists”
+<span class="citation">@sexchrlab</span> Thank you for this powerful thread. There’s an odd subtext to a lot of the phrasing about genetics, esp. the 20th century incl. things heard at #ASHG18 e.g., “genetics was subverted to advance racist ideologies” vs. “racist ideologies were advanced by [some] leading geneticists”
 </td>
 <td style="text-align:right;">
-0.1251737
+0.1251753
 </td>
 </tr>
 </tbody>
@@ -2054,9 +1998,6 @@ Rob_O_Malley
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -2070,9 +2011,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 ivivek87
 </td>
@@ -2080,13 +2018,10 @@ ivivek87
 For next 9 nights 9 airports and amazing multitude of science and knowledge gathering. Excited as a kid and looking forward to learn. SEA&amp;gt;SAN&amp;gt;ORD&amp;gt;ARN&amp;gt;HEL&amp;gt;CPH&amp;gt;IAD&amp;gt;SAN&amp;gt;SEA #CKD #DKD #Genomics #Bioinformatics #PrecisionMedicine #biomarkers #healthcare #ASHG18
 </td>
 <td style="text-align:right;">
-0.1600693
+0.1600711
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 pmerel
 </td>
@@ -2094,13 +2029,10 @@ pmerel
 #ASHG18 Les congressistes sont accueillis dès l’entrée par un panneau de #sophiageneticss Bravo #bigup #suisse #france <a href="https://t.co/fLK8bFom3i" class="uri">https://t.co/fLK8bFom3i</a>
 </td>
 <td style="text-align:right;">
-0.1470022
+0.1470031
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 KempenLS
 </td>
@@ -2108,13 +2040,10 @@ KempenLS
 Conferences: - #ASHG18 - San Diego, 16-20 Oct - #NACFC18- Denver, 18-20 Oct with $GLPG - #ESMO18 - Munich, 19-23 Oct with $GEN, $BCART, $NANO, $CYAD - #ACR18 - Chicago, 19-24 Oct with $GLPG, $MOR - #ANA18 - Atlanta, 21-23 Oct
 </td>
 <td style="text-align:right;">
-0.1437746
+0.1437781
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 iGenomics
 </td>
@@ -2122,13 +2051,10 @@ iGenomics
 <span class="citation">@erlichya</span> : <span class="citation">@23andMe</span> files uploaded to Personal Genome Project (<span class="citation">@PGorg</span>), when unzipped, the filename may have person’s name. It only needs 28 bit info to identify a person. Zipcode provides 13.8bit, surname-12.9bit, hight-5.0, year of birth-6.3bit #ASHG18 #ASHG2018
 </td>
 <td style="text-align:right;">
-0.1415061
+0.1415075
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 VUMCgenetics
 </td>
@@ -2136,13 +2062,10 @@ VUMCgenetics
 VGI investigators had a GREAT week: <span class="citation">@NancyGenetics</span> in <span class="citation">@NatureNV</span>, <span class="citation">@egamazon</span> in the VUMC Reporter, Tony Capra on PBS, and <span class="citation">@jdnashville</span> in <span class="citation">@NAMedicine</span>. Heading into another great week: #ASHG18 <a href="https://t.co/Vpo8iOy7L0" class="uri">https://t.co/Vpo8iOy7L0</a> <a href="https://t.co/nf9F3zpI9P" class="uri">https://t.co/nf9F3zpI9P</a> <a href="https://t.co/W3W7zV4zhO" class="uri">https://t.co/W3W7zV4zhO</a>
 </td>
 <td style="text-align:right;">
-0.1414393
+0.1414404
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 <em>klkeys</em>
 </td>
@@ -2150,13 +2073,10 @@ VGI investigators had a GREAT week: <span class="citation">@NancyGenetics</span>
 <span class="citation">@SINGConsortium</span> NC: Canada is 2nd largest country by landmass, 240th by density. Most live near border. Metis, 1st Nations and Inuit live farther north. Distance, remoteness complicate addressing health inequities. #indigenomes #silentgenomes #ashg18
 </td>
 <td style="text-align:right;">
-0.1394308
+0.1394330
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 OmniInc
 </td>
@@ -2164,13 +2084,10 @@ OmniInc
 The Omni team is at #ASHG18 in San Diego! Don’t miss the largest human genetics meeting in the world. Visit us at booth 1240 to learn more about our innovative sample prep technology and get a live demo of the Bead Ruptor Elite bead mill #homogenizer. <a href="https://t.co/31IOAJ2H4j" class="uri">https://t.co/31IOAJ2H4j</a> <a href="https://t.co/xi3xOX389y" class="uri">https://t.co/xi3xOX389y</a>
 </td>
 <td style="text-align:right;">
-0.1384330
+0.1384343
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 sawerkar
 </td>
@@ -2178,13 +2095,10 @@ sawerkar
 World is going lot ahead of us #genetics #healthcare #raredisorders #PrecisionMedicine #ASHG18 #ashg2018 ; we are stuck in who is authority, medico or non-medico researcher in India #healthcareIndia #India #jammuKashmir <span class="citation">@raredisease_Ind</span>
 </td>
 <td style="text-align:right;">
-0.1379626
+0.1379640
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 OmniInc
 </td>
@@ -2192,13 +2106,10 @@ OmniInc
 The Omni team is at #ASHG18 in San Diego! Where all the thought leaders in human genetics come together. Stop by booth 1240 to learn more about our innovative sample prep technology and get a live demo of the Bead Ruptor Elite bead mill #homogenizer. <a href="https://t.co/VQf4heBlUm" class="uri">https://t.co/VQf4heBlUm</a> <a href="https://t.co/TfkX9UA7jq" class="uri">https://t.co/TfkX9UA7jq</a>
 </td>
 <td style="text-align:right;">
-0.1377526
+0.1377537
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-7
-</td>
 <td style="text-align:left;">
 princyparsana
 </td>
@@ -2206,7 +2117,7 @@ princyparsana
 On the way to #ASHG18 to learn, meet, and share! interested in knowing how latent artifacts affect reconstruction of coexpression networks? Come to my talk on Fri, Room 6C #womeninSTEM #scientistMom cc Claire Ruberman, .@jtleek <span class="citation">@alexisjbattle</span> <span class="citation">@andrewejaffe</span> <span class="citation">@mike_schatz</span> <a href="https://t.co/n3VrclqHS3" class="uri">https://t.co/n3VrclqHS3</a>
 </td>
 <td style="text-align:right;">
-0.1375575
+0.1375583
 </td>
 </tr>
 </tbody>
@@ -2217,9 +2128,6 @@ On the way to #ASHG18 to learn, meet, and share! interested in knowing how laten
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -2233,9 +2141,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 genotepes
 </td>
@@ -2243,13 +2148,10 @@ genotepes
 Deleting own tweets ? “Following the arrest and punishment of Lavrentiy Beria,. in 1953 the Soveiet Encyclopedia mailed subscribers .. instructing them to cut out and destroy the article on Beria and paste in its place .. articles on F. W. Bergholz, the Bering Sea”.. #ASHG18
 </td>
 <td style="text-align:right;">
-0.1721531
+0.1721535
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 gene42inc
 </td>
@@ -2257,13 +2159,10 @@ gene42inc
 2/4 Our booth went from Toronto to Regina, from Regina to Winnipeg, from Winnipeg to Pembina, from Pembina to Fargo and from Fargo to Eagan last we heard. It’s traveled 3,861km and has another 3,182km to go. Note: Toronto to San Diego is 4,153km #ASHG18 <a href="https://t.co/d9xIQK7KYZ" class="uri">https://t.co/d9xIQK7KYZ</a>
 </td>
 <td style="text-align:right;">
-0.1686861
+0.1686863
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 sebatlab
 </td>
@@ -2271,13 +2170,10 @@ sebatlab
 <span class="citation">@ChloeReuterCGC</span> My tips for best the Mexican in downtown. For upscale Mexican (including vegan) Puesto is the place. Also Serrano’s. For the real thing take a 10 min uber to Las Cuatro Milpas in Barrio Logan #ASHG18
 </td>
 <td style="text-align:right;">
-0.1512812
+0.1512811
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 sebatlab
 </td>
@@ -2285,13 +2181,10 @@ sebatlab
 My tips for the best Mexican in downtown: For upscale Mexican (including vegan) and KILLER margaritas, Puesto is the place. For the real thing go to Las Cuatro Milpas #ASHG18 <span class="citation">@GeneticsSociety</span>
 </td>
 <td style="text-align:right;">
-0.1450712
+0.1450713
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 Alpaqua
 </td>
@@ -2303,9 +2196,6 @@ Come see the brand new ALPAQUA Catalyst™ 96 Slotted Ring Magnet Plate at #ASHG
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 DaleYuzuki
 </td>
@@ -2313,13 +2203,10 @@ DaleYuzuki
 Lehmann #ASHG18 TCGA: 8K donors, collected matching RNA and WES data. Reprocessed entire dataset, included complementary data sources (GTEx, CPTAC, FIrehose), ID splicing QTLs, and char diff splicing
 </td>
 <td style="text-align:right;">
-0.1400288
+0.1400287
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 CellPressNews
 </td>
@@ -2327,13 +2214,10 @@ CellPressNews
 TIA1 Mutations in Amyotrophic Lateral Sclerosis and Frontotemporal Dementia Promote Phase Separation and Alter Stress Granule Dynamics <span class="citation">@MayoClinic</span> <span class="citation">@StJude</span> <span class="citation">@NeuroCellPress</span> #ASHG18 <a href="https://t.co/MOnGUd1iea" class="uri">https://t.co/MOnGUd1iea</a>
 </td>
 <td style="text-align:right;">
-0.1378510
+0.1378521
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 cgonzagaj
 </td>
@@ -2345,9 +2229,6 @@ LM Starita assayed all possible amino acid substitutions in BRCA1 using a Homolo
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 georgemias
 </td>
@@ -2355,13 +2236,10 @@ georgemias
 <span class="citation">@ETH_en</span> EW: Mass spec proteomics Technical Reproducibility: • Shotgun replicates:  r squared -.76 • SRM: r squared .98 [PMID 25215496] • Swath:  r squared .92 [pmid 29945935] #ASHG18 #proteomics
 </td>
 <td style="text-align:right;">
-0.1361263
+0.1361237
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-8
-</td>
 <td style="text-align:left;">
 CommsBio
 </td>
@@ -2370,7 +2248,7 @@ CommsBio
 #ASHG18 #epigenetics #3Dgenome <a href="https://t.co/x5wJxKmBvB" class="uri">https://t.co/x5wJxKmBvB</a>
 </td>
 <td style="text-align:right;">
-0.1345100
+0.1345101
 </td>
 </tr>
 </tbody>
@@ -2381,9 +2259,6 @@ CommsBio
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -2397,9 +2272,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 mazerunnrmovie
 </td>
@@ -2407,13 +2279,10 @@ mazerunnrmovie
 Get our best selling all #TheMazeRunner #Bracelet for just $14.95 Have it👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> Shop Now👉<a href="https://t.co/6wOXYUl1jt" class="uri">https://t.co/6wOXYUl1jt</a> #mazerunner #ScorhTrials #deathcure #pleasetommyplease #newtmas #dlymas #bfcm #NationalPastaDay #WednesdayWisdom #ASHG18 #PronounsDay #NXTUK <a href="https://t.co/7fcXMu2gA1" class="uri">https://t.co/7fcXMu2gA1</a>
 </td>
 <td style="text-align:right;">
-0.1710049
+0.1710068
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 cathcoste
 </td>
@@ -2421,13 +2290,10 @@ cathcoste
 RT <span class="citation">@pmerel</span> Je vais préparer un papier sur la présentation du BGI et ses 3,5 millions de génomes testés en prénatal non invasif #ASHG18 #Chine #genomics #Beijing <a href="https://t.co/Pnkpum6Zga" class="uri">https://t.co/Pnkpum6Zga</a> &amp;amp; <a href="https://t.co/iF5oc03uNy" class="uri">https://t.co/iF5oc03uNy</a>
 </td>
 <td style="text-align:right;">
-0.1705283
+0.1705306
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 infoecho
 </td>
@@ -2435,13 +2301,10 @@ infoecho
 AP, with current technology, we can resolve 90% of the human genome… unresolved regions: - CEN/ Peri-CEN, 254.5 Mb - Low depth, 0.4 Mbp - Unresolved DUP, 19.9Mb, high-identity set-dup #ASHG18
 </td>
 <td style="text-align:right;">
-0.1544313
+0.1544329
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 cathcoste
 </td>
@@ -2449,13 +2312,10 @@ cathcoste
 Finalement la genetique est a l’honneur dans #TheVoiceKids et quelle meilleure ambassadrice qu’Emma ? 😍 <span class="citation">@portablegenomic</span> <span class="citation">@health20Paris</span> <span class="citation">@Billaut</span> #ASHG18 <a href="https://t.co/i9RzD3Ih6h" class="uri">https://t.co/i9RzD3Ih6h</a>
 </td>
 <td style="text-align:right;">
-0.1484954
+0.1484983
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 GeneticsSociety
 </td>
@@ -2463,13 +2323,10 @@ GeneticsSociety
 <span class="citation">@dllt62</span> Bonjour! Pas cette année, mais consultez la liste complète des #ASHG18 exposants ici: <a href="https://t.co/MWmQVAJTO6" class="uri">https://t.co/MWmQVAJTO6</a>
 </td>
 <td style="text-align:right;">
-0.1433063
+0.1433092
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 CatCafeSanDiego
 </td>
@@ -2477,13 +2334,10 @@ CatCafeSanDiego
 .@GeneticsSociety take a break from #ashg18 with our cute #cats and enjoy good #coffee And you can talk about cat coloration genetics with us. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes a food or drink item. <a href="https://t.co/hnibwf0ssU" class="uri">https://t.co/hnibwf0ssU</a>
 </td>
 <td style="text-align:right;">
-0.1414009
+0.1414043
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 jvkohl
 </td>
@@ -2491,13 +2345,10 @@ jvkohl
 #ASHG18 Light-tracking in Brugmansia and light-activated microRNA biogenesis link biophysically constrained viral latency to all biodiversity via games for ages 10+. See for examples: Cytosis <a href="https://t.co/QKWSMw0Aqh" class="uri">https://t.co/QKWSMw0Aqh</a> and Subatomic <a href="https://t.co/Pm3gU9Y84T" class="uri">https://t.co/Pm3gU9Y84T</a> <a href="https://t.co/nklp5YkSxb" class="uri">https://t.co/nklp5YkSxb</a>
 </td>
 <td style="text-align:right;">
-0.1403498
+0.1403541
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 CatCafeSanDiego
 </td>
@@ -2505,13 +2356,10 @@ CatCafeSanDiego
 .@GeneticsSociety take a break from #ashg18 with our cute #cats and enjoy good #coffee Maybe you can help us understand the genetics of cat coloration. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes food or drink. <a href="https://t.co/PJjHzHiOsV" class="uri">https://t.co/PJjHzHiOsV</a>
 </td>
 <td style="text-align:right;">
-0.1388125
+0.1388156
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 CatCafeSanDiego
 </td>
@@ -2519,13 +2367,10 @@ CatCafeSanDiego
 .@GeneticsSociety last chance to make our cute #cats and award winning locally roasted #coffee part of your #ashg18 experience. We’re steps from <span class="citation">@sdconventionctr</span> (cross Harbor at 1st, right on Island, walk to 3rd). Your admission includes a food or drink item. <a href="https://t.co/B5FzRRQEfr" class="uri">https://t.co/B5FzRRQEfr</a>
 </td>
 <td style="text-align:right;">
-0.1362869
+0.1362906
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-9
-</td>
 <td style="text-align:left;">
 lauren_tindale
 </td>
@@ -2533,7 +2378,7 @@ lauren_tindale
 Astronauts and Super-Seniors and stem cells, OH MY! Check out the invited session “Novel Insights in Aging” at #ASHG18 with Dr Steve Horvath, Dr Angie Brooks-Wilson, Dr Danica Chen, and <span class="citation">@mason_lab</span> today at 10:30am! S/o to #ASHGtrainee moderators <span class="citation">@ripplesintime24</span> and <span class="citation">@BurcuDarst</span>!
 </td>
 <td style="text-align:right;">
-0.1346519
+0.1346523
 </td>
 </tr>
 </tbody>
@@ -2543,8 +2388,8 @@ Astronauts and Super-Seniors and stem cells, OH MY! Check out the invited sessio
 </div>
 </div>
 <div id="software" class="section level1">
-<h1><span class="header-section-number">10</span> Software</h1>
-<p>Software mentioned in Tweets with links to GitHub, Bioconductor or CRAN.</p>
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
 <table>
 <thead>
 <tr class="header">
@@ -2644,102 +2489,53 @@ Astronauts and Super-Seniors and stem cells, OH MY! Check out the invited sessio
 </div>
 <div id="session-info" class="section level1 unnumbered">
 <h1>Session info</h1>
-<pre><code>##  setting  value                       
-##  version  R version 3.5.1 (2018-07-02)
-##  system   x86_64, darwin15.6.0        
-##  ui       X11                         
-##  language (EN)                        
-##  collate  en_AU.UTF-8                 
-##  tz       Australia/Melbourne         
-##  date     2018-11-22                  
+<pre><code>## R version 3.6.0 (2019-04-26)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 17134)
 ## 
-##  package      * version date       source        
-##  assertthat     0.2.0   2017-04-11 CRAN (R 3.5.0)
-##  backports      1.1.2   2017-12-13 CRAN (R 3.5.0)
-##  base         * 3.5.1   2018-07-05 local         
-##  bindr          0.1.1   2018-03-13 CRAN (R 3.5.0)
-##  bindrcpp     * 0.2.2   2018-03-29 CRAN (R 3.5.0)
-##  broom          0.5.0   2018-07-17 CRAN (R 3.5.0)
-##  cli            1.0.0   2017-11-05 CRAN (R 3.5.0)
-##  colorspace     1.3-2   2016-12-14 CRAN (R 3.5.0)
-##  compiler       3.5.1   2018-07-05 local         
-##  crayon         1.3.4   2017-09-16 CRAN (R 3.5.0)
-##  datasets     * 3.5.1   2018-07-05 local         
-##  devtools       1.13.6  2018-06-27 cran (@1.13.6)
-##  digest         0.6.16  2018-08-22 CRAN (R 3.5.0)
-##  dplyr        * 0.7.6   2018-06-29 cran (@0.7.6) 
-##  evaluate       0.11    2018-07-17 CRAN (R 3.5.0)
-##  fansi          0.3.0   2018-08-13 CRAN (R 3.5.0)
-##  forcats      * 0.3.0   2018-02-19 CRAN (R 3.5.0)
-##  ggforce        0.1.3   2018-07-07 CRAN (R 3.5.0)
-##  ggplot2      * 3.0.0   2018-07-03 CRAN (R 3.5.0)
-##  ggraph       * 1.0.2   2018-07-07 CRAN (R 3.5.0)
-##  ggrepel      * 0.8.0   2018-05-09 cran (@0.8.0) 
-##  glue           1.3.0   2018-07-17 CRAN (R 3.5.0)
-##  graphics     * 3.5.1   2018-07-05 local         
-##  grDevices    * 3.5.1   2018-07-05 local         
-##  grid           3.5.1   2018-07-05 local         
-##  gridExtra      2.3     2017-09-09 CRAN (R 3.5.0)
-##  gtable         0.2.0   2016-02-26 CRAN (R 3.5.0)
-##  here         * 0.1     2017-05-28 CRAN (R 3.5.0)
-##  highr          0.7     2018-06-09 CRAN (R 3.5.0)
-##  htmltools      0.3.6   2017-04-28 CRAN (R 3.5.0)
-##  httr           1.3.1   2017-08-20 CRAN (R 3.5.0)
-##  igraph       * 1.2.2   2018-07-27 CRAN (R 3.5.0)
-##  janeaustenr    0.1.5   2017-06-10 CRAN (R 3.5.0)
-##  jsonlite       1.5     2017-06-01 CRAN (R 3.5.0)
-##  knitr        * 1.20    2018-02-20 CRAN (R 3.5.0)
-##  labeling       0.3     2014-08-23 CRAN (R 3.5.0)
-##  lattice        0.20-35 2017-03-25 CRAN (R 3.5.1)
-##  lazyeval       0.2.1   2017-10-29 CRAN (R 3.5.0)
-##  lubridate    * 1.7.4   2018-04-11 CRAN (R 3.5.0)
-##  magrittr       1.5     2014-11-22 CRAN (R 3.5.0)
-##  MASS           7.3-51  2018-10-16 CRAN (R 3.5.0)
-##  Matrix         1.2-14  2018-04-13 CRAN (R 3.5.1)
-##  memoise        1.1.0   2017-04-21 CRAN (R 3.5.0)
-##  methods      * 3.5.1   2018-07-05 local         
-##  modeltools     0.2-22  2018-07-16 CRAN (R 3.5.0)
-##  munsell        0.5.0   2018-06-12 cran (@0.5.0) 
-##  nlme           3.1-137 2018-04-07 CRAN (R 3.5.1)
-##  NLP            0.1-11  2017-08-15 CRAN (R 3.5.0)
-##  parallel       3.5.1   2018-07-05 local         
-##  pillar         1.3.0   2018-07-14 CRAN (R 3.5.0)
-##  pkgconfig      2.0.2   2018-08-16 CRAN (R 3.5.0)
-##  plyr           1.8.4   2016-06-08 CRAN (R 3.5.0)
-##  purrr        * 0.2.5   2018-05-29 CRAN (R 3.5.0)
-##  R6             2.2.2   2017-06-17 CRAN (R 3.5.0)
-##  RColorBrewer * 1.1-2   2014-12-07 CRAN (R 3.5.0)
-##  Rcpp           0.12.18 2018-07-23 CRAN (R 3.5.0)
-##  reshape2       1.4.3   2017-12-11 CRAN (R 3.5.0)
-##  rlang          0.2.2   2018-08-16 CRAN (R 3.5.0)
-##  rmarkdown      1.10    2018-06-11 CRAN (R 3.5.0)
-##  rprojroot      1.3-2   2018-01-03 CRAN (R 3.5.0)
-##  rtweet       * 0.6.7   2018-06-20 CRAN (R 3.5.0)
-##  scales         1.0.0   2018-08-09 CRAN (R 3.5.0)
-##  slam           0.1-43  2018-04-23 CRAN (R 3.5.0)
-##  SnowballC      0.5.1   2014-08-09 CRAN (R 3.5.0)
-##  stats        * 3.5.1   2018-07-05 local         
-##  stats4         3.5.1   2018-07-05 local         
-##  stringi        1.2.4   2018-07-20 CRAN (R 3.5.0)
-##  stringr      * 1.3.1   2018-05-10 CRAN (R 3.5.0)
-##  tibble         1.4.2   2018-01-22 CRAN (R 3.5.0)
-##  tidyr        * 0.8.1   2018-05-18 CRAN (R 3.5.0)
-##  tidyselect     0.2.4   2018-02-26 CRAN (R 3.5.0)
-##  tidytext     * 0.1.9   2018-05-29 CRAN (R 3.5.0)
-##  tm             0.7-5   2018-07-29 CRAN (R 3.5.0)
-##  tokenizers     0.2.1   2018-03-29 CRAN (R 3.5.0)
-##  tools          3.5.1   2018-07-05 local         
-##  topicmodels  * 0.2-7   2017-11-03 CRAN (R 3.5.0)
-##  tweenr         0.1.5   2016-10-10 CRAN (R 3.5.0)
-##  units          0.6-0   2018-06-09 CRAN (R 3.5.0)
-##  utf8           1.1.4   2018-05-24 CRAN (R 3.5.0)
-##  utils        * 3.5.1   2018-07-05 local         
-##  viridis      * 0.5.1   2018-03-29 CRAN (R 3.5.0)
-##  viridisLite  * 0.3.0   2018-02-01 cran (@0.3.0) 
-##  withr          2.1.2   2018-03-15 CRAN (R 3.5.0)
-##  wordcloud    * 2.6     2018-08-24 CRAN (R 3.5.0)
-##  xml2           1.2.0   2018-01-24 CRAN (R 3.5.0)
-##  yaml           2.2.0   2018-07-25 CRAN (R 3.5.0)</code></pre>
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+## [3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+## [5] LC_TIME=English_Australia.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.23        
+##  [4] magick_2.0         webshot_0.5.1      viridis_0.5.1     
+##  [7] viridisLite_0.3.0  wordcloud_2.6      RColorBrewer_1.1-2
+## [10] ggraph_1.0.2       ggrepel_0.8.1      ggplot2_3.2.0     
+## [13] topicmodels_0.2-8  tidytext_0.2.1     igraph_1.2.4.1    
+## [16] stringr_1.4.0      purrr_0.3.2        forcats_0.4.0     
+## [19] lubridate_1.7.4    tidyr_0.8.3        dplyr_0.8.3       
+## [22] rtweet_0.6.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.0        jsonlite_1.6      assertthat_0.2.1 
+##  [4] askpass_1.1       highr_0.8         stats4_3.6.0     
+##  [7] yaml_2.2.0        slam_0.1-45       pillar_1.4.2     
+## [10] backports_1.1.4   lattice_0.20-38   glue_1.3.1       
+## [13] digest_0.6.20     polyclip_1.10-0   colorspace_1.4-1 
+## [16] htmltools_0.3.6   Matrix_1.2-17     plyr_1.8.4       
+## [19] tm_0.7-6          pkgconfig_2.0.2   scales_1.0.0     
+## [22] processx_3.3.1    tweenr_1.0.1      ggforce_0.2.2    
+## [25] tibble_2.1.3      openssl_1.4       generics_0.0.2   
+## [28] farver_1.1.0      withr_2.1.2       lazyeval_0.2.2   
+## [31] cli_1.1.0         NLP_0.2-0         magrittr_1.5     
+## [34] crayon_1.3.4      evaluate_0.14     ps_1.3.0         
+## [37] tokenizers_0.2.1  janeaustenr_0.1.5 fansi_0.4.0      
+## [40] SnowballC_0.6.0   MASS_7.3-51.4     xml2_1.2.0       
+## [43] tools_3.6.0       munsell_0.5.0     callr_3.2.0      
+## [46] compiler_3.6.0    rlang_0.4.0       grid_3.6.0       
+## [49] labeling_0.3      rmarkdown_1.13    gtable_0.3.0     
+## [52] curl_3.3          reshape2_1.4.3    R6_2.4.0         
+## [55] gridExtra_2.3     zeallot_0.1.0     utf8_1.1.4       
+## [58] rprojroot_1.3-2   modeltools_0.2-22 stringi_1.4.3    
+## [61] parallel_3.6.0    Rcpp_1.0.1        vctrs_0.1.0      
+## [64] tidyselect_0.2.5  xfun_0.8</code></pre>
 </div>
 
 
