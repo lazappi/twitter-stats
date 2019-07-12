@@ -125,7 +125,7 @@ tweets <- tweets %>%
 # Introduction
 
 An analysis of tweets from the `r params$hashtag` hashtag for the
-[Keystone Symposia Single Cell Biology conference][KSSingleCell18], 13-17
+[Keystone Symposia Single Cell Biology conference][KSSingleCell19], 13-17
 January 2019 at the Beaver Run Resort, Breckenridge, Colorado USA.
 
 A total of `r nrow(tweets)` tweets from `r length(unique(tweets$screen_name))`
