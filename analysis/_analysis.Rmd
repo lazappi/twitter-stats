@@ -398,7 +398,7 @@ top %>%
 ### Most retweeted {.unnumbered}
 
 ```{r most-retweeted}
-tweet_shot(top$status_id[1])
+tweet_shot(top$status_id[1], scale = FALSE)
 ```
 
 ## Likes {.tabset .tabset-pills}
@@ -446,7 +446,7 @@ top %>%
 ### Most likes {.unnumbered}
 
 ```{r most-favorited}
-tweet_shot(top$status_id[1])
+tweet_shot(top$status_id[1], scale = FALSE)
 ```
 
 ## Quotes {.tabset .tabset-pills}
@@ -500,7 +500,7 @@ top %>%
 ### Most quoted {.unnumbered}
 
 ```{r most-quoted}
-tweet_shot(top$status_id[1])
+tweet_shot(top$status_id[1], scale = FALSE)
 ```
 
 # Media {.tabset .tabset-pills}
