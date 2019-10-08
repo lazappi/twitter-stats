@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>AGTA19</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">AGTA19</h1>
+<h3 class="subtitle">Australasian Genomic Technologies Association conference 2019</h3>
+<h4 class="date">2019-10-08 11:25:36</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#agta19</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2019-10-07</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2019-10-09</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Melbourne</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#f7931e</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#FBC98E</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #agta19 hashtag for the <a href="https://www.agtagenomics.org.au/conferences/" title="AGTA conference">Australasian Genomic Technologies Association</a> conference 2019.</p>
+<p>A total of 602 tweets from 164 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/AGTA19/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2019-10-07 - 2019-10-09 in the Australia/Melbourne timezone.</p>
+<p><img src="figures/AGTA19/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
+<p><img src="figures/AGTA19/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
+<p><img src="figures/AGTA19/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/AGTA19/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/AGTA19/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/AGTA19/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/AGTA19/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/AGTA19/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/AGTA19/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/AGTA19/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/AGTA19/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/AGTA19/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/AGTA19/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/AGTA19/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/AGTA19/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/AGTA19/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/AGTA19/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/AGTA19/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/AGTA19/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/AGTA19/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+UNCALLED - signal level aligner for Read-until on Nanopore from <span class="citation">@mike_schatz</span> lab <a href="https://t.co/wj0UxawsUb" class="uri">https://t.co/wj0UxawsUb</a> #AGTA19
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+BGI’s single cell platform, releasing in the end of this month. #agta19 <a href="https://t.co/H1ZTowNOsw" class="uri">https://t.co/H1ZTowNOsw</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+#agta19 starts on Monday. Program here <a href="https://t.co/96TqN6SYAb" class="uri">https://t.co/96TqN6SYAb</a> <a href="https://t.co/z5IyLzgsKT" class="uri">https://t.co/z5IyLzgsKT</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+100 tomato genomes in 100 days from <span class="citation">@mike_schatz</span> is a great illustration of the enormous improvements in <span class="citation">@nanopore</span> sequencing and the work that is now possible with it #AGTA19
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LokeStella
+</td>
+<td style="text-align:left;">
+I love this poster. Short and to the point. #agta19 #BAZAM <a href="https://t.co/rsLrSz6vtQ" class="uri">https://t.co/rsLrSz6vtQ</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Come to poster 31, <span class="citation">@Hasindu2008</span> made a tool on #NVIDIA Jetson running #nanopore data with nanopolish, minimap2, samtool and nanopolish methylation call! #agta19 <a href="https://t.co/vlEyhjvysH" class="uri">https://t.co/vlEyhjvysH</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LokeStella
+</td>
+<td style="text-align:left;">
+Portable #SingleCell prep. No power required. <span class="citation">@TheBgiGroup</span> #agta19 <a href="https://t.co/zBCaM8rfpy" class="uri">https://t.co/zBCaM8rfpy</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Yay! Time for <span class="citation">@BelindaPhipson</span> talking about her new method “Propeller” for testing for differences in cell type proportions in single-cell RNA-seq #agta19
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Sc_mixology: <span class="citation">@mritchieau</span> describes CellBench, a platform for quickly benchmarking different scRNA-seq tools. Which is needed because there are A LOT of scRNA-seq tools. <a href="https://t.co/ngj2d8G4O8" class="uri">https://t.co/ngj2d8G4O8</a> #agta19
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Jafar <span class="citation">@jafarjabbari</span> outlining our method for long-read scRNA-seq with Nanopore sequencing to identify full-length transcripts and isoforms #agta19
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/AGTA19/most-retweeted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/AGTA19/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/AGTA19/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+UNCALLED - signal level aligner for Read-until on Nanopore from <span class="citation">@mike_schatz</span> lab <a href="https://t.co/wj0UxawsUb" class="uri">https://t.co/wj0UxawsUb</a> #AGTA19
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+100 tomato genomes in 100 days from <span class="citation">@mike_schatz</span> is a great illustration of the enormous improvements in <span class="citation">@nanopore</span> sequencing and the work that is now possible with it #AGTA19
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mike_schatz
+</td>
+<td style="text-align:left;">
+Really excited to be in Melbourne for the <span class="citation">@agtaGenomics</span> conference! Thanks for the invite <span class="citation">@AliciaOshlack</span>!!! #agta19 <a href="https://t.co/x6VF7CoykV" class="uri">https://t.co/x6VF7CoykV</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Miranda_E_Pitt
+</td>
+<td style="text-align:left;">
+What on earth is Pandoraea fibrosis?! Come find out at poster 16 #agta19 <a href="https://t.co/2DxLyF9eFd" class="uri">https://t.co/2DxLyF9eFd</a>
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LokeStella
+</td>
+<td style="text-align:left;">
+I love this poster. Short and to the point. #agta19 #BAZAM <a href="https://t.co/rsLrSz6vtQ" class="uri">https://t.co/rsLrSz6vtQ</a>
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Come to poster 31, <span class="citation">@Hasindu2008</span> made a tool on #NVIDIA Jetson running #nanopore data with nanopolish, minimap2, samtool and nanopolish methylation call! #agta19 <a href="https://t.co/vlEyhjvysH" class="uri">https://t.co/vlEyhjvysH</a>
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Jafar <span class="citation">@jafarjabbari</span> outlining our method for long-read scRNA-seq with Nanopore sequencing to identify full-length transcripts and isoforms #agta19
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Yay! Time for <span class="citation">@BelindaPhipson</span> talking about her new method “Propeller” for testing for differences in cell type proportions in single-cell RNA-seq #agta19
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+Thanks! You can read about this work at <a href="https://t.co/KwYkn72B8o" class="uri">https://t.co/KwYkn72B8o</a> by <span class="citation">@Luyi_T</span> <span class="citation">@DongXueyi</span> <span class="citation">@shian_su</span> and our many collaborators <span class="citation">@WEHI_research</span> <span class="citation">@AGRF_genomics</span> #agta19 <a href="https://t.co/XHYGRu15Hv" class="uri">https://t.co/XHYGRu15Hv</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+1st selfie of the day. Almost lunch time! Group Coin #agta19 <a href="https://t.co/8H1jEplr8g" class="uri">https://t.co/8H1jEplr8g</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/AGTA19/most-favorited-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/AGTA19/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/AGTA19/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+This is me in the next 2 weeks in #Melbourne. See you at #agta19! <a href="https://t.co/7iRHzHYYTj" class="uri">https://t.co/7iRHzHYYTj</a> <a href="https://t.co/9COsfwm1OQ" class="uri">https://t.co/9COsfwm1OQ</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+It’s going to be fun. Looking forward to it #agta19 <a href="https://t.co/XAe8F7HDyU" class="uri">https://t.co/XAe8F7HDyU</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+#agta19 <a href="https://t.co/XTXokBAayG" class="uri">https://t.co/XTXokBAayG</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nickomatics
+</td>
+<td style="text-align:left;">
+I never knew there were &amp;gt;15k named varieties of tomato! And evidently structural variants play a major role in quantitative variation. #agta19 <a href="https://t.co/4CBGoGGelg" class="uri">https://t.co/4CBGoGGelg</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+#agta19 <a href="https://t.co/C2d0XHqzs8" class="uri">https://t.co/C2d0XHqzs8</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Miranda_E_Pitt
+</td>
+<td style="text-align:left;">
+Thank you <span class="citation">@nanopore</span> ! Looking foward to speaking tomorrow morning at #agta19 😁 <a href="https://t.co/DuIb20IOa4" class="uri">https://t.co/DuIb20IOa4</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+Sometimes a tortured acronym is worth it #agta19 <a href="https://t.co/eQtCLntZR6" class="uri">https://t.co/eQtCLntZR6</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+Ahh twitter is <span class="citation">@BigDataPatto</span> #agta19 <a href="https://t.co/PxWjoz1XyE" class="uri">https://t.co/PxWjoz1XyE</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Nice lightning presentation <span class="citation">@Hasindu2008</span>! #agta19 <a href="https://t.co/UxukKwEaBB" class="uri">https://t.co/UxukKwEaBB</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TheRealSmithLab
+</td>
+<td style="text-align:left;">
+Here’s a clear view of <span class="citation">@Hasindu2008</span>’s poster at #AGTA19 on software optimisation for real-time sequencing analysis on portable electronics <a href="https://t.co/3ycCik2Zp9" class="uri">https://t.co/3ycCik2Zp9</a> <a href="https://t.co/Ty7D3JArOk" class="uri">https://t.co/Ty7D3JArOk</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/AGTA19/most-quoted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
+<p><img src="figures/AGTA19/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mike_schatz
+</td>
+<td style="text-align:left;">
+Really excited to be in Melbourne for the <span class="citation">@agtaGenomics</span> conference! Thanks for the invite <span class="citation">@AliciaOshlack</span>!!! #agta19 <a href="https://t.co/x6VF7CoykV" class="uri">https://t.co/x6VF7CoykV</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Miranda_E_Pitt
+</td>
+<td style="text-align:left;">
+What on earth is Pandoraea fibrosis?! Come find out at poster 16 #agta19 <a href="https://t.co/2DxLyF9eFd" class="uri">https://t.co/2DxLyF9eFd</a>
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LokeStella
+</td>
+<td style="text-align:left;">
+I love this poster. Short and to the point. #agta19 #BAZAM <a href="https://t.co/rsLrSz6vtQ" class="uri">https://t.co/rsLrSz6vtQ</a>
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Come to poster 31, <span class="citation">@Hasindu2008</span> made a tool on #NVIDIA Jetson running #nanopore data with nanopolish, minimap2, samtool and nanopolish methylation call! #agta19 <a href="https://t.co/vlEyhjvysH" class="uri">https://t.co/vlEyhjvysH</a>
+</td>
+<td style="text-align:right;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+1st selfie of the day. Almost lunch time! Group Coin #agta19 <a href="https://t.co/8H1jEplr8g" class="uri">https://t.co/8H1jEplr8g</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KelPhoto
+</td>
+<td style="text-align:left;">
+Enjoying <span class="citation">@mike_schatz</span> ‘s tomato talk down under! It’s very saucy! #agta19 <a href="https://t.co/IGHco1F8lx" class="uri">https://t.co/IGHco1F8lx</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+#agta19 starts on Monday. Program here <a href="https://t.co/96TqN6SYAb" class="uri">https://t.co/96TqN6SYAb</a> <a href="https://t.co/z5IyLzgsKT" class="uri">https://t.co/z5IyLzgsKT</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Nice lanyard #illumina #agta19 <a href="https://t.co/yCReyrBEJX" class="uri">https://t.co/yCReyrBEJX</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Wow many steps for single cell analysis.. #AGTA19 <a href="https://t.co/vU6QS3WcM9" class="uri">https://t.co/vU6QS3WcM9</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Group Coin girl’s night out. Student and ECR #agta19 event <span class="citation">@glampcocktailbar</span>. <a href="https://t.co/BsDhPPsiMX" class="uri">https://t.co/BsDhPPsiMX</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/EGOZkADU0AAYiui.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/AGTA19/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/AGTA19/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/AGTA19/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PacBio
+</td>
+<td style="text-align:left;">
+Today’s #FF #CSP Spotlight: <span class="citation">@ramacgenomics</span> . We’re heading Down Under to recognize the Ramaciotti Centre for Genomics in Sydney, which is the largest Australian university genomics facility. They’ll be at #agta19 next week, and we’re a wee bit jealous… <a href="https://t.co/FKDRM0rcC3" class="uri">https://t.co/FKDRM0rcC3</a> <a href="https://t.co/HFjmBumPX6" class="uri">https://t.co/HFjmBumPX6</a>
+</td>
+<td style="text-align:right;">
+0.9941404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Laurence Wilson (CSIRO): chromatin accessibility correlates with CRISPR activity. Open chromatin works better. Created model to better pick target sites by taking into account chromatin accessibility. #AGTA19
+</td>
+<td style="text-align:right;">
+0.9931718
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NanoporeConf
+</td>
+<td style="text-align:left;">
+If you’re at #AGTA19 on the 7th October, be sure to check out the opening keynote of the conference given by Michael Schatz, who’ll be talking on ‘100 Genomes in 100 days: The structural variant landscape in tomato genomes’. <a href="https://t.co/FXoTEOeCEp" class="uri">https://t.co/FXoTEOeCEp</a>
+</td>
+<td style="text-align:right;">
+0.9927736
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+<span class="citation">@jafarjabbari</span> Current this uses a modification of the 10x protocol and utilizes both Illumina and Nanopore sequencing. Illumina reads help identify barcodes used in Nanopore-seq and can also help identify splice sites #Agta19
+</td>
+<td style="text-align:right;">
+0.9923261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+<span class="citation">@BigDataPatto</span> It’s got to be RAMVO… RNA Associated Molecular Variants for Oncology (sorry I couldn’t think of a B and I’ve limited your users to onc field but hey, it’s FFPE) #AGTA19
+</td>
+<td style="text-align:right;">
+0.9918196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Sc_mixology: <span class="citation">@mritchieau</span> describes CellBench, a platform for quickly benchmarking different scRNA-seq tools. Which is needed because there are A LOT of scRNA-seq tools. <a href="https://t.co/ngj2d8G4O8" class="uri">https://t.co/ngj2d8G4O8</a> #agta19
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nickomatics
+</td>
+<td style="text-align:left;">
+I never knew there were &amp;gt;15k named varieties of tomato! And evidently structural variants play a major role in quantitative variation. #agta19 <a href="https://t.co/4CBGoGGelg" class="uri">https://t.co/4CBGoGGelg</a>
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+#agta19 Facebook just told me it’s a conference attendees birthday today!!! Happy birthday to this particular bioinformatics guru. I’m not going to name just in case she wants it kept secret. 😂🤓🤓🧬
+</td>
+<td style="text-align:right;">
+0.9897995
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nickomatics
+</td>
+<td style="text-align:left;">
+Is there a certain kind of cruelty to daylight savings when you’ve been in the country a week and you’re still a bit jet lagged? #agta19
+</td>
+<td style="text-align:right;">
+0.9877893
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+<span class="citation">@nickomatics</span> Late starter. What brought you to the coffee side? I only started when I joined the sales industry 7 years ago #agta19
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@AntoBeck</span> <span class="citation">@LokeStella</span> <span class="citation">@LorneCancer</span> <span class="citation">@GenomeConf</span> Still milage to be had with bulk RNA seq. I love my smoothies. #agta19 <a href="https://t.co/I8U9JDqzqT" class="uri">https://t.co/I8U9JDqzqT</a>
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NanoporeConf
+</td>
+<td style="text-align:left;">
+Miranda Pitt from The University of Queensland will be speaking tomorrow at #AGTA19 in Session 4. Her talk is on ‘Evaluating the “-omes” of extensively drug-resistant klebsiella pneumoniae using native DNA and RNA nanopore sequencing’. Be sure to check it out! <a href="https://t.co/ywJG92vhZA" class="uri">https://t.co/ywJG92vhZA</a>
+</td>
+<td style="text-align:right;">
+0.9941404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+FOMO. Free drinks and food! Hey ECRs and students attending #AGTA19, don’t forget to come along to the social function, Glamp Cocktail Bar on Monday night…it’s not too late to crash the party, <a href="https://t.co/niaRc4IKG4" class="uri">https://t.co/niaRc4IKG4</a>
+</td>
+<td style="text-align:right;">
+0.9938496
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+idtdna
+</td>
+<td style="text-align:left;">
+See us IDT at the #AGTA19 conference in Melbourne next week (Oct. 7-9)! Stop by Booth 11 and chat with our experts about your research. Check out our product line: <a href="https://t.co/GlNpmBhogJ" class="uri">https://t.co/GlNpmBhogJ</a> #oPools #CRISPR #NGS <a href="https://t.co/VYEUNwiJ30" class="uri">https://t.co/VYEUNwiJ30</a>
+</td>
+<td style="text-align:right;">
+0.9931718
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NanoporeConf
+</td>
+<td style="text-align:left;">
+<span class="citation">@Psy_Fer_</span> from <span class="citation">@GarvanInstitute</span> is speaking at #AGTA19 tomorrow with his talk ‘SquiggleKit: a toolkit for manipulating nanopore signal data’ - if you’re at AGTA tomorrow, make sure you go along. We’ll also be there, so please do pay our booth a visit for a chat! <a href="https://t.co/KW1XAYqs4y" class="uri">https://t.co/KW1XAYqs4y</a>
+</td>
+<td style="text-align:right;">
+0.9923261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TrendBio
+</td>
+<td style="text-align:left;">
+All set up for the AGTA 2019 meeting at the Pullman Albert Park in Melbourne. Visit us to learn about our latest genomics tech. #agta19 #agta2019 <span class="citation">@Covaris</span> <span class="citation">@ProteinSimple</span> <span class="citation">@nabsys</span> <a href="https://t.co/CT0xUjJugW" class="uri">https://t.co/CT0xUjJugW</a>
+</td>
+<td style="text-align:right;">
+0.9923261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SeqComplete
+</td>
+<td style="text-align:left;">
+#nanopores <span class="citation">@NanoporeConf</span>: ‘<span class="citation">@Psy_Fer_</span> from <span class="citation">@GarvanInstitute</span> is speaking at #AGTA19 tomorrow with his talk ’SquiggleKit: a toolkit for manipulating nanopore signal data’ - if you’re at AGTA tomorrow, make sure you go alon… <a href="https://t.co/1Vw0b9s4Jm" class="uri">https://t.co/1Vw0b9s4Jm</a>, see more <a href="https://t.co/QGcZ4oAz3B" class="uri">https://t.co/QGcZ4oAz3B</a>
+</td>
+<td style="text-align:right;">
+0.9918196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ascendox
+</td>
+<td style="text-align:left;">
+RT mike_schatz “RT agtaGenomics: Don’t forget to rate the talks on the conference app. Program -&amp;gt; talk -&amp;gt; start survey. 1 low - 5 high #agta19”
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NEBiolabs
+</td>
+<td style="text-align:left;">
+Who’s going to #AGTA19 in Melbourne? We are! Like this post and show us at the <span class="citation">@NEBiolabs</span> booth to claim your prize and learn about the newest #NEBNext innovations. #DNAseq #RNAseq #NGS <a href="https://t.co/GsDPY3OmfJ" class="uri">https://t.co/GsDPY3OmfJ</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NEBiolabs
+</td>
+<td style="text-align:left;">
+Who’s going to #AGTA19 in Melbourne? We are! Like this post and show us at the <span class="citation">@NEBiolabs</span> booth to claim your prize and learn about the newest #NEBNext innovations. #DNAseq #RNAseq #NGS <a href="https://t.co/hghXEPl8l5" class="uri">https://t.co/hghXEPl8l5</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+idtdna
+</td>
+<td style="text-align:left;">
+We’re at #AGTA19 in Melbourne this week. Visit us in Booth 11 and chat with our experts about your research: <a href="https://t.co/GlNpmBhogJ" class="uri">https://t.co/GlNpmBhogJ</a> #oPools #CRISPR #NGS <a href="https://t.co/xPAX3mY189" class="uri">https://t.co/xPAX3mY189</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+nickomatics
+</td>
+<td style="text-align:left;">
+<span class="citation">@drdebwilliamson</span> opens day 2 with the changing epidemiology of Shigella and other bacterial STIs in Australia. Integration of epidemiological data with bacterial genomic data for public health. #agta19
+</td>
+<td style="text-align:right;">
+0.9923261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+Xiao Tan (twitter?) from UQ talking about his cool SpaCell (<a href="https://t.co/kg51M4GyXV" class="uri">https://t.co/kg51M4GyXV</a>) for spacial transcriptomics using deep neural networks. Cool! #agta19 <a href="https://t.co/DWMkyvvFzK" class="uri">https://t.co/DWMkyvvFzK</a>
+</td>
+<td style="text-align:right;">
+0.9918196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+We try to keep #AGTA19 environmentally friendly. Bring your keep cup for coffee - thanks to MGIseq/Decode <span class="citation">@MGI_BGI</span> <span class="citation">@JoshWarburton2</span> sponsored coffee cart. Come and hang out, have great coffee and talk about genomics
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+When attending a tech conference like <span class="citation">@agtaGenomics</span> it’s important to play with some tech. I’ll be playing with the cool <span class="citation">@DJIGlobal</span> Osmo pocket cam. I won’t get to take it home though. 😢#agta19 <a href="https://t.co/7VqGNUVVtc" class="uri">https://t.co/7VqGNUVVtc</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Now “SpaCell” by #XiaoTan from <span class="citation">@IMBatUQ</span> at #agta19. Complex topic related to a combination of transcriptomics data and spatial tissue imaging data. Woowww
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+Stallone - a pipeline for somatic variant calling from RNAseq data “I got the acronym by butchering this name” Andrew Patterson (twitter?) #agta19 <a href="https://t.co/3vUCpSBDws" class="uri">https://t.co/3vUCpSBDws</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+<span class="citation">@mike_schatz</span> For those unfamiliar, Read-until allows target enrichment during sequencing, by making decisions about whether to sequence a piece of nucleic acid very soon after it enters the <span class="citation">@nanopore</span> and ejecting it if it’s not wanted. #agta19
+</td>
+<td style="text-align:right;">
+0.9897995
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JackKennefick
+</td>
+<td style="text-align:left;">
+<p>Made some great contacts in #Singapore and received positive feedback and interest in our novel #epigenetic profiling technology.</p>
+<p>I am now in Melbourne for #agta19 .</p>
+#MidlandsICURe <a href="https://t.co/pV96EMgM31" class="uri">https://t.co/pV96EMgM31</a>
+</td>
+<td style="text-align:right;">
+0.9888845
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+<span class="citation">@Miranda_E_Pitt</span> talks AMR gene DNA and Direct RNA results by #nanopore sequence for better understanding. #agta19 <a href="https://t.co/UwlbAvmeFp" class="uri">https://t.co/UwlbAvmeFp</a>
+</td>
+<td style="text-align:right;">
+0.9877893
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+Yes you can sequence #CITEseq #hashing and mRNA #singlecell libraries on the same #illumina sequencer run #agta19
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jess_sci_chang
+</td>
+<td style="text-align:left;">
+#Agta19 day 2! Thank you <span class="citation">@drdebwilliamson</span> from our institute <span class="citation">@TheDohertyInst</span> for the amazing talk on epidemiology of STIs in Melbourne! <a href="https://t.co/jtFFMJfVGi" class="uri">https://t.co/jtFFMJfVGi</a>
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NanoporeConf
+</td>
+<td style="text-align:left;">
+The last talk of session 5 tomorrow at #AGTA19 will be given by <span class="citation">@river_kano</span>. River’s talk is on ‘Analysis of gene expression and splice isoform variation in the hypoxia response pathway using Nanopore sequencing of human induced pluripotent stem cells’. Don’t miss it! <a href="https://t.co/VnlvywD3lT" class="uri">https://t.co/VnlvywD3lT</a>
+</td>
+<td style="text-align:right;">
+0.9946466
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+yonghes
+</td>
+<td style="text-align:left;">
+justin bieber dick #ExtinctionRebelion #AFLTrades #OleOut #TheConcertTour #MEBxTheSixMoons #6again #AareyForest #ahgaseselcaday #davido #GBvsDAL #agta19 #kiddiemeal #KissesDelavin #London #MugenBB3TitleWinner #NoSnakes #NFlying #quieneslamascara <a href="https://t.co/7DFnP0aBAi" class="uri">https://t.co/7DFnP0aBAi</a>
+</td>
+<td style="text-align:right;">
+0.9941404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+seunqyoun
+</td>
+<td style="text-align:left;">
+#ExtinctionRebelion #AFLTrades #OleOut #TheConcertTour #MEBxTheSixMoons #6again #AareyForest #ahgaseselcaday #bts #davido #GBvsDAL #agta19 #kiddiemeal #KCON2019THAILAND  #KissesDelavin #London #MugenBB3TitleWinner #NoSnakes #NFlying #quieneslamascara <a href="https://t.co/UPWmJr8Y7a" class="uri">https://t.co/UPWmJr8Y7a</a>
+</td>
+<td style="text-align:right;">
+0.9938496
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Many bacteria are now resistance to many/most antibiotics. <span class="citation">@Miranda_E_Pitt</span> using <span class="citation">@nanopore</span> DNA and direct RNA sequencing to identify bacterial resistomes. Currently DNA-seq performing better with identification of ~70% resistance genes within 2 hours #agta19
+</td>
+<td style="text-align:right;">
+0.9927736
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+David Goode <span class="citation">@dl_goode</span> - Genes that evolved in early metazoans are enriched in somatic mutations and see dis-regulation of many early metazoan regulatory hub genes. #agta19
+</td>
+<td style="text-align:right;">
+0.9918196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+agtaGenomics
+</td>
+<td style="text-align:left;">
+There is an issue in the timing of the published program for lunch. We will be coming in for the session after lunch at 1.20pm Sorry people but plenty of time for networking at the end of the day #agta19
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Day #2 of #agta19 has just started with the session that I was looking forward to attend. Microbial session with the invited speaker: <span class="citation">@drdebwilliamson</span> - topic: STI, shigellosis.
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Jafar <span class="citation">@jafarjabbari</span> outlining our method for long-read scRNA-seq with Nanopore sequencing to identify full-length transcripts and isoforms #agta19
+</td>
+<td style="text-align:right;">
+0.9897995
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LokeStella
+</td>
+<td style="text-align:left;">
+Essential labwear. Finally got my <span class="citation">@illumina</span> socks! <span class="citation">@AntoBeck</span> <span class="citation">@methylnick</span> <span class="citation">@jeremypreston</span> #DeakinGenomics #agta19 #Biotechnolgy <a href="https://t.co/pNqxggzhF7" class="uri">https://t.co/pNqxggzhF7</a>
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+Start of daylight savings + full day at conference + coming home to 2 yr old #agta19 <a href="https://t.co/S45pbPrrDy" class="uri">https://t.co/S45pbPrrDy</a>
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Miranda_E_Pitt
+</td>
+<td style="text-align:left;">
+Next up at #agta19 is the wonderful <span class="citation">@taniapsduarte</span> 😀 Talking about the microbial communities in cystic fibrosis airways using <span class="citation">@nanopore</span> sequencing <a href="https://t.co/OboxxA5UXU" class="uri">https://t.co/OboxxA5UXU</a>
+</td>
+<td style="text-align:right;">
+0.9864546
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+MGI_BGI
+</td>
+<td style="text-align:left;">
+Excited to be at #AGTA19 Oct. 7-9 in Melbourne, where #BGI Group CEO Dr. Xun Xu will give a keynote Oct. 7. He will highlight our novel technologies to improve #SingleCell analysis and long fragment reads, enabling more complete and accurate human genomes. #MGI #sequencing #NGS <a href="https://t.co/Nx95a3H4Go" class="uri">https://t.co/Nx95a3H4Go</a>
+</td>
+<td style="text-align:right;">
+0.9952608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+alifgems
+</td>
+<td style="text-align:left;">
+<p>Burma Ruby Pigeons Blood Red No heat., No treatment, almost loup clean (no silk, no cloud or any spot) certified by GRS. Contact now WhatsApp +85251621147 <a href="https://t.co/tIam9fyTmj" class="uri">https://t.co/tIam9fyTmj</a> <a href="mailto:sales@alifgems.com" class="email">sales@alifgems.com</a></p>
+#Ruby #burmaruby #agta19 #Antwerp #london #paris #NYC <a href="https://t.co/BvZ92wHp1N" class="uri">https://t.co/BvZ92wHp1N</a>
+</td>
+<td style="text-align:right;">
+0.9952608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+The brilliant <span class="citation">@Hasindu2008</span> from <span class="citation">@unsw</span> and <span class="citation">@GarvanInstitute</span> talking about portable Genomic analysis, and how relying on Australian internet is just not going to cut it. Minimap2 and nanopolish (f5c) running on mobile phones. Poster 31 #agta19 <a href="https://t.co/y2DOUHCk3f" class="uri">https://t.co/y2DOUHCk3f</a>
+</td>
+<td style="text-align:right;">
+0.9938496
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+So many new terms I’m learning today: Tumour mutational burden - TMB - no. of nonsynonymous mutations per coding are of the genome. The higher TMB, the better the response to immunotherapy in some tumors. STALLONE works better then WES. By Andrew Pattison #agta19
+</td>
+<td style="text-align:right;">
+0.9935284
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Xun Xu from BGI, talking about how they are switching their sequencing chemistry from fluorescently labelled nucleotides to natural nucleotides detected with antibodies. #AGTA19
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Come to poster 31, <span class="citation">@Hasindu2008</span> made a tool on #NVIDIA Jetson running #nanopore data with nanopolish, minimap2, samtool and nanopolish methylation call! #agta19 <a href="https://t.co/vlEyhjvysH" class="uri">https://t.co/vlEyhjvysH</a>
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TheRealSmithLab
+</td>
+<td style="text-align:left;">
+Here’s a clear view of <span class="citation">@Hasindu2008</span>’s poster at #AGTA19 on software optimisation for real-time sequencing analysis on portable electronics <a href="https://t.co/3ycCik2Zp9" class="uri">https://t.co/3ycCik2Zp9</a> <a href="https://t.co/Ty7D3JArOk" class="uri">https://t.co/Ty7D3JArOk</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+jess_sci_chang
+</td>
+<td style="text-align:left;">
+<span class="citation">@taniapsduarte</span> wrapping up the final #groupcoin talk about nanopore sequencing of sputum samples from CF patients and her optimisation of extraction methods! 😊#agta19 <a href="https://t.co/vZjCPN9gsj" class="uri">https://t.co/vZjCPN9gsj</a>
+</td>
+<td style="text-align:right;">
+0.9905753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+Hello Melbourne…. looks warm out there, but hear it’s not. Our <span class="citation">@VirginAustralia</span> flight was early and put in the “naughty corner” to wait our turn at the gate. Come on, I’ve got to get to #agta19 <a href="https://t.co/UeHeyh7myX" class="uri">https://t.co/UeHeyh7myX</a>
+</td>
+<td style="text-align:right;">
+0.9897995
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AntoBeck
+</td>
+<td style="text-align:left;">
+<span class="citation">@acadey80</span> telling us about sci ATAC seq. I loved the paper on sci seq a few years ago #agta19 <a href="https://t.co/Kx1EtXGIvo" class="uri">https://t.co/Kx1EtXGIvo</a>
+</td>
+<td style="text-align:right;">
+0.9877893
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Single cell seq in clinical samples: breast cancer (October is the breast cancer awareness month!) by <span class="citation">@dralexswarbrick</span> #agta19 1- tissue at surgery/metastatic biopsy 2- rapid autopsy (Brocade study) 3- single cell seq -250cases of early breast cancer - 1.5 million cells
+</td>
+<td style="text-align:right;">
+0.9958896
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lachlancoin
+</td>
+<td style="text-align:left;">
+Amazing tech introduced by Xun Xu, including handheld droplet based single-cell barcoding device (iDrop), antibody based sequencing of natural nucleotides, single-tube long fragment read #AGTA19
+</td>
+<td style="text-align:right;">
+0.9946466
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ClarksysCorner
+</td>
+<td style="text-align:left;">
+Asking if cell-type proportions differ between samples is key question in single cell analysis. Current method limited in taking replicate variation in account (venerable to false +ves). Propeller from <span class="citation">@BelindaPhipson</span> a new method to address this #AGTA19
+</td>
+<td style="text-align:right;">
+0.9944049
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TheRealSmithLab
+</td>
+<td style="text-align:left;">
+James Ferguson <span class="citation">@Psy_Fer_</span> presented our recent work building a #bioinformatics toolkit for raw nanopore signal analysis at #AGTA19: use #SquiggleKit to search electric signal for nucleotide motifs. P-values included at no extra cost! <a href="https://t.co/wYIjwY1tgV" class="uri">https://t.co/wYIjwY1tgV</a> <a href="https://t.co/0QJVST4heu" class="uri">https://t.co/0QJVST4heu</a>
+</td>
+<td style="text-align:right;">
+0.9941404
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+taniapsduarte
+</td>
+<td style="text-align:left;">
+Learning about 🍅 tomatoes: structural variations play a major role in phenotypic differences (?). By <span class="citation">@mike_schatz</span> #agta19 Photo of home grown tomatoes I ate in Portugal this summer. <a href="https://t.co/ZsjzRRXPRZ" class="uri">https://t.co/ZsjzRRXPRZ</a>
+</td>
+<td style="text-align:right;">
+0.9927736
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+desitweeter
+</td>
+<td style="text-align:left;">
+All set up with solutions across gene expression and genotyping workflows, including a human genotyping project competition and end of year promotions! Come visit us - Booth 24 #agta19 #thermofisherscientific #geneticanalysis <a href="https://t.co/eTkmrJaTFA" class="uri">https://t.co/eTkmrJaTFA</a>
+</td>
+<td style="text-align:right;">
+0.9927736
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Yay! Time for <span class="citation">@BelindaPhipson</span> talking about her new method “Propeller” for testing for differences in cell type proportions in single-cell RNA-seq #agta19
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Al__Forrest
+</td>
+<td style="text-align:left;">
+<p>Enjoying #AGTA19 <span class="citation">@agtaGenomics</span> Rego is now open for the #HGM2020 Human Genome meeting Perth April 5th-8th.</p>
+<p><a href="https://t.co/fXuqWwXXfJ" class="uri">https://t.co/fXuqWwXXfJ</a></p>
+We promise nicer weather :)
+</td>
+<td style="text-align:right;">
+0.9912414
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marimiya_tky
+</td>
+<td style="text-align:left;">
+Interesting seeing the statisical difference of hear data depends on cell type across fetal to adults. #agta19 <a href="https://t.co/H9SuKak0h7" class="uri">https://t.co/H9SuKak0h7</a>
+</td>
+<td style="text-align:right;">
+0.9877893
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+Now up <span class="citation">@dralexswarbrick</span> from the <span class="citation">@GarvanInstitute</span> talking about his labs latest work on single cell sequencing and early breast cancer #agta19 <a href="https://t.co/PdRXIs4bwT" class="uri">https://t.co/PdRXIs4bwT</a>
+</td>
+<td style="text-align:right;">
+0.9877893
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">sketchy</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/esteinig/sketchy" class="uri">https://github.com/esteinig/sketchy</a></td>
+</tr>
+<tr class="even">
+<td align="left">SpaCell</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/biomedicalmachinelearning/spacell" class="uri">https://github.com/biomedicalmachinelearning/spacell</a></td>
+</tr>
+<tr class="odd">
+<td align="left">SquiggleKit</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/psy-fer/squigglekit" class="uri">https://github.com/psy-fer/squigglekit</a></td>
+</tr>
+<tr class="even">
+<td align="left">UNCALLED</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/skovaka/uncalled" class="uri">https://github.com/skovaka/uncalled</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## R version 3.6.0 (2019-04-26)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Sierra 10.12.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.25        
+##  [4] magick_2.2         webshot_0.5.1      viridis_0.5.1     
+##  [7] viridisLite_0.3.0  wordcloud_2.6      RColorBrewer_1.1-2
+## [10] ggraph_2.0.0       ggrepel_0.8.1      ggplot2_3.2.1     
+## [13] topicmodels_0.2-8  tidytext_0.2.2     igraph_1.2.4.1    
+## [16] stringr_1.4.0      purrr_0.3.2        forcats_0.4.0     
+## [19] lubridate_1.7.4    tidyr_1.0.0        dplyr_0.8.3       
+## [22] rtweet_0.6.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] progress_1.2.2     httr_1.4.1         rprojroot_1.3-2   
+##  [4] SnowballC_0.6.0    tools_3.6.0        backports_1.1.5   
+##  [7] utf8_1.1.4         R6_2.4.0           lazyeval_0.2.2    
+## [10] colorspace_1.4-1   withr_2.1.2        tidyselect_0.2.5  
+## [13] gridExtra_2.3      prettyunits_1.0.2  processx_3.4.1    
+## [16] curl_4.2           compiler_3.6.0     cli_1.1.0         
+## [19] xml2_1.2.2         NLP_0.2-0          labeling_0.3      
+## [22] slam_0.1-45        scales_1.0.0       tm_0.7-6          
+## [25] callr_3.3.2        askpass_1.1        digest_0.6.21     
+## [28] rmarkdown_1.16     pkgconfig_2.0.3    htmltools_0.4.0   
+## [31] highr_0.8          rlang_0.4.0        farver_1.1.0      
+## [34] generics_0.0.2     jsonlite_1.6       tokenizers_0.2.1  
+## [37] magrittr_1.5       modeltools_0.2-22  Matrix_1.2-17     
+## [40] Rcpp_1.0.2         munsell_0.5.0      fansi_0.4.0       
+## [43] lifecycle_0.1.0    stringi_1.4.3      yaml_2.2.0        
+## [46] MASS_7.3-51.4      plyr_1.8.4         grid_3.6.0        
+## [49] parallel_3.6.0     crayon_1.3.4       lattice_0.20-38   
+## [52] graphlayouts_0.5.0 hms_0.5.1          zeallot_0.1.0     
+## [55] ps_1.3.0           pillar_1.4.2       reshape2_1.4.3    
+## [58] stats4_3.6.0       glue_1.3.1         evaluate_0.14     
+## [61] vctrs_0.2.0        png_0.1-7          tweenr_1.0.1      
+## [64] gtable_0.3.0       openssl_1.4.1      polyclip_1.10-0   
+## [67] assertthat_0.2.1   xfun_0.10          ggforce_0.3.1     
+## [70] tidygraph_1.1.2    janeaustenr_0.1.5  tibble_2.1.3      
+## [73] ellipsis_0.3.0</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
