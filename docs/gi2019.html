@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>gi2019</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">gi2019</h1>
+<h3 class="subtitle">Genome Informatics conference 2019</h3>
+<h4 class="date">2019-11-07 08:36:01</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#gi2019</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2019-11-06</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2019-11-09</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">America/New_York</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#005190</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#7FA8C7</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #gi2019 hashtag for the [Genome Informatics conference][GI2019], 6-9 November 2019, at Cold Spring Harbor Laboratories, New York, USA.</p>
+<p>A total of 808 tweets from 244 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/gi2019/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2019-11-06 - 2019-11-09 in the America/New_York timezone.</p>
+<p><img src="figures/gi2019/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
+<p><img src="figures/gi2019/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
+<p><img src="figures/gi2019/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/gi2019/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/gi2019/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/gi2019/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/gi2019/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/gi2019/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/gi2019/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/gi2019/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/gi2019/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/gi2019/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/gi2019/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-1" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/gi2019/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/gi2019/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/gi2019/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered">
+<h4>Day 3</h4>
+<p><img src="figures/gi2019/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-2" class="section level4 unnumbered">
+<h4>Day 4</h4>
+<p><img src="figures/gi2019/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/gi2019/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/gi2019/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/gi2019/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/gi2019/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/gi2019/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+lh3lh3
+</td>
+<td style="text-align:left;">
+I am looking for one or two postdocs working on bioinformatics and computational biology in general. Find me at #gi2019 if you are around. <a href="https://t.co/cZpnhzMAtr" class="uri">https://t.co/cZpnhzMAtr</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hdashnow
+</td>
+<td style="text-align:left;">
+I’m presenting STRling, our new method to detect novel (and reference) STR expansions from short-read data. <a href="https://t.co/hPyL7WBhkI" class="uri">https://t.co/hPyL7WBhkI</a> #gi2019 Big thanks to <span class="citation">@brent_p</span> who has done a huge amount of work on this algorithm and is an all around fantastic guy to work with.
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeInABottle
+</td>
+<td style="text-align:left;">
+We’re excited for the first <span class="citation">@GenomeInABottle</span> benchmark for the MHC! See Justin Wagner’s poster at #gi2019 by <span class="citation">@infoecho</span> <span class="citation">@tobiasmarschal</span> <span class="citation">@MikkoRautiaine3</span> <span class="citation">@erikgarrison</span>… A Diploid Assembly-based Benchmark for Variants in the Major Histocompatibility Complex <a href="https://t.co/QegTBz6hsJ" class="uri">https://t.co/QegTBz6hsJ</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aaronquinlan
+</td>
+<td style="text-align:left;">
+Tonight at #gi2019 <span class="citation">@hdashnow</span> will present STRling (pronounced “sterling”, the new approach she is developing with <span class="citation">@brent_p</span> to detect large STR expansions at both annotated and novel STR loci. I am so bummed to miss this fantastic meeting. <a href="https://t.co/6e4hw5qMkW" class="uri">https://t.co/6e4hw5qMkW</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+deannachurch
+</td>
+<td style="text-align:left;">
+Also- I’m looking for someone to lead my Informatics/analysis group- and single cell experience is a must! Help build the next generation of genomics tools using genome engineering! <a href="https://t.co/v8vzvssQUM" class="uri">https://t.co/v8vzvssQUM</a> #gi2019
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>If you are giving an oral or poster presentation at Genome Informatics #gi2019 you can share it with the community by uploading it to our <span class="citation">@F1000Research</span> channel</p>
+<a href="https://t.co/xrktvA2YYe" class="uri">https://t.co/xrktvA2YYe</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ArangRhie
+</td>
+<td style="text-align:left;">
+Heading over to <span class="citation">@CSHL</span> for #gi2019. Stop by my poster to discuss assembly standards we aim at the VGP <span class="citation">@genomeark</span> and how to evaluate. Is your assembly “reference” quality?
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gnarzisi
+</td>
+<td style="text-align:left;">
+We have extended Lancet (<a href="https://t.co/GY93SbIlDP" class="uri">https://t.co/GY93SbIlDP</a>) to support linked-reads sequencing data. Look for our poster at #gi2019 tomorrow for more details. Looking forward to another great meeting. Poster in <span class="citation">@F1000Research</span>, <a href="https://t.co/RahU1XwHdM" class="uri">https://t.co/RahU1XwHdM</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+infoecho
+</td>
+<td style="text-align:left;">
+A Manhattan plot for #GI2019 <a href="https://t.co/Jpamfgex8e" class="uri">https://t.co/Jpamfgex8e</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aphillippy
+</td>
+<td style="text-align:left;">
+<span class="citation">@AliciaOshlack</span> and <span class="citation">@pathogenomenick</span> kicking off #gi2019. So many legendary bioinformagicians in attendance. Love this meeting! <a href="https://t.co/BIMjUNC1E2" class="uri">https://t.co/BIMjUNC1E2</a>
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/gi2019/most-retweeted-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/gi2019/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/gi2019/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+samstudio8
+</td>
+<td style="text-align:left;">
+Made it to #gi2019 at <span class="citation">@CSHL</span>. My metagenomic assembly graph artwork is the book cover! <a href="https://t.co/T2X6EPqweC" class="uri">https://t.co/T2X6EPqweC</a>
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+infoecho
+</td>
+<td style="text-align:left;">
+A Manhattan plot for #GI2019 <a href="https://t.co/Jpamfgex8e" class="uri">https://t.co/Jpamfgex8e</a>
+</td>
+<td style="text-align:right;">
+69
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+Looking forward to #gi2019 tomorrow! My first time at CSHL, <span class="citation">@samstudio8</span>’s first time in NYC. Looking forward to catching up with colleagues and friends. Apparently you can watch talks from the bar?
+</td>
+<td style="text-align:right;">
+52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Heading out of Melbourne for my first trip to the USA since 2012. Excited to meet you all at #fgs19 and #gi2019. Come and say hi
+</td>
+<td style="text-align:right;">
+51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hdashnow
+</td>
+<td style="text-align:left;">
+I’m presenting STRling, our new method to detect novel (and reference) STR expansions from short-read data. <a href="https://t.co/hPyL7WBhkI" class="uri">https://t.co/hPyL7WBhkI</a> #gi2019 Big thanks to <span class="citation">@brent_p</span> who has done a huge amount of work on this algorithm and is an all around fantastic guy to work with.
+</td>
+<td style="text-align:right;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aaronquinlan
+</td>
+<td style="text-align:left;">
+Tonight at #gi2019 <span class="citation">@hdashnow</span> will present STRling (pronounced “sterling”, the new approach she is developing with <span class="citation">@brent_p</span> to detect large STR expansions at both annotated and novel STR loci. I am so bummed to miss this fantastic meeting. <a href="https://t.co/6e4hw5qMkW" class="uri">https://t.co/6e4hw5qMkW</a>
+</td>
+<td style="text-align:right;">
+46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+I actually really like this photo. Who would have thought that <span class="citation">@pathogenomenick</span> and I only met for the first time 10 mintues before that #gi2019 <a href="https://t.co/DbTTm0vPsr" class="uri">https://t.co/DbTTm0vPsr</a>
+</td>
+<td style="text-align:right;">
+45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aphillippy
+</td>
+<td style="text-align:left;">
+<span class="citation">@AliciaOshlack</span> and <span class="citation">@pathogenomenick</span> kicking off #gi2019. So many legendary bioinformagicians in attendance. Love this meeting! <a href="https://t.co/BIMjUNC1E2" class="uri">https://t.co/BIMjUNC1E2</a>
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>If you are giving an oral or poster presentation at Genome Informatics #gi2019 you can share it with the community by uploading it to our <span class="citation">@F1000Research</span> channel</p>
+<a href="https://t.co/xrktvA2YYe" class="uri">https://t.co/xrktvA2YYe</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeInABottle
+</td>
+<td style="text-align:left;">
+We’re excited for the first <span class="citation">@GenomeInABottle</span> benchmark for the MHC! See Justin Wagner’s poster at #gi2019 by <span class="citation">@infoecho</span> <span class="citation">@tobiasmarschal</span> <span class="citation">@MikkoRautiaine3</span> <span class="citation">@erikgarrison</span>… A Diploid Assembly-based Benchmark for Variants in the Major Histocompatibility Complex <a href="https://t.co/QegTBz6hsJ" class="uri">https://t.co/QegTBz6hsJ</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/gi2019/most-favorited-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/gi2019/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/gi2019/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+We already have two new posters on our <span class="citation">@F1000Research</span> Channel for this year’s conference #Gi2019. Check them out at your leisure <a href="https://t.co/Qi3BJYQCs5" class="uri">https://t.co/Qi3BJYQCs5</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ascendox
+</td>
+<td style="text-align:left;">
+RT mike_schatz "RT AliciaOshlack: We already have two new posters on our F1000Research Channel for this year’s conference #Gi2019. Check them out at your leisure <a href="https://t.co/pz1UEPRaQ3%22" class="uri">https://t.co/pz1UEPRaQ3"</a>;
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+I actually really like this photo. Who would have thought that <span class="citation">@pathogenomenick</span> and I only met for the first time 10 mintues before that #gi2019 <a href="https://t.co/DbTTm0vPsr" class="uri">https://t.co/DbTTm0vPsr</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Sad that <span class="citation">@sexchrlab</span> wasn’t able to be here to do the opening of #gi2019 with us because of stupid flight cancellations <a href="https://t.co/DbTTm0vPsr" class="uri">https://t.co/DbTTm0vPsr</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+megbowman
+</td>
+<td style="text-align:left;">
+Can’t wait to see you! Very excited for #gi2019. <a href="https://t.co/UJWPf8OM63" class="uri">https://t.co/UJWPf8OM63</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lpachter
+</td>
+<td style="text-align:left;">
+I don’t usually do this but today I’m heading to <span class="citation">@JFKairport</span> (by plane) to pick up <span class="citation">@hjpimentel</span> to take him to #gi2019 <span class="citation">@CSHL</span>. <a href="https://t.co/7JftL1j4mo" class="uri">https://t.co/7JftL1j4mo</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Can’t wait to see you at #gi2019 <a href="https://t.co/aLFvdVANbU" class="uri">https://t.co/aLFvdVANbU</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iddux
+</td>
+<td style="text-align:left;">
+Great resource for #gi2019! <a href="https://t.co/vADcjuNpLi" class="uri">https://t.co/vADcjuNpLi</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+The first of many “I know you, but only from twitter” conversations at #gi2019 <a href="https://t.co/v9WCTmTBEd" class="uri">https://t.co/v9WCTmTBEd</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+#gi2019 poster from <span class="citation">@DUNQU1</span> <a href="https://t.co/cVTnBd8s0S" class="uri">https://t.co/cVTnBd8s0S</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/gi2019/most-quoted-1.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
+<p><img src="figures/gi2019/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+samstudio8
+</td>
+<td style="text-align:left;">
+Made it to #gi2019 at <span class="citation">@CSHL</span>. My metagenomic assembly graph artwork is the book cover! <a href="https://t.co/T2X6EPqweC" class="uri">https://t.co/T2X6EPqweC</a>
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+infoecho
+</td>
+<td style="text-align:left;">
+A Manhattan plot for #GI2019 <a href="https://t.co/Jpamfgex8e" class="uri">https://t.co/Jpamfgex8e</a>
+</td>
+<td style="text-align:right;">
+69
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aphillippy
+</td>
+<td style="text-align:left;">
+<span class="citation">@AliciaOshlack</span> and <span class="citation">@pathogenomenick</span> kicking off #gi2019. So many legendary bioinformagicians in attendance. Love this meeting! <a href="https://t.co/BIMjUNC1E2" class="uri">https://t.co/BIMjUNC1E2</a>
+</td>
+<td style="text-align:right;">
+42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sedlazeck
+</td>
+<td style="text-align:left;">
+Flying out to <span class="citation">@cshlmeetings</span> for #gi2019 . Hope to see you all there . Looking forward to a few days of excellent #bioinformatics . Check out my Postdoc <span class="citation">@MedhatHelmy7</span> talk about princes on Thur. morning. <a href="https://t.co/w7QwkqED57" class="uri">https://t.co/w7QwkqED57</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giuliaguidi
+</td>
+<td style="text-align:left;">
+I was looking forward #GI2019 to catch up with friends and talk about our recent work on long-read overlap detection and alignment via sparse-matrix multiplication. Unforeseen circumstances are preventing me to attend —I know Twitter will help me to keep on top of things, though! <a href="https://t.co/BMyYt5rSJ4" class="uri">https://t.co/BMyYt5rSJ4</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiXing77
+</td>
+<td style="text-align:left;">
+Lab members enjoying #gi2019 ! <a href="https://t.co/umUenlVyhq" class="uri">https://t.co/umUenlVyhq</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lpachter
+</td>
+<td style="text-align:left;">
+Elena Vigorito is the first speaker this year using LaTeX for her #gi2019 slides. <a href="https://t.co/YRQgQzd6fQ" class="uri">https://t.co/YRQgQzd6fQ</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+samstudio8
+</td>
+<td style="text-align:left;">
+the bar only takes cash #gi2019 <a href="https://t.co/MJHXqXtE3N" class="uri">https://t.co/MJHXqXtE3N</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiXing77
+</td>
+<td style="text-align:left;">
+My student Yang Pan <span class="citation">@ypnngaa</span> will present his work on PEGASAS, pathway guided analysis of alternative splicing, at the upcoming Penn #RNA club next Tuesday! He also has a poster about PEGASAS at CSHL #gi2019 this week. #IOTN #Moonshot <a href="https://t.co/jzIJSD6wWU" class="uri">https://t.co/jzIJSD6wWU</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Repealist_
+</td>
+<td style="text-align:left;">
+<p>Incidental window seat right near the front, space to get work done,</p>
+<p>and it starts raining just as I’m leaving Dublin?</p>
+<p>All the promising makings of a great journey to #gi2019 and #SUNY.</p>
+Slán a chairde 🇮🇪 tá sí ag dul go Nua-Eabhrac 🇺🇸! <a href="https://t.co/GTcyz95iNn" class="uri">https://t.co/GTcyz95iNn</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/EIuW-SJW4AExEUJ.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/gi2019/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/gi2019/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/gi2019/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 Harriet Dashnow, Exploring short tandem repeat (STR) expansions at known and novel loci in the human genome</p>
+<p>STR=microsatellites; &amp;gt;40 STR disease loci STRling detect large STR expansions from short-read data</p>
+👀👇 <a href="https://t.co/AnojqhXL3l" class="uri">https://t.co/AnojqhXL3l</a> (ref STR) <a href="https://t.co/lwvGd3K2iu" class="uri">https://t.co/lwvGd3K2iu</a>
+</td>
+<td style="text-align:right;">
+0.9953121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+STR: several methods for reference STR (all using puns including the letters STR). Canvas (ataxia) disease, reference genome has alu element and AAAAG_n motif, disease elements have AAGGG_n motif, reference based methods fail to detect these #gi2019
+</td>
+<td style="text-align:right;">
+0.9949537
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+HD: &amp;gt;40STR diseases, threshold of STR length, crossing from normal to pathogenic (with a small intermediate range). Novel STR expansion, when you have an STR in an individual, but no STR present at the locus in the reference genome #gi2019
+</td>
+<td style="text-align:right;">
+0.9934517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+HD: Then gather clusters of evidence for an expansion; go back and grab supporting spanning reads to estimate size of short allele and use linear regression to estimate predict size of longer allele #gi2019
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+HD: Use uniquely mapped mates, to collect STR reads, inspect soft clipped reads that can give breakpoint boundaries and unplaced reads that are contained within the STR that give information about length #gi2019
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Evan Eichler: Long read sequencing of SVs. Human genomes are complex, 4% duplications. Long reads increase resolution of SVs. 92% of insertions and 60% of deletions are novel, 11Mbp of novel sequence from a single genome #gi2019
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+HD: Find STR reads using kmer counting. Can use the flanking mate in an anchored pair to find the mate and use soft-clipped reads to calculate the proportion of the soft-slip that is STR #gi2019
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+HD: Use coverage of unplaced STR reads (both pairs within STR) to infer STR length. [aside: STRling <a href="https://t.co/TBPhOk48MB" class="uri">https://t.co/TBPhOk48MB</a> is written in Nim, which I need to check out]. Validation with pacbio long reads. #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aaronquinlan
+</td>
+<td style="text-align:left;">
+Tonight at #gi2019 <span class="citation">@hdashnow</span> will present STRling (pronounced “sterling”, the new approach she is developing with <span class="citation">@brent_p</span> to detect large STR expansions at both annotated and novel STR loci. I am so bummed to miss this fantastic meeting. <a href="https://t.co/6e4hw5qMkW" class="uri">https://t.co/6e4hw5qMkW</a>
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+<p>Evan Eichler talking about paralogous sequence graphs.</p>
+<p>Got me thinking how we could apply this to mismapping sex-linked (X-Y) reads. And what resolution would be like in Y-palindrome sequences.</p>
+<p>Still need long reads.</p>
+#GI2019
+</td>
+<td style="text-align:right;">
+0.9918307
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+<p>DC: How can we make good, clinic-ready structural variant calls from tumor patients?</p>
+<ul>
+<li><p>110x WGS tumor/normal.</p></li>
+<li><p>Pipeline uses GRIDSS (breakend assembly) -&amp;gt; PURPLE (CN calling) -&amp;gt; LINX (annotation) #gi2019</p>
+</td>
+<td style="text-align:right;">
+<p>0.9943000</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>chrisamiller</p>
+</td>
+<td style="text-align:left;">
+<p>DC: GRIDSS is unusual for making single-end breakpoint calls (nice for resolving CN events). Most single ends called when the other stretches into LINEs or PolyA tracts.</p></li>
+</ul>
+Pipeline also does phasing from short reads (3-500bp) - works for a surprisingly large # of events #gi2019
+</td>
+<td style="text-align:right;">
+0.9943000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+EV: strict filters on calling variants from rnaseq data, high depth and reads uniquely mapping. Exclude gene-snp pairs that have discrepant frequency of hets. Filter out snps with low imputation info. #gi2019
+</td>
+<td style="text-align:right;">
+0.9943000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiXing77
+</td>
+<td style="text-align:left;">
+My student Yang Pan <span class="citation">@ypnngaa</span> will present his work on PEGASAS, pathway guided analysis of alternative splicing, at the upcoming Penn #RNA club next Tuesday! He also has a poster about PEGASAS at CSHL #gi2019 this week. #IOTN #Moonshot <a href="https://t.co/jzIJSD6wWU" class="uri">https://t.co/jzIJSD6wWU</a>
+</td>
+<td style="text-align:right;">
+0.9940427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sz_genomics
+</td>
+<td style="text-align:left;">
+Straight from my second exam this week to #gi2019! I haven’t even checked in yet – went straight into Grace just in time to catch Evan Eichler speaking. So excited for my first conference as a grad student – to catch up with old friends and learn about cool new science 👩🏻‍🔬
+</td>
+<td style="text-align:right;">
+0.9934517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+DC: developed a set of tools to better call SVs. Wrote a new GRIDSS based tool for SVs, Purple specifically for CNV, and a tool called LINX for variant interpretation #gi2019
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ascendox
+</td>
+<td style="text-align:left;">
+RT mike_schatz "RT gnarzisi: We have extended Lancet (<a href="https://t.co/fMvY7kRNjh" class="uri">https://t.co/fMvY7kRNjh</a>) to support linked-reads sequencing data. Look for our poster at #gi2019 tomorrow for more details. Looking forward to another great meeting. Poster in F1000Research, <a href="https://t.co/ZnBAafs33o%22" class="uri">https://t.co/ZnBAafs33o"</a>;
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kasukawa
+</td>
+<td style="text-align:left;">
+baseQTL enables eQTL analysis without independent genotyping (achieved by Bayesian inference / imputation from gene regions with RNA-seq data. (if my understanding is correct). The tool will be available soon. #gi2019
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+DC: GRIDSS2, extended SV caller to deal with insertions that are hard to place (due to repetitive elements). Some non-repetitive parts are from viral genomes, which affect the progression of cancer #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeInABottle
+</td>
+<td style="text-align:left;">
+We’re excited for the first <span class="citation">@GenomeInABottle</span> benchmark for the MHC! See Justin Wagner’s poster at #gi2019 by <span class="citation">@infoecho</span> <span class="citation">@tobiasmarschal</span> <span class="citation">@MikkoRautiaine3</span> <span class="citation">@erikgarrison</span>… A Diploid Assembly-based Benchmark for Variants in the Major Histocompatibility Complex <a href="https://t.co/QegTBz6hsJ" class="uri">https://t.co/QegTBz6hsJ</a>
+</td>
+<td style="text-align:right;">
+0.9918307
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 Naihui Zhou: Exploring 3D spatial dependency of gene expr using Markov random fields</p>
+<p>hypothesis: expr is spatially dependent</p>
+developed PHiMRF <a href="https://t.co/YQjn6CRXGO" class="uri">https://t.co/YQjn6CRXGO</a> prob model for RNA-seq data accounting for gene locals in 3D genome (spatial dependency for count data)
+</td>
+<td style="text-align:right;">
+0.9958952
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 Karine Le Roch, ‘Comparative 3D genome organization in Apicomplexan parasites’</p>
+<p>Overall, work supports link between genome organization and gene expression in more virulent pathogens</p>
+learn more from their recent pubs: <a href="https://t.co/0bG5uj8tvD" class="uri">https://t.co/0bG5uj8tvD</a> <a href="https://t.co/Fc3Ar3U8re" class="uri">https://t.co/Fc3Ar3U8re</a>
+</td>
+<td style="text-align:right;">
+0.9940427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lpachter
+</td>
+<td style="text-align:left;">
+Interesting mention of kernel Canonical Correlation Analysis (KCCA) at #gi2019 by <span class="citation">@KarineLeRoch1</span> for coupling genome organization data with gene expression data. Nonlinear CCA is complex and still not widely used in genomics. Related: <a href="https://t.co/ux3wgq7XpQ" class="uri">https://t.co/ux3wgq7XpQ</a>
+</td>
+<td style="text-align:right;">
+0.9934517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeBiology
+</td>
+<td style="text-align:left;">
+Naihui Zhou is talking about the spatial dependency of gene expression. By taking into account spatial clustering of genes, she hopes to be able to do better differential expression analysis in RNA-seq data #gi2019
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+David_McGaughey
+</td>
+<td style="text-align:left;">
+Made it to #gi2019. First time staying at cshl Banbury campus. If you do scRNA stuffs make time to bother me about me 750k+, 14 study ocular integration project while you wait to talk to <span class="citation">@pmelsted</span> at poster session 1 (105). <a href="https://t.co/D87VAc39T9" class="uri">https://t.co/D87VAc39T9</a>
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hdashnow
+</td>
+<td style="text-align:left;">
+Reflecting that a major advantage of moving to Utah is this new relative proximity to #gi2019. Last time I attended it was a 20+ hr flight from Melbourne, AUS. Actually, even the UK Genome Informatics seems close now by contrast…
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Naihui Zhou: 3d spatial dependency of gene expression. hypothesis: location in 3d space drives gene expression, i.e. are spatially correlated.<br />
+#gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+byuhobbes
+</td>
+<td style="text-align:left;">
+Topic of tonight’s first session is genome structure and function. Karine Le Roch from UC Riverside is leading off with a presentation about spatial genome organization in Apicomplexans. #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+NZ: Idea is to use spatial information of genes to account for correlations for differential expression experiments. Infer a spatial gene network from HiC data. #gi2019
+</td>
+<td style="text-align:right;">
+0.9918307
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+iddux
+</td>
+<td style="text-align:left;">
+Great #gi2019 opening talk by <span class="citation">@KarineLeRoch1</span> on comparing 3d genome structure and gene expression in apicomplexan parasites. Expression strongly linked to 3D location. <a href="https://t.co/9EQTgeJpCY" class="uri">https://t.co/9EQTgeJpCY</a>
+</td>
+<td style="text-align:right;">
+0.9912917
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+TG: High coverage of targeted regions means you can call SNPs better (except for homopolymer sites). Comp of tools, samtools, clair, medaka and nanopolish. 0.98 sensitivity for nanopolish and samtools at 200x cov (still a number of FPs), FPs often from a single strand #gi2019
+</td>
+<td style="text-align:right;">
+0.9947531
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Daniel Cameron on structural variation and CNV from cancer samples. Fully automated oncology reports, no possibility of manual intervention. Wrote 3 software for SV calling (GRIDSS), CNV calling (PURPLE) and interpretation (LINX) #gi2019
+</td>
+<td style="text-align:right;">
+0.9943000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeBiology
+</td>
+<td style="text-align:left;">
+TG: using targeted Nanopore sequencing for SVs, they miss variants, usually in homopolymer runs. True positives are usually called on both strands, whereas false positives are due to systematic errors on a single strand #gi2019
+</td>
+<td style="text-align:right;">
+0.9934517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+envisagenics
+</td>
+<td style="text-align:left;">
+Want to learn how we do AI-driven drug discovery: stop by <span class="citation">@envisagenics</span> posters <span class="citation">@CSHL</span> for #gi2019 will be presenting 11/7 <span class="citation">@pdhingra2015</span> #45, Robin Munch #121, Naomi Yudin #201 #startup #RNA #AI #Cloud #fastercures <a href="https://t.co/t2okInNS96" class="uri">https://t.co/t2okInNS96</a>
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+Timothy Gilpatrick: Targeted nanopore seq with cas9. Enrichment strategy can give 47X coverage using a single cut from a single minion. Can go up to 407X with 3 cut sites #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+DC: Calling variants from nanopore reads. Many FPs supported by only one strand, so filters put in place. (This feels a lot like the early days of variant calling on the solexa platform!) #gi2019
+</td>
+<td style="text-align:right;">
+0.9918307
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeBiology
+</td>
+<td style="text-align:left;">
+Timothy Gilpatrick is using targeted Nanopore sequencing and Cas9 for looking at methylation, SVs, and mutations. Nanopore AND Cas9 must be maximum conference bingo points. #gi2019
+</td>
+<td style="text-align:right;">
+0.9906767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+deannachurch
+</td>
+<td style="text-align:left;">
+Also- I’m looking for someone to lead my Informatics/analysis group- and single cell experience is a must! Help build the next generation of genomics tools using genome engineering! <a href="https://t.co/v8vzvssQUM" class="uri">https://t.co/v8vzvssQUM</a> #gi2019
+</td>
+<td style="text-align:right;">
+0.9906767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BioinfoTools
+</td>
+<td style="text-align:left;">
+<p>#bioinformatics and #genomics people may like to follow genome informatics #gi2019 at Cold Spring Harbor.</p>
+(Yes, I’m using the USA spelling of harbour. Don’t @ me about it! Maybe this is even correct when using a foreign name…)
+</td>
+<td style="text-align:right;">
+0.9906767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+<p>TG: Using Cas9 to target specific large regions for Nanopore sequencing (tens of kb) - get deep coverage (100x or more)</p>
+Most reads still off target (95% or more!) #gi2019
+</td>
+<td style="text-align:right;">
+0.9906767
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+richardbadge
+</td>
+<td style="text-align:left;">
+Enjoying the updates from #gi2019 Always lots of exciting developments, and perfectly timed for incorporation into PG and UG bioinformatics teaching… #GetThereOneDay #AtTheCuttingEdge
+</td>
+<td style="text-align:right;">
+0.9906767
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 E Vigorito, Mapping cis-eQTL from RNA-seq data w/no genotypes (GTs)</p>
+<p>Why cis-eQTL w/o GTs? context-specific effects of genetic variants on gene expr; patient samples w/o GTs</p>
+<p>baseQTL: Bayesian allele specific expr QTL</p>
+R pkg/pipeline coming soon-contact her if interested!
+</td>
+<td style="text-align:right;">
+0.9958952
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+k3yavi
+</td>
+<td style="text-align:left;">
+<span class="citation">@emblebi</span> <span class="citation">@irenepapatheodo</span> <span class="citation">@pinin4fjords</span> Alevin thrives on producing fast <em>and</em> accurate gene expressions estimates by performing precise read-alignment and principal modeling of gene multi-mapping reads, along with the uncertainty estimates. I’ll be happy to answer any questions/concerns w/ alevin at #gi2019 . 2/2
+</td>
+<td style="text-align:right;">
+0.9953121
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Magdoll
+</td>
+<td style="text-align:left;">
+Eichler: Reference-free long read phased Hunan genome: start with HiFi (~33X) + Canu/wtbg2 —&amp;gt; SarrClust &amp;amp; StrandSeq (2.87X) —&amp;gt; DeepVariant to find SNPs —&amp;gt; WhatsHap &amp;amp; StrandSeq —&amp;gt; Peregrine or Canu to assemble haplotypes #gi2019
+</td>
+<td style="text-align:right;">
+0.9951395
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 E Eichler, Long-read seq of structurally variant genomes <a href="https://t.co/T2tUbfURkD" class="uri">https://t.co/T2tUbfURkD</a> <a href="https://t.co/x3BzVvI1V4" class="uri">https://t.co/x3BzVvI1V4</a></p>
+Accurate &amp;amp; rapid telomere-to-tel assembly of both haplotypes in diploid genome w/ &amp;gt;&amp;gt;accuracy &amp;amp; long(er) reads (HiFi + Strandseq) <a href="https://t.co/56gXyif3IO" class="uri">https://t.co/56gXyif3IO</a> &amp;amp; ++unpub 😉
+</td>
+<td style="text-align:right;">
+0.9947531
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Repealist_
+</td>
+<td style="text-align:left;">
+<p>Incidental window seat right near the front, space to get work done,</p>
+<p>and it starts raining just as I’m leaving Dublin?</p>
+<p>All the promising makings of a great journey to #gi2019 and #SUNY.</p>
+Slán a chairde 🇮🇪 tá sí ag dul go Nua-Eabhrac 🇺🇸! <a href="https://t.co/GTcyz95iNn" class="uri">https://t.co/GTcyz95iNn</a>
+</td>
+<td style="text-align:right;">
+0.9943000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+FadelBerkadar
+</td>
+<td style="text-align:left;">
+<p>A few words about novoSplice poster for the Genome Informatics meeting at CSHL #gi2019</p>
+<ul>
+<li>The poster explains the general workflow of novoSplice besides preliminary benchmarking results using both simulated and real reads. Algorithmic details of the splic…<a href="https://t.co/fxeHNScOal" class="uri">https://t.co/fxeHNScOal</a>
+</td>
+<td style="text-align:right;">
+0.9937612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+k3yavi
+</td>
+<td style="text-align:left;">
+Just in time for #gi2019 , The Expression Atlas from <span class="citation">@emblebi</span> is adopting Alevin for 3’ single cell RNA-seq quantification ! Awesome work from <span class="citation">@irenepapatheodo</span> and the group. Special thanks to <span class="citation">@pinin4fjords</span> for helping improve and integrate Alevin. <a href="https://t.co/Ks7IjahqNA" class="uri">https://t.co/Ks7IjahqNA</a> 1/2
+</td>
+<td style="text-align:right;">
+0.9934517
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cshlmeetings
+</td>
+<td style="text-align:left;">
+Starting tonight: Genome Informatics. Warm welcome to those on campus for #gi2019! For info: <a href="https://t.co/awkC8GZHTW" class="uri">https://t.co/awkC8GZHTW</a></li>
+</ul>
+Please note: - Meeting’s opt-in social media policy - Friday’s morning session starts at 8:30 AM <a href="https://t.co/sLyAai23cu" class="uri">https://t.co/sLyAai23cu</a>
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mahtabm81
+</td>
+<td style="text-align:left;">
+Love how my tweeter feed is filled with updates from #gi2019 Although I’m not in the bioinformatics community directly anymore, I enjoy seeing updates from this wonderful group of scientist &amp;amp; #gi2013 in <span class="citation">@CSHL</span> is still one of the best conferences I ever went to.
+</td>
+<td style="text-align:right;">
+0.9918307
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+<span class="citation">@anaconesa</span> <span class="citation">@AliciaOshlack</span> <span class="citation">@UFGenetics</span> <span class="citation">@morrislab</span> <span class="citation">@sgtringe</span> I LIKE this very much!! Similarly; great to see so many women presenting at #gi2019 <span class="citation">@hdashnow</span> <span class="citation">@bnlasse</span> <span class="citation">@s_ramach</span> <span class="citation">@LaurenCowley4</span> <span class="citation">@karinele</span> et. al. Distinct progress from the start of the decade when it was usually closer to 10-15%. Another #WomenInComputationalScience photo op 😁
+</td>
+<td style="text-align:right;">
+0.9912917
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+bnlasse
+</td>
+<td style="text-align:left;">
+<p>#gi2019 Xi Chen, ‘Tissue-specific enhancer functional networks for associating distal regulatory regions to disease’</p>
+<p>How interpret/predict fxn of enhancers/disease-associated enhancers? Bayesian inference: <a href="https://t.co/JjuT1Ar8pq" class="uri">https://t.co/JjuT1Ar8pq</a> (try it!)</p>
+autism e.g.: <a href="https://t.co/TlWmLl7CXY" class="uri">https://t.co/TlWmLl7CXY</a>
+</td>
+<td style="text-align:right;">
+0.9945359
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+EE: Phased assembly, uses linked reads to phase, hifi reads to construct contigs. 81% of hifi reads can be assigned to a haplotype. Regions that were problematic for canu and peregrine assemblers, about 250, colocalized with segmental duplications. #gi2019
+</td>
+<td style="text-align:right;">
+0.9940427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+EE: developed a computational method based on polyploid phasing of long sequence reads to resolve collapsed regions of segmental duplications within genome assemblies. Segmental Duplication Assembler (<a href="https://t.co/vjWT4Wk2RZ" class="uri">https://t.co/vjWT4Wk2RZ</a>) <a href="https://t.co/HPyUubibKf" class="uri">https://t.co/HPyUubibKf</a> #gi2019
+</td>
+<td style="text-align:right;">
+0.9937612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giuliaguidi
+</td>
+<td style="text-align:left;">
+I was looking forward #GI2019 to catch up with friends and talk about our recent work on long-read overlap detection and alignment via sparse-matrix multiplication. Unforeseen circumstances are preventing me to attend —I know Twitter will help me to keep on top of things, though! <a href="https://t.co/BMyYt5rSJ4" class="uri">https://t.co/BMyYt5rSJ4</a>
+</td>
+<td style="text-align:right;">
+0.9931099
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sexchrlab
+</td>
+<td style="text-align:left;">
+<p>Does HiC distinguish btwn homologous chromosome interactions?</p>
+<p>E.g., we know one X chromosome has a very different intra-chr and inter-chr interaction than the other. Is it assumed that both autosomal chromosomes have the same chr interactions?</p>
+#GI2019
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pmelsted
+</td>
+<td style="text-align:left;">
+EE: Two developments in long read sequencing. 1. Pacbio HiFi sequencing, 99.9% accurate 18kbp reads, 10 passes through a molecule. 2. Ultra long reads from ONT, reads with N50 of 150Kbp. #gi2019
+</td>
+<td style="text-align:right;">
+0.9927304
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+byuhobbes
+</td>
+<td style="text-align:left;">
+XC hypothesis: an enhancer will have a functional relationship with another enhancer if they share particular attributes: 3d interactions, coactivated by same transcription factors, and/or target functionally related genes #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+EE: plugs the just-funded Human PanGenome Project to assemble 350 diverse humans telomere-to-telomere over the next 5 years (with David Haussler @ UCSC and Ira Hall @ WUSTL) #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lizworthey
+</td>
+<td style="text-align:left;">
+XC: Identified de novo ASD vars at FENRIR-predicted enhancers; testing enhancer activity using luciferase reporting assays (missed whether published or not) #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisamiller
+</td>
+<td style="text-align:left;">
+EE: Clever methods for Segmental Duplication Assembly allow “unpacking” overly-high-depth regions of assemblies into distinct clusters. Also working on approaches that integrate long-reads as scaffolds. #gi2019
+</td>
+<td style="text-align:right;">
+0.9923068
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">gridss</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/papenfusslab/gridss" class="uri">https://github.com/papenfusslab/gridss</a></td>
+</tr>
+<tr class="even">
+<td align="left">gridss-purple-linx</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/hartwigmedical/gridss-purple-linx" class="uri">https://github.com/hartwigmedical/gridss-purple-linx</a></td>
+</tr>
+<tr class="odd">
+<td align="left">lancet</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/nygenome/lancet" class="uri">https://github.com/nygenome/lancet</a></td>
+</tr>
+<tr class="even">
+<td align="left">nanopore-methylation-utilities</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/isaclee/nanopore-methylation-utilities" class="uri">https://github.com/isaclee/nanopore-methylation-utilities</a></td>
+</tr>
+<tr class="odd">
+<td align="left">phimrf</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/ashleyzhou972/phimrf" class="uri">https://github.com/ashleyzhou972/phimrf</a></td>
+</tr>
+<tr class="even">
+<td align="left">PhiMRF</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/ashleyzhou972/phimrf" class="uri">https://github.com/ashleyzhou972/phimrf</a></td>
+</tr>
+<tr class="odd">
+<td align="left">SDA</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/mvollger/sda" class="uri">https://github.com/mvollger/sda</a></td>
+</tr>
+<tr class="even">
+<td align="left">STRling</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/quinlan-lab/strling" class="uri">https://github.com/quinlan-lab/strling</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 18362)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
+## [3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
+## [5] LC_TIME=English_Australia.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.25        
+##  [4] magick_2.2         webshot_0.5.1      viridis_0.5.1     
+##  [7] viridisLite_0.3.0  wordcloud_2.6      RColorBrewer_1.1-2
+## [10] ggraph_2.0.0       ggrepel_0.8.1      ggplot2_3.2.1     
+## [13] topicmodels_0.2-8  tidytext_0.2.2     igraph_1.2.4.1    
+## [16] stringr_1.4.0      purrr_0.3.3        forcats_0.4.0     
+## [19] lubridate_1.7.4    tidyr_1.0.0        dplyr_0.8.3       
+## [22] rtweet_0.6.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.1         tidygraph_1.1.2    jsonlite_1.6      
+##  [4] assertthat_0.2.1   askpass_1.1        highr_0.8         
+##  [7] stats4_3.6.1       yaml_2.2.0         progress_1.2.2    
+## [10] slam_0.1-46        pillar_1.4.2       backports_1.1.5   
+## [13] lattice_0.20-38    glue_1.3.1         digest_0.6.22     
+## [16] polyclip_1.10-0    colorspace_1.4-1   plyr_1.8.4        
+## [19] htmltools_0.4.0    Matrix_1.2-17      tm_0.7-6          
+## [22] pkgconfig_2.0.3    scales_1.0.0       processx_3.4.1    
+## [25] tweenr_1.0.1       ggforce_0.3.1      tibble_2.1.3      
+## [28] openssl_1.4.1      generics_0.0.2     farver_1.1.0      
+## [31] ellipsis_0.3.0     withr_2.1.2        lazyeval_0.2.2    
+## [34] cli_1.1.0          NLP_0.2-0          magrittr_1.5      
+## [37] crayon_1.3.4       ps_1.3.0           evaluate_0.14     
+## [40] tokenizers_0.2.1   janeaustenr_0.1.5  fansi_0.4.0       
+## [43] SnowballC_0.6.0    MASS_7.3-51.4      xml2_1.2.2        
+## [46] tools_3.6.1        prettyunits_1.0.2  hms_0.5.2         
+## [49] lifecycle_0.1.0    munsell_0.5.0      callr_3.3.2       
+## [52] compiler_3.6.1     rlang_0.4.1        grid_3.6.1        
+## [55] labeling_0.3       rmarkdown_1.16     gtable_0.3.0      
+## [58] curl_4.2           reshape2_1.4.3     graphlayouts_0.5.0
+## [61] R6_2.4.0           gridExtra_2.3      utf8_1.1.4        
+## [64] zeallot_0.1.0      rprojroot_1.3-2    modeltools_0.2-22 
+## [67] stringi_1.4.3      parallel_3.6.1     Rcpp_1.0.2        
+## [70] vctrs_0.2.0        tidyselect_0.2.5   xfun_0.10</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
