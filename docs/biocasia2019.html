@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>biocasia2019</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">biocasia2019</h1>
+<h3 class="subtitle">BioC Asia 2019</h3>
+<h4 class="date">2019-12-05 16:33:20</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#biocasia</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2019-12-05</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2019-12-06</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#3f92ac</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#9FC8D5</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #biocasia hashtag. A total of 273 tweets from 76 users were collected using the <code>rtweet</code> R package.</p>
+<p>An analysis of tweets from the #biocasia hashtag for the <a href="https://bioconductor.github.io/BiocAsia/" title="BioC Asia">BioC Asia</a> conference 2019.</p>
+<p>A total of 273 tweets from 76 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/biocasia2019/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2019-12-05 - 2019-12-06 in the Australia/Sydney timezone.</p>
+<p><img src="figures/biocasia2019/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
+<p><img src="figures/biocasia2019/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
+<p><img src="figures/biocasia2019/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/biocasia2019/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/biocasia2019/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/biocasia2019/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4>Day 2</h4>
+<p><img src="figures/biocasia2019/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/biocasia2019/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/biocasia2019/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/biocasia2019/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/biocasia2019/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/biocasia2019/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+_StuartLee
+</td>
+<td style="text-align:left;">
+For #BiocAsia I’ve written a workflow package for exploring and combining results from RNA-seq and ATAC-seq data. First iteration is up here: <a href="https://t.co/03oRjSfThQ" class="uri">https://t.co/03oRjSfThQ</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+<p>For #BiocAsia <span class="citation">@PeteHaitch</span> and me are giving a tutorial on how to make a Bioconductor package 📦 with <span class="citation">@rstudio</span>. You can find the tutorial here (feedback very welcome):</p>
+<a href="https://t.co/y9vkKBgYSA" class="uri">https://t.co/y9vkKBgYSA</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+G’day from #biocasia <a href="https://t.co/f2e2XNNkmG" class="uri">https://t.co/f2e2XNNkmG</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+PuXue Qiao sharing the resources she, along with Ruqian Lyu and <span class="citation">@davisjmcc</span>, developed for a 2-day scRNA-seq course <a href="https://t.co/sq2q2HgEA6" class="uri">https://t.co/sq2q2HgEA6</a> #biocasia
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@shazanfar</span> from the <span class="citation">@MarioniLab</span> introduces scHOT for flexible analysis of higher-order interactions in #singlecell data: shows us examples of variability, correlation and spatial analysis #biocasia. Code available at <a href="https://t.co/p8l2m21jqt" class="uri">https://t.co/p8l2m21jqt</a> <a href="https://t.co/41Nbf73QtU" class="uri">https://t.co/41Nbf73QtU</a>
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@trashystats</span> for the detailed documentation and workshop on making <span class="citation">@Bioconductor</span> 📦 . Did you know that you can go inside the R/myfun.R -&amp;gt; click on ‘Code’ -&amp;gt; ‘Insert Roxygen Skeleton’ ?🤯 #BiocAsia <a href="https://t.co/GDDjQW9Gny" class="uri">https://t.co/GDDjQW9Gny</a> <a href="https://t.co/urkJfLMP7v" class="uri">https://t.co/urkJfLMP7v</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@shazanfar</span> is absolutely filling John’s massive shoes (literally and figuratively) by presenting scHOT which allows investigation of higher order statistics in single cell data #biocasia.</p>
+<a href="https://t.co/FNSAlOjfup" class="uri">https://t.co/FNSAlOjfup</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Charity Law, developer of voom, introducing an extension to voom to handle group-specific variance estimation and how she’s thinking about adapting it to scRNA-seq differential expression analysis #biocasia <a href="https://t.co/HOguf3wWpl" class="uri">https://t.co/HOguf3wWpl</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Super interesting discussion by Charity Law from <span class="citation">@mritchieau</span> lab about how different levels of variation (BCV in the #edgeR world) infleluence the significance of differential expression analysis… PS. I have rarely seen BCV &amp;lt; 0.4/0.5 in my samples 😭 #biocasia <a href="https://t.co/NlXzghbNb7" class="uri">https://t.co/NlXzghbNb7</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#biocasia <span class="citation">@paulfharrison</span> presenting Topconfects (pub <a href="https://t.co/5mYDprcT27" class="uri">https://t.co/5mYDprcT27</a> ) that ranks genes based on confidence bounds on the log-fold changes. Furthering <span class="citation">@davisjmcc</span> &amp;amp; Smyth’s TREAT (pub <a href="https://t.co/iZeszEIkDU" class="uri">https://t.co/iZeszEIkDU</a> ) Software: <a href="https://t.co/5H3KA4lFZs" class="uri">https://t.co/5H3KA4lFZs</a> works nicely with limma/edgeR
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/biocasia2019/most-retweeted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/biocasia2019/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/biocasia2019/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+_StuartLee
+</td>
+<td style="text-align:left;">
+For #BiocAsia I’ve written a workflow package for exploring and combining results from RNA-seq and ATAC-seq data. First iteration is up here: <a href="https://t.co/03oRjSfThQ" class="uri">https://t.co/03oRjSfThQ</a>
+</td>
+<td style="text-align:right;">
+56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+G’day from #biocasia <a href="https://t.co/f2e2XNNkmG" class="uri">https://t.co/f2e2XNNkmG</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+<p>For #BiocAsia <span class="citation">@PeteHaitch</span> and me are giving a tutorial on how to make a Bioconductor package 📦 with <span class="citation">@rstudio</span>. You can find the tutorial here (feedback very welcome):</p>
+<a href="https://t.co/y9vkKBgYSA" class="uri">https://t.co/y9vkKBgYSA</a>
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CrowellHL
+</td>
+<td style="text-align:left;">
+Off to 🇦🇺 for some Bioinformatics fun 👩🏻‍💻, to talk &amp;amp; teach about CyTOF at #BiocAsia / BioInfoSummer in Sydney, and explore other parts of AUS. Stressed, grateful and excited! - Now looking forward to 20h of reading &amp;amp; movies ✈️😴 That completes my #BiocBingo 🥳
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Charity Law, developer of voom, introducing an extension to voom to handle group-specific variance estimation and how she’s thinking about adapting it to scRNA-seq differential expression analysis #biocasia <a href="https://t.co/HOguf3wWpl" class="uri">https://t.co/HOguf3wWpl</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Exciting talk by <span class="citation">@shazanfar</span> bringing scHOT (<a href="https://t.co/1NSzfqWwLe" class="uri">https://t.co/1NSzfqWwLe</a>) to spatial transcriptomics, the cool new kid on the single cell block #biocasia <a href="https://t.co/4SsGLInsmk" class="uri">https://t.co/4SsGLInsmk</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+You know it’s a <span class="citation">@DongXueyi</span> talk when Pokemon make an appearance. Xueyi is presenting her work on RNA-seq analysis of <span class="citation">@nanopore</span> data #biocasia <a href="https://t.co/PblubdtTSH" class="uri">https://t.co/PblubdtTSH</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+It takes 5+ bioinformaticians to get the bloody projector working, thanks to <span class="citation">@JovMaksimovic</span> for being willing to improvise! Excited to hear her work on gene set testing for differentially methylated regions #biocasia <a href="https://t.co/R8OUlu4Hy6" class="uri">https://t.co/R8OUlu4Hy6</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Lots of people in the house to learn about <span class="citation">@Bioconductor</span> from the leader of the project, Martin Morgan at #biocasia #BioInfoSummer <a href="https://t.co/lwPLmrBJJM" class="uri">https://t.co/lwPLmrBJJM</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@trashystats</span> for the detailed documentation and workshop on making <span class="citation">@Bioconductor</span> 📦 . Did you know that you can go inside the R/myfun.R -&amp;gt; click on ‘Code’ -&amp;gt; ‘Insert Roxygen Skeleton’ ?🤯 #BiocAsia <a href="https://t.co/GDDjQW9Gny" class="uri">https://t.co/GDDjQW9Gny</a> <a href="https://t.co/urkJfLMP7v" class="uri">https://t.co/urkJfLMP7v</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/biocasia2019/most-favorited-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/biocasia2019/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/biocasia2019/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+joshuawkho
+</td>
+<td style="text-align:left;">
+Please come join me at the #BioCAsia conference! <a href="https://t.co/RVzv1jvCzz" class="uri">https://t.co/RVzv1jvCzz</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+#biocasia <a href="https://t.co/q4IjB0zb27" class="uri">https://t.co/q4IjB0zb27</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+I really need to get onto the <span class="citation">@Bioconductor</span> slack #biocasia <a href="https://t.co/GffPVaX5F8" class="uri">https://t.co/GffPVaX5F8</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HannahCoughlan4
+</td>
+<td style="text-align:left;">
+Thanks for the opportunity to present my work! #biocasia <a href="https://t.co/g9i3Abkm3E" class="uri">https://t.co/g9i3Abkm3E</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+This was a most impressive undergrad talk. Beautiful visualizations! #biocasia <a href="https://t.co/DZeUiqexlu" class="uri">https://t.co/DZeUiqexlu</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+#biocasia <a href="https://t.co/DhQnm7H9md" class="uri">https://t.co/DhQnm7H9md</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Added, thanks Andrew!!</p>
+#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19 OR #COMBINE19 OR <span class="citation">@combine_au</span> OR #COMBINE2019 <a href="https://t.co/GcPXYQY7ML" class="uri">https://t.co/GcPXYQY7ML</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@joshuakho</span>’s paper on this work is at <a href="https://t.co/aBQvNFUCcc" class="uri">https://t.co/aBQvNFUCcc</a> Great collaboration with David Humphreys from <span class="citation">@VictorChangInst</span> driving methods and software development #biocasia <a href="https://t.co/OiRtwPzVtg" class="uri">https://t.co/OiRtwPzVtg</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+Watch the demo of using the Ularcirc #bioconductor package for visualising and analysing circular RNAs at <a href="https://t.co/P0ViJ7pi43" class="uri">https://t.co/P0ViJ7pi43</a> #biocasia <a href="https://t.co/3olI9ltMST" class="uri">https://t.co/3olI9ltMST</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Al__Forrest
+</td>
+<td style="text-align:left;">
+<p>#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19</p>
+Thanks <span class="citation">@shazanfar</span> for the compendium of tags! <a href="https://t.co/Obi3Fq8k22" class="uri">https://t.co/Obi3Fq8k22</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/biocasia2019/most-quoted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
+<p><img src="figures/biocasia2019/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+G’day from #biocasia <a href="https://t.co/f2e2XNNkmG" class="uri">https://t.co/f2e2XNNkmG</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Charity Law, developer of voom, introducing an extension to voom to handle group-specific variance estimation and how she’s thinking about adapting it to scRNA-seq differential expression analysis #biocasia <a href="https://t.co/HOguf3wWpl" class="uri">https://t.co/HOguf3wWpl</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Exciting talk by <span class="citation">@shazanfar</span> bringing scHOT (<a href="https://t.co/1NSzfqWwLe" class="uri">https://t.co/1NSzfqWwLe</a>) to spatial transcriptomics, the cool new kid on the single cell block #biocasia <a href="https://t.co/4SsGLInsmk" class="uri">https://t.co/4SsGLInsmk</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+You know it’s a <span class="citation">@DongXueyi</span> talk when Pokemon make an appearance. Xueyi is presenting her work on RNA-seq analysis of <span class="citation">@nanopore</span> data #biocasia <a href="https://t.co/PblubdtTSH" class="uri">https://t.co/PblubdtTSH</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+It takes 5+ bioinformaticians to get the bloody projector working, thanks to <span class="citation">@JovMaksimovic</span> for being willing to improvise! Excited to hear her work on gene set testing for differentially methylated regions #biocasia <a href="https://t.co/R8OUlu4Hy6" class="uri">https://t.co/R8OUlu4Hy6</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Lots of people in the house to learn about <span class="citation">@Bioconductor</span> from the leader of the project, Martin Morgan at #biocasia #BioInfoSummer <a href="https://t.co/lwPLmrBJJM" class="uri">https://t.co/lwPLmrBJJM</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@trashystats</span> for the detailed documentation and workshop on making <span class="citation">@Bioconductor</span> 📦 . Did you know that you can go inside the R/myfun.R -&amp;gt; click on ‘Code’ -&amp;gt; ‘Insert Roxygen Skeleton’ ?🤯 #BiocAsia <a href="https://t.co/GDDjQW9Gny" class="uri">https://t.co/GDDjQW9Gny</a> <a href="https://t.co/urkJfLMP7v" class="uri">https://t.co/urkJfLMP7v</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@shazanfar</span> from the <span class="citation">@MarioniLab</span> introduces scHOT for flexible analysis of higher-order interactions in #singlecell data: shows us examples of variability, correlation and spatial analysis #biocasia. Code available at <a href="https://t.co/p8l2m21jqt" class="uri">https://t.co/p8l2m21jqt</a> <a href="https://t.co/41Nbf73QtU" class="uri">https://t.co/41Nbf73QtU</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+We’ve had scRNA, CyTOF, and now Hi-C with <span class="citation">@HannahCoughlan4</span> telling us about a gene-oriented analysis approach using limma and edgeR, tools originally developed for differential expression analysis. Absolute workhorses of <span class="citation">@Bioconductor</span> #biocasia <a href="https://t.co/4ZI4qf6rkD" class="uri">https://t.co/4ZI4qf6rkD</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+Plans to put the Asia back into #biocasia in 2020 - stay tuned for dates and details! <a href="https://t.co/WbaBxXJpin" class="uri">https://t.co/WbaBxXJpin</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/EK_EFCQUEAAkHZ2.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/biocasia2019/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/biocasia2019/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/biocasia2019/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#biocasia <span class="citation">@paulfharrison</span> presenting Topconfects (pub <a href="https://t.co/5mYDprcT27" class="uri">https://t.co/5mYDprcT27</a> ) that ranks genes based on confidence bounds on the log-fold changes. Furthering <span class="citation">@davisjmcc</span> &amp;amp; Smyth’s TREAT (pub <a href="https://t.co/iZeszEIkDU" class="uri">https://t.co/iZeszEIkDU</a> ) Software: <a href="https://t.co/5H3KA4lFZs" class="uri">https://t.co/5H3KA4lFZs</a> works nicely with limma/edgeR
+</td>
+<td style="text-align:right;">
+0.9963586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>For those interested in keeping up to date with the festival of bioinformatics this &amp;amp; next week in Sydney, here’s my Tweetdeck search 😂</p>
+<p>#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19</p>
+did I cover all bases? 😂
+</td>
+<td style="text-align:right;">
+0.9953929
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_StuartLee
+</td>
+<td style="text-align:left;">
+For #BiocAsia I’ve written a workflow package for exploring and combining results from RNA-seq and ATAC-seq data. First iteration is up here: <a href="https://t.co/03oRjSfThQ" class="uri">https://t.co/03oRjSfThQ</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+#biocasia Joshua Ho <span class="citation">@joshuawkho</span> presenting Ularcirc (a back-splice event on Circular :D ), circular RNA analysis package available on <span class="citation">@Bioconductor</span> <a href="https://t.co/jFxiHNhnOg" class="uri">https://t.co/jFxiHNhnOg</a> Tutorial video <a href="https://t.co/bnZhk3tNCu" class="uri">https://t.co/bnZhk3tNCu</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@shazanfar</span> is absolutely filling John’s massive shoes (literally and figuratively) by presenting scHOT which allows investigation of higher order statistics in single cell data #biocasia.</p>
+<a href="https://t.co/FNSAlOjfup" class="uri">https://t.co/FNSAlOjfup</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Added, thanks Andrew!!</p>
+#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19 OR #COMBINE19 OR <span class="citation">@combine_au</span> OR #COMBINE2019 <a href="https://t.co/GcPXYQY7ML" class="uri">https://t.co/GcPXYQY7ML</a>
+</td>
+<td style="text-align:right;">
+0.9937302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+PuXue Qiao sharing the resources she, along with Ruqian Lyu and <span class="citation">@davisjmcc</span>, developed for a 2-day scRNA-seq course <a href="https://t.co/sq2q2HgEA6" class="uri">https://t.co/sq2q2HgEA6</a> #biocasia
+</td>
+<td style="text-align:right;">
+0.9937302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+You know it’s a <span class="citation">@DongXueyi</span> talk when Pokemon make an appearance. Xueyi is presenting her work on RNA-seq analysis of <span class="citation">@nanopore</span> data #biocasia <a href="https://t.co/PblubdtTSH" class="uri">https://t.co/PblubdtTSH</a>
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+Watch the demo of using the Ularcirc #bioconductor package for visualising and analysing circular RNAs at <a href="https://t.co/P0ViJ7pi43" class="uri">https://t.co/P0ViJ7pi43</a> #biocasia <a href="https://t.co/3olI9ltMST" class="uri">https://t.co/3olI9ltMST</a>
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Al__Forrest
+</td>
+<td style="text-align:left;">
+<p>#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19</p>
+Thanks <span class="citation">@shazanfar</span> for the compendium of tags! <a href="https://t.co/Obi3Fq8k22" class="uri">https://t.co/Obi3Fq8k22</a>
+</td>
+<td style="text-align:right;">
+0.9914033
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@MTrussart</span> telling us the best way to deal with batch effects in CyTOF (or indeed any experiment) is to design the experiment properly! If you plan by expecting batch effects, e.g. including control samples in each batch, then you can adjust for them #biocasia <a href="https://t.co/DX40j4O1B8" class="uri">https://t.co/DX40j4O1B8</a>
+</td>
+<td style="text-align:right;">
+0.9965399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+We’ve had scRNA, CyTOF, and now Hi-C with <span class="citation">@HannahCoughlan4</span> telling us about a gene-oriented analysis approach using limma and edgeR, tools originally developed for differential expression analysis. Absolute workhorses of <span class="citation">@Bioconductor</span> #biocasia <a href="https://t.co/4ZI4qf6rkD" class="uri">https://t.co/4ZI4qf6rkD</a>
+</td>
+<td style="text-align:right;">
+0.9961572
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@paulfharrison</span> advocating for the use of confidence intervals over p-values when reporting differential expression analysis results #biocasia This idea implemented in topconfects <span class="citation">@Bioconductor</span> package: <a href="https://t.co/8bKQQk0Bg2" class="uri">https://t.co/8bKQQk0Bg2</a> Slides: <a href="https://t.co/qJqFLwWzbB" class="uri">https://t.co/qJqFLwWzbB</a> <a href="https://t.co/O3qL6A7Ov7" class="uri">https://t.co/O3qL6A7Ov7</a>
+</td>
+<td style="text-align:right;">
+0.9959323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CrowellHL
+</td>
+<td style="text-align:left;">
+Off to 🇦🇺 for some Bioinformatics fun 👩🏻‍💻, to talk &amp;amp; teach about CyTOF at #BiocAsia / BioInfoSummer in Sydney, and explore other parts of AUS. Stressed, grateful and excited! - Now looking forward to 20h of reading &amp;amp; movies ✈️😴 That completes my #BiocBingo 🥳
+</td>
+<td style="text-align:right;">
+0.9959323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+It takes 5+ bioinformaticians to get the bloody projector working, thanks to <span class="citation">@JovMaksimovic</span> for being willing to improvise! Excited to hear her work on gene set testing for differentially methylated regions #biocasia <a href="https://t.co/R8OUlu4Hy6" class="uri">https://t.co/R8OUlu4Hy6</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+#biocasia has gotten off to a great start with some very interesting talks already! Now we have <span class="citation">@paulfharrison</span> telling us about using confidence intervals when reporting differential expression results: <a href="https://t.co/uVGDKnC2SH" class="uri">https://t.co/uVGDKnC2SH</a>.
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Super excited to be here in Sydney for #biocasia ! Kicking off the meeting with an introduction to Bioconductor from <span class="citation">@mt_morgan</span> <a href="https://t.co/aIHJcWqBFB" class="uri">https://t.co/aIHJcWqBFB</a>
+</td>
+<td style="text-align:right;">
+0.9914033
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@JovMaksimovic</span> develops the missMethyl package which has the best logo in the business #biocasia <a href="https://t.co/JFMQdiJUoa" class="uri">https://t.co/JFMQdiJUoa</a> <a href="https://t.co/D5uXSQNtJB" class="uri">https://t.co/D5uXSQNtJB</a>
+</td>
+<td style="text-align:right;">
+0.9901897
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+5 minute whirlwind tour of HiC analysis in Biocondutor by <span class="citation">@HannahCoughlan4</span> at #biocasia. <a href="https://t.co/CSjMJIclsT" class="uri">https://t.co/CSjMJIclsT</a>
+</td>
+<td style="text-align:right;">
+0.9901897
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@HannahCoughlan4</span> asks, can we use limma and edgeR for differential Hi-C analysis. Answer below #biocasia <a href="https://t.co/eTXHOW4nYJ" class="uri">https://t.co/eTXHOW4nYJ</a>
+</td>
+<td style="text-align:right;">
+0.9885771
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+Learning Short read sequencing with pokemons #biocasia #Bioinfosummer <a href="https://t.co/B03uOmfl4Y" class="uri">https://t.co/B03uOmfl4Y</a>
+</td>
+<td style="text-align:right;">
+0.9885771
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+paulfharrison
+</td>
+<td style="text-align:left;">
+The weather in Sydney is “smoky”. #BiocAsia #biocalypse #thisisfine <a href="https://t.co/HkQ9ZkHO5B" class="uri">https://t.co/HkQ9ZkHO5B</a>
+</td>
+<td style="text-align:right;">
+0.9885771
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>PuXue Xiao with her newly minted PhD (congrats!!), postdoc with <span class="citation">@davisjmcc</span> presenting a great talk on the important problem of nearest-neighbour graph construction prior to single cell clustering #biocasia</p>
+PuXue will be presenting a single cell workshop later today! <a href="https://t.co/7YOssXZpGN" class="uri">https://t.co/7YOssXZpGN</a>
+</td>
+<td style="text-align:right;">
+0.9967040
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@paulfharrison</span> introduces us to the ‘False Coverage-statement Rate’ concept which seems like a neat idea. Works with limma, edgeR, DESeq2 differential expression analysis pipelines and can be used in #geneset testing. Slides on topconfects at <a href="https://t.co/wbAOqjtCw2" class="uri">https://t.co/wbAOqjtCw2</a> #biocasia <a href="https://t.co/tHtpyYPWg9" class="uri">https://t.co/tHtpyYPWg9</a>
+</td>
+<td style="text-align:right;">
+0.9967040
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Charity Law, developer of voom, introducing an extension to voom to handle group-specific variance estimation and how she’s thinking about adapting it to scRNA-seq differential expression analysis #biocasia <a href="https://t.co/HOguf3wWpl" class="uri">https://t.co/HOguf3wWpl</a>
+</td>
+<td style="text-align:right;">
+0.9963586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+<span class="citation">@MTrussart</span> discussing all of #Cytof at #biocasia. Chat to her to know more about her debarcoding method using Gaussian mixtures, #reproducibility and removing batch effect with the #ruv #rstats 📦, #normalization and cell #clustering! <a href="https://t.co/Ysr9InoDhs" class="uri">https://t.co/Ysr9InoDhs</a> <a href="https://t.co/2Beaa8jXqU" class="uri">https://t.co/2Beaa8jXqU</a>
+</td>
+<td style="text-align:right;">
+0.9961572
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@MTrussart</span> introduces us to CyTOF analysis, how to preprocess these data, a novel barcoding strategy to increase cell number and the use of RUV for removing batch effects #biocasia <a href="https://t.co/v1tiB4bSlB" class="uri">https://t.co/v1tiB4bSlB</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Exciting talk by <span class="citation">@shazanfar</span> bringing scHOT (<a href="https://t.co/1NSzfqWwLe" class="uri">https://t.co/1NSzfqWwLe</a>) to spatial transcriptomics, the cool new kid on the single cell block #biocasia <a href="https://t.co/4SsGLInsmk" class="uri">https://t.co/4SsGLInsmk</a>
+</td>
+<td style="text-align:right;">
+0.9946887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+<span class="citation">@PeteHaitch</span> and Martin Morgan opening #biocasia in Sydney and giving the big news about next year conference being in Beijing! Back to Asia.. and where loads of <span class="citation">@Bioconductor</span> users/dev clearly are! <a href="https://t.co/gm59TIHI4L" class="uri">https://t.co/gm59TIHI4L</a>
+</td>
+<td style="text-align:right;">
+0.9942491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@joshuakho</span>’s paper on this work is at <a href="https://t.co/aBQvNFUCcc" class="uri">https://t.co/aBQvNFUCcc</a> Great collaboration with David Humphreys from <span class="citation">@VictorChangInst</span> driving methods and software development #biocasia <a href="https://t.co/OiRtwPzVtg" class="uri">https://t.co/OiRtwPzVtg</a>
+</td>
+<td style="text-align:right;">
+0.9942491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@haoyyang</span> bringing us home on Day 1 with an overview of software for single-cell ATAC-seq #biocasia <a href="https://t.co/RyAq7Zhyhz" class="uri">https://t.co/RyAq7Zhyhz</a>
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Lots of people in the house to learn about <span class="citation">@Bioconductor</span> from the leader of the project, Martin Morgan at #biocasia #BioInfoSummer <a href="https://t.co/lwPLmrBJJM" class="uri">https://t.co/lwPLmrBJJM</a>
+</td>
+<td style="text-align:right;">
+0.9923497
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+carroll_jono
+</td>
+<td style="text-align:left;">
+I’ll be in Sydney for #BioCAsia as of tomorrow afternoon - any #rstats peeps willing to brave the smoke for dinner and/or drinks around Circular Quay? I’ve never been to Sydney so I’ll be checking out the gardens, Opera House, and the bridge like a proper tourist. <a href="https://t.co/QR8VD62gg4" class="uri">https://t.co/QR8VD62gg4</a>
+</td>
+<td style="text-align:right;">
+0.9965399
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@mt_morgan</span> encourages us to participate in #bioconductor #slack. Has been a great vehicle for community participation &amp;amp; collaboration. Highlights include development of iSEE &amp;amp; the #singlecell analysis cookbook <a href="https://t.co/CLrXYW2kmB" class="uri">https://t.co/CLrXYW2kmB</a>. Sign up at <a href="https://t.co/Qa7OwOPQdG" class="uri">https://t.co/Qa7OwOPQdG</a> #biocasia <a href="https://t.co/tRJlxAPWYY" class="uri">https://t.co/tRJlxAPWYY</a>
+</td>
+<td style="text-align:right;">
+0.9963586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Hannah Coughlan <span class="citation">@HannahCoughlan4</span> giving an excellent #biocasia talk on obtaining gene specific resolution for differential testing of Hi-C data. Code: <a href="https://t.co/qUBV648yNX" class="uri">https://t.co/qUBV648yNX</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+Our second invited speaker <span class="citation">@joshuawkho</span> is telling us about easy detection of circular rna with a cool #rstats shiny tool. #biocasia <a href="https://t.co/8LknwZkVMC" class="uri">https://t.co/8LknwZkVMC</a>
+</td>
+<td style="text-align:right;">
+0.9942491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+One_News_Page
+</td>
+<td style="text-align:left;">
+Afghans demand justice amid attempt to probe war crimes at ICC: <a href="https://t.co/atyUQAyww8" class="uri">https://t.co/atyUQAyww8</a> #biocasia
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@mt_morgan</span> emphasising the benifits of playing well with others, bringing the powers of #rstats and #python together within <span class="citation">@Bioconductor</span> #biocasia <a href="https://t.co/VAM3BkDsRT" class="uri">https://t.co/VAM3BkDsRT</a>
+</td>
+<td style="text-align:right;">
+0.9923497
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@steman_research</span> introduces tidy tools for transcriptomics analysis. Available on GitHub now <a href="https://t.co/U3IQ7IuhJ3" class="uri">https://t.co/U3IQ7IuhJ3</a> #bioconductor later! #biocasia <a href="https://t.co/gxKMgFduGt" class="uri">https://t.co/gxKMgFduGt</a>
+</td>
+<td style="text-align:right;">
+0.9923497
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+This was a most impressive undergrad talk. Beautiful visualizations! #biocasia <a href="https://t.co/DZeUiqexlu" class="uri">https://t.co/DZeUiqexlu</a>
+</td>
+<td style="text-align:right;">
+0.9885771
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+trashystats
+</td>
+<td style="text-align:left;">
+Very relieved that we have got kick-off at #biocasia!
+</td>
+<td style="text-align:right;">
+0.9666456
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+I really need to get onto the <span class="citation">@Bioconductor</span> slack #biocasia <a href="https://t.co/GffPVaX5F8" class="uri">https://t.co/GffPVaX5F8</a>
+</td>
+<td style="text-align:right;">
+0.9666456
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Super interesting discussion by Charity Law from <span class="citation">@mritchieau</span> lab about how different levels of variation (BCV in the #edgeR world) infleluence the significance of differential expression analysis… PS. I have rarely seen BCV &amp;lt; 0.4/0.5 in my samples 😭 #biocasia <a href="https://t.co/NlXzghbNb7" class="uri">https://t.co/NlXzghbNb7</a>
+</td>
+<td style="text-align:right;">
+0.9969896
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MnM_HealthCare
+</td>
+<td style="text-align:left;">
+<p>Pharmacy Automation Market: Global Key Players, Trends, Industry Size</p>
+<p>#Pharmacy #Automation #Market #robot #healthcare #medical #devices #health #healthy #BiocAsia</p>
+<a href="https://t.co/fcBZ9eptTf" class="uri">https://t.co/fcBZ9eptTf</a>
+</td>
+<td style="text-align:right;">
+0.9963586
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+malhamdoosh
+</td>
+<td style="text-align:left;">
+Professor Pei Wang from <span class="citation">@IcahnMountSinai</span> at #biocasia 2019 explaining her DreamAI method at her workshop on methods and tools for preprocessing and imputation of mass spectrometry-based proteomics data <a href="https://t.co/2jZbPIIwaj" class="uri">https://t.co/2jZbPIIwaj</a>
+</td>
+<td style="text-align:right;">
+0.9961572
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@DongXueyi</span> tells us how to analyse #longread <span class="citation">@nanopore</span> #RNAseq data using #bioconductor. Schmd1 data (both long and short reads) from <span class="citation">@BlewittMarnie</span> lab. New tools still needed for accurate isoform analysis #biocasia <a href="https://t.co/rjrExr6jv6" class="uri">https://t.co/rjrExr6jv6</a>
+</td>
+<td style="text-align:right;">
+0.9959323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@shazanfar</span> from the <span class="citation">@MarioniLab</span> introduces scHOT for flexible analysis of higher-order interactions in #singlecell data: shows us examples of variability, correlation and spatial analysis #biocasia. Code available at <a href="https://t.co/p8l2m21jqt" class="uri">https://t.co/p8l2m21jqt</a> <a href="https://t.co/41Nbf73QtU" class="uri">https://t.co/41Nbf73QtU</a>
+</td>
+<td style="text-align:right;">
+0.9956794
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@rafalab</span> presenting his work estimating death rates following Hurricane Maria in Puerto Rico. Here’s the blog post showing how much of the work was in cleaning the data <a href="https://t.co/gi8ixEkSZQ" class="uri">https://t.co/gi8ixEkSZQ</a> #biocasia #BioInfoSummer
+</td>
+<td style="text-align:right;">
+0.9946887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+The #biocasia pub gathering is happening right now! Come join us for a 🍺🍻🥂🍾 at the Forest Lodge! Leaving soon from the Charles Perkins centre. <a href="https://t.co/rr77oHv4nh" class="uri">https://t.co/rr77oHv4nh</a>
+</td>
+<td style="text-align:right;">
+0.9937302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@HannahCoughlan4</span> from <span class="citation">@WEHI_research</span> shows us how to analyse Hi-C data in #bioconductor #YesWeCan #biocasia <a href="https://t.co/HoGboOAeRf" class="uri">https://t.co/HoGboOAeRf</a>
+</td>
+<td style="text-align:right;">
+0.9829822
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HannahCoughlan4
+</td>
+<td style="text-align:left;">
+Thanks for the opportunity to present my work! #biocasia <a href="https://t.co/g9i3Abkm3E" class="uri">https://t.co/g9i3Abkm3E</a>
+</td>
+<td style="text-align:right;">
+0.9666456
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+#biocasia <a href="https://t.co/DhQnm7H9md" class="uri">https://t.co/DhQnm7H9md</a>
+</td>
+<td style="text-align:right;">
+0.9358584
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@Bioconductor</span> invests time and effort into developing reusable data structures that are specifically designed for bioinformatics datasets, like SummarizedExperiment. Using these saves you developing your own and improves interoperability between packages #biocasia <a href="https://t.co/WCnMuTI0RK" class="uri">https://t.co/WCnMuTI0RK</a>
+</td>
+<td style="text-align:right;">
+0.9961572
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Al__Forrest
+</td>
+<td style="text-align:left;">
+Enjoying #biocasia We have a great lineup of speakers in human genomics at #HGM2020 in Perth April 5-8 <a href="https://t.co/S4dGO1LRpe" class="uri">https://t.co/S4dGO1LRpe</a> Earlybird closes Dec 16th. Over 40 speakers to be selected from the submitted abstracts!!
+</td>
+<td style="text-align:right;">
+0.9959323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+Closing out the first session of #biocasia, we’ve got our first presentation from an undergrad! Kathleen Zeglinski telling us about gmoviz, a package she is developing at <span class="citation">@CSL</span> to visualise genome-editing data <a href="https://t.co/GsixCMALXD" class="uri">https://t.co/GsixCMALXD</a>
+</td>
+<td style="text-align:right;">
+0.9956794
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+annaquagli
+</td>
+<td style="text-align:left;">
+Thanks to <span class="citation">@trashystats</span> for the detailed documentation and workshop on making <span class="citation">@Bioconductor</span> 📦 . Did you know that you can go inside the R/myfun.R -&amp;gt; click on ‘Code’ -&amp;gt; ‘Insert Roxygen Skeleton’ ?🤯 #BiocAsia <a href="https://t.co/GDDjQW9Gny" class="uri">https://t.co/GDDjQW9Gny</a> <a href="https://t.co/urkJfLMP7v" class="uri">https://t.co/urkJfLMP7v</a>
+</td>
+<td style="text-align:right;">
+0.9950658
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiscoverAMSI
+</td>
+<td style="text-align:left;">
+The first of the AMSI #BioInfoSummer 2019 joint sessions with #biocasia will start at 1.30pm with 3 workshops to choose from sponsored by <span class="citation">@CMRI_AUS</span> on our mass spec analytics day
+</td>
+<td style="text-align:right;">
+0.9946887
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PeteHaitch
+</td>
+<td style="text-align:left;">
+<span class="citation">@mt_morgan</span> telling us we can use BiocManager not just to install and check validity of <span class="citation">@Bioconductor</span> installation but to find those sometimes hard-to-remember package names #biocasia <a href="https://t.co/hDvXgzZpAI" class="uri">https://t.co/hDvXgzZpAI</a>
+</td>
+<td style="text-align:right;">
+0.9942491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+Using formal data structures and data import functions in <span class="citation">@Bioconductor</span> can help you avoid common pitfalls such as dealing with 0 vs. 1 based coordinates #biocasia
+</td>
+<td style="text-align:right;">
+0.9942491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+<span class="citation">@mt_morgan</span> highlights support in #bioconductor for AnVIL #CloudComputing to save us from having to download huge data sets #biocasia <a href="https://t.co/pO1TNVmEx4" class="uri">https://t.co/pO1TNVmEx4</a>
+</td>
+<td style="text-align:right;">
+0.9937302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mritchieau
+</td>
+<td style="text-align:left;">
+Thanks to the organisers of #biocasia <span class="citation">@PeteHaitch</span> <span class="citation">@trashystats</span> Stephen Pederson, Dario Strbenac and the generous sponsors <span class="citation">@DiscoverAMSI</span> <span class="citation">@CSL</span> <span class="citation">@Rstudio</span> <span class="citation">@Bioconductor</span> <a href="https://t.co/87sMziPP3X" class="uri">https://t.co/87sMziPP3X</a>
+</td>
+<td style="text-align:right;">
+0.9931084
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Thank you to the ineffable <span class="citation">@trashystats</span> and fantastic <span class="citation">@PeteHaitch</span> for providing the Building a Bioconductor package workshop at #biocasia today! Workshop notes: <a href="https://t.co/CaVqvqtw13" class="uri">https://t.co/CaVqvqtw13</a>
+</td>
+<td style="text-align:right;">
+0.9923497
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">scHOT2019</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/marionilab/schot2019" class="uri">https://github.com/marionilab/schot2019</a></td>
+</tr>
+<tr class="even">
+<td align="left">topconfects</td>
+<td align="left">Bioconductor</td>
+<td align="left"><a href="https://bioconductor.org/packages/topconfects" class="uri">https://bioconductor.org/packages/topconfects</a></td>
+</tr>
+<tr class="odd">
+<td align="left">ttBulk</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/stemangiola/ttbulk" class="uri">https://github.com/stemangiola/ttbulk</a></td>
+</tr>
+<tr class="even">
+<td align="left">Ularcirc</td>
+<td align="left">Bioconductor</td>
+<td align="left"><a href="https://bioconductor.org/packages/Ularcirc" class="uri">https://bioconductor.org/packages/Ularcirc</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Mojave 10.14
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.26         magick_2.2        
+##  [5] webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0  wordcloud_2.6     
+##  [9] RColorBrewer_1.1-2 ggraph_2.0.0       ggrepel_0.8.1      ggplot2_3.2.1     
+## [13] topicmodels_0.2-9  tidytext_0.2.2     igraph_1.2.4.2     stringr_1.4.0     
+## [17] purrr_0.3.3        forcats_0.4.0      lubridate_1.7.4    tidyr_1.0.0       
+## [21] dplyr_0.8.3        rtweet_0.6.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] progress_1.2.2     httr_1.4.1         rprojroot_1.3-2    SnowballC_0.6.0   
+##  [5] tools_3.6.1        backports_1.1.5    utf8_1.1.4         R6_2.4.1          
+##  [9] lazyeval_0.2.2     colorspace_1.4-1   withr_2.1.2        tidyselect_0.2.5  
+## [13] gridExtra_2.3      prettyunits_1.0.2  processx_3.4.1     curl_4.3          
+## [17] compiler_3.6.1     cli_1.1.0          xml2_1.2.2         NLP_0.2-0         
+## [21] labeling_0.3       slam_0.1-46        scales_1.1.0       tm_0.7-6          
+## [25] callr_3.3.2        askpass_1.1        digest_0.6.23      rmarkdown_1.18    
+## [29] pkgconfig_2.0.3    htmltools_0.4.0    highr_0.8          rlang_0.4.2       
+## [33] farver_2.0.1       generics_0.0.2     jsonlite_1.6       tokenizers_0.2.1  
+## [37] magrittr_1.5       modeltools_0.2-22  Matrix_1.2-17      Rcpp_1.0.3        
+## [41] munsell_0.5.0      fansi_0.4.0        lifecycle_0.1.0    stringi_1.4.3     
+## [45] yaml_2.2.0         MASS_7.3-51.4      plyr_1.8.4         grid_3.6.1        
+## [49] parallel_3.6.1     crayon_1.3.4       lattice_0.20-38    graphlayouts_0.5.0
+## [53] hms_0.5.2          zeallot_0.1.0      ps_1.3.0           pillar_1.4.2      
+## [57] reshape2_1.4.3     stats4_3.6.1       glue_1.3.1         evaluate_0.14     
+## [61] vctrs_0.2.0        png_0.1-7          tweenr_1.0.1       gtable_0.3.0      
+## [65] openssl_1.4.1      polyclip_1.10-0    assertthat_0.2.1   xfun_0.11         
+## [69] ggforce_0.3.1      tidygraph_1.1.2    janeaustenr_0.1.5  tibble_2.1.3      
+## [73] ellipsis_0.3.0</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
