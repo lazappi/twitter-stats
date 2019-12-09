@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>COMBINE19</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">COMBINE19</h1>
+<h3 class="subtitle">COMBINE Symposium 2019</h3>
+<h4 class="date">2019-12-09 09:24:12</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#combine19</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2019-12-09</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2019-12-09</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#4a86e8</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#A4C2F3</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #combine19 hashtag for the <a href="https://combine.org.au/combine-ayrcob-symposium-2019/" title="COMBINE19">COMBINE Symposium</a> 2019.</p>
+<p>A total of 208 tweets from 62 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1">
+<h1><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2">
+<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/COMBINE19/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2">
+<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2019-12-09 - 2019-12-09 in the Australia/Sydney timezone.</p>
+<p><img src="figures/COMBINE19/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1">
+<h1><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3>Overall</h3>
+<p><img src="figures/COMBINE19/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3>Original</h3>
+<p><img src="figures/COMBINE19/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3>Retweets</h3>
+<p><img src="figures/COMBINE19/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2">
+<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/COMBINE19/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2">
+<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/COMBINE19/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/COMBINE19/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/COMBINE19/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3>Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4>Day 1</h4>
+<p><img src="figures/COMBINE19/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1">
+<h1><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/COMBINE19/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1">
+<h1><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2">
+<h2><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/COMBINE19/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/COMBINE19/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1">
+<h1><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/COMBINE19/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/COMBINE19/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Today I’m following #combine19. If you are a computational biology or bioinformatics student you should get involved in this. I’ve had 3 Combine presidents in my group!
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<span class="citation">@NhiHin</span> use zebra fish to model familial Alzheimer’s disease and demonstrate the alteration in iron homeostasis by comparing differences in the transcriptome of iron response element gene sets. <span class="citation">@combine_au</span> #combine19 <a href="https://t.co/iy2OCf9ess" class="uri">https://t.co/iy2OCf9ess</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Our fabulous symposium organisers <span class="citation">@Katarina_Stuart</span> <span class="citation">@LinYingxin</span> kicking our day off! #combine19 <a href="https://t.co/ynboNgpTht" class="uri">https://t.co/ynboNgpTht</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Do you wanna to simulate more scenarios in gene family evolution? Then you cannot miss the talk of Qiuyi. He introduces a new model called IxDTL. Well done! Qiuyi! #COMBINE19 <span class="citation">@QiuyiLi2</span> <span class="citation">@MelbIntGen</span> <a href="https://t.co/OK3AU73Z93" class="uri">https://t.co/OK3AU73Z93</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+Ready for the three-day bioinformatics and computational biology conference in Sydney? 👩‍💻🧑‍💻 14 hours left for COMBINE/AYRCOB student symposium 2019 registration open! 😎#ABACBSGIW19 #combine19 #abacbs <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/AoJ8uvJwAK" class="uri">https://t.co/AoJ8uvJwAK</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Presenting my poster at #COMBINE19! Come talk to me about antimicrobial peptides, microbiomes, machine learning, genome-wide predictions, R, or R package development! <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> spot 41! <a href="https://t.co/zx8ZKhAAAZ" class="uri">https://t.co/zx8ZKhAAAZ</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+Awesome to hear <span class="citation">@rfroum</span> talk about her Masters research project on CRISPR-CAS activity in Kp #COMBINE19 <a href="https://t.co/4eg6TDoXOi" class="uri">https://t.co/4eg6TDoXOi</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+We’re so pleased to be sponsoring and attending the <span class="citation">@combine_au</span> Symposium in Sydney today! #COMBINE19 <a href="https://t.co/ydE8RUc2Yd" class="uri">https://t.co/ydE8RUc2Yd</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>If you didn’t grab a paper program for the symposium today the full one can be found online #COMBINE19</p>
+<a href="https://t.co/t5QWXqJZLG" class="uri">https://t.co/t5QWXqJZLG</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Thanks <span class="citation">@HaniKim127</span> for getting out from behind the twitter account to present on CiteFuse! #COMBINE19 <a href="https://t.co/2fD8ljfAOm" class="uri">https://t.co/2fD8ljfAOm</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3>Most retweeted</h3>
+<p><img src="figures/COMBINE19/most-retweeted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/COMBINE19/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/COMBINE19/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Come to see me at Poster 49 to talk about multivariate methods dealing with batch effects in microbiome data #COMBINE19 <a href="https://t.co/c5Quo3dCOf" class="uri">https://t.co/c5Quo3dCOf</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>I really enjoyed presenting my poster on identifying splice-altering variants at #BioInfoSummer</p>
+Next up: #COMBINE19 <a href="https://t.co/nVt1PoENZZ" class="uri">https://t.co/nVt1PoENZZ</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Today I’m following #combine19. If you are a computational biology or bioinformatics student you should get involved in this. I’ve had 3 Combine presidents in my group!
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+Ready for the three-day bioinformatics and computational biology conference in Sydney? 👩‍💻🧑‍💻 14 hours left for COMBINE/AYRCOB student symposium 2019 registration open! 😎#ABACBSGIW19 #combine19 #abacbs <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/AoJ8uvJwAK" class="uri">https://t.co/AoJ8uvJwAK</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Thanks for the chance to present my work #combine19 My poster is packed up and ready for ABACBS. 😉#ABACBSGIW19 <a href="https://t.co/i3l4anaUXH" class="uri">https://t.co/i3l4anaUXH</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Presenting my poster at #COMBINE19! Come talk to me about antimicrobial peptides, microbiomes, machine learning, genome-wide predictions, R, or R package development! <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> spot 41! <a href="https://t.co/zx8ZKhAAAZ" class="uri">https://t.co/zx8ZKhAAAZ</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+First research poster presentation done ✅ #COMBINE19 <a href="https://t.co/JUo0bbZh4r" class="uri">https://t.co/JUo0bbZh4r</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Who else is excited for a massive week of bioinformatics? The first of presentation I’ll be giving will be a fast forward talk on frogs at #COMBINE19, come and check it out! 🐸🧬 #ABACBSGIW19 <a href="https://t.co/Y6xjqNKPxY" class="uri">https://t.co/Y6xjqNKPxY</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+Awesome to hear <span class="citation">@rfroum</span> talk about her Masters research project on CRISPR-CAS activity in Kp #COMBINE19 <a href="https://t.co/4eg6TDoXOi" class="uri">https://t.co/4eg6TDoXOi</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+We’re so pleased to be sponsoring and attending the <span class="citation">@combine_au</span> Symposium in Sydney today! #COMBINE19 <a href="https://t.co/ydE8RUc2Yd" class="uri">https://t.co/ydE8RUc2Yd</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3>Most likes</h3>
+<p><img src="figures/COMBINE19/most-favorited-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills">
+<h2><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3>Proportion</h3>
+<p><img src="figures/COMBINE19/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3>Count</h3>
+<p><img src="figures/COMBINE19/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3>Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Added, thanks Andrew!!</p>
+#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19 OR #COMBINE19 OR <span class="citation">@combine_au</span> OR #COMBINE2019 <a href="https://t.co/GcPXYQY7ML" class="uri">https://t.co/GcPXYQY7ML</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HaniKim127
+</td>
+<td style="text-align:left;">
+Excited because today I will present CiteFuse for the second time! But more excited by a tweet from <span class="citation">@DaniKim_02</span> (yes our names rhyme) #combine19 <span class="citation">@combine_au</span> #twinsdoresearch #CPC <a href="https://t.co/sCVtJO8z3o" class="uri">https://t.co/sCVtJO8z3o</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Fantastic! This year COMBINE is trialling a live streaming of the symposium. We hope that everyone can attend and benefit from the presentations. #combine19 <span class="citation">@combine_au</span> #LiveStreaming <a href="https://t.co/BeDs6eQvRi" class="uri">https://t.co/BeDs6eQvRi</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3>Most quoted</h3>
+<p><img src="figures/COMBINE19/most-quoted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills">
+<h1><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2>Proportion</h2>
+<p><img src="figures/COMBINE19/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2>Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Come to see me at Poster 49 to talk about multivariate methods dealing with batch effects in microbiome data #COMBINE19 <a href="https://t.co/c5Quo3dCOf" class="uri">https://t.co/c5Quo3dCOf</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>I really enjoyed presenting my poster on identifying splice-altering variants at #BioInfoSummer</p>
+Next up: #COMBINE19 <a href="https://t.co/nVt1PoENZZ" class="uri">https://t.co/nVt1PoENZZ</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+Ready for the three-day bioinformatics and computational biology conference in Sydney? 👩‍💻🧑‍💻 14 hours left for COMBINE/AYRCOB student symposium 2019 registration open! 😎#ABACBSGIW19 #combine19 #abacbs <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/AoJ8uvJwAK" class="uri">https://t.co/AoJ8uvJwAK</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Thanks for the chance to present my work #combine19 My poster is packed up and ready for ABACBS. 😉#ABACBSGIW19 <a href="https://t.co/i3l4anaUXH" class="uri">https://t.co/i3l4anaUXH</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Presenting my poster at #COMBINE19! Come talk to me about antimicrobial peptides, microbiomes, machine learning, genome-wide predictions, R, or R package development! <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> spot 41! <a href="https://t.co/zx8ZKhAAAZ" class="uri">https://t.co/zx8ZKhAAAZ</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+First research poster presentation done ✅ #COMBINE19 <a href="https://t.co/JUo0bbZh4r" class="uri">https://t.co/JUo0bbZh4r</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Who else is excited for a massive week of bioinformatics? The first of presentation I’ll be giving will be a fast forward talk on frogs at #COMBINE19, come and check it out! 🐸🧬 #ABACBSGIW19 <a href="https://t.co/Y6xjqNKPxY" class="uri">https://t.co/Y6xjqNKPxY</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+Awesome to hear <span class="citation">@rfroum</span> talk about her Masters research project on CRISPR-CAS activity in Kp #COMBINE19 <a href="https://t.co/4eg6TDoXOi" class="uri">https://t.co/4eg6TDoXOi</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+We’re so pleased to be sponsoring and attending the <span class="citation">@combine_au</span> Symposium in Sydney today! #COMBINE19 <a href="https://t.co/ydE8RUc2Yd" class="uri">https://t.co/ydE8RUc2Yd</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+samleechch
+</td>
+<td style="text-align:left;">
+Very good representation of what autoencoders want to do from PAO’s talk on deep learning over <span class="citation">@nanopore</span> signal data #combine19 <a href="https://t.co/N41mYIrP5F" class="uri">https://t.co/N41mYIrP5F</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1></h1>
+<div id="most-liked-image" class="section level2">
+<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/ELT737PUwAEp5JW.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1">
+<h1><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2">
+<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/COMBINE19/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2">
+<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/COMBINE19/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2">
+<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/COMBINE19/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade">
+<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4>Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Machine learning on breast cancer genomic data. Richard Lupat demonstrates the use of deep learning based models to classify breast cabcer cell types. <span class="citation">@combine_au</span> #combine19 <span class="citation">@PeterMacCC</span> <a href="https://t.co/52GQDuq5Hg" class="uri">https://t.co/52GQDuq5Hg</a>
+</td>
+<td style="text-align:right;">
+0.9939689
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Do you wanna to simulate more scenarios in gene family evolution? Then you cannot miss the talk of Qiuyi. He introduces a new model called IxDTL. Well done! Qiuyi! #COMBINE19 <span class="citation">@QiuyiLi2</span> <span class="citation">@MelbIntGen</span> <a href="https://t.co/OK3AU73Z93" class="uri">https://t.co/OK3AU73Z93</a>
+</td>
+<td style="text-align:right;">
+0.9929137
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Great talk by Richard Lupat from <span class="citation">@PeterMacRes</span> on using autoencoders to find relevant features for further model building to classify breast cancers from high dimensional genomic data #combine19
+</td>
+<td style="text-align:right;">
+0.9919779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Richard Lupat (Peter MacCullum Cancer Centre) talking about Deep Learning for feature etraction in Breast Cancer data #combine19
+</td>
+<td style="text-align:right;">
+0.9914108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Presenting my poster at #COMBINE19! Come talk to me about antimicrobial peptides, microbiomes, machine learning, genome-wide predictions, R, or R package development! <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> spot 41! <a href="https://t.co/zx8ZKhAAAZ" class="uri">https://t.co/zx8ZKhAAAZ</a>
+</td>
+<td style="text-align:right;">
+0.9914108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+We also had a very cool talk from Marina Reixachs (ANU) on ribosomal profiling on isoforms. Always hard being the first talk after lunch #combine19 #sofull
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+samleechch
+</td>
+<td style="text-align:left;">
+Very good representation of what autoencoders want to do from PAO’s talk on deep learning over <span class="citation">@nanopore</span> signal data #combine19 <a href="https://t.co/N41mYIrP5F" class="uri">https://t.co/N41mYIrP5F</a>
+</td>
+<td style="text-align:right;">
+0.9880245
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Xiangnan Xu (USyd) rounding off the session with his talk on Nutrigenomics data analysis #combine19
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+<span class="citation">@alexyfyf</span> from <span class="citation">@MonashBioinfo</span> on 9-gene score (for this Christmas? 🎄) #COMBINE19 <a href="https://t.co/5inaraF8zo" class="uri">https://t.co/5inaraF8zo</a>
+</td>
+<td style="text-align:right;">
+0.9802303
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lazappi</em>
+</td>
+<td style="text-align:left;">
+<span class="citation">@shazanfar</span> <span class="citation">@Bioinfosummer</span> <span class="citation">@abacbs</span> You’re missing #COMBINE19 😜
+</td>
+<td style="text-align:right;">
+0.8939600
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4>Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Great start to #combine19 with <span class="citation">@rfroum</span> characterising whether CRISPR-Cas is active in resistance Klebsiella pneumoniae. No time for questions, but we have Twitter! Any known limitations in the CRISPRCasFinder (e.g. FPs or FNs) when locating the cassettes?
+</td>
+<td style="text-align:right;">
+0.9936539
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+#COMBINE19 awards for posters, lightning talks and talks! Nice having the judges presenting the prizes. Unable to split a few of the winners, multiple prizes! #ABACBSGIW19
+</td>
+<td style="text-align:right;">
+0.9914108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Alassandra Whaite from the University of the Sunshine Coast presenting proteomic work on natural protein fibers from molluscs and spiders. Facinating area of study! #combine19
+</td>
+<td style="text-align:right;">
+0.9907574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+askemdarling
+</td>
+<td style="text-align:left;">
+Awesome to hear <span class="citation">@rfroum</span> talk about her Masters research project on CRISPR-CAS activity in Kp #COMBINE19 <a href="https://t.co/4eg6TDoXOi" class="uri">https://t.co/4eg6TDoXOi</a>
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+The first speaker of #combine19, <span class="citation">@rfroum</span> gives us insight into the diversity of CRISPR activity in Klebsiella pneumoniae genome. Thank you for the talk! <a href="https://t.co/lUSd7BCJ7s" class="uri">https://t.co/lUSd7BCJ7s</a>
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Roni Froumine kicking off #COMBINE19 with an excellent talk on antimicrobial resistance and CRISPR-Cas. <a href="https://t.co/JHL0z0S0sc" class="uri">https://t.co/JHL0z0S0sc</a>
+</td>
+<td style="text-align:right;">
+0.9880245
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Alessandra Whaite wow-ing us all with her spider and oyster wrangling skills #COMBINE19 <a href="https://t.co/Pe2imcZhfZ" class="uri">https://t.co/Pe2imcZhfZ</a>
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rhysnewell
+</td>
+<td style="text-align:left;">
+First time presenting at #COMBINE19 and first time publicly talking about Lorikeet 😬 nerve-wracking but exhilarating 🦜😊 <a href="https://t.co/AkxWWpYQYF" class="uri">https://t.co/AkxWWpYQYF</a>
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Added, thanks Andrew!!</p>
+#BioInfoSummer OR <span class="citation">@bioinfosummer</span> OR #biocasia OR #abacbs OR <span class="citation">@abacbs</span> OR #GIWABACBS2019 OR #abacbs2019 OR #abacbs19 OR #COMBINE19 OR <span class="citation">@combine_au</span> OR #COMBINE2019 <a href="https://t.co/GcPXYQY7ML" class="uri">https://t.co/GcPXYQY7ML</a>
+</td>
+<td style="text-align:right;">
+0.9850842
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Thanks <span class="citation">@HaniKim127</span> for getting out from behind the twitter account to present on CiteFuse! #COMBINE19 <a href="https://t.co/2fD8ljfAOm" class="uri">https://t.co/2fD8ljfAOm</a>
+</td>
+<td style="text-align:right;">
+0.9706931
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4>Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<span class="citation">@NhiHin</span> use zebra fish to model familial Alzheimer’s disease and demonstrate the alteration in iron homeostasis by comparing differences in the transcriptome of iron response element gene sets. <span class="citation">@combine_au</span> #combine19 <a href="https://t.co/iy2OCf9ess" class="uri">https://t.co/iy2OCf9ess</a>
+</td>
+<td style="text-align:right;">
+0.9936539
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Congrats to the excellent organisers of #combine19 &amp;amp; all <span class="citation">@combine_au</span> members &amp;amp; exec for a fantastic year of “for students, by students” events.</p>
+<p>2020 exec nominations are now open, I found it incredibly rewarding &amp;amp; highly recommend!</p>
+<p>#ABACBSGIW19 <span class="citation">@abacbs</span></p>
+<a href="https://t.co/REEA4BjOuU" class="uri">https://t.co/REEA4BjOuU</a>
+</td>
+<td style="text-align:right;">
+0.9929137
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Gerry Tonkin-Hill from the Sanger Centre (UK) presenting a cautionary tale of errors and contamination in bacterial Pangenome analyses #combine19
+</td>
+<td style="text-align:right;">
+0.9907574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Up next is Maria Satti (National Institute of Genetics, Japan) talking about comparative genomics of Bifidobacterium from Egyptian fuit bats #combine19
+</td>
+<td style="text-align:right;">
+0.9907574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HaniKim127
+</td>
+<td style="text-align:left;">
+Excited because today I will present CiteFuse for the second time! But more excited by a tweet from <span class="citation">@DaniKim_02</span> (yes our names rhyme) #combine19 <span class="citation">@combine_au</span> #twinsdoresearch #CPC <a href="https://t.co/sCVtJO8z3o" class="uri">https://t.co/sCVtJO8z3o</a>
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Ahmed Zeeshan Siddiqui (UNSW) is now talking about tissue-specific cirRNAs in normal healthy humans. #combine19
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IgnatiusPang
+</td>
+<td style="text-align:left;">
+GIW/ABACBS Conference dinner still open until end of tonight. Please speak to registrations desk if you want to get a ticket. #ABACBSGIW19 #COMBINE19
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>If you didn’t grab a paper program for the symposium today the full one can be found online #COMBINE19</p>
+<a href="https://t.co/t5QWXqJZLG" class="uri">https://t.co/t5QWXqJZLG</a>
+</td>
+<td style="text-align:right;">
+0.9850842
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Today #combine19 morning is all about bacterial genomes! Thank you Maria Satti for coming from Japan to present! <a href="https://t.co/mDfQWRnRNp" class="uri">https://t.co/mDfQWRnRNp</a>
+</td>
+<td style="text-align:right;">
+0.9850842
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lnly0311
+</td>
+<td style="text-align:left;">
+<span class="citation">@NhiHin</span> is talking about Alzheimer’s research in zebra fish model at #combine19 <a href="https://t.co/vVdPVaTFsg" class="uri">https://t.co/vVdPVaTFsg</a>
+</td>
+<td style="text-align:right;">
+0.9829969
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4>Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dumeir
+</td>
+<td style="text-align:left;">
+Started #COMBINE19 with an excellent presentation by my friend <span class="citation">@rfroum</span> and ended with an insightful career panel by <span class="citation">@rafalab</span>, <span class="citation">@MarcelDinger</span>, Dr Denis Bauer and Dr Emily Wong. Thank you <span class="citation">@combine_au</span> for allowing me to be an abstract reviewer and see you tomorrow for #ABACBSGIW19!
+</td>
+<td style="text-align:right;">
+0.9942541
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+Ready for the three-day bioinformatics and computational biology conference in Sydney? 👩‍💻🧑‍💻 14 hours left for COMBINE/AYRCOB student symposium 2019 registration open! 😎#ABACBSGIW19 #combine19 #abacbs <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/AoJ8uvJwAK" class="uri">https://t.co/AoJ8uvJwAK</a>
+</td>
+<td style="text-align:right;">
+0.9924748
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> This is arguably the 10th <span class="citation">@combine_au</span> symposium - the existence of the second is hotly debated amongst COMBINE historians, but a truce has been declared by accepting there could be an off by one error! From humble beginnings… #combine19 <a href="https://t.co/4prr6tKHZ7" class="uri">https://t.co/4prr6tKHZ7</a>
+</td>
+<td style="text-align:right;">
+0.9919779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+That’s two #COMBINE19 talks so far today mentioning autoencoders, will have to pick the brains of <span class="citation">@rlupat</span> and <span class="citation">@pabloacera91</span> at lunch time - seems a very useful technique for biological applications
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LinYingxin
+</td>
+<td style="text-align:left;">
+COMBINE/AYRCOB symposium career panel starts now 🤩 panelists include <span class="citation">@rafalab</span> <span class="citation">@MarcelDinger</span> <span class="citation">@allPowerde</span> <span class="citation">@em6wong</span> #COMBINE19 <a href="https://t.co/NHfgwQet5o" class="uri">https://t.co/NHfgwQet5o</a>
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Today I’m following #combine19. If you are a computational biology or bioinformatics student you should get involved in this. I’ve had 3 Combine presidents in my group!
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Xiqngnan Xu closing off the COMBINE 2019 student talks with his presentation on nutrigenomics #COMBINE19 <a href="https://t.co/PyRnHu0vF3" class="uri">https://t.co/PyRnHu0vF3</a>
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<span class="citation">@Al__Forrest</span> <span class="citation">@Bioinfosummer</span> <span class="citation">@abacbs</span> Always happy to help 😊😊 add the combine tags too! #combine19 #combine2019 <span class="citation">@combine_au</span>
+</td>
+<td style="text-align:right;">
+0.9802303
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Our fabulous symposium organisers <span class="citation">@Katarina_Stuart</span> <span class="citation">@LinYingxin</span> kicking our day off! #combine19 <a href="https://t.co/ynboNgpTht" class="uri">https://t.co/ynboNgpTht</a>
+</td>
+<td style="text-align:right;">
+0.9802303
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Remember to use our hashtag #COMBINE19 to tweet along with everything happening at the symposium today!
+</td>
+<td style="text-align:right;">
+0.9763884
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Check out Hani’s preprint on CITEfuse (<a href="https://t.co/lrOuE2I6zZ" class="uri">https://t.co/lrOuE2I6zZ</a>) #combine19
+</td>
+<td style="text-align:right;">
+0.9763884
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+Beautiful overview of CiteFuse by <span class="citation">@HaniKim127</span> at her #COMBINE19 presentation! <a href="https://t.co/3RWOP6JQje" class="uri">https://t.co/3RWOP6JQje</a>
+</td>
+<td style="text-align:right;">
+0.9763884
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4>Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+JovMaksimovic
+</td>
+<td style="text-align:left;">
+For everyone who will be attending the <span class="citation">@abacbs</span> post doc event at 6pm tonight in the beer garden at the Alfred Hotel (<a href="https://t.co/qzQ8iLSUtt" class="uri">https://t.co/qzQ8iLSUtt</a>) there will be a bar tab! Enjoy the 🍻 and say “Hi!” to Ignatius Pang who has kindly stepped in to host in my stead #combine19 #ABACBSGIW19
+</td>
+<td style="text-align:right;">
+0.9942541
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+An adaptation from the #betterposter concept, I will be presenting my poster at #COMBINE19 on my recently published work as a co-first author. Using tRNA-seq, RNA-seq, Proteomics data - a case study on how modification changes can affect protein translation. <span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/BRE69dSa5m" class="uri">https://t.co/BRE69dSa5m</a>
+</td>
+<td style="text-align:right;">
+0.9936539
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rnomics
+</td>
+<td style="text-align:left;">
+<a href="https://t.co/3pvgrx66XZ" class="uri">https://t.co/3pvgrx66XZ</a> PNgsabrina: ’An adaptation from the #betterposter concept, I will be presenting my poster at #COMBINE19 on my recently published work as a co-first author. Using tRNA-seq, RNA-seq, Proteomics data - a case study on how modification changes can affect pro…
+</td>
+<td style="text-align:right;">
+0.9933042
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gabefoley
+</td>
+<td style="text-align:left;">
+Thanks <span class="citation">@combine_au</span> for second place in the poster presentations! If you’re interested in ancestral sequence reconstruction and missed me today - come check out my talk tomorrow morning at <span class="citation">@abacbs</span> in Session 3c Proteomics / Metabolomics #COMBINE19 #ABACBSGIW19 <a href="https://t.co/MypibiOo41" class="uri">https://t.co/MypibiOo41</a>
+</td>
+<td style="text-align:right;">
+0.9924748
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Quiyi Li (UniMelbourne) talking about “IxDTL a flexible model of gene family evolution”. Love the beamer slides #latex #respect #combine19
+</td>
+<td style="text-align:right;">
+0.9919779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+Congratulations to the excellent presenters (talk, lightning talk and poster) today at #combine19 !! It was a pleasure to hear all the fantastic science, but incredibly difficult to judge!
+</td>
+<td style="text-align:right;">
+0.9914108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SameOld_SamOld
+</td>
+<td style="text-align:left;">
+Presenting my poster at #combine19 today! Come see me to hear about doing a deep dive on bulk RNA-Seq to characterise rare cells using my Shiny app ☺️ <a href="https://t.co/dMVmSudbjD" class="uri">https://t.co/dMVmSudbjD</a>
+</td>
+<td style="text-align:right;">
+0.9907574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+<p>Although the #combine19 program is not yet over! See the program for the remaining events for today: careers panel &amp;amp; social event</p>
+<p><a href="https://t.co/QgOSBbWe1p" class="uri">https://t.co/QgOSBbWe1p</a></p>
+Students at #ABACBSGIW19 take note!
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Congratulations to all the prize winners and thank you to all the judges for spending the day listening to all the talks and poster sessions! #combine19 <a href="https://t.co/QAskoXA58o" class="uri">https://t.co/QAskoXA58o</a>
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+YiwenWang_Eva
+</td>
+<td style="text-align:left;">
+Come to see me at Poster 49 to talk about multivariate methods dealing with batch effects in microbiome data #COMBINE19 <a href="https://t.co/c5Quo3dCOf" class="uri">https://t.co/c5Quo3dCOf</a>
+</td>
+<td style="text-align:right;">
+0.9880245
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4>Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+shazanfar
+</td>
+<td style="text-align:left;">
+After an excellent set of student talks and posters at #combine19 we are now officially opening the #ABACBSGIW19 conference. Beginning with a Welcome to Country here on indigenous Cadigal land of the Eora country
+</td>
+<td style="text-align:right;">
+0.9919779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Who else is excited for a massive week of bioinformatics? The first of presentation I’ll be giving will be a fast forward talk on frogs at #COMBINE19, come and check it out! 🐸🧬 #ABACBSGIW19 <a href="https://t.co/Y6xjqNKPxY" class="uri">https://t.co/Y6xjqNKPxY</a>
+</td>
+<td style="text-align:right;">
+0.9907574
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Tingtimg Gong from <span class="citation">@GarvanInstitute</span> talks about challenges in calling somatic structural variants and demonstrates that more is better when it comes to using variant callers. #combine19 <span class="citation">@combine_au</span> <a href="https://t.co/8cUdGPeFqt" class="uri">https://t.co/8cUdGPeFqt</a>
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+<span class="citation">@fredjaya1</span> on using bioinformatics to study cryptic species of Australian toads 🐸 Cool infographics for a fast-forward talk at #COMBINE19 <a href="https://t.co/yEwwygvXrs" class="uri">https://t.co/yEwwygvXrs</a>
+</td>
+<td style="text-align:right;">
+0.9899965
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Ilariya Tarasova (WEHII) is up next presenting the exploration of time and division-dependent gene expression during B cell division #combine19
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Pablo Acera Mateos now finishing off this session talking about nucleotide biochemical modifications from Nanopore data #combine19
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Rachael Bowen-James starting the mid-morning session by talking about Cancer Genomics compression #combine19
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Next up is Tingting Gong (Garvan) talking about somatic structural variant detection and annotation in cancer samples #combine19
+</td>
+<td style="text-align:right;">
+0.9890990
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+Interesting deep clustering #MachineLearning approach by Pablos to detect modifications on nanopore reads #COMBINE19 <a href="https://t.co/t2XwRnHNwY" class="uri">https://t.co/t2XwRnHNwY</a>
+</td>
+<td style="text-align:right;">
+0.9880245
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+The first <span class="citation">@combine_au</span> symposium was held in 2009! It’s amazing how far it has come, built on the very hard work of committees ever year over the decade, and this year is no exception! Well done all! #combine19
+</td>
+<td style="text-align:right;">
+0.9867151
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1">
+<h1><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1>Session info</h1>
+<pre><code>## R version 3.6.1 (2019-07-05)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Mojave 10.14
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.26         magick_2.2        
+##  [5] webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0  wordcloud_2.6     
+##  [9] RColorBrewer_1.1-2 ggraph_2.0.0       ggrepel_0.8.1      ggplot2_3.2.1     
+## [13] topicmodels_0.2-9  tidytext_0.2.2     igraph_1.2.4.2     stringr_1.4.0     
+## [17] purrr_0.3.3        forcats_0.4.0      lubridate_1.7.4    tidyr_1.0.0       
+## [21] dplyr_0.8.3        rtweet_0.6.9      
+## 
+## loaded via a namespace (and not attached):
+##  [1] progress_1.2.2     httr_1.4.1         rprojroot_1.3-2    SnowballC_0.6.0   
+##  [5] tools_3.6.1        backports_1.1.5    utf8_1.1.4         R6_2.4.1          
+##  [9] lazyeval_0.2.2     colorspace_1.4-1   withr_2.1.2        tidyselect_0.2.5  
+## [13] gridExtra_2.3      prettyunits_1.0.2  processx_3.4.1     curl_4.3          
+## [17] compiler_3.6.1     cli_1.1.0          xml2_1.2.2         NLP_0.2-0         
+## [21] labeling_0.3       slam_0.1-46        scales_1.1.0       tm_0.7-6          
+## [25] callr_3.3.2        askpass_1.1        digest_0.6.23      rmarkdown_1.18    
+## [29] pkgconfig_2.0.3    htmltools_0.4.0    highr_0.8          rlang_0.4.2       
+## [33] farver_2.0.1       generics_0.0.2     jsonlite_1.6       tokenizers_0.2.1  
+## [37] magrittr_1.5       modeltools_0.2-22  Matrix_1.2-17      Rcpp_1.0.3        
+## [41] munsell_0.5.0      fansi_0.4.0        lifecycle_0.1.0    stringi_1.4.3     
+## [45] yaml_2.2.0         MASS_7.3-51.4      plyr_1.8.4         grid_3.6.1        
+## [49] parallel_3.6.1     crayon_1.3.4       lattice_0.20-38    graphlayouts_0.5.0
+## [53] hms_0.5.2          zeallot_0.1.0      ps_1.3.0           pillar_1.4.2      
+## [57] reshape2_1.4.3     stats4_3.6.1       glue_1.3.1         evaluate_0.14     
+## [61] vctrs_0.2.0        png_0.1-7          tweenr_1.0.1       gtable_0.3.0      
+## [65] openssl_1.4.1      polyclip_1.10-0    assertthat_0.2.1   xfun_0.11         
+## [69] ggforce_0.3.1      tidygraph_1.1.2    janeaustenr_0.1.5  tibble_2.1.3      
+## [73] ellipsis_0.3.0</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
