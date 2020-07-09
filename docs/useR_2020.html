@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>useR 2020</title>
+
+<script src="site_libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">useR 2020</h1>
+<h3 class="subtitle">The R user conference 2020 (online due to COVID-19)</h3>
+<h4 class="date">2020-07-09 10:26:14</h4>
+
+</div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#user2020</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2020-07-08</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2020-07-11</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Etc/UTC</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#2165b5</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#90B2DA</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+<div id="introduction" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>An analysis of tweets from the #user2020 hashtag. A total of 1154 tweets from 621 users were collected using the <code>rtweet</code> R package.</p>
+</div>
+<div id="timeline" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Tweets by day</h2>
+<p><img src="figures/useR_2020/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2020-07-08 - 2020-07-11 in the Etc/UTC timezone.</p>
+<p><img src="figures/useR_2020/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="3.1">
+<h2 class="tabset tabset-pills" number="3.1"><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
+<p><img src="figures/useR_2020/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
+<p><img src="figures/useR_2020/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
+<p><img src="figures/useR_2020/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<p><img src="figures/useR_2020/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<p><img src="figures/useR_2020/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="3.4">
+<h2 class="tabset tabset-pills" number="3.4"><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
+<div id="day-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/useR_2020/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/useR_2020/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/useR_2020/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
+<p><img src="figures/useR_2020/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/useR_2020/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/useR_2020/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/useR_2020/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
+<p><img src="figures/useR_2020/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/useR_2020/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/useR_2020/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/useR_2020/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
+<p><img src="figures/useR_2020/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Sources</h1>
+<p><img src="figures/useR_2020/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="networks" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/useR_2020/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/useR_2020/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="6.1">
+<h2 class="tabset tabset-pills" number="6.1"><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/useR_2020/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/useR_2020/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+grrrck
+</td>
+<td style="text-align:left;">
+<p>I’m happy to share with you and #useR2020 a little #rstats package I’ve been working on called {xaringanExtra}. It’s full of extensions and add-ons to make your xaringan slides extra fun!</p>
+<a href="https://t.co/cflHqoUija" class="uri">https://t.co/cflHqoUija</a>
+</td>
+<td style="text-align:right;">
+108
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Today is the day! All talks for #user2020 are available to stream live on our YouTube channel: <a href="https://t.co/SKAnS0JVxe" class="uri">https://t.co/SKAnS0JVxe</a>
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lacion</em>
+</td>
+<td style="text-align:left;">
+<p>🌈“Communities of Practice in Latin America: #rstats &amp;amp; Friends” for #useR2020 is now available at</p>
+<p>🔗<a href="https://t.co/NfT1kbITBH" class="uri">https://t.co/NfT1kbITBH</a>🎉</p>
+<p>Emotional as I tweet because it features 35 authors from 🇦🇷🇦🇺🇧🇴🇧🇷🇨🇱🇨🇷🇪🇨🇲🇽🇵🇪🇺🇸🇺🇾!</p>
+Brilliantly co-organized by <span class="citation">@yabellini</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> &amp;amp;💁🏽‍♀️💜
+</td>
+<td style="text-align:right;">
+46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>So excited to be sharing what the community has built around #TidyTuesday for #useR2020 !</p>
+<p>“TidyTuesday: Scaffolding for a Community of Practice”</p>
+<p><a href="https://t.co/NK3PKMACde" class="uri">https://t.co/NK3PKMACde</a></p>
+<p>Slides: <a href="https://t.co/PAs1uruopZ" class="uri">https://t.co/PAs1uruopZ</a></p>
+#rstats
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Interested in the work of R core?</p>
+<p>Tomorrow is your chance to learn about it in the R core keynotes and panel discussion.</p>
+<p>#rstats #useR2020</p>
+<a href="https://t.co/ISTxC3A6Bg" class="uri">https://t.co/ISTxC3A6Bg</a>
+</td>
+<td style="text-align:right;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Remember to make some space in your calendar next week for #useR2020’s live events organized together with <span class="citation">@useR2020muc</span>! We’ve got a great lineup, and you can watch all of this #rstats goodness via YouTube (links are forthcoming). <a href="https://t.co/FlcQMhE2NS" class="uri">https://t.co/FlcQMhE2NS</a>
+</td>
+<td style="text-align:right;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>You can now find all contributed “sessions” as playlists on our YouTube channel! ▶️✨🎉</p>
+<p>#useR2020 <span class="citation">@useR2020stl</span> <span class="citation">@useR2020muc</span> #rstats</p>
+<a href="https://t.co/ifaceEmOP0" class="uri">https://t.co/ifaceEmOP0</a>
+</td>
+<td style="text-align:right;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Want to add all live events of #useR2020 to your calendar?</p>
+<p>🗓️ical: <a href="https://t.co/66tgJkzyyB" class="uri">https://t.co/66tgJkzyyB</a></p>
+<p>🗓️Web: <a href="https://t.co/vROSafXPVv" class="uri">https://t.co/vROSafXPVv</a></p>
+For details, see: <a href="https://t.co/P6mqHNVupn" class="uri">https://t.co/P6mqHNVupn</a> <span class="citation">@useR2020stl</span>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>To make it easier for you to know about times and dates of the #useR2020 live events, we’ve integrated a calendar on our website which should show events in your time zone.</p>
+<a href="https://t.co/P6mqHNVupn" class="uri">https://t.co/P6mqHNVupn</a> <a href="https://t.co/ZPORL5c6nk" class="uri">https://t.co/ZPORL5c6nk</a>
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AmeliaMN
+</td>
+<td style="text-align:left;">
+My #useR2020 keynote, Speaking R, is tomorrow at 18:00 UTC. It will be streamed live here, <a href="https://t.co/XSJIVSHtM7" class="uri">https://t.co/XSJIVSHtM7</a>, and you can check timing on the agenda: <a href="https://t.co/jB6lX8ivNR" class="uri">https://t.co/jB6lX8ivNR</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/useR_2020/most-retweeted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="6.2">
+<h2 class="tabset tabset-pills" number="6.2"><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/useR_2020/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/useR_2020/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+grrrck
+</td>
+<td style="text-align:left;">
+<p>I’m happy to share with you and #useR2020 a little #rstats package I’ve been working on called {xaringanExtra}. It’s full of extensions and add-ons to make your xaringan slides extra fun!</p>
+<a href="https://t.co/cflHqoUija" class="uri">https://t.co/cflHqoUija</a>
+</td>
+<td style="text-align:right;">
+437
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Today is the day! All talks for #user2020 are available to stream live on our YouTube channel: <a href="https://t.co/SKAnS0JVxe" class="uri">https://t.co/SKAnS0JVxe</a>
+</td>
+<td style="text-align:right;">
+177
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>So excited to be sharing what the community has built around #TidyTuesday for #useR2020 !</p>
+<p>“TidyTuesday: Scaffolding for a Community of Practice”</p>
+<p><a href="https://t.co/NK3PKMACde" class="uri">https://t.co/NK3PKMACde</a></p>
+<p>Slides: <a href="https://t.co/PAs1uruopZ" class="uri">https://t.co/PAs1uruopZ</a></p>
+#rstats
+</td>
+<td style="text-align:right;">
+112
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HeidiBaya
+</td>
+<td style="text-align:left;">
+<p>I moved to the living room for optimal internet connection to live stream #useR2020</p>
+So excited and nervous! <a href="https://t.co/lu9G8BOMl5" class="uri">https://t.co/lu9G8BOMl5</a>
+</td>
+<td style="text-align:right;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Interested in the work of R core?</p>
+<p>Tomorrow is your chance to learn about it in the R core keynotes and panel discussion.</p>
+<p>#rstats #useR2020</p>
+<a href="https://t.co/ISTxC3A6Bg" class="uri">https://t.co/ISTxC3A6Bg</a>
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>Loved <span class="citation">@grrrck</span> ’s presentation on {xaringanExtra} for #user2020 !</p>
+<ul>
+<li>Tile view</li>
+<li>Panel set</li>
+<li>Webcam</li>
+<li>Editable slides</li>
+<li>Slide tone</li>
+<li>Animated slides</li>
+</ul>
+<p>So much packed into 5 min!!!</p>
+<a href="https://t.co/s22fIC7Yot" class="uri">https://t.co/s22fIC7Yot</a>
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Remember to make some space in your calendar next week for #useR2020’s live events organized together with <span class="citation">@useR2020muc</span>! We’ve got a great lineup, and you can watch all of this #rstats goodness via YouTube (links are forthcoming). <a href="https://t.co/FlcQMhE2NS" class="uri">https://t.co/FlcQMhE2NS</a>
+</td>
+<td style="text-align:right;">
+84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lacion</em>
+</td>
+<td style="text-align:left;">
+<p>🌈“Communities of Practice in Latin America: #rstats &amp;amp; Friends” for #useR2020 is now available at</p>
+<p>🔗<a href="https://t.co/NfT1kbITBH" class="uri">https://t.co/NfT1kbITBH</a>🎉</p>
+<p>Emotional as I tweet because it features 35 authors from 🇦🇷🇦🇺🇧🇴🇧🇷🇨🇱🇨🇷🇪🇨🇲🇽🇵🇪🇺🇸🇺🇾!</p>
+Brilliantly co-organized by <span class="citation">@yabellini</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> &amp;amp;💁🏽‍♀️💜
+</td>
+<td style="text-align:right;">
+78
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>You can now find all contributed “sessions” as playlists on our YouTube channel! ▶️✨🎉</p>
+<p>#useR2020 <span class="citation">@useR2020stl</span> <span class="citation">@useR2020muc</span> #rstats</p>
+<a href="https://t.co/ifaceEmOP0" class="uri">https://t.co/ifaceEmOP0</a>
+</td>
+<td style="text-align:right;">
+65
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AmeliaMN
+</td>
+<td style="text-align:left;">
+My #useR2020 keynote, Speaking R, is tomorrow at 18:00 UTC. It will be streamed live here, <a href="https://t.co/XSJIVSHtM7" class="uri">https://t.co/XSJIVSHtM7</a>, and you can check timing on the agenda: <a href="https://t.co/jB6lX8ivNR" class="uri">https://t.co/jB6lX8ivNR</a>
+</td>
+<td style="text-align:right;">
+65
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/useR_2020/most-favorited-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="6.3">
+<h2 class="tabset tabset-pills" number="6.3"><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/useR_2020/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/useR_2020/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+rweekly_org
+</td>
+<td style="text-align:left;">
+Plan for #useR2020 <a href="https://t.co/JnJEX0dUZK" class="uri">https://t.co/JnJEX0dUZK</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Remember to make some space in your calendar next week for #useR2020’s live events organized together with <span class="citation">@useR2020muc</span>! We’ve got a great lineup, and you can watch all of this #rstats goodness via YouTube (links are forthcoming). <a href="https://t.co/FlcQMhE2NS" class="uri">https://t.co/FlcQMhE2NS</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhDToothFAIRy
+</td>
+<td style="text-align:left;">
+I’m super excited about the #useR2020 sessions in the upcoming days! Thanks <span class="citation">@useR2020stl</span> for taking it online! <a href="https://t.co/mQQbl46oCT" class="uri">https://t.co/mQQbl46oCT</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+natorro
+</td>
+<td style="text-align:left;">
+Comienza ya #useR2020 la conferencia más importante de R y sus usos del mundo. Estén atentos, este año es online :-D <a href="https://t.co/f6FhGlWtGN" class="uri">https://t.co/f6FhGlWtGN</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesEskisehR
+</td>
+<td style="text-align:left;">
+👩‍💻 useR 2020 konferans programı için tıklayın : 👇 Sunumlar yarın başlıyor ayrıca Youtube üzerinden izlenebilecek 😉 #RStats #useR2020 <a href="https://t.co/te7Q2W0Q0v" class="uri">https://t.co/te7Q2W0Q0v</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rnzbrk
+</td>
+<td style="text-align:left;">
+useR konferansı bu sene hem ücretsiz hem de online olacak. Kaçırmayın derim! #rstats #user2020 <a href="https://t.co/Ijuy50NEIx" class="uri">https://t.co/Ijuy50NEIx</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+miljenka_vuko
+</td>
+<td style="text-align:left;">
+That feeling when all the hard work starts to take shape 🤩 Although it sucks that it couldn’t happen in person, this way - EVERYONE can join! #rstats-ists, join us for the #user2020 fiesta during July! <a href="https://t.co/ZnretCXp8w" class="uri">https://t.co/ZnretCXp8w</a> <a href="https://t.co/Ky5m25SOVo" class="uri">https://t.co/Ky5m25SOVo</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+natydemi
+</td>
+<td style="text-align:left;">
+#useR2020 Agenda: <a href="https://t.co/bZFEZhA9CY" class="uri">https://t.co/bZFEZhA9CY</a> ♡ <a href="https://t.co/hAc9QBAMzN" class="uri">https://t.co/hAc9QBAMzN</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesBH
+</td>
+<td style="text-align:left;">
+O evento esse ano será gratuito e online #useR2020 <a href="https://t.co/54LXzPibAk" class="uri">https://t.co/54LXzPibAk</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesCba
+</td>
+<td style="text-align:left;">
+Esta edición de #useR2020 será gratuita y online No es necesaria inscripción Las charlas van a estar disponible con subtitulos en Youtube #RStats #rstats <a href="https://t.co/S4rDaxVi8g" class="uri">https://t.co/S4rDaxVi8g</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/useR_2020/most-quoted-1.png" width="783" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="7">
+<h1 class="tabset tabset-pills" number="7"><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
+<p><img src="figures/useR_2020/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+HeidiBaya
+</td>
+<td style="text-align:left;">
+<p>I moved to the living room for optimal internet connection to live stream #useR2020</p>
+So excited and nervous! <a href="https://t.co/lu9G8BOMl5" class="uri">https://t.co/lu9G8BOMl5</a>
+</td>
+<td style="text-align:right;">
+106
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kara_woo
+</td>
+<td style="text-align:left;">
+It’s a bummer to not be able to attend an in-person #useR2020, but there are some benefits to watching from home. <a href="https://t.co/YmTkRW5U43" class="uri">https://t.co/YmTkRW5U43</a>
+</td>
+<td style="text-align:right;">
+63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>To make it easier for you to know about times and dates of the #useR2020 live events, we’ve integrated a calendar on our website which should show events in your time zone.</p>
+<a href="https://t.co/P6mqHNVupn" class="uri">https://t.co/P6mqHNVupn</a> <a href="https://t.co/ZPORL5c6nk" class="uri">https://t.co/ZPORL5c6nk</a>
+</td>
+<td style="text-align:right;">
+46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+romain_francois
+</td>
+<td style="text-align:left;">
+The #useR2020 venue is pretty cool <a href="https://t.co/RE6xR0bLjP" class="uri">https://t.co/RE6xR0bLjP</a>
+</td>
+<td style="text-align:right;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>My fav #useR2020 #rstats talk was organized by <span class="citation">@yabellini</span> <span class="citation">@_lacion_</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> (totally biased)</p>
+<p>I 📣 for <span class="citation">@rOpenSci</span>, <span class="citation">@josschavezf1</span> 📢 about <span class="citation">@CDSBMexico</span> <span class="citation">@Bioconductor</span></p>
+📹 <a href="https://t.co/xRJPdiCqaZ" class="uri">https://t.co/xRJPdiCqaZ</a> 📔🇺🇸 <a href="https://t.co/bDy3QtZQrK" class="uri">https://t.co/bDy3QtZQrK</a> <span class="citation">@RConsortium</span> 📔🇲🇽 <a href="https://t.co/FhHWpSrQi4" class="uri">https://t.co/FhHWpSrQi4</a> <a href="https://t.co/Q0YPZxr5oB" class="uri">https://t.co/Q0YPZxr5oB</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MuSigmaInc
+</td>
+<td style="text-align:left;">
+Mu Sigma is proud to be one of the sponsors and presenters at <span class="citation">@useR2020stl</span> Here’s our presentation on Case-Based Computational Geometry Modeling &amp;gt; <a href="https://t.co/wZoRTPUxRr" class="uri">https://t.co/wZoRTPUxRr</a> #rstats #useR2020 <a href="https://t.co/3Z47svw9Yq" class="uri">https://t.co/3Z47svw9Yq</a>
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Our first #useR2020 event will be a breakout session</p>
+<p>“Tackling Climate Change” 🌎🌍🌏</p>
+<p>When: <a href="https://t.co/79etXmSXTG" class="uri">https://t.co/79etXmSXTG</a> Where: <a href="https://t.co/Ytr22cT0J7" class="uri">https://t.co/Ytr22cT0J7</a></p>
+#rstats <a href="https://t.co/FlWF1hEOh8" class="uri">https://t.co/FlWF1hEOh8</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@chrisprener</span>, <span class="citation">@jenineharris</span> and <span class="citation">@HeidiBaya</span> are kicking off #useR2020 now!</p>
+<a href="https://t.co/L5J8XtuOrX" class="uri">https://t.co/L5J8XtuOrX</a> <a href="https://t.co/IroaUH50ek" class="uri">https://t.co/IroaUH50ek</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+moh_fodil
+</td>
+<td style="text-align:left;">
+<p>The poster sessions of #useR2020 <span class="citation">@useR2020stl</span> <span class="citation">@useR2020muc</span> are online, don’t miss the opportunity to take a look at amazing #rstats packages.</p>
+<a href="https://t.co/js8WPqGLp6" class="uri">https://t.co/js8WPqGLp6</a> <a href="https://t.co/yjUejqPjY9" class="uri">https://t.co/yjUejqPjY9</a>
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisprener
+</td>
+<td style="text-align:left;">
+Even my computer is getting in on the #useR2020 hype 😂 no pressure <span class="citation">@jenineharris</span> and <span class="citation">@HeidiBaya</span>! <a href="https://t.co/usGSS1f7nT" class="uri">https://t.co/usGSS1f7nT</a>
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/EcUgSx5WkAAyd1Q.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="8.1">
+<h2 number="8.1"><span class="header-section-number">8.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/useR_2020/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="8.2">
+<h2 number="8.2"><span class="header-section-number">8.2</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/useR_2020/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="8.3">
+<h2 number="8.3"><span class="header-section-number">8.3</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/useR_2020/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="8.3.1">
+<h3 class="tabset tabset-fade" number="8.3.1"><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 1</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+yabellini
+</td>
+<td style="text-align:left;">
+<span class="citation">@SSanchezColon</span> <span class="citation">@_lacion_</span> <span class="citation">@R4DScommunity</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> Porque #useR2020 es en Inglés. Conf de R en Español: <span class="citation">@conecta_R</span> Conf de R en Español, Portugués (que también habla LatAm) e Inglés <span class="citation">@LatinR_Conf</span> .Ambas hechas por y para la comunidad. La segunda totalmente voluntaria. Los subtítulos también estarán en Español (hechos x nosotros)
+</td>
+<td style="text-align:right;">
+0.9975079
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ixpantia
+</td>
+<td style="text-align:left;">
+<p>Para nosotros en <span class="citation">@ixpantia</span> nos alegra ver dos iniciativas mencionadas en esta charla durante #useR2020 que hemos apoyado desde que arrancaron: <span class="citation">@datalatam</span> y <span class="citation">@conecta_R</span>.</p>
+¡Vamos a seguir apoyándolos para fomentar el crecimiento de la comunidad de ciencia de datos en la región! <a href="https://t.co/ID4LTRSQDU" class="uri">https://t.co/ID4LTRSQDU</a>
+</td>
+<td style="text-align:right;">
+0.9973009
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+yabellini
+</td>
+<td style="text-align:left;">
+Un blog post que resume las iniciativas que se llevan adelante en Latinoamérica para desarrollar la comunidad en nuestra región. Este post es un resumen de nuestro panel “Comunidades de práctica en América Latina: R y amigues” en #useR2020 1/2 <a href="https://t.co/MKFtXAcZu0" class="uri">https://t.co/MKFtXAcZu0</a>
+</td>
+<td style="text-align:right;">
+0.9970564
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesLaPaz
+</td>
+<td style="text-align:left;">
+Ya salió el vídeo de “Communities of Practice in Latin America: #rstats &amp;amp; Friends” para #useR2020. Sigamos difundiendo el conocimiento en Latinoamérica! La unidad hace la fuerza 😎🙌! #rstats #Bolivia 🇧🇴 #LATAM <a href="https://t.co/JUAfhe8XU7" class="uri">https://t.co/JUAfhe8XU7</a>
+</td>
+<td style="text-align:right;">
+0.9964050
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+natorro
+</td>
+<td style="text-align:left;">
+Comienza ya #useR2020 la conferencia más importante de R y sus usos del mundo. Estén atentos, este año es online :-D <a href="https://t.co/f6FhGlWtGN" class="uri">https://t.co/f6FhGlWtGN</a>
+</td>
+<td style="text-align:right;">
+0.9946192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rnzbrk
+</td>
+<td style="text-align:left;">
+useR konferansı bu sene hem ücretsiz hem de online olacak. Kaçırmayın derim! #rstats #user2020 <a href="https://t.co/Ijuy50NEIx" class="uri">https://t.co/Ijuy50NEIx</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lacion</em>
+</td>
+<td style="text-align:left;">
+<p>🗣️<span class="citation">@LuisDVerde</span> <span class="citation">@agomezodd</span> <span class="citation">@BeaMilz</span> Denisse Fierro Arcos <span class="citation">@fellgernon</span> <span class="citation">@josschavezf1</span> <span class="citation">@rivaquiroga</span> <span class="citation">@cantoflor_87</span> <span class="citation">@gdequeiroz</span> <span class="citation">@fransvandunne</span> <span class="citation">@yabellini</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> &amp;amp; 💁🏽‍♀️</p>
+<p>report on a ton of work around #rstats &amp;amp; friends in LatAm at #useR2020</p>
+🔗<a href="https://t.co/NfT1kbITBH" class="uri">https://t.co/NfT1kbITBH</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fellgernon
+</td>
+<td style="text-align:left;">
+<p>My fav #useR2020 #rstats talk was organized by <span class="citation">@yabellini</span> <span class="citation">@_lacion_</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> (totally biased)</p>
+<p>I 📣 for <span class="citation">@rOpenSci</span>, <span class="citation">@josschavezf1</span> 📢 about <span class="citation">@CDSBMexico</span> <span class="citation">@Bioconductor</span></p>
+📹 <a href="https://t.co/xRJPdiCqaZ" class="uri">https://t.co/xRJPdiCqaZ</a> 📔🇺🇸 <a href="https://t.co/bDy3QtZQrK" class="uri">https://t.co/bDy3QtZQrK</a> <span class="citation">@RConsortium</span> 📔🇲🇽 <a href="https://t.co/FhHWpSrQi4" class="uri">https://t.co/FhHWpSrQi4</a> <a href="https://t.co/Q0YPZxr5oB" class="uri">https://t.co/Q0YPZxr5oB</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lori_ling
+</td>
+<td style="text-align:left;">
+<p>#useR2020 will be free and online.</p>
+Talks will be available on YouTube (live or pre-recorded &amp;amp; be captioned). No need to sign up or register. <a href="https://t.co/Zrl9O6FFVW" class="uri">https://t.co/Zrl9O6FFVW</a>
+</td>
+<td style="text-align:right;">
+0.9912310
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mmznr
+</td>
+<td style="text-align:left;">
+Really useful: Privacy protected Maps using kernel density estimation in #rstats from Edwin de Jonge <span class="citation">@statisticscbs</span> #useR2020 <span class="citation">@useR2020muc</span> <a href="https://t.co/Egof6gT68G" class="uri">https://t.co/Egof6gT68G</a>
+</td>
+<td style="text-align:right;">
+0.9912310
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 2</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+RLadiesMedellin
+</td>
+<td style="text-align:left;">
+📢La próxima semana se realizará el evento✨#useR2020 ✨. Podrás asistir a todas las conferencias virtuales a través del canal de Youtube 🎥 <a href="https://t.co/WkyeI82m67" class="uri">https://t.co/WkyeI82m67</a>. Aquí encontrarás la programación: <a href="https://t.co/mkXh8jo1bo" class="uri">https://t.co/mkXh8jo1bo</a>.🗒️📌
+</td>
+<td style="text-align:right;">
+0.9959579
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+andyteucher
+</td>
+<td style="text-align:left;">
+My #useR2020 talk is posted in the #rspatial track: <a href="https://t.co/U3bCJoGmQS" class="uri">https://t.co/U3bCJoGmQS</a>. The {bcdata} package, developed with <span class="citation">@big_bad_sam</span> and <span class="citation">@stephhazlitt</span>, for getting data from the #BritishColumbia data catalogue - including a dbplyr interface to a Web Feature Service
+</td>
+<td style="text-align:right;">
+0.9946192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>Loved <span class="citation">@grrrck</span> ’s presentation on {xaringanExtra} for #user2020 !</p>
+<ul>
+<li>Tile view</li>
+<li>Panel set</li>
+<li>Webcam</li>
+<li>Editable slides</li>
+<li>Slide tone</li>
+<li>Animated slides</li>
+</ul>
+<p>So much packed into 5 min!!!</p>
+<a href="https://t.co/s22fIC7Yot" class="uri">https://t.co/s22fIC7Yot</a>
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nickseewald
+</td>
+<td style="text-align:left;">
+<p>Me, listening to Luke Tierney talk about the intricacies of possible upcoming R syntax changes #useR2020</p>
+(I find the magrittr pipe syntax hard to read I’M SORRY I’M SORRY) <a href="https://t.co/urhzSwV2du" class="uri">https://t.co/urhzSwV2du</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>MUACz: An R Package for Generating MUAC and BMI z-scores and Percentiles for Children and Adolescents by Lazarus Mramba</p>
+<p>#useR2020 #rstats #biostatistics</p>
+<a href="https://t.co/Na849PrhaZ" class="uri">https://t.co/Na849PrhaZ</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>So excited to be sharing what the community has built around #TidyTuesday for #useR2020 !</p>
+<p>“TidyTuesday: Scaffolding for a Community of Practice”</p>
+<p><a href="https://t.co/NK3PKMACde" class="uri">https://t.co/NK3PKMACde</a></p>
+<p>Slides: <a href="https://t.co/PAs1uruopZ" class="uri">https://t.co/PAs1uruopZ</a></p>
+#rstats
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HeidiBaya
+</td>
+<td style="text-align:left;">
+<p>The day is finally here! I am so excited 🎉🤓</p>
+<p>Join us at 18:00 CEST for our welcome address to the first virual useR! ever, co-organized by <span class="citation">@useR2020stl</span> and <span class="citation">@useR2020muc</span></p>
+<p>No registration required, just join!</p>
+#useR2020 <a href="https://t.co/sRjhfK6jK0" class="uri">https://t.co/sRjhfK6jK0</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AndyPryke
+</td>
+<td style="text-align:left;">
+Great that #useR2020 is now online. Missing the beers &amp;amp; chat &amp;amp; meeting/catching up with so many interesting people! <a href="https://t.co/1D8EMJCdL2" class="uri">https://t.co/1D8EMJCdL2</a> (note: more talks under the “program” drop down)
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesCba
+</td>
+<td style="text-align:left;">
+<p>Si querés saber más detalles <a href="https://t.co/81SJICLXZk" class="uri">https://t.co/81SJICLXZk</a></p>
+y podés seguir las cuentas <span class="citation">@useR2020stl</span>, <span class="citation">@useR2020muc</span> y el hashtag #useR2020
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Very Easy Web Scraping with ralger by Mohamed El Fodil Ihaddaden</p>
+<p>#useR2020 #rstats #WebApp</p>
+<a href="https://t.co/XVxpLWDM44" class="uri">https://t.co/XVxpLWDM44</a>
+</td>
+<td style="text-align:right;">
+0.9912310
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 3</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+R_Forwards
+</td>
+<td style="text-align:left;">
+<p>All #useR2020 contributed videos have been captioned. To submit translations or corrections (“translation” from published version to another English version):</p>
+<ul>
+<li>go to YouTube video</li>
+<li>click the settings cog wheel</li>
+<li>select Subtitles/CC</li>
+<li>click Add subtitles/CC</li>
+<li>select language <a href="https://t.co/OGejKdJMso" class="uri">https://t.co/OGejKdJMso</a>
+</td>
+<td style="text-align:right;">
+0.9964050
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+techg_row
+</td>
+<td style="text-align:left;">
+Instagram Knowledge..🤔🤔 #Instagram #instagramfacts #TwitterOfTime #techfacts #technologynews #Google #Chrome #user2020 #tech #WhatDoYouThink #tech #knowledgemanagement #Tech4All #GoogleDoodle #knowledge #newupdates #upcomings #technology FOLLOW FOR MORE DAILY TECH NEWS…👆 <a href="https://t.co/i9JPYMZNl4" class="uri">https://t.co/i9JPYMZNl4</a>
+</td>
+<td style="text-align:right;">
+0.9959579
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+big_bad_sam
+</td>
+<td style="text-align:left;">
+Checkout <span class="citation">@andyteucher</span>’s awesome #useR2020 talk on the bcdata📦: <a href="https://t.co/fxFgNij95H" class="uri">https://t.co/fxFgNij95H</a></li>
+</ul>
+<p>Also a great time to mention that a new version of bcdata recently hit cran. Changes include: works better. Docs here: <a href="https://t.co/deFE68Gt2h" class="uri">https://t.co/deFE68Gt2h</a></p>
+<span class="citation">@Data_BC</span> <span class="citation">@stephhazlitt</span> #rstats
+</td>
+<td style="text-align:right;">
+0.9946192
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nickseewald
+</td>
+<td style="text-align:left;">
+Fascinating consequence of stringsAsFactors = FALSE by default in R 4.0.0 — model coefficients might depend on system language if you convert character to factor after reading in data. Whoa. #useR2020
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kara_woo
+</td>
+<td style="text-align:left;">
+In his #useR2020 keynote <span class="citation">@LukeTierney4</span> discusses different options under consideration for more concise anonymous functions. Sounds like if I wait long enough, there’s a possibility we’ll get stabby(ish) lambda syntax in #rstats 😉 <a href="https://t.co/OmQGco5RNM" class="uri">https://t.co/OmQGco5RNM</a>
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chrisprener
+</td>
+<td style="text-align:left;">
+Today is bittersweet - I’m so grateful for our #StLouis organizing team who worked for nearly a year before we had to pause our #useR2020 planning and ultimately cancel the in-person event due to COVID. Thanks to each and every one of you for your dedication to the conference! <a href="https://t.co/eas0NE3xo7" class="uri">https://t.co/eas0NE3xo7</a>
+</td>
+<td style="text-align:right;">
+0.9939515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Two hours to go until our first #useR2020 event! 🎉✨🤓</p>
+<p>▶️ Join in for our breakout event on “Tackling Climate Change” 🌎🌍🌏</p>
+<p>We’ll have exciting talks and plenty of time to discuss.</p>
+Zoom: <a href="https://t.co/Ytr22cT0J7" class="uri">https://t.co/Ytr22cT0J7</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kara_woo
+</td>
+<td style="text-align:left;">
+Global condition handlers (new in R 4.0.0 thanks to <span class="citation">@LukeTierney4</span> &amp;amp; <span class="citation">@_lionelhenry</span>) allow you to: ✅ turn some warnings into errors ✅ capture some errors and present additional info ✅ ignore some warnings or messages #user2020
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sharlagelfand
+</td>
+<td style="text-align:left;">
+imagining a different reality with many of us in St Louis and Munich for #useR2020 this week 😭 but i’m happy and grateful to be safe at home watching online 🥰 <a href="https://t.co/MKnT8tlceY" class="uri">https://t.co/MKnT8tlceY</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aktilot
+</td>
+<td style="text-align:left;">
+Excited for all the great #useR2020 content coming this month! Great list of contributed talks (biostats to shiny apps!) here: <a href="https://t.co/CbbYfePDSy" class="uri">https://t.co/CbbYfePDSy</a> <a href="https://t.co/1HVTdVCjhQ" class="uri">https://t.co/1HVTdVCjhQ</a>
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 4</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+groundwalkergmb
+</td>
+<td style="text-align:left;">
+My #user2020 talk about {rtables} for generating complex, multi-level tabulations for display/reporting tables is up. Pkg is fully general/data agnostic but think report tables submitted to FDA/EMA. #rstats not historically used for that, but it will be. <a href="https://t.co/Xt1ESs6hQA" class="uri">https://t.co/Xt1ESs6hQA</a>
+</td>
+<td style="text-align:right;">
+0.9953836
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R_Forwards
+</td>
+<td style="text-align:left;">
+Succession and diversity were key topics in the #useR2020 R Core panel (<a href="https://t.co/e9mDWYqvAb" class="uri">https://t.co/e9mDWYqvAb</a>). We are putting a team together with <span class="citation">@lawremi</span> to work on initiatives that will encourage new contributors, with a focus on inclusion. Do get in touch if you’d like to be involved!
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thomas_mock
+</td>
+<td style="text-align:left;">
+<p>Check out Daniel Jacobs (<span class="citation">@djacobs7</span> ) #user2020 talk on:</p>
+<p>“Learning R through spaced Repetition and the Remembr Package”</p>
+<p>Some #TidyTuesday code used to find top packages or other code used.</p>
+<a href="https://t.co/WOzYA1wlf2" class="uri">https://t.co/WOzYA1wlf2</a>
+</td>
+<td style="text-align:right;">
+0.9939515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CivicAngela
+</td>
+<td style="text-align:left;">
+I have been so impressed at the work that the Latin #RLadies communities have done! If you’re looking for inspiration for how to grow a data community together (plus ideas for yours), I recommend viewing this video! #rstats #useR2020 <span class="citation">@_lacion_</span> <span class="citation">@yabellini</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> <a href="https://t.co/NbLS8s9dBI" class="uri">https://t.co/NbLS8s9dBI</a>
+</td>
+<td style="text-align:right;">
+0.9939515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lacion</em>
+</td>
+<td style="text-align:left;">
+<p>🌈“Communities of Practice in Latin America: #rstats &amp;amp; Friends” for #useR2020 is now available at</p>
+<p>🔗<a href="https://t.co/NfT1kbITBH" class="uri">https://t.co/NfT1kbITBH</a>🎉</p>
+<p>Emotional as I tweet because it features 35 authors from 🇦🇷🇦🇺🇧🇴🇧🇷🇨🇱🇨🇷🇪🇨🇲🇽🇵🇪🇺🇸🇺🇾!</p>
+Brilliantly co-organized by <span class="citation">@yabellini</span> <span class="citation">@PaobCorrales</span> <span class="citation">@palolili23</span> &amp;amp;💁🏽‍♀️💜
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+miljenka_vuko
+</td>
+<td style="text-align:left;">
+#user2020 is finally starting! And with a very important topic - we are going to Tackle Climate Change! 🌏🌍🌎 Thanks Olga Mierzwa-Sulima <span class="citation">@olga_mie</span> for organizing! Join us today at 4pm CET, details below ⬇️ <a href="https://t.co/QEo0ZTiNV2" class="uri">https://t.co/QEo0ZTiNV2</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Did you miss today’s live session? Worry not! You can have a look on our YouTube Channel and watch it at your own desired speed! That’s certainly an advantage of this online conference.</p>
+#useR2020 #rstats <a href="https://t.co/ISTxC3A6Bg" class="uri">https://t.co/ISTxC3A6Bg</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cantoflor_87
+</td>
+<td style="text-align:left;">
+✨In the last 3 years, I have collaborated in the growth of communities like <span class="citation">@thecarpentries</span>🔨 <span class="citation">@LatinR_Conf</span> 🌎<span class="citation">@RLadiesBA</span>💜 (+ #rladies global team) <span class="citation">@ReproHack</span>♻️<span class="citation">@renbaires</span>🛸 in #LatAm with AMAZING people! 😃👉 Have a look at this video to know more #rstats #useR2020 <a href="https://t.co/1vuEfkaXyK" class="uri">https://t.co/1vuEfkaXyK</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Join us for our first live YouTube session consisting of three parts</p>
+<ol style="list-style-type: decimal">
+<li>Welcome,</li>
+<li>A keynote by R core members <span class="citation">@MMaechler</span> and <span class="citation">@LukeTierney4</span>,</li>
+<li>An R core panel discussion!</li>
+</ol>
+When: <a href="https://t.co/tgwEx35cqJ" class="uri">https://t.co/tgwEx35cqJ</a> Where: <a href="https://t.co/ISTxC3RHsO" class="uri">https://t.co/ISTxC3RHsO</a> #useR2020 #rstats
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<em>lacion</em>
+</td>
+<td style="text-align:left;">
+<p>🏃🏽‍♀️🏃🏽‍♂️Watch <a href="https://t.co/NfT1kbITBH" class="uri">https://t.co/NfT1kbITBH</a> for updates about great communities such as</p>
+<p>🌟🌟🌟🌟🌟</p>
+<p><span class="citation">@LatinR_Conf</span> <span class="citation">@conecta_R</span> <span class="citation">@satRdays_org</span> <span class="citation">@RLadiesGlobal</span> <span class="citation">@rOpenSci</span> <span class="citation">@CDSBMexico</span> <span class="citation">@RConsortium</span> RUGs <span class="citation">@R4DS_es</span> <span class="citation">@thecarpentries</span> <span class="citation">@ReproHack</span> <span class="citation">@AIinclusive</span> <span class="citation">@datalatam</span> <span class="citation">@metadocencia</span></p>
+#rstats #useR2020
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 5</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+suziinao
+</td>
+<td style="text-align:left;">
+Mein #Account zeigt als Anzahl der #Tweets 8446,- das sind 5000+ in 6 Monaten, in denen ich selten getweetet habe. Bei 180 Tagen, wenn ich 10 Tweets täglich gepostet HÄTTE - was ich nicht habe - wären das 1800!#lka #fyi #accountability #notmyfault #user2020 #hack #Paymeforusingme <a href="https://t.co/HSCeQ0jbni" class="uri">https://t.co/HSCeQ0jbni</a>
+</td>
+<td style="text-align:right;">
+0.9972240
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+murtha_andy
+</td>
+<td style="text-align:left;">
+<p>I am dialed into the #useR2020 conference starting today! Thank you for holding this event in light of social distancing with COVID-19</p>
+<p>Thanks <span class="citation">@MuSigmaInc</span> for sponsoring!</p>
+<p>Let’s see how I can bring ideas back to <span class="citation">@HomeDepot</span></p>
+#rstats #Analytics #DataScience #DataVisualization
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020stl
+</td>
+<td style="text-align:left;">
+Remember to make some space in your calendar next week for #useR2020’s live events organized together with <span class="citation">@useR2020muc</span>! We’ve got a great lineup, and you can watch all of this #rstats goodness via YouTube (links are forthcoming). <a href="https://t.co/FlcQMhE2NS" class="uri">https://t.co/FlcQMhE2NS</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MuSigmaInc
+</td>
+<td style="text-align:left;">
+Mu Sigma is proud to be one of the sponsors and presenters at <span class="citation">@useR2020stl</span> Here’s our presentation on Case-Based Computational Geometry Modeling &amp;gt; <a href="https://t.co/wZoRTPUxRr" class="uri">https://t.co/wZoRTPUxRr</a> #rstats #useR2020 <a href="https://t.co/3Z47svw9Yq" class="uri">https://t.co/3Z47svw9Yq</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+grrrck
+</td>
+<td style="text-align:left;">
+<p>I’m happy to share with you and #useR2020 a little #rstats package I’ve been working on called {xaringanExtra}. It’s full of extensions and add-ons to make your xaringan slides extra fun!</p>
+<a href="https://t.co/cflHqoUija" class="uri">https://t.co/cflHqoUija</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>Comparing the Treatment Regimen of Newly Diagnosed Pediatric Leukemia Patients by Sierra Davis</p>
+<p>#useR2020 #rstats #biostatistics</p>
+<a href="https://t.co/y9EFvNQ6pi" class="uri">https://t.co/y9EFvNQ6pi</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+useR2020muc
+</td>
+<td style="text-align:left;">
+<p>To make it easier for you to know about times and dates of the #useR2020 live events, we’ve integrated a calendar on our website which should show events in your time zone.</p>
+<a href="https://t.co/P6mqHNVupn" class="uri">https://t.co/P6mqHNVupn</a> <a href="https://t.co/ZPORL5c6nk" class="uri">https://t.co/ZPORL5c6nk</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+thirsty_crow
+</td>
+<td style="text-align:left;">
+Data scientists at <span class="citation">@appsilon</span> are using deep learning to assess property damage caused by natural disasters. #user2020 <a href="https://t.co/oUcK1Azesz" class="uri">https://t.co/oUcK1Azesz</a>
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ManningBooks
+</td>
+<td style="text-align:left;">
+Hey #useR2020! Save 40% on #rstats, #datascience, #DataAnalytics, #DataViz, #tidyverse, and other books and videos with CODE ctwuseR20 <a href="https://t.co/OdkWpxceCQ" class="uri">https://t.co/OdkWpxceCQ</a> #manningbooks
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ManningBooks
+</td>
+<td style="text-align:left;">
+Hey #useR2020! Save 40% on #rstats, #datascience, #DataAnalytics, #DataViz, #tidyverse, and other books and videos with CODE ctwuseR20 <a href="https://t.co/OdkWpwUDeg" class="uri">https://t.co/OdkWpwUDeg</a> #manningbooks
+</td>
+<td style="text-align:right;">
+0.9919547
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 6</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+taranago
+</td>
+<td style="text-align:left;">
+時系列データを補完するimputeTSパッケージのデモ。 CRANにあるものは旧版なので、githubからインストールする。install_github(“SteffenMoritz/imputeTS”) <a href="https://t.co/8Th1iFKw92" class="uri">https://t.co/8Th1iFKw92</a> #useR2020
+</td>
+<td style="text-align:right;">
+0.9961188
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EmilyRiederer
+</td>
+<td style="text-align:left;">
+<p>Pleased to share my #UseR2020 lightning talk on {projmgr}. Take 5 minutes to see if this pkg can help you save hours in project management overhead</p>
+<p><a href="https://t.co/MxZyDtuyHB" class="uri">https://t.co/MxZyDtuyHB</a></p>
+Plus, check out other videos and live talks / tutorials throughout the month thanks to <span class="citation">@useR2020stl</span> !
+</td>
+<td style="text-align:right;">
+0.9949006
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mkdyderski
+</td>
+<td style="text-align:left;">
+<p>Want to see what #DataScience can do to help in #EnvironmentalCrisis #Climatechange #research? tune to #useR2020 breakout session “Tackling Climate Change”</p>
+<p>I’ll tell about #Rstast addicted biologist perspective;)</p>
+When: <a href="https://t.co/mj39Vp4Miy" class="uri">https://t.co/mj39Vp4Miy</a> Where: <a href="https://t.co/vFo2P3dPjZ" class="uri">https://t.co/vFo2P3dPjZ</a> <a href="https://t.co/NCToZHQVjy" class="uri">https://t.co/NCToZHQVjy</a>
+</td>
+<td style="text-align:right;">
+0.9943048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AurorePaligot
+</td>
+<td style="text-align:left;">
+Don’t forget to check the conferences and tutorials program for #useR2020 ! Also have a look at their YouTube channel : <a href="https://t.co/iDOVPEhRWh" class="uri">https://t.co/iDOVPEhRWh</a> Topics ranging from Programming, Social Science, Teaching, Reproducible Research and much more
+</td>
+<td style="text-align:right;">
+0.9939515
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CWRUSwetland
+</td>
+<td style="text-align:left;">
+UseR!2020 The R User Conference will take place in July, 2020, and it’s free for anyone interested. We encourage you to participate in the online tutorials or listen to their keynote speakers <a href="https://t.co/HNos5zdwFo" class="uri">https://t.co/HNos5zdwFo</a> <span class="citation">@useR2020stl</span> #useR2020 <span class="citation">@CWRUSOM</span>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+miljenka_vuko
+</td>
+<td style="text-align:left;">
+That feeling when all the hard work starts to take shape 🤩 Although it sucks that it couldn’t happen in person, this way - EVERYONE can join! #rstats-ists, join us for the #user2020 fiesta during July! <a href="https://t.co/ZnretCXp8w" class="uri">https://t.co/ZnretCXp8w</a> <a href="https://t.co/Ky5m25SOVo" class="uri">https://t.co/Ky5m25SOVo</a>
+</td>
+<td style="text-align:right;">
+0.9935513
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RLadiesEskisehR
+</td>
+<td style="text-align:left;">
+👩‍💻 useR 2020 konferans programı için tıklayın : 👇 Sunumlar yarın başlıyor ayrıca Youtube üzerinden izlenebilecek 😉 #RStats #useR2020 <a href="https://t.co/te7Q2W0Q0v" class="uri">https://t.co/te7Q2W0Q0v</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rhta16
+</td>
+<td style="text-align:left;">
+In case you don’t have enough #rstats in your life (who does?), the #user2020 talks are available to stream live and watch post-conference. All free and no need to register. Videos from past conferences too! Thank you <span class="citation">@useR2020stl</span> <span class="citation">@useR2020muc</span>! <a href="https://t.co/rR3Mv2o66a" class="uri">https://t.co/rR3Mv2o66a</a>
+</td>
+<td style="text-align:right;">
+0.9930945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SooTiffany
+</td>
+<td style="text-align:left;">
+<p>Taking over <span class="citation">@useR2020muc</span> today and for all upcoming live sessions this week! Super excited for everyone!</p>
+<p>Tune in at 6pm CEST today! #useR2020 #rstats</p>
+<a href="https://t.co/G23fMN1XXG" class="uri">https://t.co/G23fMN1XXG</a> <a href="https://t.co/XhWkEbTdzV" class="uri">https://t.co/XhWkEbTdzV</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MikeKSmith
+</td>
+<td style="text-align:left;">
+Listening to <span class="citation">@LukeTierney4</span> ’s #useR2020 presentation reminds me that thinking about (and implementing) syntax is HARD. It has to work, be consistent and be intuitive to users. Not trivial at all. <a href="https://t.co/kY0uIXsMFG" class="uri">https://t.co/kY0uIXsMFG</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Diego_Koz
+</td>
+<td style="text-align:left;">
+This is excellent! the #useR2020 incidence in the R software life is enormous, and the user community do have a voice to change existing bias. Love it 😍 <a href="https://t.co/Pi2gDtd6nD" class="uri">https://t.co/Pi2gDtd6nD</a>
+</td>
+<td style="text-align:right;">
+0.9925681
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="software" class="section level1" number="9">
+<h1 number="9"><span class="header-section-number">9</span> Software</h1>
+<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">round</td>
+<td align="left">CRAN</td>
+<td align="left"><a href="https://CRAN.R-project.org/package=round" class="uri">https://CRAN.R-project.org/package=round</a></td>
+</tr>
+<tr class="even">
+<td align="left">tidytuesday_presentation-user-2020</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/jthomasmock/tidytuesday_presentation-user-2020/blob/master/tidytuesday_prez-small.pdf" class="uri">https://github.com/jthomasmock/tidytuesday_presentation-user-2020/blob/master/tidytuesday_prez-small.pdf</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="session-info" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Session info</h1>
+<pre><code>## R version 3.6.2 (2019-12-12)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS Catalina 10.15.5
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.3.1           here_0.1           knitr_1.28         magick_2.4.0      
+##  [5] webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0  wordcloud_2.6     
+##  [9] RColorBrewer_1.1-2 ggraph_2.0.1       ggrepel_0.8.1      ggplot2_3.2.1     
+## [13] topicmodels_0.2-11 tidytext_0.2.4     igraph_1.2.4.2     stringr_1.4.0     
+## [17] purrr_0.3.3        forcats_0.5.0      lubridate_1.7.4    tidyr_1.0.2       
+## [21] dplyr_1.0.0        rtweet_0.7.0      
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.1         tidygraph_1.1.2    jsonlite_1.6.1     assertthat_0.2.1  
+##  [5] askpass_1.1        highr_0.8          stats4_3.6.2       yaml_2.2.1        
+##  [9] progress_1.2.2     slam_0.1-47        pillar_1.4.3       backports_1.1.5   
+## [13] lattice_0.20-40    glue_1.4.1         digest_0.6.25      polyclip_1.10-0   
+## [17] colorspace_1.4-1   plyr_1.8.6         htmltools_0.4.0    Matrix_1.2-18     
+## [21] tm_0.7-7           pkgconfig_2.0.3    scales_1.1.0       processx_3.4.2    
+## [25] tweenr_1.0.1       ggforce_0.3.1      tibble_2.1.3       openssl_1.4.1     
+## [29] generics_0.0.2     farver_2.0.3       ellipsis_0.3.0     withr_2.1.2       
+## [33] lazyeval_0.2.2     cli_2.0.2          NLP_0.2-0          magrittr_1.5      
+## [37] crayon_1.3.4       ps_1.3.2           evaluate_0.14      tokenizers_0.2.1  
+## [41] janeaustenr_0.1.5  fansi_0.4.1        SnowballC_0.7.0    MASS_7.3-51.5     
+## [45] xml2_1.2.2         tools_3.6.2        prettyunits_1.1.1  hms_0.5.3         
+## [49] lifecycle_0.2.0    munsell_0.5.0      callr_3.4.2        compiler_3.6.2    
+## [53] rlang_0.4.6        grid_3.6.2         labeling_0.3       rmarkdown_2.1     
+## [57] gtable_0.3.0       curl_4.3           reshape2_1.4.3     graphlayouts_0.5.0
+## [61] R6_2.4.1           gridExtra_2.3      utf8_1.1.4         rprojroot_1.3-2   
+## [65] modeltools_0.2-23  stringi_1.4.6      parallel_3.6.2     Rcpp_1.0.3        
+## [69] png_0.1-7          vctrs_0.3.0        tidyselect_1.1.0   xfun_0.12</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
