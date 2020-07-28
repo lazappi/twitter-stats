@@ -397,7 +397,7 @@ top %>%
 
 ### Most retweeted {.unnumbered}
 
-```{r most-retweeted}
+```{r most-retweeted, crop=NULL}
 tweet_shot(top$status_id[1], scale = FALSE)
 ```
 
@@ -445,7 +445,7 @@ top %>%
 
 ### Most likes {.unnumbered}
 
-```{r most-favorited}
+```{r most-favorited, crop=NULL}
 tweet_shot(top$status_id[1], scale = FALSE)
 ```
 

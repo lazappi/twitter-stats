@@ -1,0 +1,19 @@
+Package: twitterstats
+Title: Analysis of Twitter activity FOR scientific conferences.
+Version: 0.0.0.9000
+Authors@R: c(person("Kevin", "Rue-Albrecht", role = "aut", email = "kevinrue67@gmail.com", comment = c(ORCID = "0000-0003-3899-3872"))
+Description: Analysis of Twitter activity for various hashtags associated with scientific conferences.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports:
+    rtweet,
+    knitr,
+    reshape2
+Suggests:
+    BiocManager,
+    BiocStyle,
+    htmltools,
+    rmarkdown

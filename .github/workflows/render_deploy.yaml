@@ -1,0 +1,96 @@
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron:  '*/15 * * * *'
+
+name: render_deploy
+
+jobs:
+  render_deploy:
+
+    runs-on: ubuntu-latest
+    container: bioconductor/bioconductor_docker:RELEASE_3_11
+
+    env:
+      R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install renv
+        run: |
+          options(repos = c(CRAN = "https://cran.r-project.org"))
+          install.packages(c('renv', 'remotes', 'BiocManager'))
+        shell: Rscript {0}
+
+      - name: Cache renv
+        uses: actions/cache@v1
+        with:
+          path: ~/.local/share/renv
+          key: ${{ runner.os }}-renv-1-${{ hashFiles('renv.lock') }}
+          restore-keys: ${{ runner.os }}-renv-1-
+
+      - name: Cache rds files
+        uses: actions/cache@v1
+        with:
+          path: ./data
+          key: ${{ runner.os }}-rds-1-${{ hashFiles('data/*Rds') }}
+          restore-keys: ${{ runner.os }}-rds-1-
+
+      - name: Restore renv
+        run: |
+          renv::restore()
+        shell: Rscript {0}
+
+      # This lets us augment with additional dependencies
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        env:
+          RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+        run: |
+          Rscript -e "remotes::install_github('r-hub/sysreqs')"
+          sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
+          sudo -s eval "$sysreqs"
+
+      - name: Set up rtweet
+        env:
+          APP: ${{ secrets.RTWEET_APP }}
+          CONSUMER_KEY: ${{ secrets.RTWEET_CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.RTWEET_CONSUMER_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.RTWEET_ACCESS_TOKEN }}
+          ACCESS_SECRET: ${{ secrets.RTWEET_ACCESS_SECRET }}
+        run: |
+          token <- rtweet::create_token(
+            app = Sys.getenv("APP"),
+            consumer_key = Sys.getenv("CONSUMER_KEY"),
+            consumer_secret = Sys.getenv("CONSUMER_SECRET"),
+            access_token = Sys.getenv("ACCESS_TOKEN"),
+            access_secret = Sys.getenv("ACCESS_SECRET"))
+        shell: Rscript {0}
+
+      - name: Set up phantomjs
+        run: |
+          webshot::install_phantomjs()
+        shell: Rscript {0}
+
+      - name: Render site
+        run: |
+          rmarkdown::render_site(input = "analysis")
+        shell: Rscript {0}
+
+      # deploy needs rsync? Seems so.
+      - name: Install deploy dependencies
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          apt-get update && apt-get -y install rsync
+
+      - name: Deploy 🚀
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: _docs # The folder the action should deploy.
