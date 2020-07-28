@@ -21,3 +21,6 @@ output:
     theme: cosmo
     highlight: textmate
     css: "my-theme.css"
+    number_sections: yes
+    toc: yes
+    toc_float: yes

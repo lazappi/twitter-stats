@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Kevin Rue-Albrecht" />
 
 
-<title>Twitter coverage of the 2019 Bioconductor conference</title>
+<title>BioC2019</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -390,9 +389,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Twitter coverage of the 2019 Bioconductor conference</h1>
-<h4 class="author">Kevin Rue-Albrecht</h4>
-<h4 class="date">2020-07-28 13:30:51</h4>
+<h1 class="title toc-ignore">BioC2019</h1>
+<h3 class="subtitle">Bioconductor 2019 conference</h3>
+<h4 class="date">2020-07-28 15:03:59</h4>
 
 </div>
 
@@ -407,50 +406,59 @@ div.tocify {
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Hashtag</td>
-<td align="left">#bioc2019</td>
+<td align="left">hashtag</td>
+<td align="left">#BioC2019</td>
 </tr>
 <tr class="even">
-<td align="left">Conference</td>
-<td align="left">Bioconductor</td>
+<td align="left">start_day</td>
+<td align="left">2019-06-24</td>
 </tr>
 <tr class="odd">
-<td align="left">Time Zone</td>
+<td align="left">end_day</td>
+<td align="left">2019-06-27</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
 <td align="left">America/New_York</td>
 </tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
 <tr class="even">
-<td align="left">Days</td>
-<td align="left">2019-06-24, 2019-06-25, 2019-06-26, 2019-06-27</td>
+<td align="left">accent</td>
+<td align="left">#87b13f</td>
 </tr>
 <tr class="odd">
-<td align="left">Accent colour</td>
+<td align="left">accent2</td>
 <td align="left">#0092ac</td>
 </tr>
 <tr class="even">
-<td align="left">Pallete</td>
-<td align="left">Set1</td>
-</tr>
-<tr class="odd">
-<td align="left">k-core</td>
+<td align="left">kcore</td>
 <td align="left">2</td>
 </tr>
-<tr class="even">
-<td align="left">Topics k</td>
+<tr class="odd">
+<td align="left">topics_k</td>
 <td align="left">6</td>
 </tr>
-<tr class="odd">
-<td align="left">Bigram filter</td>
+<tr class="even">
+<td align="left">bigram_filter</td>
 <td align="left">3</td>
 </tr>
-<tr class="even">
-<td align="left">Fixed</td>
+<tr class="odd">
+<td align="left">fixed</td>
 <td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
 </tr>
 </tbody>
 </table>
 <div id="introduction" class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>An analysis of tweets from the Bioconductor conference. A total of 1563 tweets from 357 users were collected using the <code>rtweet</code> R package.</p>
+<p>An analysis of tweets from the #BioC2019 hashtag for the <a href="http://bioc2019.bioconductor.org/" title="BioC 2019">Bioconductor 2019 conference</a>, 24-27 June 2019 online (originally planned in Boston, USA).</p>
+<p>A total of 1563 tweets from 357 users were collected using the <code>rtweet</code> R package.</p>
 </div>
 <div id="timeline" class="section level1" number="2">
 <h1 number="2"><span class="header-section-number">2</span> Timeline</h1>
@@ -466,26 +474,33 @@ div.tocify {
 </div>
 <div id="users" class="section level1" number="3">
 <h1 number="3"><span class="header-section-number">3</span> Users</h1>
-<div id="top-tweeters" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="3.1">
+<h2 class="tabset tabset-pills" number="3.1"><span class="header-section-number">3.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
 <p><img src="figures/Bioc2019/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-original-tweeters" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> Top original tweeters</h2>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
 <p><img src="figures/Bioc2019/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="retweet-proportion" class="section level2" number="3.3">
-<h2 number="3.3"><span class="header-section-number">3.3</span> Retweet proportion</h2>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
+<p><img src="figures/Bioc2019/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Retweet proportion</h2>
 <p><img src="figures/Bioc2019/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-by-time" class="section level2" number="3.4">
-<h2 number="3.4"><span class="header-section-number">3.4</span> Top tweeters by time</h2>
+<div id="top-tweeters-timeline" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
 <p><img src="figures/Bioc2019/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-by-day" class="section level2" number="3.5">
-<h2 number="3.5"><span class="header-section-number">3.5</span> Top tweeters by day</h2>
-<div id="all-tweets" class="section level3 tabset" number="3.5.1">
-<h3 class="tabset" number="3.5.1"><span class="header-section-number">3.5.1</span> All tweets</h3>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="3.4">
+<h2 class="tabset tabset-pills" number="3.4"><span class="header-section-number">3.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
 <div id="day-1" class="section level4 unnumbered" number="">
 <h4 class="unnumbered" number="">Day 1</h4>
 <p><img src="figures/Bioc2019/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -503,8 +518,8 @@ div.tocify {
 <p><img src="figures/Bioc2019/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="original-tweets" class="section level3 tabset" number="3.5.2">
-<h3 class="tabset" number="3.5.2"><span class="header-section-number">3.5.2</span> Original tweets</h3>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
 <div id="day-1-1" class="section level4 unnumbered" number="">
 <h4 class="unnumbered" number="">Day 1</h4>
 <p><img src="figures/Bioc2019/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -522,37 +537,58 @@ div.tocify {
 <p><img src="figures/Bioc2019/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/Bioc2019/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="sources" class="section level2" number="3.6">
-<h2 number="3.6"><span class="header-section-number">3.6</span> Sources</h2>
+<div id="day-2-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/Bioc2019/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/Bioc2019/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-4-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
+<p><img src="figures/Bioc2019/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Sources</h1>
 <p><img src="figures/Bioc2019/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-</div>
-<div id="networks" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> Networks</h1>
-<div id="replies" class="section level2" number="4.1">
-<h2 number="4.1"><span class="header-section-number">4.1</span> Replies</h2>
-<p>The “replies network”, composed from users who reply directly to one another, coloured by page rank.</p>
+<div id="networks" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Networks</h1>
+<div id="replies" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
 <p><img src="figures/Bioc2019/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="mentions" class="section level2" number="4.2">
-<h2 number="4.2"><span class="header-section-number">4.2</span> Mentions</h2>
+<div id="mentions" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Mentions</h2>
 <p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
 <p><img src="figures/Bioc2019/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="retweets" class="section level1" number="5">
-<h1 number="5"><span class="header-section-number">5</span> Retweets</h1>
-<div id="retweet-proportion-1" class="section level2" number="5.1">
-<h2 number="5.1"><span class="header-section-number">5.1</span> Retweet proportion</h2>
+<div id="tweet-types" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="6.1">
+<h2 class="tabset tabset-pills" number="6.1"><span class="header-section-number">6.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/Bioc2019/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="retweet-count" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> Retweet count</h2>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/Bioc2019/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-retweets" class="section level2" number="5.3">
-<h2 number="5.3"><span class="header-section-number">5.3</span> Top retweets</h2>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -683,19 +719,23 @@ Build an academic website in 10 minutes.. Got no excuse now!! #bioc2019 <span cl
 </tbody>
 </table>
 </div>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/Bioc2019/most-retweeted-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="favourites" class="section level1" number="6">
-<h1 number="6"><span class="header-section-number">6</span> Favourites</h1>
-<div id="favourite-proportion" class="section level2" number="6.1">
-<h2 number="6.1"><span class="header-section-number">6.1</span> Favourite proportion</h2>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="6.2">
+<h2 class="tabset tabset-pills" number="6.2"><span class="header-section-number">6.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/Bioc2019/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="favourite-count" class="section level2" number="6.2">
-<h2 number="6.2"><span class="header-section-number">6.2</span> Favourite count</h2>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/Bioc2019/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-favourites" class="section level2" number="6.3">
-<h2 number="6.3"><span class="header-section-number">6.3</span> Top favourites</h2>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -826,19 +866,23 @@ On route to #bioc2019 wearing my comfy #user2018 socks. Although my head isn’t
 </tbody>
 </table>
 </div>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/Bioc2019/most-favorited-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="quotes" class="section level1" number="7">
-<h1 number="7"><span class="header-section-number">7</span> Quotes</h1>
-<div id="quote-proportion" class="section level2" number="7.1">
-<h2 number="7.1"><span class="header-section-number">7.1</span> Quote proportion</h2>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="6.3">
+<h2 class="tabset tabset-pills" number="6.3"><span class="header-section-number">6.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/Bioc2019/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="quote-count" class="section level2" number="7.2">
-<h2 number="7.2"><span class="header-section-number">7.2</span> Quote count</h2>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/Bioc2019/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-quotes" class="section level2" number="7.3">
-<h2 number="7.3"><span class="header-section-number">7.3</span> Top quotes</h2>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -967,15 +1011,20 @@ Here’s the URL from Pete’s notes in case it gets hidden on a retweet: <a hre
 </tbody>
 </table>
 </div>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/Bioc2019/most-quoted-1.png" style="display: block; margin: auto;" /></p>
 </div>
-<div id="media" class="section level1" number="8">
-<h1 number="8"><span class="header-section-number">8</span> Media</h1>
-<div id="media-count" class="section level2" number="8.1">
-<h2 number="8.1"><span class="header-section-number">8.1</span> Media count</h2>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="7">
+<h1 class="tabset tabset-pills" number="7"><span class="header-section-number">7</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
 <p><img src="figures/Bioc2019/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-media" class="section level2" number="8.2">
-<h2 number="8.2"><span class="header-section-number">8.2</span> Top media</h2>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
 <table>
 <thead>
 <tr>
@@ -1103,39 +1152,39 @@ New Waldron Lab photo at #bioc2019! I couldn’t be prouder of a group that work
 </tr>
 </tbody>
 </table>
-<div id="most-liked-media-image" class="section level3" number="8.2.1">
-<h3 number="8.2.1"><span class="header-section-number">8.2.1</span> Most liked media image</h3>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Most liked image</h2>
 <p><img src="http://pbs.twimg.com/media/D91FlYFWwAAH2p9.jpg" /></p>
 </div>
 </div>
-</div>
-<div id="tweet-text" class="section level1" number="9">
-<h1 number="9"><span class="header-section-number">9</span> Tweet text</h1>
-<div id="word-cloud" class="section level2" number="9.1">
-<h2 number="9.1"><span class="header-section-number">9.1</span> Word cloud</h2>
+<div id="tweet-text" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="8.1">
+<h2 number="8.1"><span class="header-section-number">8.1</span> Word cloud</h2>
 <p>The top 100 words used 3 or more times.</p>
 <p><img src="figures/Bioc2019/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="bigram-graph" class="section level2" number="9.2">
-<h2 number="9.2"><span class="header-section-number">9.2</span> Bigram graph</h2>
+<div id="bigram-graph" class="section level2" number="8.2">
+<h2 number="8.2"><span class="header-section-number">8.2</span> Bigram graph</h2>
 <p>Words that were tweeted next to each other at least 3 times.</p>
 <p><img src="figures/Bioc2019/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="topic-modelling" class="section level2" number="9.3">
-<h2 number="9.3"><span class="header-section-number">9.3</span> Topic modelling</h2>
+<div id="topic-modelling" class="section level2" number="8.3">
+<h2 number="8.3"><span class="header-section-number">8.3</span> Topic modelling</h2>
 <p>Top 10 words associated with 6 topics identified by LDA.</p>
 <p><img src="figures/Bioc2019/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
-<div id="representative-tweets" class="section level3 tabset" number="9.3.1">
-<h3 class="tabset" number="9.3.1"><span class="header-section-number">9.3.1</span> Representative tweets</h3>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="8.3.1">
+<h3 class="tabset tabset-fade" number="8.3.1"><span class="header-section-number">8.3.1</span> Representative tweets</h3>
 <p>Most representative tweets for each topic</p>
 <div id="topic-1" class="section level4 unnumbered" number="">
 <h4 class="unnumbered" number="">Topic 1</h4>
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1149,9 +1198,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 PapaemmanuilLab
 </td>
@@ -1163,9 +1209,6 @@ Real pleasure to introduce #Isabl at #bioc2019 this am. Very gratifying to see t
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1177,9 +1220,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 LeviWaldron1
 </td>
@@ -1191,9 +1231,6 @@ Nathan Sheffield presents a well-engineered solution to data provenance in the m
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 AedinCulhane
 </td>
@@ -1205,9 +1242,6 @@ SA. New seq alignment which is halfway between salmon quasi and full alignment a
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 stephaniehicks
 </td>
@@ -1221,9 +1255,6 @@ stephaniehicks
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 k3yavi
 </td>
@@ -1235,9 +1266,6 @@ k3yavi
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 LeviWaldron1
 </td>
@@ -1249,9 +1277,6 @@ Key slides from Nitesh Turaga’s presentation on Docker for easy dev, use, and 
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1263,9 +1288,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 ivivek87
 </td>
@@ -1278,9 +1300,6 @@ ivivek87
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 annaquagli
 </td>
@@ -1292,9 +1311,6 @@ Amazing effort by <span class="citation">@PapaemmanuilLab</span> to create a str
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1308,9 +1324,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 robertclab
 </td>
@@ -1322,9 +1335,6 @@ CS: applied different quantification methods to nano-ore and illumina data and b
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-1
-</td>
 <td style="text-align:left;">
 robertclab
 </td>
@@ -1343,9 +1353,6 @@ At the Robert Gentleman’s 60th Birthday Symposium, Richard Bourgon from <span 
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1359,9 +1366,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1377,9 +1381,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1391,9 +1392,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1405,9 +1403,6 @@ Pete <span class="citation">@PeteHaitch</span> is teaching us about the #Delayed
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 mritchieau
 </td>
@@ -1419,9 +1414,6 @@ To save time, I’ve reformatted my lightning talk as a tweet! If you’re a pac
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 RevDocGabriel
 </td>
@@ -1433,9 +1425,6 @@ Such an honour for two avid learnRs from <span class="citation">@umiamimedicine<
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 anshulkundaje
 </td>
@@ -1447,9 +1436,6 @@ anshulkundaje
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1461,9 +1447,6 @@ Aedin Culhane <span class="citation">@AedinCulhane</span> now presenting on disc
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1477,9 +1460,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 areyesq
 </td>
@@ -1491,9 +1471,6 @@ Charlotte <span class="citation">@CSoneson</span> is telling us about TreeSummar
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-2
-</td>
 <td style="text-align:left;">
 ivivek87
 </td>
@@ -1512,9 +1489,6 @@ Adding up the framework model i.e CNN based to give an understanding of underlyi
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1528,9 +1502,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 stephaniehicks
 </td>
@@ -1542,9 +1513,6 @@ stephaniehicks
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1558,9 +1526,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1572,9 +1537,6 @@ Robert Castelo <span class="citation">@robertclab</span> is looking at RNAseq an
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 k3yavi
 </td>
@@ -1586,9 +1548,6 @@ Just arrived at NYC for #BioC2019 . Psyched for 3 days of awesome learning, chee
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1602,9 +1561,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1616,9 +1572,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 LeviWaldron1
 </td>
@@ -1630,9 +1583,6 @@ I want to state that the behavior described by <span class="citation">@cmirzayi<
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 KevinRUE67
 </td>
@@ -1644,9 +1594,6 @@ Fellow #bioc2019 attendees: if you’re staying a few extra days, an awesome way
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 mattbrauer
 </td>
@@ -1658,9 +1605,6 @@ In NYC for #BioC2019 and went to see #Stonewall yesterday–almost 50 years to t
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-3
-</td>
 <td style="text-align:left;">
 PayalYokota
 </td>
@@ -1679,9 +1623,6 @@ Great day at the #bioc2019 <span class="citation">@RockefellerUniv</span> today.
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1695,9 +1636,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 CDSBMexico
 </td>
@@ -1712,9 +1650,6 @@ CDSBMexico
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 cmirzayi
 </td>
@@ -1726,9 +1661,6 @@ cmirzayi
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 areyesq
 </td>
@@ -1740,9 +1672,6 @@ Ana’s great talk about the integration of COPD and IPF molecular profiling dat
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 robertclab
 </td>
@@ -1754,9 +1683,6 @@ JL: used known sex phenotype in GTEx &amp;amp; TCGA to predict that missing phen
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1772,9 +1698,6 @@ fellgernon
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1786,9 +1709,6 @@ Really nice setup for the workshops at #bioc2019! Can use Amazon Machine Instanc
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1800,9 +1720,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 ivivek87
 </td>
@@ -1816,9 +1733,6 @@ Slide link: <a href="https://t.co/A3T9aKfIU1" class="uri">https://t.co/A3T9aKfIU
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 PayalYokota
 </td>
@@ -1830,9 +1744,6 @@ Great session about QC’ing those #ATACseq libraries by Haibo and chime ins fro
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-4
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1852,9 +1763,6 @@ fellgernon
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -1868,9 +1776,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 dommajeur
 </td>
@@ -1882,9 +1787,6 @@ dommajeur
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 seandavis12
 </td>
@@ -1896,9 +1798,6 @@ Just completed (hopefully) final version of the #bioc2019 workshop materials; 26
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 LeviWaldron1
 </td>
@@ -1910,9 +1809,6 @@ Copy number variation analysis with Bioconductor: Data representation and manipu
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -1925,9 +1821,6 @@ Co-founder of the <span class="citation">@CorrespondAuth</span> <span class="cit
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 mikelove
 </td>
@@ -1941,9 +1834,6 @@ I’ll show using plyranges with tximeta <a href="https://t.co/op2AZJdaF8" class
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -1955,9 +1845,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 robamezquita
 </td>
@@ -1969,9 +1856,6 @@ Happy to see that <span class="citation">@Bioconductor</span> recognizes that it
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 ivivek87
 </td>
@@ -1983,9 +1867,6 @@ This is one conference I wish to attend in future. #BioC2019 seem 🔥. Twitter 
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 robamezquita
 </td>
@@ -1997,9 +1878,6 @@ robamezquita
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5
-</td>
 <td style="text-align:left;">
 annaquagli
 </td>
@@ -2018,9 +1896,6 @@ That 😊feeling when you are leaving the longest and coldest ❄ nights in Melb
 <table>
 <thead>
 <tr>
-<th style="text-align:right;">
-topic
-</th>
 <th style="text-align:left;">
 screen_name
 </th>
@@ -2034,9 +1909,6 @@ gamma
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 fellgernon
 </td>
@@ -2052,9 +1924,6 @@ Thx <span class="citation">@niteshturaga</span> <span class="citation">@Biocondu
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 AedinCulhane
 </td>
@@ -2066,9 +1935,6 @@ Truly excellent #bioc2019. I was so impressed with the high quality badges desig
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -2080,9 +1946,6 @@ Benjamin Haibe-Kains <span class="citation">@bhaibeka</span> now presenting on r
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 CDSBMexico
 </td>
@@ -2096,9 +1959,6 @@ CDSBMexico
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 PeteHaitch
 </td>
@@ -2110,9 +1970,6 @@ Love seeing in the talks already the strong sense of community in <span class="c
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 Bioconductor
 </td>
@@ -2124,9 +1981,6 @@ Bioconductor
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 AedinCulhane
 </td>
@@ -2138,9 +1992,6 @@ Thank you, organizers, for an excellent #bioc2019. Beautiful location, great fac
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 robertclab
 </td>
@@ -2152,9 +2003,6 @@ Today I’ll be giving a talk on technical aspects of this work at the <span cla
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 siminaboca
 </td>
@@ -2166,9 +2014,6 @@ siminaboca
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-6
-</td>
 <td style="text-align:left;">
 k3yavi
 </td>
@@ -2185,8 +2030,8 @@ k3yavi
 </div>
 </div>
 </div>
-<div id="software" class="section level1" number="10">
-<h1 number="10"><span class="header-section-number">10</span> Software</h1>
+<div id="software" class="section level1" number="9">
+<h1 number="9"><span class="header-section-number">9</span> Software</h1>
 <p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
 <table>
 <colgroup>
@@ -2327,115 +2172,46 @@ k3yavi
 </div>
 <div id="session-info" class="section level1 unnumbered" number="">
 <h1 class="unnumbered" number="">Session info</h1>
-<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────
-##  setting  value                       
-##  version  R version 4.0.2 (2020-06-22)
-##  os       macOS Catalina 10.15.6      
-##  system   x86_64, darwin17.0          
-##  ui       X11                         
-##  language (EN)                        
-##  collate  en_GB.UTF-8                 
-##  ctype    en_GB.UTF-8                 
-##  tz       Europe/London               
-##  date     2020-07-28                  
+<pre><code>## R version 4.0.2 (2020-06-22)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.6
 ## 
-## ─ Packages ───────────────────────────────────────────────────────────────────
-##  ! package      * version  date       lib source        
-##  P assertthat     0.2.1    2019-03-21 [?] CRAN (R 4.0.0)
-##  P backports      1.1.8    2020-06-17 [?] CRAN (R 4.0.0)
-##  P callr          3.4.3    2020-03-28 [?] CRAN (R 4.0.0)
-##  P cli            2.0.2    2020-02-28 [?] CRAN (R 4.0.0)
-##  P colorspace     1.4-1    2019-03-18 [?] CRAN (R 4.0.0)
-##  P crayon         1.3.4    2017-09-16 [?] CRAN (R 4.0.0)
-##  P desc           1.2.0    2018-05-01 [?] CRAN (R 4.0.0)
-##  P devtools       2.3.0    2020-04-10 [?] CRAN (R 4.0.0)
-##  P digest         0.6.25   2020-02-23 [?] CRAN (R 4.0.0)
-##  P dplyr        * 1.0.0    2020-05-29 [?] CRAN (R 4.0.0)
-##  P ellipsis       0.3.1    2020-05-15 [?] CRAN (R 4.0.0)
-##  P evaluate       0.14     2019-05-28 [?] CRAN (R 4.0.0)
-##  P fansi          0.4.1    2020-01-08 [?] CRAN (R 4.0.0)
-##  P farver         2.0.3    2020-01-16 [?] CRAN (R 4.0.0)
-##  P forcats      * 0.5.0    2020-03-01 [?] CRAN (R 4.0.0)
-##  P fs             1.4.2    2020-06-30 [?] CRAN (R 4.0.0)
-##  P generics       0.0.2    2018-11-29 [?] CRAN (R 4.0.0)
-##  P ggforce        0.3.2    2020-06-23 [?] CRAN (R 4.0.2)
-##  P ggplot2      * 3.3.2    2020-06-19 [?] CRAN (R 4.0.0)
-##  P ggraph       * 2.0.3    2020-05-20 [?] CRAN (R 4.0.2)
-##  P ggrepel      * 0.8.2    2020-03-08 [?] CRAN (R 4.0.1)
-##  P glue           1.4.1    2020-05-13 [?] CRAN (R 4.0.0)
-##  P graphlayouts   0.7.0    2020-04-25 [?] CRAN (R 4.0.2)
-##  P gridExtra      2.3      2017-09-09 [?] CRAN (R 4.0.0)
-##  P gtable         0.3.0    2019-03-25 [?] CRAN (R 4.0.0)
-##  P here         * 0.1      2017-05-28 [?] CRAN (R 4.0.0)
-##  P highr          0.8      2019-03-20 [?] CRAN (R 4.0.0)
-##  P htmltools      0.5.0    2020-06-16 [?] CRAN (R 4.0.0)
-##  P httr           1.4.2    2020-07-20 [?] CRAN (R 4.0.2)
-##  P igraph       * 1.2.5    2020-03-19 [?] CRAN (R 4.0.0)
-##  P janeaustenr    0.1.5    2017-06-10 [?] CRAN (R 4.0.2)
-##  P jsonlite       1.7.0    2020-06-25 [?] CRAN (R 4.0.0)
-##  P knitr        * 1.29     2020-06-23 [?] CRAN (R 4.0.0)
-##  P labeling       0.3      2014-08-23 [?] CRAN (R 4.0.0)
-##  P lattice        0.20-41  2020-04-02 [?] CRAN (R 4.0.0)
-##  P lifecycle      0.2.0    2020-03-06 [?] CRAN (R 4.0.0)
-##  P lubridate    * 1.7.9    2020-06-08 [?] CRAN (R 4.0.0)
-##  P magrittr       1.5      2014-11-22 [?] CRAN (R 4.0.0)
-##  P MASS           7.3-51.6 2020-04-26 [?] CRAN (R 4.0.0)
-##  P Matrix         1.2-18   2019-11-27 [?] CRAN (R 4.0.0)
-##  P memoise        1.1.0    2017-04-21 [?] CRAN (R 4.0.0)
-##  P modeltools     0.2-23   2020-03-05 [?] CRAN (R 4.0.2)
-##  P munsell        0.5.0    2018-06-12 [?] CRAN (R 4.0.0)
-##  P NLP            0.2-0    2018-10-18 [?] CRAN (R 4.0.2)
-##  P pillar         1.4.6    2020-07-10 [?] CRAN (R 4.0.2)
-##  P pkgbuild       1.1.0    2020-07-13 [?] CRAN (R 4.0.2)
-##  P pkgconfig      2.0.3    2019-09-22 [?] CRAN (R 4.0.0)
-##  P pkgload        1.1.0    2020-05-29 [?] CRAN (R 4.0.0)
-##  P plyr           1.8.6    2020-03-03 [?] CRAN (R 4.0.0)
-##  P polyclip       1.10-0   2019-03-14 [?] CRAN (R 4.0.2)
-##  P prettyunits    1.1.1    2020-01-24 [?] CRAN (R 4.0.0)
-##  P processx       3.4.3    2020-07-05 [?] CRAN (R 4.0.2)
-##  P ps             1.3.3    2020-05-08 [?] CRAN (R 4.0.0)
-##  P purrr        * 0.3.4    2020-04-17 [?] CRAN (R 4.0.0)
-##  P R6             2.4.1    2019-11-12 [?] CRAN (R 4.0.0)
-##  P RColorBrewer * 1.1-2    2014-12-07 [?] CRAN (R 4.0.0)
-##  P Rcpp           1.0.5    2020-07-06 [?] CRAN (R 4.0.0)
-##  P remotes        2.2.0    2020-07-21 [?] CRAN (R 4.0.2)
-##  P reshape2       1.4.4    2020-04-09 [?] CRAN (R 4.0.0)
-##  P rlang          0.4.7    2020-07-09 [?] CRAN (R 4.0.2)
-##  P rmarkdown      2.3      2020-06-18 [?] CRAN (R 4.0.0)
-##  P rprojroot      1.3-2    2018-01-03 [?] CRAN (R 4.0.0)
-##  P rtweet       * 0.7.0    2020-01-08 [?] CRAN (R 4.0.2)
-##  P scales         1.1.1    2020-05-11 [?] CRAN (R 4.0.0)
-##  P sessioninfo    1.1.1    2018-11-05 [?] CRAN (R 4.0.0)
-##  P slam           0.1-47   2019-12-21 [?] CRAN (R 4.0.2)
-##  P SnowballC      0.7.0    2020-04-01 [?] CRAN (R 4.0.2)
-##  P stringi        1.4.6    2020-02-17 [?] CRAN (R 4.0.0)
-##  P stringr      * 1.4.0    2019-02-10 [?] CRAN (R 4.0.0)
-##  P testthat       2.3.2    2020-03-02 [?] CRAN (R 4.0.0)
-##  P tibble         3.0.3    2020-07-10 [?] CRAN (R 4.0.2)
-##  P tidygraph      1.2.0    2020-05-12 [?] CRAN (R 4.0.2)
-##  P tidyr        * 1.1.0    2020-05-20 [?] CRAN (R 4.0.0)
-##  P tidyselect     1.1.0    2020-05-11 [?] CRAN (R 4.0.0)
-##  P tidytext     * 0.2.5    2020-07-11 [?] CRAN (R 4.0.2)
-##  P tm             0.7-7    2019-12-12 [?] CRAN (R 4.0.2)
-##  P tokenizers     0.2.1    2018-03-29 [?] CRAN (R 4.0.2)
-##  P topicmodels  * 0.2-11   2020-04-19 [?] CRAN (R 4.0.2)
-##  P tweenr         1.0.1    2018-12-14 [?] CRAN (R 4.0.2)
-##  P usethis        1.6.1    2020-04-29 [?] CRAN (R 4.0.0)
-##  P utf8           1.1.4    2018-05-24 [?] CRAN (R 4.0.0)
-##  P vctrs          0.3.2    2020-07-15 [?] CRAN (R 4.0.2)
-##  P viridis      * 0.5.1    2018-03-29 [?] CRAN (R 4.0.0)
-##  P viridisLite  * 0.3.0    2018-02-01 [?] CRAN (R 4.0.0)
-##  P withr          2.2.0    2020-04-20 [?] CRAN (R 4.0.0)
-##  P wordcloud    * 2.6      2018-08-24 [?] CRAN (R 4.0.2)
-##  P xfun           0.15     2020-06-21 [?] CRAN (R 4.0.0)
-##  P xml2           1.3.2    2020-04-23 [?] CRAN (R 4.0.0)
-##  P yaml           2.2.1    2020-02-01 [?] CRAN (R 4.0.0)
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
 ## 
-## [1] /Users/kevin/git/twitter-stats/renv/library/R-4.0/x86_64-apple-darwin17.0
-## [2] /private/var/folders/51/nz__2dx10yzd75rylr5cg2zc0000gq/T/RtmpXh28eh/renv-system-library
-## [3] /Library/Frameworks/R.framework/Versions/4.0/Resources/library
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
 ## 
-##  P ── Loaded and on-disk path mismatch.</code></pre>
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.4.2           here_0.1           knitr_1.29         magick_2.4.0      
+##  [5] webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0  wordcloud_2.6     
+##  [9] RColorBrewer_1.1-2 ggraph_2.0.3       ggrepel_0.8.2      ggplot2_3.3.2     
+## [13] topicmodels_0.2-11 tidytext_0.2.5     igraph_1.2.5       stringr_1.4.0     
+## [17] purrr_0.3.4        forcats_0.5.0      lubridate_1.7.9    tidyr_1.1.0       
+## [21] dplyr_1.0.0        rtweet_0.7.0      
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.2         tidygraph_1.2.0    jsonlite_1.7.0     assertthat_0.2.1  
+##  [5] askpass_1.1        highr_0.8          stats4_4.0.2       yaml_2.2.1        
+##  [9] slam_0.1-47        pillar_1.4.6       backports_1.1.8    lattice_0.20-41   
+## [13] glue_1.4.1         digest_0.6.25      polyclip_1.10-0    colorspace_1.4-1  
+## [17] plyr_1.8.6         htmltools_0.5.0    Matrix_1.2-18      tm_0.7-7          
+## [21] pkgconfig_2.0.3    scales_1.1.1       processx_3.4.3     tweenr_1.0.1      
+## [25] ggforce_0.3.2      tibble_3.0.3       openssl_1.4.2      generics_0.0.2    
+## [29] farver_2.0.3       ellipsis_0.3.1     withr_2.2.0        NLP_0.2-0         
+## [33] cli_2.0.2          magrittr_1.5       crayon_1.3.4       evaluate_0.14     
+## [37] ps_1.3.3           tokenizers_0.2.1   janeaustenr_0.1.5  fansi_0.4.1       
+## [41] SnowballC_0.7.0    MASS_7.3-51.6      xml2_1.3.2         tools_4.0.2       
+## [45] lifecycle_0.2.0    munsell_0.5.0      callr_3.4.3        compiler_4.0.2    
+## [49] rlang_0.4.7        grid_4.0.2         labeling_0.3       rmarkdown_2.3     
+## [53] gtable_0.3.0       curl_4.3           reshape2_1.4.4     graphlayouts_0.7.0
+## [57] R6_2.4.1           gridExtra_2.3      utf8_1.1.4         rprojroot_1.3-2   
+## [61] modeltools_0.2-23  stringi_1.4.6      parallel_4.0.2     Rcpp_1.0.5        
+## [65] vctrs_0.3.2        tidyselect_1.1.0   xfun_0.15</code></pre>
 </div>
 
 

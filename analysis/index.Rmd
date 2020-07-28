@@ -1,9 +1,12 @@
 ---
 title: "Twitter stats"
+output:
+  html_document:
+    toc: no
 ---
 
 Analysis of the following Twitter hashtags:
 
-* [#Bioc2019](Bioc2019.html) - [Bioconductor conference 2019][Bioc2019], 23-27 June 2019,  NYU and Rockefeller University, New York City, USA
-
-[Bioc2019]: https://bioc2019.bioconductor.org "Bioc2019"
+```{r list, echo = FALSE, results = "asis"}
+cat(clamour::clamour_list())
+```
