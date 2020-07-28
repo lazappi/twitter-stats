@@ -65,7 +65,7 @@ hashtag <- "#bioc2019"
 conf_name <- "Bioconductor"
 timezone <- "America/New_York"
 days <- sprintf("2019-06-%i", seq(24, 27))
-accent <- "#0d204a"
+accent <- "#0092ac"
 pal <- "Set1"
 kcore <- 2
 topics_k <- 6

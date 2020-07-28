@@ -9,6 +9,8 @@ navbar:
       menu:
         - text: "Bioc2019"
           href: Bioc2019.html
+        - text: "Bioc2020"
+          href: Bioc2020.html
   right:
     - text: "About"
       href: about.html
@@ -18,3 +20,4 @@ output:
   html_document:
     theme: cosmo
     highlight: textmate
+    css: "my-theme.css"

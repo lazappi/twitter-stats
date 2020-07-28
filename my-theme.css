@@ -1,0 +1,23 @@
+.navbar-default {
+    background-color: #0092ac; /* blue */
+    border-color: #0092ac; /* blue */
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1.title {
+    color: #87b13f; /* green */
+}
+
+.section h1 {
+    color: #87b13f; /* green */
+}
+
+h3, h4, h5, h6, .h3, .h4, .h5, .h6 {
+    color: #1a81c2;  /* blue */
+}
