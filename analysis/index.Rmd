@@ -5,6 +5,8 @@ output:
     toc: no
 ---
 
+_Last updated: `r Sys.time()`_
+
 Analysis of the following Twitter hashtags:
 
 ```{r list, echo = FALSE, results = "asis"}
