@@ -3,8 +3,8 @@ on:
   pull_request:
     branches:
       - master
- # schedule:
- #   - cron:  '*/15 * * * *'
+  schedule:
+    - cron:  '*/15 * * * *'
 
 name: render_deploy
 
