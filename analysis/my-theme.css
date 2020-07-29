@@ -41,17 +41,33 @@ Developed and maintained by Kevin Rue-Albrecht (@kevinrue)
     background-color: #00758a;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1, .h1 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     line-height: 1.1;
-    color: inherit;
-}
-
-h1 {
     color: #87b13f;
 }
 
-h2 {
+h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
     color: #1a81c2
+}
+
+table.bioc-table>thead>tr>th,
+table.bioc-table>tbody>tr>th,
+table.bioc-table>tfoot>tr>th,
+table.bioc-table>thead>tr>td,
+table.bioc-table>tbody>tr>td,
+table.bioc-table>tfoot>tr>td {
+    border-top: 1px solid #0092ac;
+}
+
+table.bioc-table>thead>tr>th {
+    border-bottom: 2px solid #0092ac;
+}
+
+table.bioc-table>th {
+    color: #1a81c2;
 }

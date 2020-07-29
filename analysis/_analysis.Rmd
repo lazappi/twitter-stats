@@ -392,7 +392,7 @@ top <- tweets %>%
 
 top %>%
     select(-status_id) %>% 
-    kable(format = "html")
+    kable(format = "html", table.attr='class="bioc-table"')
 ```
 
 ### Most retweeted {.unnumbered}
@@ -440,7 +440,7 @@ top <- tweets %>%
 
 top %>%
     select(-status_id) %>% 
-    kable(format = "html")
+    kable(format = "html", table.attr='class="bioc-table"')
 ```
 
 ### Most likes {.unnumbered}
@@ -494,7 +494,7 @@ top <- tweets %>%
   
 top %>%
     select(-status_id) %>%
-    kable(format = "html")
+    kable(format = "html", table.attr='class="bioc-table"')
 ```
 
 ### Most quoted {.unnumbered}
@@ -529,7 +529,7 @@ tweets_media <- tweets %>%
 tweets_media %>%
     slice(1:10) %>% 
     select(screen_name, text, favorite_count) %>%
-    kable(format = "html")
+    kable(format = "html", table.attr='class="bioc-table"')
 ```
 
 # {.unnumbered .toc-ignore}
@@ -657,7 +657,7 @@ topics_list <- topics %>%
 src_list <- lapply(seq_along(topics_list), function(idx) {
     src <- c("#### Topic <<idx>> {.unnumbered}",
              "```{r topics-tweets-topic<<idx>>}",
-             "kable(topics_list[[<<idx>>]][, -1], format = 'html')",
+             "kable(topics_list[[<<idx>>]][, -1], format = 'html', table.attr='class=\"bioc-table\"')",
              "```",
              "")
     knit_expand(text = src, delim = c("<<", ">>"))
@@ -711,4 +711,4 @@ software <- map_df(regexes, function(re) {
     arrange(Name)
 ```
 
-`r if (nrow(software) >= 1) kable(software)`
+`r if (nrow(software) >= 1) kable(software, table.attr='class="bioc-table"')`
