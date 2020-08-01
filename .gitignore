@@ -7,3 +7,6 @@
 
 # Intermediate figure files
 analysis/figures/
+
+# compiled HTML files
+docs/
