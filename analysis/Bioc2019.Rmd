@@ -120,9 +120,6 @@ An analysis of tweets from the `r params$hashtag` hashtag for the
 [Bioconductor 2019 conference][BioC2019], 
 24-27 June 2019 online (originally planned in Boston, USA).
 
-A total of `r nrow(tweets)` tweets from `r length(unique(tweets$screen_name))`
-users were collected using the `rtweet` R package.
-
 ```{r analysis, child = "_analysis.Rmd"}
 # This chunk adds the template analysis
 ```

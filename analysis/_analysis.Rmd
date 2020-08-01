@@ -31,6 +31,11 @@ scale_colour_tweet_type = scale_colour_manual(
 )
 ```
 
+A total of `r nrow(tweets)` tweets from `r length(unique(tweets$screen_name))`
+users were collected using the `rtweet` R package.
+
+The latest tweet was recorded at `r tweets %>% arrange(desc(created_at)) %>% head(1) %>% pull(created_at)` (`r Sys.timezone()`).
+
 # Timeline
 
 ## Tweets by day
