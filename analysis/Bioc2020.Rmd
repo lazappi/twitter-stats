@@ -13,11 +13,11 @@ params:
     accent: "#0092ac"
     accent2: "#87b13f"
     # Analysis parameters
-    kcore: 2
+    kcore: 3
     topics_k: 6
-    bigram_filter: 3
+    bigram_filter: 5
     # Dataset fixed, set true to stop adding new tweets
-    fixed: FALSE
+    fixed: TRUE
     # Random seed
     seed: 1
 ---
