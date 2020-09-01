@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
 <title>KSSingleCell19</title>
 
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -25,6 +26,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -88,7 +91,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -237,6 +239,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -249,48 +252,9 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -304,6 +268,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -407,12 +377,17 @@ div.tocify {
 
 <h1 class="title toc-ignore">KSSingleCell19</h1>
 <h3 class="subtitle">Keystone Single Cell 2019</h3>
-<h4 class="date">2019-07-12 15:25:23</h4>
+<h4 class="date">Last built: 2020-09-01 18:19:52</h4>
 
 </div>
 
 
-<p><strong>Parameters</strong></p>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
 <table>
 <thead>
 <tr class="header">
@@ -471,152 +446,160 @@ div.tocify {
 </tr>
 </tbody>
 </table>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
+</div>
+<div id="introduction" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Introduction</h1>
 <p>An analysis of tweets from the #KKSSingleCell hashtag for the <a href="http://www.keystonesymposia.org/19L1" title="KSSingleCell19">Keystone Symposia Single Cell Biology conference</a>, 13-17 January 2019 at the Beaver Run Resort, Breckenridge, Colorado USA.</p>
 <p>A total of 647 tweets from 300 users were collected using the <code>rtweet</code> R package.</p>
 </div>
-<div id="timeline" class="section level1">
-<h1><span class="header-section-number">2</span> Timeline</h1>
-<div id="tweets-by-day" class="section level2">
-<h2><span class="header-section-number">2.1</span> Tweets by day</h2>
+<div id="timeline" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Tweets by day</h2>
 <p><img src="figures/KSSingleCell19/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="tweets-by-day-and-time" class="section level2">
-<h2><span class="header-section-number">2.2</span> Tweets by day and time</h2>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Tweets by day and time</h2>
 <p>Filtered for dates 2019-01-13 - 2019-01-17 in the America/Denver timezone.</p>
 <p><img src="figures/KSSingleCell19/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="users" class="section level1">
-<h1><span class="header-section-number">3</span> Users</h1>
-<div id="top-tweeters" class="section level2 tabset tabset-pills">
-<h2><span class="header-section-number">3.1</span> Top tweeters</h2>
-<div id="overall" class="section level3 unnumbered">
-<h3>Overall</h3>
+<div id="users" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills" number="2.1"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
 <p><img src="figures/KSSingleCell19/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="original" class="section level3 unnumbered">
-<h3>Original</h3>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="retweets" class="section level3 unnumbered">
-<h3>Retweets</h3>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="retweet-proportion" class="section level2">
-<h2><span class="header-section-number">3.2</span> Retweet proportion</h2>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Retweet proportion</h2>
 <p><img src="figures/KSSingleCell19/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-timeline" class="section level2">
-<h2><span class="header-section-number">3.3</span> Top tweeters timeline</h2>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
 <p><img src="figures/KSSingleCell19/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills">
-<h2><span class="header-section-number">3.4</span> Top tweeters by day</h2>
-<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
-<h3>Overall</h3>
-<div id="day-1" class="section level4 unnumbered">
-<h4>Day 1</h4>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills" number="2.4"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
+<div id="day-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-2" class="section level4 unnumbered">
-<h4>Day 2</h4>
+<div id="day-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-3" class="section level4 unnumbered">
-<h4>Day 3</h4>
+<div id="day-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-4" class="section level4 unnumbered">
-<h4>Day 4</h4>
+<div id="day-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-5" class="section level4 unnumbered">
-<h4>Day 5</h4>
+<div id="day-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 5</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
-<h3>Original</h3>
-<div id="day-1-1" class="section level4 unnumbered">
-<h4>Day 1</h4>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-2-1" class="section level4 unnumbered">
-<h4>Day 2</h4>
+<div id="day-2-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-3-1" class="section level4 unnumbered">
-<h4>Day 3</h4>
+<div id="day-3-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-4-1" class="section level4 unnumbered">
-<h4>Day 4</h4>
+<div id="day-4-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-5-1" class="section level4 unnumbered">
-<h4>Day 5</h4>
+<div id="day-5-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 5</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-orig-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
-<h3>Retweets</h3>
-<div id="day-1-2" class="section level4 unnumbered">
-<h4>Day 1</h4>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-2-2" class="section level4 unnumbered">
-<h4>Day 2</h4>
+<div id="day-2-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-3-2" class="section level4 unnumbered">
-<h4>Day 3</h4>
+<div id="day-3-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-4-2" class="section level4 unnumbered">
-<h4>Day 4</h4>
+<div id="day-4-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 4</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweets-day4-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="day-5-2" class="section level4 unnumbered">
-<h4>Day 5</h4>
+<div id="day-5-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 5</h4>
 <p><img src="figures/KSSingleCell19/tweets-top-users-retweets-day5-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
 </div>
-<div id="sources" class="section level1">
-<h1><span class="header-section-number">4</span> Sources</h1>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills" number="3"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Users</h2>
+<p><img src="figures/KSSingleCell19/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Tweets</h2>
 <p><img src="figures/KSSingleCell19/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="networks" class="section level1">
-<h1><span class="header-section-number">5</span> Networks</h1>
-<div id="replies" class="section level2">
-<h2><span class="header-section-number">5.1</span> Replies</h2>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Replies</h2>
 <p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
 <p><img src="figures/KSSingleCell19/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="mentions" class="section level2">
-<h2><span class="header-section-number">5.2</span> Mentions</h2>
+<div id="mentions" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Mentions</h2>
 <p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
 <p><img src="figures/KSSingleCell19/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="tweet-types" class="section level1">
-<h1><span class="header-section-number">6</span> Tweet types</h1>
-<div id="retweets-2" class="section level2 tabset tabset-pills">
-<h2><span class="header-section-number">6.1</span> Retweets</h2>
-<div id="proportion" class="section level3 unnumbered">
-<h3>Proportion</h3>
+<div id="tweet-types" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills" number="5.1"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/KSSingleCell19/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="count" class="section level3 unnumbered">
-<h3>Count</h3>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/KSSingleCell19/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-10" class="section level3 unnumbered">
-<h3>Top 10</h3>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -746,23 +729,23 @@ I’ll be presenting our study of molecular pathology in ALS tonight (poster 300
 </tbody>
 </table>
 </div>
-<div id="most-retweeted" class="section level3 unnumbered">
-<h3>Most retweeted</h3>
-<p><img src="figures/KSSingleCell19/most-retweeted-1.png" style="display: block; margin: auto;" /></p>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/KSSingleCell19/most-retweeted-1.png" width="258" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="likes" class="section level2 tabset tabset-pills">
-<h2><span class="header-section-number">6.2</span> Likes</h2>
-<div id="proportion-1" class="section level3 unnumbered">
-<h3>Proportion</h3>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills" number="5.2"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/KSSingleCell19/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="count-1" class="section level3 unnumbered">
-<h3>Count</h3>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/KSSingleCell19/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-10-1" class="section level3 unnumbered">
-<h3>Top 10</h3>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -892,23 +875,23 @@ Mind-blowing talk by <span class="citation">@priscaliberali</span> at #KSsinglec
 </tbody>
 </table>
 </div>
-<div id="most-likes" class="section level3 unnumbered">
-<h3>Most likes</h3>
-<p><img src="figures/KSSingleCell19/most-favorited-1.png" style="display: block; margin: auto;" /></p>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/KSSingleCell19/most-favorited-1.png" width="258" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="quotes" class="section level2 tabset tabset-pills">
-<h2><span class="header-section-number">6.3</span> Quotes</h2>
-<div id="proportion-2" class="section level3 unnumbered">
-<h3>Proportion</h3>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills" number="5.3"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
 <p><img src="figures/KSSingleCell19/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="count-2" class="section level3 unnumbered">
-<h3>Count</h3>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
 <p><img src="figures/KSSingleCell19/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-10-2" class="section level3 unnumbered">
-<h3>Top 10</h3>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
 <table>
 <thead>
 <tr>
@@ -1037,20 +1020,20 @@ Cool stuff from <span class="citation">@ManuSinghNZ</span> at #KSsinglecell. #RA
 </tbody>
 </table>
 </div>
-<div id="most-quoted" class="section level3 unnumbered">
-<h3>Most quoted</h3>
-<p><img src="figures/KSSingleCell19/most-quoted-1.png" style="display: block; margin: auto;" /></p>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/KSSingleCell19/most-quoted-1.png" width="258" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
-<div id="media" class="section level1 tabset tabset-pills">
-<h1><span class="header-section-number">7</span> Media</h1>
-<div id="proportion-3" class="section level2 unnumbered">
-<h2>Proportion</h2>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills" number="6"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
 <p><img src="figures/KSSingleCell19/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="top-10-3" class="section level2 unnumbered">
-<h2>Top 10</h2>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
 <table>
 <thead>
 <tr>
@@ -1181,35 +1164,44 @@ Best breckenridge 2 am food ever. #KSsinglecell <a href="https://t.co/JZ3YMFU88T
 </table>
 </div>
 </div>
-<div id="section" class="section level1 unnumbered toc-ignore">
-<h1></h1>
-<div id="most-liked-image" class="section level2">
-<h2><span class="header-section-number">7.1</span> Most liked image</h2>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Most liked image</h2>
 <p><img src="http://pbs.twimg.com/ext_tw_video_thumb/1083924236325015552/pu/img/EICH6KV1c12pnPbC.jpg" /></p>
 </div>
 </div>
-<div id="tweet-text" class="section level1">
-<h1><span class="header-section-number">8</span> Tweet text</h1>
-<div id="word-cloud" class="section level2">
-<h2><span class="header-section-number">8.1</span> Word cloud</h2>
+<div id="tweet-text" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Word cloud</h2>
 <p>The top 100 words used 3 or more times.</p>
 <p><img src="figures/KSSingleCell19/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="bigram-graph" class="section level2">
-<h2><span class="header-section-number">8.2</span> Bigram graph</h2>
+<div id="hashtags" class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/KSSingleCell19/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/KSSingleCell19/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2 number="7.4"><span class="header-section-number">7.4</span> Bigram graph</h2>
 <p>Words that were tweeted next to each other at least 3 times.</p>
 <p><img src="figures/KSSingleCell19/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
-<div id="topic-modelling" class="section level2">
-<h2><span class="header-section-number">8.3</span> Topic modelling</h2>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2 number="7.5"><span class="header-section-number">7.5</span> Topic modelling</h2>
 <p>Top 10 words associated with 6 topics identified by LDA.</p>
 <p><img src="figures/KSSingleCell19/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
-<div id="representative-tweets" class="section level3 tabset tabset-fade">
-<h3><span class="header-section-number">8.3.1</span> Representative tweets</h3>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade" number="7.5.1"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
 <p>Most representative tweets for each topic</p>
-<div id="topic-1" class="section level4 unnumbered">
-<h4>Topic 1</h4>
-<table>
+<div id="topic-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1232,18 +1224,7 @@ satijalab
 Takeaways from amazing #KSsinglecell: 1. Spatial technologies are mature, and are tremendously exciting 2. Integrating scRNA-seq data with cell morphology, location, and functional readouts is key for interpretation 3. Single cell genomics is transforming developmental biology
 </td>
 <td style="text-align:right;">
-0.9954982
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tomkXY
-</td>
-<td style="text-align:left;">
-Great to see <span class="citation">@MasahiroUeda13</span> <span class="citation">@SingleMolBio</span> our colleague from <span class="citation">@BDR_RIKEN</span> from Osaka, Japan present on live-cell imaging at #KSsinglecell. Non-invasive techniques for #singlecell analysis are essential to understand cell biology. 頑張って上田先生。お疲れ様です。
-</td>
-<td style="text-align:right;">
-0.9954982
+0.9956153
 </td>
 </tr>
 <tr>
@@ -1254,7 +1235,7 @@ lkmklsmn
 Whats the diff between cell type and state? Hongkui Zeng from <span class="citation">@AllenInstitute</span> studies (dis-)continuous variation in scRNAseq. Adding modalities (morphology) improves ability to make the distinction. Common theme at #KSsinglecell: Go beyond transcriptome to understand a cell!
 </td>
 <td style="text-align:right;">
-0.9953117
+0.9954336
 </td>
 </tr>
 <tr>
@@ -1265,18 +1246,7 @@ bioigor
 RAGE-seq: targeted long-read sequencing with short-read based transcriptome profiling to characterize full-length T cell (TCR) and B cell (BCR) receptor sequences and transcriptional profiles #KSSingleCell <a href="https://t.co/5k0SQHCWlI" class="uri">https://t.co/5k0SQHCWlI</a>
 </td>
 <td style="text-align:right;">
-0.9948881
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-GCLinderman
-</td>
-<td style="text-align:left;">
-Highly scalable method for correction of batch effect, based on soft clustering. 500,000 cells in about an hour. Great talk at #KSSingleCell by <span class="citation">@ilyakorsunsky</span>! There’s been a great emphasis methods addressing the problem of dataset integration at this conference. <a href="https://t.co/AaOXcTfww9" class="uri">https://t.co/AaOXcTfww9</a>
-</td>
-<td style="text-align:right;">
-0.9946462
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1287,7 +1257,18 @@ fabian_theis
 Great talk at #KSsinglecell by Thomas Höfer <span class="citation">@DKFZ</span>, showing how to integrate barcodes into models of population dynamics. Super-interesting to combine with molecular readouts from scRNAseq, since many effects are seen as shifts of cell numbers per cell type cluster.
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GCLinderman
+</td>
+<td style="text-align:left;">
+Highly scalable method for correction of batch effect, based on soft clustering. 500,000 cells in about an hour. Great talk at #KSSingleCell by <span class="citation">@ilyakorsunsky</span>! There’s been a great emphasis methods addressing the problem of dataset integration at this conference. <a href="https://t.co/AaOXcTfww9" class="uri">https://t.co/AaOXcTfww9</a>
+</td>
+<td style="text-align:right;">
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1298,7 +1279,7 @@ tomkXY
 Cool stuff from <span class="citation">@ManuSinghNZ</span> at #KSsinglecell. #RAGESeq: antigen receptor profiles by targeted full-length #scRNASeq with <span class="citation">@nanopore</span> sequencing. Highly accurate and cost-effective profiling of BCR and TCR sequences. <a href="https://t.co/7RNPOc4bN3" class="uri">https://t.co/7RNPOc4bN3</a>
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1309,7 +1290,7 @@ tomkXY
 Lots of progress in #singlecell #epigenomics at #KSsinglecell. Bisulfate treatment and ACE-Seq enables accurate 5hmC sequencing. <span class="citation">@ebfabyanic</span> and colleagues at Penn State are optimising for single cell analysis. #epigenetics <a href="https://t.co/p99K96wdxY" class="uri">https://t.co/p99K96wdxY</a>
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1320,7 +1301,7 @@ lkmklsmn
 Amazing talks, great scientific intx. Personal takeaway: Computation &amp;amp; tech, really drive the field. Go beyond single modality/omic &amp;amp; come up w creative perturbations. And the view wasnt so bad either. #KSsinglecell <a href="https://t.co/3lowmmWVYi" class="uri">https://t.co/3lowmmWVYi</a>
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1332,15 +1313,26 @@ franschrandez
 view notebook: <a href="https://t.co/X4XvJdFMRv" class="uri">https://t.co/X4XvJdFMRv</a> run notebook: <a href="https://t.co/oB2Kfynwqe" class="uri">https://t.co/oB2Kfynwqe</a> <a href="https://t.co/NQ7hiCvlUp" class="uri">https://t.co/NQ7hiCvlUp</a>
 </td>
 <td style="text-align:right;">
-0.9940867
+0.9942402
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bibaswanghoshal
+</td>
+<td style="text-align:left;">
+Finally super excited to hear from <span class="citation">@satijalab</span> on the recent advancements in comprehensive single cell analysis from multiple platforms! Seurat has been and will be a key part in my #singlecell journey! #KSsinglecell #BioInformatics
+</td>
+<td style="text-align:right;">
+0.9939225
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="topic-2" class="section level4 unnumbered">
-<h4>Topic 2</h4>
-<table>
+<div id="topic-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1363,7 +1355,7 @@ BartDeplancke
 Third #KSsinglecell recap: <span class="citation">@seeliglab</span> democratizes Split-seq with kit production, <span class="citation">@LucaRappez</span> &amp;gt;100 metabolite detection across 4k single cells, astonishing imaging by <span class="citation">@AllenInstitute</span> with great GFP-tagged iPSC line resource, joint scRNAseq &amp;amp; TF binding assay (Rob Mitra lab)
 </td>
 <td style="text-align:right;">
-0.9963657
+0.9964603
 </td>
 </tr>
 <tr>
@@ -1374,7 +1366,18 @@ BartDeplancke
 Final #KSsinglecell day recap: beautiful work by the Wold &amp;amp; Reik labs on enhancer dynamics during limb development &amp;amp; gastrulation respectively, lipid-tagged indices by <span class="citation">@cmcginnisUCSF</span> for single cell multiplexing looks powerful, new probablistic cell tracker by Spencer lab 1/2
 </td>
 <td style="text-align:right;">
-0.9954982
+0.9956153
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tomkXY
+</td>
+<td style="text-align:left;">
+Great to see <span class="citation">@MasahiroUeda13</span> <span class="citation">@SingleMolBio</span> our colleague from <span class="citation">@BDR_RIKEN</span> from Osaka, Japan present on live-cell imaging at #KSsinglecell. Non-invasive techniques for #singlecell analysis are essential to understand cell biology. 頑張って上田先生。お疲れ様です。
+</td>
+<td style="text-align:right;">
+0.9956153
 </td>
 </tr>
 <tr>
@@ -1385,7 +1388,7 @@ GCLinderman
 Great talk/poster at #KSsinglecell. They use “matrix-free spectral clustering” which avoids forming the Laplacian: the left singular vectors of a row-normalized matrix correspond to the eigenvectors of the Laplacian defined using cosine similarity between all points. <a href="https://t.co/hP5K7KMYQh" class="uri">https://t.co/hP5K7KMYQh</a>
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1396,7 +1399,7 @@ BartDeplancke
 2/2 Other #KSsinglecell highlights (subjective): STARsolo (10X faster mapper than Cell Ranger), Nichenet to model intercellular communication (<a href="https://t.co/1rgRRXEnCM" class="uri">https://t.co/1rgRRXEnCM</a>) and Dynbenchmark <span class="citation">@woutersaelens</span> - comparing dozens of sc trajectory inference methods <a href="https://t.co/PdVQSGfVyw" class="uri">https://t.co/PdVQSGfVyw</a>
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1407,7 +1410,7 @@ GCLinderman
 There are &amp;gt;75 (!!!) methods for trajectory inference in scRNA-seq data. Great talk by <span class="citation">@rcannood</span> at #KSsinglecell on their excellent work comparing methods. Benchmarking existing methods can be tedious, but it is utterly crucial for practitioners who have no idea what to use. <a href="https://t.co/p4BgDi34oH" class="uri">https://t.co/p4BgDi34oH</a>
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1418,7 +1421,7 @@ lkmklsmn
 <span class="citation">@dana_peer</span>: “Cell fates can be modeled using markov chains to describe probabilities of cells ending up in terminal states.” Nice way to identify key regulators: Just associate gene expression with these probabilities. Prob better than using pseudotime(?) #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1429,7 +1432,7 @@ lkmklsmn
 Comp Bio Open panel discussion: What are the major upcoming challenges? <span class="citation">@dana_peer</span>: More mechanistic modeling by integrating additional data (ie. space, time) &amp;amp; understanding of technical and biological noise/signal #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1440,7 +1443,7 @@ bibaswanghoshal
 The view from the window! Excited for the Keystone Conference starting tomorrow here <span class="citation">@beaverrunresort</span>! #KSsinglecell #conference #snow #rockies #travelgram #traveldiaries2019 #breckenridge #mountains #snowymountains #viewfrommywindow <a href="https://t.co/HiMmhMEKWX" class="uri">https://t.co/HiMmhMEKWX</a> <a href="https://t.co/RyhQ0hN5L1" class="uri">https://t.co/RyhQ0hN5L1</a>
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1451,26 +1454,15 @@ lkmklsmn
 <span class="citation">@satijalab</span>: Data integration across modalities (scRNAseq, scATACseq, imaging) identifies subtle cellular phenotypes not observed using a single modality. Potentially necessary to capture true full biology of single cells? #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9943803
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-MolSystBiol
-</td>
-<td style="text-align:left;">
-.@fabian_theis <span class="citation">@HelmholtzMucEn</span> Applying generative models to scRNA-seq data: scGEn predicts single-cell perturbation effects for unseen phenotypes (<a href="https://t.co/7mq7gYZfur" class="uri">https://t.co/7mq7gYZfur</a>) Quite promising method! #KSSinglecell
-</td>
-<td style="text-align:right;">
-0.9940867
+0.9945263
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="topic-3" class="section level4 unnumbered">
-<h4>Topic 3</h4>
-<table>
+<div id="topic-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1494,7 +1486,7 @@ tomkXY
 <a href="https://t.co/REPbd4zo5v" class="uri">https://t.co/REPbd4zo5v</a>
 </td>
 <td style="text-align:right;">
-0.9954982
+0.9956153
 </td>
 </tr>
 <tr>
@@ -1505,7 +1497,7 @@ shr9st9
 Going to <span class="citation">@KeystoneSymp</span> next week for #KSsinglecell conference. Excited to learn new developments on #scRNAseq. I’m at poster 4001, poster session 4, January 17. Stop by to learn single cell biology of human pancreatic islets. #singlecell #Brekenridge #Colorado
 </td>
 <td style="text-align:right;">
-0.9948881
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1516,18 +1508,7 @@ fabian_theis
 Rick Horwitz now talking at #KSsinglecell on large team-based effort of the <span class="citation">@AllenInstitute</span> for Cell Science. Last year they went through a “computational tool building phase - next year comes the fun”. Hey, we comp people have fun, too. You should hear our jokes.
 </td>
 <td style="text-align:right;">
-0.9946462
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-10xgenomics
-</td>
-<td style="text-align:left;">
-We’re enjoying the Keystone Single Cell conference this week. Stop by our table or visit our Poster #3011, High Throughput Immune Profiling Using Integrated Single Cell Multi-omics Analyses. #KSsinglecell <a href="https://t.co/VRNiCvznyb" class="uri">https://t.co/VRNiCvznyb</a>
-</td>
-<td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1538,7 +1519,18 @@ tomkXY
 Great first day at #KSsinglecell. Proud to be here to represent Japan and <span class="citation">@riken_en</span>. Looking forward to great Science tomorrow. Enjoying my first <span class="citation">@KeystoneSymp</span> meeting so far. Stunning clear skies in Colorado. Hope to meet more talented scientists and learn new tricks this week.
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10xgenomics
+</td>
+<td style="text-align:left;">
+We’re enjoying the Keystone Single Cell conference this week. Stop by our table or visit our Poster #3011, High Throughput Immune Profiling Using Integrated Single Cell Multi-omics Analyses. #KSsinglecell <a href="https://t.co/VRNiCvznyb" class="uri">https://t.co/VRNiCvznyb</a>
+</td>
+<td style="text-align:right;">
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1549,7 +1541,7 @@ BartDeplancke
 Lots of great talks first day of #KSsinglecell (massive data sets, exciting new analyses), but Allon Klein’s BioRxiv paper (<a href="https://t.co/t6xkBEJ5XH" class="uri">https://t.co/t6xkBEJ5XH</a>) on fate prediction seems like a must read and very much liked the elegant lineage tracing work by <span class="citation">@morris_lab</span> using CellTag (1/2)
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1560,18 +1552,7 @@ sciencyjessie
 Excited to hear great science and talk science at #KSsinglecell meeting in Breckenridge Colorado. Want to know more about immuno-detection by sequencing for intracellular phosphoprotein measurements and how to couple Abs to DNA tags, come and see me at poster 4027
 </td>
 <td style="text-align:right;">
-0.9943803
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-arnavm1
-</td>
-<td style="text-align:left;">
-During one of the talks at #KSsinglecell, someone (can’t remember who-sorry! 😳) mentioned RFP toxicity. Reminded me of this paper (<a href="https://t.co/HtnCunOupO" class="uri">https://t.co/HtnCunOupO</a>) by David Piston’s lab evaluating toxicity of basically every known FP. Spoiler alert: GFP wins.
-</td>
-<td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1582,7 +1563,18 @@ stchlk
 Airline lost my poster in Denver. Took evasive action. Excited to be attending #KSsinglecell with poster copy number two. Ready to learn about exciting developments in single cell biology esp. bioinformatics
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+arnavm1
+</td>
+<td style="text-align:left;">
+During one of the talks at #KSsinglecell, someone (can’t remember who-sorry! 😳) mentioned RFP toxicity. Reminded me of this paper (<a href="https://t.co/HtnCunOupO" class="uri">https://t.co/HtnCunOupO</a>) by David Piston’s lab evaluating toxicity of basically every known FP. Spoiler alert: GFP wins.
+</td>
+<td style="text-align:right;">
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1593,15 +1585,15 @@ MolSystBiol
 .@MaehrLab CRISPRi-perturbation screen with scRNA-seq readout for analysing loss-of-function phenotypes of candidate regulators. New insights into regulation of human endoderm development #KSSinglecell #singlecell #CRISPR
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="topic-4" class="section level4 unnumbered">
-<h4>Topic 4</h4>
-<table>
+<div id="topic-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1624,18 +1616,7 @@ JCoolScience
 Day 2 of #KSsinglecell off to a fast start. <span class="citation">@lucaspelkmans</span> kicked it off with a tour de force overview of 4i technology across biological scales. Ellen Rothenberg followed up with a beautiful dissection of T-cell differentiation mechanisms using single cell methods.
 </td>
 <td style="text-align:right;">
-0.9953117
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-GCLinderman
-</td>
-<td style="text-align:left;">
-Stephen Quake at #KSSingleCell discusses an application of scRNA-seq for drug development: Cell atlases like Tabula Muris provide a resource to identify which tissues or cell types a potential drug target is expressed in.
-</td>
-<td style="text-align:right;">
-0.9951090
+0.9954336
 </td>
 </tr>
 <tr>
@@ -1646,7 +1627,18 @@ lkmklsmn
 <span class="citation">@BartDeplancke</span> and his Techno team improve efficiency of droplet based scRNAseq using DisCo (deterministic co-encapsulation): Avoid incomplete droplets to increase cell capture efficiency and optimize bead recovery. <a href="https://t.co/jawQ2GbUlH" class="uri">https://t.co/jawQ2GbUlH</a> Quite promising! #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GCLinderman
+</td>
+<td style="text-align:left;">
+Stephen Quake at #KSSingleCell discusses an application of scRNA-seq for drug development: Cell atlases like Tabula Muris provide a resource to identify which tissues or cell types a potential drug target is expressed in.
+</td>
+<td style="text-align:right;">
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1657,7 +1649,7 @@ MolSystBiol
 .@dana_peer Continuous view of #CellFate: modelling differentiation using Markov chains, defining for each cell the probability of reaching each terminal state. Application to mouse endoderm #SingleCell transcriptomes reveals unappreciated lineage relationships #KSSinglecell
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1668,7 +1660,7 @@ manimota
 Great talk on SPLIT-seq this morning at #KSsinglecell by <span class="citation">@seeliglab</span>. The power of this technique to democratize scRNAseq and improve experimental design via cost reduction is huge, but method has other technical perks too. We used their mouse data in our ALS study. Thanks!
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1679,7 +1671,7 @@ MolSystBiol
 Beautiful talk by <span class="citation">@ReikLab</span>: #singlecell triple-omics (chromatin accessibility, DNA methylation, RNA expression) &amp;amp;analyses with Multi­Omics Factor Analysis (<a href="https://t.co/3Qc7QCeqGF" class="uri">https://t.co/3Qc7QCeqGF</a>) show that during gastrulation lineages are defined by a hierarchical epigenetic model #KSSinglecell
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1690,7 +1682,7 @@ bibaswanghoshal
 The concept of gene regulation and causal inference is exciting! Soft interventions or knockdowns provide similar information on causal inference as the hard interventions or knockouts gives a different perspective to look at gene regulatory networks! #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9948881
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1701,7 +1693,7 @@ tomkXY
 Understanding spatial organisation of the genome is critical to decipher mechanisms and gene regulatory networks. Huge potential to apply mathematical models at the #singlecell resolution. Great talk from Caroline Uhler (MIT) #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9948881
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1712,7 +1704,7 @@ BartDeplancke
 With some delay: day 2 #KSsinglecell standouts (subjective!): the theme of cyclic immunofluorescence (4i (Gut et al., Science 2018; <span class="citation">@lucaspelkmans</span> ) with great application on intestinal organoids / superb imaging <span class="citation">@priscaliberali</span> &amp;amp; Immuno-SABER <a href="https://t.co/1JdoIAtC2A" class="uri">https://t.co/1JdoIAtC2A</a>
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1723,15 +1715,15 @@ lkmklsmn
 Fascinating work from Barbara Treutlein from <span class="citation">@ETH_en</span>. scRNAseq profiles of developing and regenerating axolotl limbs show striking similarity. Multipotent blastema cells drive regeneration. Great system &amp;amp; study design! #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="topic-5" class="section level4 unnumbered">
-<h4>Topic 5</h4>
-<table>
+<div id="topic-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1754,7 +1746,7 @@ lkmklsmn
 Caroline Uhler shows off nice trick to ‘translate’ scRNAseq methodology (optimal transport (OT)) into imaging: Apply OT algorithm in latent space derived from variational autoencoder to overcome coordinate system inconsistency in imaging data #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9956704
+0.9957830
 </td>
 </tr>
 <tr>
@@ -1765,7 +1757,7 @@ MolSystBiol
 Amazing talk by <span class="citation">@lucaspelkmans</span> on crossing spatial scales using 4i (Iterative Indirect Immunofluorescence Imaging)! Subcellular spatial protein distribution in single cells provides another level of info on cellular states #KSSinglecell <span class="citation">@SystemsXch</span> <span class="citation">@UZH_en</span>
 </td>
 <td style="text-align:right;">
-0.9951090
+0.9952362
 </td>
 </tr>
 <tr>
@@ -1776,7 +1768,7 @@ lkmklsmn
 Fascinating talk by Lucas Pelkmans about multiplexed protein maps, a way to image cells with subcellular resolution using common but unique multiplexed pixel profiles, <a href="https://t.co/ArfHjf1avy" class="uri">https://t.co/ArfHjf1avy</a>. I wonder how much more info this “dimension” will give to scRNAseq data #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9948881
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1787,18 +1779,7 @@ MolSystBiol
 Great keynote by Scott Fraser on new approaches for multimodal-multiplex-multidimensional #imaging. Improving image/noise ratio, solving the “speed problem” &amp;amp; adding dimensions to imaging (time, gene, color, z) #KSSinglecell #microscopy
 </td>
 <td style="text-align:right;">
-0.9948881
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-manimota
-</td>
-<td style="text-align:left;">
-Beautiful work from the <span class="citation">@AllenInstitute</span> presented by Hongkui Zheng at #KSsinglecell tonight. Retro-seq, patch-seq, multiplexed FISH, etc. Great to see the the promised advances in understanding the brain via sequencing and imaging technologies delivered. <a href="https://t.co/crw5WtLgeJ" class="uri">https://t.co/crw5WtLgeJ</a>
-</td>
-<td style="text-align:right;">
-0.9946462
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1809,7 +1790,7 @@ manimota
 Very cool method (SpaceM) just presented by <span class="citation">@luca_rappez</span> at #KSsinglecell. By combining MALDI-IMS with imaging in a clever way, they are able to relate spatially resolves metabolite levels back to single cells and gain functional insight. Ideas percolating on how we could use it!
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1820,18 +1801,7 @@ ebfabyanic
 Really happy to be here at #KSSingleCell 2019 in Breckenridge! I’m going to be giving a poster tonight (poster number 1054), and on Thursday, I’ll be giving a short talk during the “Novel Single Cell Technologies” workshop. Please stop by! I appreciate any and all feedback! 🧬 <a href="https://t.co/QXh4Zd31gd" class="uri">https://t.co/QXh4Zd31gd</a>
 </td>
 <td style="text-align:right;">
-0.9943803
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-manimota
-</td>
-<td style="text-align:left;">
-I’ll be presenting our study of molecular pathology in ALS tonight (poster 3004) at #KSsinglecell. In it we use Spatial Transcriptomics (now part of ⁦<span class="citation">@10xgenomics</span>⁩) to profile expression in ~1300 mouse tissue sections and 80 PM sections. Stop by! <a href="https://t.co/DI7mEtLqjh" class="uri">https://t.co/DI7mEtLqjh</a>
-</td>
-<td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1842,7 +1812,18 @@ MolSystBiol
 L Rappez from <span class="citation">@alexandrovteam</span> <span class="citation">@thalexandrov</span> <span class="citation">@embl</span> SpaceM: method for in situ spatial single-cell #metabolomics, linking #singlecell metabolomes (MALDI analysis) with spatial and morphological features (microscopy &amp;amp;histology) #KSSinglecell
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+manimota
+</td>
+<td style="text-align:left;">
+I’ll be presenting our study of molecular pathology in ALS tonight (poster 3004) at #KSsinglecell. In it we use Spatial Transcriptomics (now part of ⁦<span class="citation">@10xgenomics</span>⁩) to profile expression in ~1300 mouse tissue sections and 80 PM sections. Stop by! <a href="https://t.co/DI7mEtLqjh" class="uri">https://t.co/DI7mEtLqjh</a>
+</td>
+<td style="text-align:right;">
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1853,7 +1834,7 @@ tomkXY
 FLOW-MAP: a graph-based algorithm for #singlecell time course experiments with CyTOF or #scRNASeq. A graphical interface supports interaction with the data. Corey Williams (University of Virginia) #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1864,15 +1845,15 @@ tomkXY
 Quick plug for my poster tonight at #KSsinglecell. I think I might be the only one working on plants here. Still up for a chat about handling complex #scRNASeq data, comp methods, multi-omics, stem cells, other projects that we’re working on at <span class="citation">@riken_en</span>, and anything in between! <a href="https://t.co/2mRB1oxGQX" class="uri">https://t.co/2mRB1oxGQX</a>
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="topic-6" class="section level4 unnumbered">
-<h4>Topic 6</h4>
-<table>
+<div id="topic-6" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1895,7 +1876,7 @@ AlejoFraticelli
 #KSsinglecell Keystone Single Cell Biology 2019 was a blast! My recap: 1) scRNAseq increasingly combined with other single cell technologies 2) scProteomics is almost here 3) scOmics data integration 4) We have a data storage problem 5) Visualization tools need much improvement
 </td>
 <td style="text-align:right;">
-0.9948881
+0.9950209
 </td>
 </tr>
 <tr>
@@ -1906,7 +1887,7 @@ FanZhang_Jessie
 I will give a talk on “Integrating Bulk and Single-Cell Transcriptomics with Mass Cytometry Data to Define Inflammatory Cell States in Rheumatoid Arthritis” on session of “Extracting Information from High-dimensional Measurements” #KSsinglecell <span class="citation">@KeystoneSymp</span>. Ask me questions!
 </td>
 <td style="text-align:right;">
-0.9946462
+0.9947853
 </td>
 </tr>
 <tr>
@@ -1917,7 +1898,7 @@ Schwartastic
 Amazing talks and posters at #KSsinglecell! Excited to present TooManyCells poster today, #3057. TooManyCells is a program with a suite of tools including a new kind of visualization for cell clades! Check out the website at <a href="https://t.co/d3Zw8yXFpX" class="uri">https://t.co/d3Zw8yXFpX</a> and our bioRxiv paper!
 </td>
 <td style="text-align:right;">
-0.9943803
+0.9945263
 </td>
 </tr>
 <tr>
@@ -1928,7 +1909,18 @@ AlejoFraticelli
 Heading to Breckenridge, CO, for a wonderful Keystone symposium on Single Cell Biology. Excited to show our work on hematopoiesis at the single cell level!!!!!! #KSSingleCell #singlecell #HSCI #stemcell #hematology <span class="citation">@KeystoneSymp</span>
 </td>
 <td style="text-align:right;">
-0.9937606
+0.9939225
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GCLinderman
+</td>
+<td style="text-align:left;">
+Starting off the Single Cell Computational Biology session of the #KSSingleCell conference with a talk by <span class="citation">@fabian_theis</span>, “Modeling Differentiation and Stimulation Response in Single-Cell Genomics.” The five methods below were presented.
+</td>
+<td style="text-align:right;">
+0.9935678
 </td>
 </tr>
 <tr>
@@ -1939,29 +1931,7 @@ lkmklsmn
 Packed, computational heavy first day of #KSsinglecell coming to an end. Great talks and posters all around, really enjoyed it. My personal, single sentence summary: Your scRNAseq method is as good as your control/benchmark.
 </td>
 <td style="text-align:right;">
-0.9933965
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-cmcginnisUCSF
-</td>
-<td style="text-align:left;">
-Awesome work on imputation in various forms and flavors from <span class="citation">@satijalab</span> and <span class="citation">@fabian_theis</span> – makes me wonder about the context-dependence. Is perturbation imputation accurate for PBMCs from different individuals? For NSG vs WT mice? #KSsinglecell
-</td>
-<td style="text-align:right;">
-0.9929872
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tomkXY
-</td>
-<td style="text-align:left;">
-I would also add: users should pay attention to which assumptions have been made when designing each method. These differ considerably and should inform choice of methods as much as performance and results. Use the most appropriate method for your question. #KSsinglecell
-</td>
-<td style="text-align:right;">
-0.9929872
+0.9935678
 </td>
 </tr>
 <tr>
@@ -1972,7 +1942,29 @@ bibaswanghoshal
 Computational biology session right at the start of the conference! More and more conferences should follow suit! This is the driving force of Single Cell Biology #BioInformatics #scRNAseq #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9929872
+0.9931691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cmcginnisUCSF
+</td>
+<td style="text-align:left;">
+Awesome work on imputation in various forms and flavors from <span class="citation">@satijalab</span> and <span class="citation">@fabian_theis</span> – makes me wonder about the context-dependence. Is perturbation imputation accurate for PBMCs from different individuals? For NSG vs WT mice? #KSsinglecell
+</td>
+<td style="text-align:right;">
+0.9931691
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tomkXY
+</td>
+<td style="text-align:left;">
+I would also add: users should pay attention to which assumptions have been made when designing each method. These differ considerably and should inform choice of methods as much as performance and results. Use the most appropriate method for your question. #KSsinglecell
+</td>
+<td style="text-align:right;">
+0.9931691
 </td>
 </tr>
 <tr>
@@ -1983,40 +1975,7 @@ tomkXY
 Decontx: a Bayesian method for correcting for background noise (floating RNA) in #singlecell data. Available as an R package. Shiyi Yang (Boston University) at #KSsinglecell
 </td>
 <td style="text-align:right;">
-0.9929872
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-fabian_theis
-</td>
-<td style="text-align:left;">
-Great keynote by Scott Fraser on new multimodal microscopy tools, speedup being a big topic. Although I have a hunch that his statement that “any time multiplied by 10^9 is a long time” may not hold. #KSsinglecell
-</td>
-<td style="text-align:right;">
-0.9925239
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-lkmklsmn
-</td>
-<td style="text-align:left;">
-Scott Fraser from <span class="citation">@USC</span> starting Single Cell Biology <span class="citation">@KeystoneSymp</span> with a good message: “Embrace dynamics/variance. It isnt noise, its signal.” #KSsinglecell
-</td>
-<td style="text-align:right;">
-0.9925239
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-tomkXY
-</td>
-<td style="text-align:left;">
-A conservative approach to imputing drop outs in #singlecell data: Adaptively-thresholded Low-Rank Approximation (ALRA). #KSsinglecell <a href="https://t.co/vztobWqxKB" class="uri">https://t.co/vztobWqxKB</a>
-</td>
-<td style="text-align:right;">
-0.9925239
+0.9931691
 </td>
 </tr>
 </tbody>
@@ -2025,13 +1984,15 @@ A conservative approach to imputing drop outs in #singlecell data: Adaptively-th
 </div>
 </div>
 </div>
-<div id="software" class="section level1">
-<h1><span class="header-section-number">9</span> Software</h1>
-<p>Software mentioned in Tweets with links to GitHub, BitBucket, Bioconductor or CRAN.</p>
+<div id="links" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
 <table>
 <thead>
 <tr class="header">
 <th align="left">Name</th>
+<th align="right">Tweets</th>
+<th align="right">Retweets</th>
 <th align="left">Type</th>
 <th align="left">Link</th>
 </tr>
@@ -2039,76 +2000,158 @@ A conservative approach to imputing drop outs in #singlecell data: Adaptively-th
 <tbody>
 <tr class="odd">
 <td align="left">celda</td>
+<td align="right">1</td>
+<td align="right">0</td>
 <td align="left">GitHub</td>
-<td align="left"><a href="https://github.com/campbio/celda" class="uri">https://github.com/campbio/celda</a></td>
+<td align="left"><a href="https://github.com/campbio/celda">campbio/celda</a></td>
 </tr>
 <tr class="even">
 <td align="left">nichenetr</td>
+<td align="right">1</td>
+<td align="right">0</td>
 <td align="left">GitHub</td>
-<td align="left"><a href="https://github.com/browaeysrobin/nichenetr" class="uri">https://github.com/browaeysrobin/nichenetr</a></td>
+<td align="left"><a href="https://github.com/browaeysrobin/nichenetr">browaeysrobin/nichenetr</a></td>
 </tr>
 <tr class="odd">
 <td align="left">scRNA-tools</td>
+<td align="right">1</td>
+<td align="right">0</td>
 <td align="left">GitHub</td>
-<td align="left"><a href="https://github.com/oshlack/scrna-tools" class="uri">https://github.com/oshlack/scrna-tools</a></td>
+<td align="left"><a href="https://github.com/oshlack/scrna-tools">oshlack/scrna-tools</a></td>
 </tr>
 <tr class="even">
 <td align="left">too-many-cells</td>
+<td align="right">1</td>
+<td align="right">0</td>
 <td align="left">GitHub</td>
-<td align="left"><a href="https://github.com/gregoryschwartz/too-many-cells" class="uri">https://github.com/gregoryschwartz/too-many-cells</a></td>
+<td align="left"><a href="https://github.com/gregoryschwartz/too-many-cells">gregoryschwartz/too-many-cells</a></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="session-info" class="section level1 unnumbered">
-<h1>Session info</h1>
-<pre><code>## R version 3.6.0 (2019-04-26)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 17134)
+<div id="session-info" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## ─ Session info ───────────────────────────────────────────────────────────────
+##  setting  value                       
+##  version  R version 4.0.0 (2020-04-24)
+##  os       macOS Catalina 10.15.6      
+##  system   x86_64, darwin17.0          
+##  ui       X11                         
+##  language (EN)                        
+##  collate  en_US.UTF-8                 
+##  ctype    en_US.UTF-8                 
+##  tz       Europe/Berlin               
+##  date     2020-09-01                  
 ## 
-## Matrix products: default
+## ─ Packages ───────────────────────────────────────────────────────────────────
+##  package      * version    date       lib source                          
+##  askpass        1.1        2019-01-13 [1] CRAN (R 4.0.0)                  
+##  assertthat     0.2.1      2019-03-21 [1] CRAN (R 4.0.0)                  
+##  backports      1.1.8      2020-06-17 [1] CRAN (R 4.0.0)                  
+##  bitops         1.0-6      2013-08-17 [1] CRAN (R 4.0.0)                  
+##  callr          3.4.3      2020-03-28 [1] CRAN (R 4.0.0)                  
+##  clamour      * 0.1.0      2020-09-01 [1] Github (lazappi/clamour@c8ea1c7)
+##  cli            2.0.2      2020-02-28 [1] CRAN (R 4.0.0)                  
+##  colorspace     1.4-1      2019-03-18 [1] CRAN (R 4.0.0)                  
+##  crayon         1.3.4      2017-09-16 [1] CRAN (R 4.0.0)                  
+##  curl           4.3        2019-12-02 [1] CRAN (R 4.0.0)                  
+##  digest         0.6.25     2020-02-23 [1] CRAN (R 4.0.0)                  
+##  dplyr        * 1.0.1      2020-07-31 [1] CRAN (R 4.0.2)                  
+##  ellipsis       0.3.1      2020-05-15 [1] CRAN (R 4.0.0)                  
+##  emo          * 0.0.0.9000 2020-08-17 [1] Github (hadley/emo@3f03b11)     
+##  evaluate       0.14       2019-05-28 [1] CRAN (R 4.0.0)                  
+##  fansi          0.4.1      2020-01-08 [1] CRAN (R 4.0.0)                  
+##  farver         2.0.3      2020-01-16 [1] CRAN (R 4.0.0)                  
+##  forcats      * 0.5.0      2020-03-01 [1] CRAN (R 4.0.0)                  
+##  fs           * 1.5.0      2020-07-31 [1] CRAN (R 4.0.2)                  
+##  generics       0.0.2      2018-11-29 [1] CRAN (R 4.0.0)                  
+##  ggforce        0.3.2      2020-06-23 [1] CRAN (R 4.0.2)                  
+##  ggplot2      * 3.3.2      2020-06-19 [1] CRAN (R 4.0.2)                  
+##  ggraph       * 2.0.3      2020-05-20 [1] CRAN (R 4.0.0)                  
+##  ggrepel      * 0.8.2      2020-03-08 [1] CRAN (R 4.0.0)                  
+##  ggtext       * 0.1.0      2020-06-04 [1] CRAN (R 4.0.2)                  
+##  glue           1.4.1      2020-05-13 [1] CRAN (R 4.0.0)                  
+##  graphlayouts   0.7.0      2020-04-25 [1] CRAN (R 4.0.0)                  
+##  gridExtra      2.3        2017-09-09 [1] CRAN (R 4.0.0)                  
+##  gridtext       0.1.1      2020-02-24 [1] CRAN (R 4.0.2)                  
+##  gtable         0.3.0      2019-03-25 [1] CRAN (R 4.0.0)                  
+##  here         * 0.1        2017-05-28 [1] CRAN (R 4.0.0)                  
+##  highr          0.8        2019-03-20 [1] CRAN (R 4.0.0)                  
+##  htmltools      0.5.0      2020-06-16 [1] CRAN (R 4.0.0)                  
+##  httr           1.4.2      2020-07-20 [1] CRAN (R 4.0.2)                  
+##  igraph       * 1.2.5      2020-03-19 [1] CRAN (R 4.0.0)                  
+##  janeaustenr    0.1.5      2017-06-10 [1] CRAN (R 4.0.0)                  
+##  jsonlite       1.7.0      2020-06-25 [1] CRAN (R 4.0.0)                  
+##  kableExtra   * 1.2.1      2020-08-27 [1] CRAN (R 4.0.2)                  
+##  knitr        * 1.29       2020-06-23 [1] CRAN (R 4.0.0)                  
+##  labeling       0.3        2014-08-23 [1] CRAN (R 4.0.0)                  
+##  lattice        0.20-41    2020-04-02 [1] CRAN (R 4.0.0)                  
+##  lifecycle      0.2.0      2020-03-06 [1] CRAN (R 4.0.0)                  
+##  lubridate    * 1.7.9      2020-06-08 [1] CRAN (R 4.0.0)                  
+##  magick       * 2.4.0      2020-06-23 [1] CRAN (R 4.0.0)                  
+##  magrittr       1.5        2014-11-22 [1] CRAN (R 4.0.0)                  
+##  markdown       1.1        2019-08-07 [1] CRAN (R 4.0.0)                  
+##  MASS           7.3-51.6   2020-04-26 [1] CRAN (R 4.0.0)                  
+##  Matrix         1.2-18     2019-11-27 [1] CRAN (R 4.0.0)                  
+##  modeltools     0.2-23     2020-03-05 [1] CRAN (R 4.0.0)                  
+##  munsell        0.5.0      2018-06-12 [1] CRAN (R 4.0.0)                  
+##  NLP            0.2-0      2018-10-18 [1] CRAN (R 4.0.0)                  
+##  openssl        1.4.2      2020-06-27 [1] CRAN (R 4.0.0)                  
+##  pillar         1.4.6      2020-07-10 [1] CRAN (R 4.0.2)                  
+##  pkgconfig      2.0.3      2019-09-22 [1] CRAN (R 4.0.0)                  
+##  plyr           1.8.6      2020-03-03 [1] CRAN (R 4.0.0)                  
+##  png            0.1-7      2013-12-03 [1] CRAN (R 4.0.0)                  
+##  polyclip       1.10-0     2019-03-14 [1] CRAN (R 4.0.0)                  
+##  processx       3.4.3      2020-07-05 [1] CRAN (R 4.0.2)                  
+##  ps             1.3.3      2020-05-08 [1] CRAN (R 4.0.0)                  
+##  purrr        * 0.3.4      2020-04-17 [1] CRAN (R 4.0.0)                  
+##  R6             2.4.1      2019-11-12 [1] CRAN (R 4.0.0)                  
+##  RColorBrewer * 1.1-2      2014-12-07 [1] CRAN (R 4.0.0)                  
+##  Rcpp           1.0.5      2020-07-06 [1] CRAN (R 4.0.0)                  
+##  RCurl          1.98-1.2   2020-04-18 [1] CRAN (R 4.0.0)                  
+##  reshape2       1.4.4      2020-04-09 [1] CRAN (R 4.0.0)                  
+##  rlang          0.4.7      2020-07-09 [1] CRAN (R 4.0.2)                  
+##  rmarkdown      2.3        2020-06-18 [1] CRAN (R 4.0.0)                  
+##  rprojroot      1.3-2      2018-01-03 [1] CRAN (R 4.0.0)                  
+##  rstudioapi     0.11       2020-02-07 [1] CRAN (R 4.0.0)                  
+##  rtweet       * 0.7.0      2020-01-08 [1] CRAN (R 4.0.0)                  
+##  rvest        * 0.3.6      2020-07-25 [1] CRAN (R 4.0.2)                  
+##  scales         1.1.1      2020-05-11 [1] CRAN (R 4.0.0)                  
+##  selectr        0.4-2      2019-11-20 [1] CRAN (R 4.0.0)                  
+##  sessioninfo    1.1.1      2018-11-05 [1] CRAN (R 4.0.0)                  
+##  slam           0.1-47     2019-12-21 [1] CRAN (R 4.0.0)                  
+##  SnowballC      0.7.0      2020-04-01 [1] CRAN (R 4.0.0)                  
+##  stringi        1.4.6      2020-02-17 [1] CRAN (R 4.0.0)                  
+##  stringr      * 1.4.0      2019-02-10 [1] CRAN (R 4.0.0)                  
+##  tibble         3.0.3      2020-07-10 [1] CRAN (R 4.0.2)                  
+##  tidygraph      1.2.0      2020-05-12 [1] CRAN (R 4.0.0)                  
+##  tidyr        * 1.1.1      2020-07-31 [1] CRAN (R 4.0.2)                  
+##  tidyselect     1.1.0      2020-05-11 [1] CRAN (R 4.0.0)                  
+##  tidytext     * 0.2.5      2020-07-11 [1] CRAN (R 4.0.2)                  
+##  tm             0.7-7      2019-12-12 [1] CRAN (R 4.0.0)                  
+##  tokenizers     0.2.1      2018-03-29 [1] CRAN (R 4.0.0)                  
+##  topicmodels  * 0.2-11     2020-04-19 [1] CRAN (R 4.0.0)                  
+##  tweenr         1.0.1      2018-12-14 [1] CRAN (R 4.0.0)                  
+##  usethis        1.6.1      2020-04-29 [1] CRAN (R 4.0.0)                  
+##  utf8           1.1.4      2018-05-24 [1] CRAN (R 4.0.0)                  
+##  vctrs          0.3.2      2020-07-15 [1] CRAN (R 4.0.2)                  
+##  viridis      * 0.5.1      2018-03-29 [1] CRAN (R 4.0.0)                  
+##  viridisLite  * 0.3.0      2018-02-01 [1] CRAN (R 4.0.0)                  
+##  webshot      * 0.5.2      2019-11-22 [1] CRAN (R 4.0.0)                  
+##  withr          2.2.0      2020-04-20 [1] CRAN (R 4.0.0)                  
+##  wordcloud    * 2.6        2018-08-24 [1] CRAN (R 4.0.0)                  
+##  xfun           0.16       2020-07-24 [1] CRAN (R 4.0.2)                  
+##  xml2         * 1.3.2      2020-04-23 [1] CRAN (R 4.0.0)                  
+##  yaml           2.2.1      2020-02-01 [1] CRAN (R 4.0.0)                  
 ## 
-## locale:
-## [1] LC_COLLATE=English_Australia.1252  LC_CTYPE=English_Australia.1252   
-## [3] LC_MONETARY=English_Australia.1252 LC_NUMERIC=C                      
-## [5] LC_TIME=English_Australia.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-##  [1] fs_1.3.1           here_0.1           knitr_1.23        
-##  [4] magick_2.0         webshot_0.5.1      viridis_0.5.1     
-##  [7] viridisLite_0.3.0  wordcloud_2.6      RColorBrewer_1.1-2
-## [10] ggraph_1.0.2       ggrepel_0.8.1      ggplot2_3.2.0     
-## [13] topicmodels_0.2-8  tidytext_0.2.1     igraph_1.2.4.1    
-## [16] stringr_1.4.0      purrr_0.3.2        forcats_0.4.0     
-## [19] lubridate_1.7.4    tidyr_0.8.3        dplyr_0.8.3       
-## [22] rtweet_0.6.9      
-## 
-## loaded via a namespace (and not attached):
-##  [1] httr_1.4.0        jsonlite_1.6      assertthat_0.2.1 
-##  [4] askpass_1.1       highr_0.8         stats4_3.6.0     
-##  [7] yaml_2.2.0        slam_0.1-45       pillar_1.4.2     
-## [10] backports_1.1.4   lattice_0.20-38   glue_1.3.1       
-## [13] digest_0.6.20     polyclip_1.10-0   colorspace_1.4-1 
-## [16] htmltools_0.3.6   Matrix_1.2-17     plyr_1.8.4       
-## [19] tm_0.7-6          pkgconfig_2.0.2   scales_1.0.0     
-## [22] processx_3.3.1    tweenr_1.0.1      ggforce_0.2.2    
-## [25] tibble_2.1.3      openssl_1.4       generics_0.0.2   
-## [28] farver_1.1.0      withr_2.1.2       lazyeval_0.2.2   
-## [31] cli_1.1.0         NLP_0.2-0         magrittr_1.5     
-## [34] crayon_1.3.4      evaluate_0.14     ps_1.3.0         
-## [37] tokenizers_0.2.1  janeaustenr_0.1.5 fansi_0.4.0      
-## [40] SnowballC_0.6.0   MASS_7.3-51.4     xml2_1.2.0       
-## [43] tools_3.6.0       munsell_0.5.0     callr_3.2.0      
-## [46] compiler_3.6.0    rlang_0.4.0       grid_3.6.0       
-## [49] labeling_0.3      rmarkdown_1.13    gtable_0.3.0     
-## [52] curl_3.3          reshape2_1.4.3    R6_2.4.0         
-## [55] gridExtra_2.3     zeallot_0.1.0     utf8_1.1.4       
-## [58] rprojroot_1.3-2   modeltools_0.2-22 stringi_1.4.3    
-## [61] parallel_3.6.0    Rcpp_1.0.1        vctrs_0.1.0      
-## [64] tidyselect_0.2.5  xfun_0.8</code></pre>
+## [1] /Library/Frameworks/R.framework/Versions/4.0/Resources/library</code></pre>
+</div>
 </div>
 
 
@@ -2129,6 +2172,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
