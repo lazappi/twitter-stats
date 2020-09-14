@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>gi2020</title>
+
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">gi2020</h1>
+<h3 class="subtitle">Genome Informatics Conference 2020</h3>
+<h4 class="date">Last built: 2020-09-14 15:10:28</h4>
+
+</div>
+
+
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#gi2020</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2020-09-14</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2020-09-16</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Europe/London</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#e75152</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#F3A8A8</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Introduction</h1>
+<p>An analysis of tweets for the query #gi2020 related to <a href="https://coursesandconferences.wellcomegenomecampus.org/our-events/genome-informatics-2020/" title="Genome Informatics 2020 website">Genome Informatics Conference 2020</a> from 2020-09-14 to 2020-09-16 (online due to the COVID-19 pandemic).</p>
+<p>A total of 96 tweets from 64 users were collected using the <strong>{rtweet}</strong> R package.</p>
+<!-- This chunk adds the template analysis -->
+</div>
+<div id="timeline" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Tweets by day</h2>
+<p><img src="figures/gi2020/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2020-09-14 - 2020-09-16 in the Europe/London timezone.</p>
+<p><img src="figures/gi2020/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills" number="2.1"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
+<p><img src="figures/gi2020/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
+<p><img src="figures/gi2020/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
+<p><img src="figures/gi2020/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Retweet proportion</h2>
+<p><img src="figures/gi2020/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
+<p><img src="figures/gi2020/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills" number="2.4"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
+<div id="day-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/gi2020/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/gi2020/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/gi2020/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/gi2020/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/gi2020/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/gi2020/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/gi2020/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/gi2020/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/gi2020/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills" number="3"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Users</h2>
+<p><img src="figures/gi2020/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Tweets</h2>
+<p><img src="figures/gi2020/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+</div>
+<div id="mentions" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/gi2020/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills" number="5.1"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/gi2020/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/gi2020/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today! We’re celebrating 20 years of Genome Informatics this week with over 350 participants from 42 countries.</p>
+<p>Please use the hashtag #GI2020 when discussing highlights from the meeting.</p>
+Here’s a throwback of our 2001 #GenomeInformatics abstract book👇 <a href="https://t.co/NL9YQiwZ5n" class="uri">https://t.co/NL9YQiwZ5n</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today. This is our 20th Genome Informatics meeting.</p>
+<p>What were you doing in 2001?</p>
+I was working on my PhD in astrophysics on the central structure of quasars. I’m pretty sure I had no real concept of the genome 🤓
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+The full Genome Informatics 2020 programme is now up, looking like a very tasty agenda indeed. About to do our technical rehearsal which I assume means loading up Zoom. #gi2020 <a href="https://t.co/yAzofXKTCH" class="uri">https://t.co/yAzofXKTCH</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>🚨FINAL CALL! Register for #GI2020 now: <a href="https://t.co/TvNUnkHKKZ" class="uri">https://t.co/TvNUnkHKKZ</a></p>
+<p>Bringing researchers together to: ✅Discuss recent advances ✅Focus on approaches incl. variant-calling, #transcriptomic analysis &amp;amp; variant interpretation ✅Network online</p>
+📄 AGENDA: <a href="https://t.co/MMmmGEeDeM" class="uri">https://t.co/MMmmGEeDeM</a> <a href="https://t.co/8Ho3nH6Hj2" class="uri">https://t.co/8Ho3nH6Hj2</a>
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+Excited to present my work today at Genome Informatics #GI2020 -tune in for some single-cell isoform fun! Great line up of speakers at the transcriptomics session this afternoon 👇🏼 <a href="https://t.co/EyD72r7RbD" class="uri">https://t.co/EyD72r7RbD</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JonathanGoeke
+</td>
+<td style="text-align:left;">
+There is a whole world of RNA modifications to be explored <span class="citation">@ewanbirney</span> at #GI2020. Have a look at the poster by Christopher Hendra on m6aNet to predict RNA modifications from a single sample of direct RNA-Seq, code here: <a href="https://t.co/Yuj12paUh7" class="uri">https://t.co/Yuj12paUh7</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 #TAMAtools For anyone interested I have a poster for today’s session “P56 - Identifying novel genes in the human genome using TAMA long read RNA sequencing analysis”. It’s a bit short but I’ll be available for any TAMA questions during the poster session.
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 Genome Informatics starts today! Starting it right with transcriptomics. Looking forward to <span class="citation">@aarzalluz_</span> <span class="citation">@anaconesa</span> talk on neural single cell isoform expression! <a href="https://t.co/L0MUH2iXL6" class="uri">https://t.co/L0MUH2iXL6</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+<p>Smita Krishnaswamy talking about PHATE (<a href="https://t.co/mBPn2GNjBs" class="uri">https://t.co/mBPn2GNjBs</a>), applied to COVID-19 data</p>
+Incidentally, <span class="citation">@FerranC96</span> presented the PHATE mss at our BLIC journal club last week. #GI2020
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Check out poster 26 from my group in session 1 at #GI2020. You wont be disappointed
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/gi2020/most-retweeted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills" number="5.2"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/gi2020/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/gi2020/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today. This is our 20th Genome Informatics meeting.</p>
+<p>What were you doing in 2001?</p>
+I was working on my PhD in astrophysics on the central structure of quasars. I’m pretty sure I had no real concept of the genome 🤓
+</td>
+<td style="text-align:right;">
+115
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+The full Genome Informatics 2020 programme is now up, looking like a very tasty agenda indeed. About to do our technical rehearsal which I assume means loading up Zoom. #gi2020 <a href="https://t.co/yAzofXKTCH" class="uri">https://t.co/yAzofXKTCH</a>
+</td>
+<td style="text-align:right;">
+38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today! We’re celebrating 20 years of Genome Informatics this week with over 350 participants from 42 countries.</p>
+<p>Please use the hashtag #GI2020 when discussing highlights from the meeting.</p>
+Here’s a throwback of our 2001 #GenomeInformatics abstract book👇 <a href="https://t.co/NL9YQiwZ5n" class="uri">https://t.co/NL9YQiwZ5n</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lachlanjmc
+</td>
+<td style="text-align:left;">
+Starting to get excited about my first genome informatics conference since 2004! #GI2020
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+Conference chairing, post-COVID edition! Listening to <span class="citation">@ewanbirney</span> keynote defining genome informatics. Sadly missed the photo of his early century crew cut. #GI2020 <a href="https://t.co/ZXyeDjpx9q" class="uri">https://t.co/ZXyeDjpx9q</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+Excited to present my work today at Genome Informatics #GI2020 -tune in for some single-cell isoform fun! Great line up of speakers at the transcriptomics session this afternoon 👇🏼 <a href="https://t.co/EyD72r7RbD" class="uri">https://t.co/EyD72r7RbD</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JonathanGoeke
+</td>
+<td style="text-align:left;">
+There is a whole world of RNA modifications to be explored <span class="citation">@ewanbirney</span> at #GI2020. Have a look at the poster by Christopher Hendra on m6aNet to predict RNA modifications from a single sample of direct RNA-Seq, code here: <a href="https://t.co/Yuj12paUh7" class="uri">https://t.co/Yuj12paUh7</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+I was 7 years old, had not even started to learn English and was nowhere near knowing what DNA was 🙈 Kind of amazing to think that today I’ll be presenting at #GI2020, first Genome Informatics meeting for me (hopefully, with many more to come). <a href="https://t.co/vD2i4cLli3" class="uri">https://t.co/vD2i4cLli3</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>🚨FINAL CALL! Register for #GI2020 now: <a href="https://t.co/TvNUnkHKKZ" class="uri">https://t.co/TvNUnkHKKZ</a></p>
+<p>Bringing researchers together to: ✅Discuss recent advances ✅Focus on approaches incl. variant-calling, #transcriptomic analysis &amp;amp; variant interpretation ✅Network online</p>
+📄 AGENDA: <a href="https://t.co/MMmmGEeDeM" class="uri">https://t.co/MMmmGEeDeM</a> <a href="https://t.co/8Ho3nH6Hj2" class="uri">https://t.co/8Ho3nH6Hj2</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Wonderful to have <span class="citation">@ewanbirney</span> kicking off #GI2020 with an historical perspective of Genome Informatics
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/gi2020/most-favorited-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills" number="5.3"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/gi2020/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/gi2020/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+I was 7 years old, had not even started to learn English and was nowhere near knowing what DNA was 🙈 Kind of amazing to think that today I’ll be presenting at #GI2020, first Genome Informatics meeting for me (hopefully, with many more to come). <a href="https://t.co/vD2i4cLli3" class="uri">https://t.co/vD2i4cLli3</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoanaFFPViana
+</td>
+<td style="text-align:left;">
+<p>In a more positive tweet, I’m really looking forward to #GI2020. The programme looks so good!</p>
+PS: I was 12 in 2001 😬 <a href="https://t.co/MR2F4w6d3o" class="uri">https://t.co/MR2F4w6d3o</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+minouye271
+</td>
+<td style="text-align:left;">
+Be sure to check out Youwen (Owen) Qin’s talk at #GI2020 Wed (16th) at 130pm UK. The preprint’s just gone up! 👇 <a href="https://t.co/JzvaYuLSBP" class="uri">https://t.co/JzvaYuLSBP</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MScBioinformat
+</td>
+<td style="text-align:left;">
+#GI2020 - a very useful hashtag to watch for the next 4 days #genome #informatics #bioinformatics . Thanks <span class="citation">@GeneFiddler</span> ! <a href="https://t.co/VZl0Q8Gnsz" class="uri">https://t.co/VZl0Q8Gnsz</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/gi2020/most-quoted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills" number="6"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
+<p><img src="figures/gi2020/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today! We’re celebrating 20 years of Genome Informatics this week with over 350 participants from 42 countries.</p>
+<p>Please use the hashtag #GI2020 when discussing highlights from the meeting.</p>
+Here’s a throwback of our 2001 #GenomeInformatics abstract book👇 <a href="https://t.co/NL9YQiwZ5n" class="uri">https://t.co/NL9YQiwZ5n</a>
+</td>
+<td style="text-align:right;">
+36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+Conference chairing, post-COVID edition! Listening to <span class="citation">@ewanbirney</span> keynote defining genome informatics. Sadly missed the photo of his early century crew cut. #GI2020 <a href="https://t.co/ZXyeDjpx9q" class="uri">https://t.co/ZXyeDjpx9q</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+Excited to present my work today at Genome Informatics #GI2020 -tune in for some single-cell isoform fun! Great line up of speakers at the transcriptomics session this afternoon 👇🏼 <a href="https://t.co/EyD72r7RbD" class="uri">https://t.co/EyD72r7RbD</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>🚨FINAL CALL! Register for #GI2020 now: <a href="https://t.co/TvNUnkHKKZ" class="uri">https://t.co/TvNUnkHKKZ</a></p>
+<p>Bringing researchers together to: ✅Discuss recent advances ✅Focus on approaches incl. variant-calling, #transcriptomic analysis &amp;amp; variant interpretation ✅Network online</p>
+📄 AGENDA: <a href="https://t.co/MMmmGEeDeM" class="uri">https://t.co/MMmmGEeDeM</a> <a href="https://t.co/8Ho3nH6Hj2" class="uri">https://t.co/8Ho3nH6Hj2</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 Genome Informatics starts today! Starting it right with transcriptomics. Looking forward to <span class="citation">@aarzalluz_</span> <span class="citation">@anaconesa</span> talk on neural single cell isoform expression! <a href="https://t.co/L0MUH2iXL6" class="uri">https://t.co/L0MUH2iXL6</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/Eh3eRaTWkAAVg9Z.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/gi2020/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hashtags" class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/gi2020/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/gi2020/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2 number="7.4"><span class="header-section-number">7.4</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/gi2020/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2 number="7.5"><span class="header-section-number">7.5</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/gi2020/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade" number="7.5.1"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>🚨FINAL CALL! Register for #GI2020 now: <a href="https://t.co/TvNUnkHKKZ" class="uri">https://t.co/TvNUnkHKKZ</a></p>
+<p>Bringing researchers together to: ✅Discuss recent advances ✅Focus on approaches incl. variant-calling, #transcriptomic analysis &amp;amp; variant interpretation ✅Network online</p>
+📄 AGENDA: <a href="https://t.co/MMmmGEeDeM" class="uri">https://t.co/MMmmGEeDeM</a> <a href="https://t.co/8Ho3nH6Hj2" class="uri">https://t.co/8Ho3nH6Hj2</a>
+</td>
+<td style="text-align:right;">
+0.9977289
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JonathanGoeke
+</td>
+<td style="text-align:left;">
+There is a whole world of RNA modifications to be explored <span class="citation">@ewanbirney</span> at #GI2020. Have a look at the poster by Christopher Hendra on m6aNet to predict RNA modifications from a single sample of direct RNA-Seq, code here: <a href="https://t.co/Yuj12paUh7" class="uri">https://t.co/Yuj12paUh7</a>
+</td>
+<td style="text-align:right;">
+0.9971002
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+<p>Attending my first virtual meeting today. #GI2020 started with <span class="citation">@ewanbirney</span>’s keynote address.</p>
+Finding weird not to clap at the end of the talk… (would find even weirder to clap while seating alone at my dinning table)
+</td>
+<td style="text-align:right;">
+0.9967391
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JavierHerrero7
+</td>
+<td style="text-align:left;">
+<p>Smita Krishnaswamy talking about PHATE (<a href="https://t.co/mBPn2GNjBs" class="uri">https://t.co/mBPn2GNjBs</a>), applied to COVID-19 data</p>
+Incidentally, <span class="citation">@FerranC96</span> presented the PHATE mss at our BLIC journal club last week. #GI2020
+</td>
+<td style="text-align:right;">
+0.9965226
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today. This is our 20th Genome Informatics meeting.</p>
+<p>What were you doing in 2001?</p>
+I was working on my PhD in astrophysics on the central structure of quasars. I’m pretty sure I had no real concept of the genome 🤓
+</td>
+<td style="text-align:right;">
+0.9965226
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MetaMoritz
+</td>
+<td style="text-align:left;">
+Hanging-out awkwardly at conference coffee break where you know no one has become way less awkward at an online event! I am curious how this will work #GI2020 #geeksinthereelement #covidlife
+</td>
+<td style="text-align:right;">
+0.9952653
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MScBioinformat
+</td>
+<td style="text-align:left;">
+#GI2020 - a very useful hashtag to watch for the next 4 days #genome #informatics #bioinformatics . Thanks <span class="citation">@GeneFiddler</span> ! <a href="https://t.co/VZl0Q8Gnsz" class="uri">https://t.co/VZl0Q8Gnsz</a>
+</td>
+<td style="text-align:right;">
+0.9925839
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+danilotat
+</td>
+<td style="text-align:left;">
+<span class="citation">@AliciaOshlack</span> Probably first days at school, I was 6 years old.. 😅 Now attending #GI2020 , my first GI (thanks to online sessions)
+</td>
+<td style="text-align:right;">
+0.9913607
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+Conference chairing, post-COVID edition! Listening to <span class="citation">@ewanbirney</span> keynote defining genome informatics. Sadly missed the photo of his early century crew cut. #GI2020 <a href="https://t.co/ZXyeDjpx9q" class="uri">https://t.co/ZXyeDjpx9q</a>
+</td>
+<td style="text-align:right;">
+0.9969302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 Genome Informatics starts today! Starting it right with transcriptomics. Looking forward to <span class="citation">@aarzalluz_</span> <span class="citation">@anaconesa</span> talk on neural single cell isoform expression! <a href="https://t.co/L0MUH2iXL6" class="uri">https://t.co/L0MUH2iXL6</a>
+</td>
+<td style="text-align:right;">
+0.9962754
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+pathogenomenick
+</td>
+<td style="text-align:left;">
+The full Genome Informatics 2020 programme is now up, looking like a very tasty agenda indeed. About to do our technical rehearsal which I assume means loading up Zoom. #gi2020 <a href="https://t.co/yAzofXKTCH" class="uri">https://t.co/yAzofXKTCH</a>
+</td>
+<td style="text-align:right;">
+0.9956578
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MetaMoritz
+</td>
+<td style="text-align:left;">
+I know python, I know R. I do identify to this definition of #datasciences from <span class="citation">@ewanbirney</span> keynote at #GI2020 !
+</td>
+<td style="text-align:right;">
+0.9896543
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MetaMoritz
+</td>
+<td style="text-align:left;">
+I really appreciate <span class="citation">@ewanbirney</span> ’s message of openness in his keynote at #GI2020!
+</td>
+<td style="text-align:right;">
+0.9828986
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ACSCevents
+</td>
+<td style="text-align:left;">
+<p>#GI2020 starts today! We’re celebrating 20 years of Genome Informatics this week with over 350 participants from 42 countries.</p>
+<p>Please use the hashtag #GI2020 when discussing highlights from the meeting.</p>
+Here’s a throwback of our 2001 #GenomeInformatics abstract book👇 <a href="https://t.co/NL9YQiwZ5n" class="uri">https://t.co/NL9YQiwZ5n</a>
+</td>
+<td style="text-align:right;">
+0.9969302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lal_avantika
+</td>
+<td style="text-align:left;">
+Excellent start to #GI2020 with <span class="citation">@ewanbirney</span>’s keynote followed by Smita Krishnaswamy. Now listening to my own recorded talk being played and feeling incredibly weird. Anyone else know this feeling? #VirtualConference
+</td>
+<td style="text-align:right;">
+0.9965226
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gerlach_d
+</td>
+<td style="text-align:left;">
+The virtual 20th Genome Informatics meeting #GI2020 will start in a few hours - the program can be found here <a href="https://t.co/4kH0IPjWzz" class="uri">https://t.co/4kH0IPjWzz</a>
+</td>
+<td style="text-align:right;">
+0.9947948
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 <span class="citation">@krsahlin</span> What are your thoughts on NanoSplicer? Is this similar in use case as Ultra? Genome Informatics poster P127 - Accurate identification of mRNA splice sites using Oxford Nanopore sequencing
+</td>
+<td style="text-align:right;">
+0.9967391
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+Excited to present my work today at Genome Informatics #GI2020 -tune in for some single-cell isoform fun! Great line up of speakers at the transcriptomics session this afternoon 👇🏼 <a href="https://t.co/EyD72r7RbD" class="uri">https://t.co/EyD72r7RbD</a>
+</td>
+<td style="text-align:right;">
+0.9962754
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+GeneFiddler
+</td>
+<td style="text-align:left;">
+<p>So #GI2020 (Genome Informatics 2020) is about to kick off with the mighty <span class="citation">@ewanbirney</span></p>
+Strap in, hold tight and enjoy the ride!
+</td>
+<td style="text-align:right;">
+0.9942205
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+theresa_wacker
+</td>
+<td style="text-align:left;">
+Excited to attend the Genome Informatics Conference today and present my poster tomorrow! #Gi2020
+</td>
+<td style="text-align:right;">
+0.9925839
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Wonderful to have <span class="citation">@ewanbirney</span> kicking off #GI2020 with an historical perspective of Genome Informatics
+</td>
+<td style="text-align:right;">
+0.9913607
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lachlanjmc
+</td>
+<td style="text-align:left;">
+Starting to get excited about my first genome informatics conference since 2004! #GI2020
+</td>
+<td style="text-align:right;">
+0.9896543
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+GenomeRIK
+</td>
+<td style="text-align:left;">
+#GI2020 #TAMAtools For anyone interested I have a poster for today’s session “P56 - Identifying novel genes in the human genome using TAMA long read RNA sequencing analysis”. It’s a bit short but I’ll be available for any TAMA questions during the poster session.
+</td>
+<td style="text-align:right;">
+0.9973893
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+minouye271
+</td>
+<td style="text-align:left;">
+Be sure to check out Youwen (Owen) Qin’s talk at #GI2020 Wed (16th) at 130pm UK. The preprint’s just gone up! 👇 <a href="https://t.co/JzvaYuLSBP" class="uri">https://t.co/JzvaYuLSBP</a>
+</td>
+<td style="text-align:right;">
+0.9952653
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aarzalluz_
+</td>
+<td style="text-align:left;">
+I was 7 years old, had not even started to learn English and was nowhere near knowing what DNA was 🙈 Kind of amazing to think that today I’ll be presenting at #GI2020, first Genome Informatics meeting for me (hopefully, with many more to come). <a href="https://t.co/vD2i4cLli3" class="uri">https://t.co/vD2i4cLli3</a>
+</td>
+<td style="text-align:right;">
+0.9947948
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JoanaFFPViana
+</td>
+<td style="text-align:left;">
+<p>In a more positive tweet, I’m really looking forward to #GI2020. The programme looks so good!</p>
+PS: I was 12 in 2001 😬 <a href="https://t.co/MR2F4w6d3o" class="uri">https://t.co/MR2F4w6d3o</a>
+</td>
+<td style="text-align:right;">
+0.9913607
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Check out poster 26 from my group in session 1 at #GI2020. You wont be disappointed
+</td>
+<td style="text-align:right;">
+0.9896543
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="links" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="right">Tweets</th>
+<th align="right">Retweets</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">m6anet</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">GitHub</td>
+<td align="left"><a href="https://github.com/goekelab/m6anet">goekelab/m6anet</a></td>
+</tr>
+</tbody>
+</table>
+<!-- Any additional analysis can go here -->
+</div>
+<div id="session-info" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.6
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.5.0           here_0.1           kableExtra_1.2.1   knitr_1.29        
+##  [5] magick_2.4.0       webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0 
+##  [9] wordcloud_2.6      RColorBrewer_1.1-2 ggtext_0.1.0       ggraph_2.0.3      
+## [13] ggrepel_0.8.2      ggplot2_3.3.2      emo_0.0.0.9000     rvest_0.3.6       
+## [17] xml2_1.3.2         topicmodels_0.2-11 tidytext_0.2.5     igraph_1.2.5      
+## [21] stringr_1.4.0      purrr_0.3.4        forcats_0.5.0      lubridate_1.7.9   
+## [25] tidyr_1.1.1        dplyr_1.0.1        rtweet_0.7.0       clamour_0.1.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bitops_1.0-6       usethis_1.6.1      progress_1.2.2     httr_1.4.2        
+##  [5] rprojroot_1.3-2    SnowballC_0.7.0    tools_4.0.0        backports_1.1.8   
+##  [9] utf8_1.1.4         R6_2.4.1           colorspace_1.4-1   withr_2.2.0       
+## [13] tidyselect_1.1.0   gridExtra_2.3      prettyunits_1.1.1  processx_3.4.3    
+## [17] curl_4.3           compiler_4.0.0     cli_2.0.2          NLP_0.2-0         
+## [21] labeling_0.3       slam_0.1-47        scales_1.1.1       tm_0.7-7          
+## [25] callr_3.4.3        askpass_1.1        digest_0.6.25      rmarkdown_2.3     
+## [29] pkgconfig_2.0.3    htmltools_0.5.0    highr_0.8          rlang_0.4.7       
+## [33] rstudioapi_0.11    farver_2.0.3       generics_0.0.2     jsonlite_1.7.0    
+## [37] tokenizers_0.2.1   RCurl_1.98-1.2     magrittr_1.5       modeltools_0.2-23 
+## [41] Matrix_1.2-18      Rcpp_1.0.5         munsell_0.5.0      fansi_0.4.1       
+## [45] lifecycle_0.2.0    stringi_1.4.6      yaml_2.2.1         MASS_7.3-51.6     
+## [49] plyr_1.8.6         grid_4.0.0         parallel_4.0.0     crayon_1.3.4      
+## [53] lattice_0.20-41    graphlayouts_0.7.0 gridtext_0.1.1     hms_0.5.3         
+## [57] ps_1.3.3           pillar_1.4.6       markdown_1.1       reshape2_1.4.4    
+## [61] stats4_4.0.0       glue_1.4.1         evaluate_0.14      vctrs_0.3.2       
+## [65] png_0.1-7          tweenr_1.0.1       selectr_0.4-2      gtable_0.3.0      
+## [69] openssl_1.4.2      polyclip_1.10-0    assertthat_0.2.1   xfun_0.16         
+## [73] ggforce_0.3.2      tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.0.3      
+## [77] ellipsis_0.3.1</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
