@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>COMBINE20</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">COMBINE20</h1>
+<h3 class="subtitle">An analysis of #COMBINE20</h3>
+<h4 class="date">Last built: 2020-11-23 08:50:29</h4>
+
+</div>
+
+
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#COMBINE20</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2020-11-23</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2020-11-23</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#4a86e7</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#A4C2F3</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Introduction</h1>
+<p>An analysis of tweets for the query #COMBINE20 related to the COMBINE Student Symposium held virtually from 2020-11-23 to 2020-11-23. A total of 128 tweets from 40 users were collected using the <strong>{rtweet}</strong> R package.</p>
+<!-- This chunk adds the template analysis -->
+</div>
+<div id="timeline" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Tweets by day</h2>
+<p><img src="figures/COMBINE20/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2020-11-23 - 2020-11-23 in the Australia/Sydney timezone.</p>
+<p><img src="figures/COMBINE20/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills" number="2.1"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
+<p><img src="figures/COMBINE20/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
+<p><img src="figures/COMBINE20/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
+<p><img src="figures/COMBINE20/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Retweet proportion</h2>
+<p><img src="figures/COMBINE20/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
+<p><img src="figures/COMBINE20/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills" number="2.4"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
+<div id="day-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/COMBINE20/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/COMBINE20/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/COMBINE20/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills" number="3"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Users</h2>
+<p><img src="figures/COMBINE20/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Tweets</h2>
+<p><img src="figures/COMBINE20/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/COMBINE20/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/COMBINE20/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills" number="5.1"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/COMBINE20/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/COMBINE20/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+Keep an eye out for very exciting #COMBINE20 bioinformatics and computational biology careers panel at 5pm AEDT today! #phdchat #bioinformatics #compbio <a href="https://t.co/LjBhvrJvhp" class="uri">https://t.co/LjBhvrJvhp</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Symposium 2020 committee on one of our last meetings before the big day. Thanks for all the work! Join us next Monday 23rd Nov <a href="https://t.co/PQZGPgrfiW" class="uri">https://t.co/PQZGPgrfiW</a> #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/ANAVPaolqH" class="uri">https://t.co/ANAVPaolqH</a>
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Careers panel is going to start soon. You can already start to ask questions on zoom #COMBINE20 <a href="https://t.co/D9O7YfUx0I" class="uri">https://t.co/D9O7YfUx0I</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Getting started from the Canberra satellite event. Can’t be more excited! <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/qmNolba9Nr" class="uri">https://t.co/qmNolba9Nr</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sasglogan
+</td>
+<td style="text-align:left;">
+Great talk by Joel Robertson at COMBINE2020! #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/tefdDmuLSG" class="uri">https://t.co/tefdDmuLSG</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Very much looking forward to this <span class="citation">@combine_au</span> panel at 5pm today with <span class="citation">@JenniferC_Boer</span> (<span class="citation">@RMITBioinfo</span>) <span class="citation">@SaraBallouz</span> (<span class="citation">@GarvanInstitute</span>) and <span class="citation">@methylnick</span> (<span class="citation">@MonashBioinfo</span>) 🤩 #COMBINE20 <a href="https://t.co/GiiUDA8i4C" class="uri">https://t.co/GiiUDA8i4C</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+Very excited to chair the next session of #COMBINE20! What a fabulous line-up for our genomics session 🧬 <a href="https://t.co/pG0CyqiUhw" class="uri">https://t.co/pG0CyqiUhw</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@renzobalb</span> presenting his work on Alu Repeat Diversity in the Human Genome from Canberra satellite. It is amazing to have that hybrid virtual &amp;amp; on site symposium. #COMBINE20 <span class="citation">@combine_au</span> <a href="https://t.co/xmbsctLbmD" class="uri">https://t.co/xmbsctLbmD</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+Post lunch, session 2, talk by <span class="citation">@tarun_bonu</span> <span class="citation">@combine_au</span> #combine20 <a href="https://t.co/5rzkh7ZAKm" class="uri">https://t.co/5rzkh7ZAKm</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Flashtalks time <span class="citation">@combine_au</span> #COMBINE20 with <span class="citation">@fredjaya1</span> discussing his research on sequence diversity and recombination, neat! <a href="https://t.co/3n5e4L8IcG" class="uri">https://t.co/3n5e4L8IcG</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/COMBINE20/most-retweeted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills" number="5.2"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/COMBINE20/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/COMBINE20/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+Very excited to chair the next session of #COMBINE20! What a fabulous line-up for our genomics session 🧬 <a href="https://t.co/pG0CyqiUhw" class="uri">https://t.co/pG0CyqiUhw</a>
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Symposium 2020 committee on one of our last meetings before the big day. Thanks for all the work! Join us next Monday 23rd Nov <a href="https://t.co/PQZGPgrfiW" class="uri">https://t.co/PQZGPgrfiW</a> #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/ANAVPaolqH" class="uri">https://t.co/ANAVPaolqH</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Getting started from the Canberra satellite event. Can’t be more excited! <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/qmNolba9Nr" class="uri">https://t.co/qmNolba9Nr</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+Keep an eye out for very exciting #COMBINE20 bioinformatics and computational biology careers panel at 5pm AEDT today! #phdchat #bioinformatics #compbio <a href="https://t.co/LjBhvrJvhp" class="uri">https://t.co/LjBhvrJvhp</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Very much looking forward to this <span class="citation">@combine_au</span> panel at 5pm today with <span class="citation">@JenniferC_Boer</span> (<span class="citation">@RMITBioinfo</span>) <span class="citation">@SaraBallouz</span> (<span class="citation">@GarvanInstitute</span>) and <span class="citation">@methylnick</span> (<span class="citation">@MonashBioinfo</span>) 🤩 #COMBINE20 <a href="https://t.co/GiiUDA8i4C" class="uri">https://t.co/GiiUDA8i4C</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+An interesting showcase of results from <span class="citation">@baerlachlan</span> on the effects of incomplete ribosomal RNA removal from RNA-seq data and importantly, what can be done to address this issue <span class="citation">@forgetfulfishy</span> #COMBINE20 <span class="citation">@combine_au</span> #Bioinformatics <a href="https://t.co/bsg6annWwq" class="uri">https://t.co/bsg6annWwq</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Careers panel is going to start soon. You can already start to ask questions on zoom #COMBINE20 <a href="https://t.co/D9O7YfUx0I" class="uri">https://t.co/D9O7YfUx0I</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Woohoo! #COMBINE20 is online, with <span class="citation">@AceJustinCase</span> on DGE during gestation <a href="https://t.co/1ou750s4nt" class="uri">https://t.co/1ou750s4nt</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Combine2020 virtual conference kicking off with transcripts, artificial neural networks, and plants! Congrats to the committee for putting together such an interesting and diverse program 🧬 #COMBINE20 <span class="citation">@combine_au</span>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+Post lunch, session 2, talk by <span class="citation">@tarun_bonu</span> <span class="citation">@combine_au</span> #combine20 <a href="https://t.co/5rzkh7ZAKm" class="uri">https://t.co/5rzkh7ZAKm</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/COMBINE20/most-favorited-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills" number="5.3"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/COMBINE20/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/COMBINE20/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Don’t miss <span class="citation">@combine_au</span> symposium Careers Panel starting at 5pm. #COMBINE20 <a href="https://t.co/vJcCsW0cHC" class="uri">https://t.co/vJcCsW0cHC</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<p>49 participants and counting #COMBINE20 #bioinformatics <span class="citation">@zoom_us</span></p>
+<p>Looking forward to the conversations with both academic and industry colleagues.</p>
+#EMCRChat #STEM <a href="https://t.co/jG1Py5jk9P" class="uri">https://t.co/jG1Py5jk9P</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Very much looking forward to this <span class="citation">@combine_au</span> panel at 5pm today with <span class="citation">@JenniferC_Boer</span> (<span class="citation">@RMITBioinfo</span>) <span class="citation">@SaraBallouz</span> (<span class="citation">@GarvanInstitute</span>) and <span class="citation">@methylnick</span> (<span class="citation">@MonashBioinfo</span>) 🤩 #COMBINE20 <a href="https://t.co/GiiUDA8i4C" class="uri">https://t.co/GiiUDA8i4C</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+baerlachlan
+</td>
+<td style="text-align:left;">
+Thanks Nhi! Was great to be given the opportunity by <span class="citation">@combine_au</span> to give a quick summary of my exploration so far. And cheers to <span class="citation">@StevePederson8</span> <span class="citation">@forgetfulfishy</span> <span class="citation">@NhiHin</span> <span class="citation">@kariisssaaa</span> and Morgan for their part in the research. Exciting week ahead! #COMBINE20 <a href="https://t.co/MqDjHWONs8" class="uri">https://t.co/MqDjHWONs8</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Bioinformatics in the industry, by the view of <span class="citation">@malhamdoosh</span></p>
+#COMBINE20 <a href="https://t.co/wM4UbfNJUz" class="uri">https://t.co/wM4UbfNJUz</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Career advice: Plan it in order to gain skills <span class="citation">@malhamdoosh</span> #COMBINE20 <a href="https://t.co/2PG8F9L0Ko" class="uri">https://t.co/2PG8F9L0Ko</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/COMBINE20/most-quoted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills" number="6"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
+<p><img src="figures/COMBINE20/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+Very excited to chair the next session of #COMBINE20! What a fabulous line-up for our genomics session 🧬 <a href="https://t.co/pG0CyqiUhw" class="uri">https://t.co/pG0CyqiUhw</a>
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Symposium 2020 committee on one of our last meetings before the big day. Thanks for all the work! Join us next Monday 23rd Nov <a href="https://t.co/PQZGPgrfiW" class="uri">https://t.co/PQZGPgrfiW</a> #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/ANAVPaolqH" class="uri">https://t.co/ANAVPaolqH</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Getting started from the Canberra satellite event. Can’t be more excited! <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/qmNolba9Nr" class="uri">https://t.co/qmNolba9Nr</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+Keep an eye out for very exciting #COMBINE20 bioinformatics and computational biology careers panel at 5pm AEDT today! #phdchat #bioinformatics #compbio <a href="https://t.co/LjBhvrJvhp" class="uri">https://t.co/LjBhvrJvhp</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+An interesting showcase of results from <span class="citation">@baerlachlan</span> on the effects of incomplete ribosomal RNA removal from RNA-seq data and importantly, what can be done to address this issue <span class="citation">@forgetfulfishy</span> #COMBINE20 <span class="citation">@combine_au</span> #Bioinformatics <a href="https://t.co/bsg6annWwq" class="uri">https://t.co/bsg6annWwq</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Careers panel is going to start soon. You can already start to ask questions on zoom #COMBINE20 <a href="https://t.co/D9O7YfUx0I" class="uri">https://t.co/D9O7YfUx0I</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Woohoo! #COMBINE20 is online, with <span class="citation">@AceJustinCase</span> on DGE during gestation <a href="https://t.co/1ou750s4nt" class="uri">https://t.co/1ou750s4nt</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+Post lunch, session 2, talk by <span class="citation">@tarun_bonu</span> <span class="citation">@combine_au</span> #combine20 <a href="https://t.co/5rzkh7ZAKm" class="uri">https://t.co/5rzkh7ZAKm</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+.@_tyronechen is presenting his data harmonisation approach to process #SARSCoV2 #multiomics data that he applied to identify #COVID19 drug targets. #COMBINE20 <span class="citation">@combine_au</span> <a href="https://t.co/Ydt8pCk83J" class="uri">https://t.co/Ydt8pCk83J</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Flashtalks time <span class="citation">@combine_au</span> #COMBINE20 with <span class="citation">@fredjaya1</span> discussing his research on sequence diversity and recombination, neat! <a href="https://t.co/3n5e4L8IcG" class="uri">https://t.co/3n5e4L8IcG</a>
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/EneOw-ZUUAI7Du3.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/COMBINE20/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hashtags" class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/COMBINE20/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/COMBINE20/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2 number="7.4"><span class="header-section-number">7.4</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/COMBINE20/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2 number="7.5"><span class="header-section-number">7.5</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/COMBINE20/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade" number="7.5.1"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+SeqComplete
+</td>
+<td style="text-align:left;">
+#bioinformatics #bioit <span class="citation">@_AJSethi</span>: ‘Keep an eye out for very exciting #COMBINE20 bioinformatics and computational biology careers panel at 5pm AEDT today! #phdchat #bioinformatics #compbio’ <a href="https://t.co/wFG7WUnLoD" class="uri">https://t.co/wFG7WUnLoD</a>, see more <a href="https://t.co/X2bD5F4Rqm" class="uri">https://t.co/X2bD5F4Rqm</a>
+</td>
+<td style="text-align:right;">
+0.9947348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+Keep an eye out for very exciting #COMBINE20 bioinformatics and computational biology careers panel at 5pm AEDT today! #phdchat #bioinformatics #compbio <a href="https://t.co/LjBhvrJvhp" class="uri">https://t.co/LjBhvrJvhp</a>
+</td>
+<td style="text-align:right;">
+0.9935292
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rnomics
+</td>
+<td style="text-align:left;">
+Top #tweeted story in #bioinformatics: <span class="citation">@PatSullivann</span>: ‘Very excited to chair the next session of #COMBINE20! What a fabulous line-up for our genomics session 🧬’ <a href="https://t.co/b8h5LoZBQk" class="uri">https://t.co/b8h5LoZBQk</a>, see more <a href="https://t.co/x4TiUjeQ4E" class="uri">https://t.co/x4TiUjeQ4E</a>
+</td>
+<td style="text-align:right;">
+0.9935292
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Symposium 2020 committee on one of our last meetings before the big day. Thanks for all the work! Join us next Monday 23rd Nov <a href="https://t.co/PQZGPgrfiW" class="uri">https://t.co/PQZGPgrfiW</a> #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/ANAVPaolqH" class="uri">https://t.co/ANAVPaolqH</a>
+</td>
+<td style="text-align:right;">
+0.9929945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Imposter syndrome, that is a hard one, but I would say to surround yourself with supportive colleagues and there are plenty at <span class="citation">@MonashBioinfo</span> #EMCRChat #combine20
+</td>
+<td style="text-align:right;">
+0.9906855
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+Very excited to chair the next session of #COMBINE20! What a fabulous line-up for our genomics session 🧬 <a href="https://t.co/pG0CyqiUhw" class="uri">https://t.co/pG0CyqiUhw</a>
+</td>
+<td style="text-align:right;">
+0.9895358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sasglogan
+</td>
+<td style="text-align:left;">
+How to combat imposter syndrome? “By being honest with what you don’t know”. Great answer! #COMBINE20 #Bioinformatics #phdlife #phdchat
+</td>
+<td style="text-align:right;">
+0.9895358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+rnomics
+</td>
+<td style="text-align:left;">
+Top #tweeted story in #bioinformatics: <span class="citation">@KandhariNitika</span>: ‘Post lunch, session 2, talk by <span class="citation">@tarun_bonu</span> <span class="citation">@combine_au</span> #combine20’ <a href="https://t.co/82lv7QsKOq" class="uri">https://t.co/82lv7QsKOq</a>, see more <a href="https://t.co/x4TiUjeQ4E" class="uri">https://t.co/x4TiUjeQ4E</a>
+</td>
+<td style="text-align:right;">
+0.5207789
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+An interesting showcase of results from <span class="citation">@baerlachlan</span> on the effects of incomplete ribosomal RNA removal from RNA-seq data and importantly, what can be done to address this issue <span class="citation">@forgetfulfishy</span> #COMBINE20 <span class="citation">@combine_au</span> #Bioinformatics <a href="https://t.co/bsg6annWwq" class="uri">https://t.co/bsg6annWwq</a>
+</td>
+<td style="text-align:right;">
+0.9947348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Combine2020 virtual conference kicking off with transcripts, artificial neural networks, and plants! Congrats to the committee for putting together such an interesting and diverse program 🧬 #COMBINE20 <span class="citation">@combine_au</span>
+</td>
+<td style="text-align:right;">
+0.9939881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+.@_tyronechen is presenting his data harmonisation approach to process #SARSCoV2 #multiomics data that he applied to identify #COVID19 drug targets. #COMBINE20 <span class="citation">@combine_au</span> <a href="https://t.co/Ydt8pCk83J" class="uri">https://t.co/Ydt8pCk83J</a>
+</td>
+<td style="text-align:right;">
+0.9935292
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Our second speaker from ANU presenting live for our audience and Zoom attendees. Awesome talk by Tim McInerney. #COMBINE20 <span class="citation">@combine_au</span> <a href="https://t.co/avRk8pHDBr" class="uri">https://t.co/avRk8pHDBr</a>
+</td>
+<td style="text-align:right;">
+0.9923635
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+<p>Earlier <span class="citation">@ryashpal89</span> presented his pipeline work to annotate #lncRNA <span class="citation">@combine_au</span> #COMBINE20</p>
+#tyagilab #transcriptomics #deeplearning #transcriptomics #ncRNA <a href="https://t.co/IxS2WJArpy" class="uri">https://t.co/IxS2WJArpy</a>
+</td>
+<td style="text-align:right;">
+0.9916076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+After all the effort, today has been the best reward we could get. It would have never been the same without <span class="citation">@Sasglogan</span> &amp;amp; <span class="citation">@TingtingGong1</span>. Thanks for making it happen 😃 <span class="citation">@combine_au</span> #COMBINE20
+</td>
+<td style="text-align:right;">
+0.9793311
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+If, why and how to move to the dark side aka Industry, overcoming imposter syndrome and much more.. Great discussions with the careers panel in Combine Symposium <span class="citation">@combine_au</span> #COMBINE20 <span class="citation">@methylnick</span> <span class="citation">@JenniferC_Boer</span> <span class="citation">@SaraBallouz</span> <span class="citation">@malhamdoosh</span> <span class="citation">@anastasiospapaioannou</span>
+</td>
+<td style="text-align:right;">
+0.6196827
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Dr Monther Alhamdoosh (CSL) on the importance of planning for post-PhD life as early as possible in order to gain the necessary skillsets, as well as importance of mentors in establishing your career <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/yLZin6Ls6a" class="uri">https://t.co/yLZin6Ls6a</a>
+</td>
+<td style="text-align:right;">
+0.9947348
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Moving to a different country: Career advice in order to be successful: Be persistence, and a have mental flexibility is very important. Also, the passion to learn something new and to not be afraid of it.</p>
+#COMBINE20
+</td>
+<td style="text-align:right;">
+0.9923635
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+.@JenniferC_Boer reiterating the importance of persistence and networking in academia to find jobs &amp;amp; research your passionate about working on <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/2U8dK0Fjja" class="uri">https://t.co/2U8dK0Fjja</a>
+</td>
+<td style="text-align:right;">
+0.9916076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Flashtalks time <span class="citation">@combine_au</span> #COMBINE20 with <span class="citation">@fredjaya1</span> discussing his research on sequence diversity and recombination, neat! <a href="https://t.co/3n5e4L8IcG" class="uri">https://t.co/3n5e4L8IcG</a>
+</td>
+<td style="text-align:right;">
+0.9906855
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Career advice: Plan it in order to gain skills <span class="citation">@malhamdoosh</span> #COMBINE20 <a href="https://t.co/2PG8F9L0Ko" class="uri">https://t.co/2PG8F9L0Ko</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+Post lunch, session 2, talk by <span class="citation">@tarun_bonu</span> <span class="citation">@combine_au</span> #combine20 <a href="https://t.co/5rzkh7ZAKm" class="uri">https://t.co/5rzkh7ZAKm</a>
+</td>
+<td style="text-align:right;">
+0.9861059
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Dr Anastasios Papaioannou (Intersect) explaining the value of the soft skills learnt during a PhD, such as the ability to be an active learner, as well as taking opportunities that don’t appear closely related to your area of interest <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/FqJySqPYy0" class="uri">https://t.co/FqJySqPYy0</a>
+</td>
+<td style="text-align:right;">
+0.9953166
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Anastasios Papioannou finishing off the panel chat <span class="citation">@combine_au</span> #careers talk, I am happy to go over time if need be. #COMBINE20 What a great line up. We all have a biology background, the BIO in #bioinformatics <span class="citation">@EMCRChat</span> #DataScience <a href="https://t.co/HL9HBIi3x3" class="uri">https://t.co/HL9HBIi3x3</a>
+</td>
+<td style="text-align:right;">
+0.9950427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+baerlachlan
+</td>
+<td style="text-align:left;">
+Thanks Nhi! Was great to be given the opportunity by <span class="citation">@combine_au</span> to give a quick summary of my exploration so far. And cheers to <span class="citation">@StevePederson8</span> <span class="citation">@forgetfulfishy</span> <span class="citation">@NhiHin</span> <span class="citation">@kariisssaaa</span> and Morgan for their part in the research. Exciting week ahead! #COMBINE20 <a href="https://t.co/MqDjHWONs8" class="uri">https://t.co/MqDjHWONs8</a>
+</td>
+<td style="text-align:right;">
+0.9943862
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+.@SaraBallouz being honest about the challenges on the way from PhD student to postdoc to group leader, with COVID being an extra challenge in 2020 <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/Hz38bAoRgO" class="uri">https://t.co/Hz38bAoRgO</a>
+</td>
+<td style="text-align:right;">
+0.9916076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@combine_au</span> Yes yes yes, the soft skills, need to have this. The PhD gives you active learning, but these are important! <span class="citation">@combine_au</span> #COMBINE20 #careers #EMCRChat <a href="https://t.co/5PxX4a9BQP" class="uri">https://t.co/5PxX4a9BQP</a>
+</td>
+<td style="text-align:right;">
+0.9895358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Challenges along the way pointed out by <span class="citation">@SaraBallouz</span> #COMBINE20 <a href="https://t.co/uqvPeSE7Rh" class="uri">https://t.co/uqvPeSE7Rh</a>
+</td>
+<td style="text-align:right;">
+0.9596627
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@SaraBallouz</span> next in the <span class="citation">@combine_au</span> #careers session about <span class="citation">@GarvanInstitute</span> where she leads a team in single cell research, computational. A common theme is the global nature of research. #ECRChat #stem #bioinformatics #COMBINE20 <a href="https://t.co/UU8UXEJlpe" class="uri">https://t.co/UU8UXEJlpe</a>
+</td>
+<td style="text-align:right;">
+0.9950427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+StevenJMorg
+</td>
+<td style="text-align:left;">
+.@pabloacera91 at ANU on identifying viral co-infections in SARS-CoV-2 patients. I had no idea co-infections were so common. PACIFIC looks like a great tool #COMBINE20 <a href="https://t.co/jo5DRFevpu" class="uri">https://t.co/jo5DRFevpu</a>
+</td>
+<td style="text-align:right;">
+0.9939881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<p>49 participants and counting #COMBINE20 #bioinformatics <span class="citation">@zoom_us</span></p>
+<p>Looking forward to the conversations with both academic and industry colleagues.</p>
+#EMCRChat #STEM <a href="https://t.co/jG1Py5jk9P" class="uri">https://t.co/jG1Py5jk9P</a>
+</td>
+<td style="text-align:right;">
+0.9929945
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@malhamdoosh</span> talking about <span class="citation">@CSL</span> and his role in industry to <span class="citation">@combine_au</span> #careers #EMCRChat</p>
+<p>Darkside/Industry</p>
+#combine20 <a href="https://t.co/i12Q1Ctzu1" class="uri">https://t.co/i12Q1Ctzu1</a>
+</td>
+<td style="text-align:right;">
+0.9916076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+Careers panel is going to start soon. You can already start to ask questions on zoom #COMBINE20 <a href="https://t.co/D9O7YfUx0I" class="uri">https://t.co/D9O7YfUx0I</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Getting started from the Canberra satellite event. Can’t be more excited! <span class="citation">@combine_au</span> #COMBINE20 <a href="https://t.co/qmNolba9Nr" class="uri">https://t.co/qmNolba9Nr</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+<p>Today <span class="citation">@ryashpal89</span> <span class="citation">@tarun_bonu</span> and <span class="citation">@_tyronechen</span> from the lab are presenting at the <span class="citation">@combine_au</span> symposium #COMBINE20</p>
+<p><a href="https://t.co/vJVh1wA0ON" class="uri">https://t.co/vJVh1wA0ON</a></p>
+<p>All the best and thank you for all the questions and feedback.</p>
+<span class="citation">@tsonika</span> #tyagilab
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+Don’t miss <span class="citation">@combine_au</span> symposium Careers Panel starting at 5pm. #COMBINE20 <a href="https://t.co/vJcCsW0cHC" class="uri">https://t.co/vJcCsW0cHC</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Some great questions here from <span class="citation">@combine_au</span> #combine20 #careers panel session. What an engaged audience. <a href="https://t.co/1dmlDc1iio" class="uri">https://t.co/1dmlDc1iio</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Woohoo! #COMBINE20 is online, with <span class="citation">@AceJustinCase</span> on DGE during gestation <a href="https://t.co/1ou750s4nt" class="uri">https://t.co/1ou750s4nt</a>
+</td>
+<td style="text-align:right;">
+0.9861059
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+marinareixachs
+</td>
+<td style="text-align:left;">
+<span class="citation">@renzobalb</span> presenting his work on Alu Repeat Diversity in the Human Genome from Canberra satellite. It is amazing to have that hybrid virtual &amp;amp; on site symposium. #COMBINE20 <span class="citation">@combine_au</span> <a href="https://t.co/xmbsctLbmD" class="uri">https://t.co/xmbsctLbmD</a>
+</td>
+<td style="text-align:right;">
+0.9939881
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SeqComplete
+</td>
+<td style="text-align:left;">
+#bioinformatics #bioit <span class="citation">@Sasglogan</span>: ‘Great talk by Joel Robertson at COMBINE2020! #COMBINE20 #Bioinformatics #phdlife’ <a href="https://t.co/u8eKHPHvaI" class="uri">https://t.co/u8eKHPHvaI</a>, see more <a href="https://t.co/X2bD5F4Rqm" class="uri">https://t.co/X2bD5F4Rqm</a>
+</td>
+<td style="text-align:right;">
+0.9916076
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sasglogan
+</td>
+<td style="text-align:left;">
+COMBINE2020 starts in 45 minutes!!!!😍 Come and join for an amazing day of talks!! #COMBINE20 #Bioinformatics #phdlife
+</td>
+<td style="text-align:right;">
+0.9906855
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+<span class="citation">@malhamdoosh</span> “It’s not about publishing paper; it’s about more than that”; brilliant #bioinformatics #careeradvice at #combine20
+</td>
+<td style="text-align:right;">
+0.9895358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PiaCampagna
+</td>
+<td style="text-align:left;">
+Very much looking forward to this <span class="citation">@combine_au</span> panel at 5pm today with <span class="citation">@JenniferC_Boer</span> (<span class="citation">@RMITBioinfo</span>) <span class="citation">@SaraBallouz</span> (<span class="citation">@GarvanInstitute</span>) and <span class="citation">@methylnick</span> (<span class="citation">@MonashBioinfo</span>) 🤩 #COMBINE20 <a href="https://t.co/GiiUDA8i4C" class="uri">https://t.co/GiiUDA8i4C</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sasglogan
+</td>
+<td style="text-align:left;">
+Great talk by Joel Robertson at COMBINE2020! #COMBINE20 #Bioinformatics #phdlife <a href="https://t.co/tefdDmuLSG" class="uri">https://t.co/tefdDmuLSG</a>
+</td>
+<td style="text-align:right;">
+0.9880623
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sasglogan
+</td>
+<td style="text-align:left;">
+Excellent talk by <span class="citation">@Huiwen_zh1</span> at #COMBINE20! #phdlife #Bioinformatics
+</td>
+<td style="text-align:right;">
+0.9833825
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+EmilianaWeiss
+</td>
+<td style="text-align:left;">
+COMBINE2020 - An amazing talk by <span class="citation">@pabloacera91</span> #COMBINE20 <a href="https://t.co/X9XZEYhfQ2" class="uri">https://t.co/X9XZEYhfQ2</a>
+</td>
+<td style="text-align:right;">
+0.9833825
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="links" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
+<!-- Any additional analysis can go here -->
+</div>
+<div id="session-info" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.7
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.5.0           here_0.1           kableExtra_1.3.1   knitr_1.30        
+##  [5] magick_2.5.2       webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0 
+##  [9] wordcloud_2.6      RColorBrewer_1.1-2 ggtext_0.1.0       ggraph_2.0.3      
+## [13] ggrepel_0.8.2      ggplot2_3.3.2      emo_0.0.0.9000     rvest_0.3.6       
+## [17] xml2_1.3.2         topicmodels_0.2-11 tidytext_0.2.6     igraph_1.2.6      
+## [21] stringr_1.4.0      purrr_0.3.4        forcats_0.5.0      lubridate_1.7.9.2 
+## [25] tidyr_1.1.2        dplyr_1.0.2        rtweet_0.7.0       clamour_0.1.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bitops_1.0-6       usethis_1.6.3      progress_1.2.2     httr_1.4.2        
+##  [5] rprojroot_2.0.2    SnowballC_0.7.0    tools_4.0.0        utf8_1.1.4        
+##  [9] R6_2.5.0           colorspace_2.0-0   withr_2.3.0        tidyselect_1.1.0  
+## [13] gridExtra_2.3      prettyunits_1.1.1  processx_3.4.4     curl_4.3          
+## [17] compiler_4.0.0     cli_2.2.0          NLP_0.2-1          labeling_0.4.2    
+## [21] slam_0.1-47        scales_1.1.1       tm_0.7-7           callr_3.5.1       
+## [25] askpass_1.1        digest_0.6.27      rmarkdown_2.5      pkgconfig_2.0.3   
+## [29] htmltools_0.5.0    highr_0.8          rlang_0.4.8        rstudioapi_0.13   
+## [33] farver_2.0.3       generics_0.1.0     jsonlite_1.7.1     tokenizers_0.2.1  
+## [37] RCurl_1.98-1.2     magrittr_2.0.1     modeltools_0.2-23  Matrix_1.2-18     
+## [41] Rcpp_1.0.5         munsell_0.5.0      fansi_0.4.1        lifecycle_0.2.0   
+## [45] stringi_1.5.3      yaml_2.2.1         MASS_7.3-53        plyr_1.8.6        
+## [49] grid_4.0.0         parallel_4.0.0     crayon_1.3.4       lattice_0.20-41   
+## [53] graphlayouts_0.7.1 gridtext_0.1.1     hms_0.5.3          ps_1.4.0          
+## [57] pillar_1.4.7       markdown_1.1       reshape2_1.4.4     stats4_4.0.0      
+## [61] glue_1.4.2         evaluate_0.14      vctrs_0.3.5        png_0.1-7         
+## [65] tweenr_1.0.1       selectr_0.4-2      gtable_0.3.0       openssl_1.4.3     
+## [69] polyclip_1.10-0    assertthat_0.2.1   xfun_0.19          ggforce_0.3.2     
+## [73] tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.0.4       ellipsis_0.3.1</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
