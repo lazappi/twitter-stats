@@ -1,0 +1,81 @@
+---
+title: "ABACBS2020"
+subtitle: "ABACBS Conference 2020"
+date: "Last built: `r Sys.time()`"
+params:
+    hashtag: "#ABACBS2020"
+    # Times
+    start_day: "2020-11-24"
+    end_day: "2020-11-26"
+    timezone: "Australia/Sydney"
+    # Plot theme and colours
+    theme: "theme_light"
+    accent: "#d70a14"
+    accent2: "#EB8489"
+    # Analysis parameters
+    kcore: 2
+    topics_k: 6
+    bigram_filter: 3
+    # Dataset fixed, set true to stop adding new tweets
+    fixed: TRUE
+    # Random seed
+    seed: 1
+---
+
+```{r setup, include = FALSE}
+DOCNAME <- tools::file_path_sans_ext(knitr::current_input())
+source(here::here("R", "knitr-options.R"))
+```
+
+```{r libraries, include = FALSE}
+source(here::here("R", "libraries.R"))
+```
+
+<p>
+  <button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+    Parameters
+  </button>
+</p>
+
+<div id="Parameters" class="collapse">
+```{r params}
+params_table <- data.frame(Parameter = names(params), Value = unlist(params))
+
+kable(params_table, row.names = FALSE)
+```
+</div>
+
+```{r load}
+cache_file <- here("data", paste0(DOCNAME, ".Rds"))
+hashtags_vec <- str_split(params$hashtag, ",")[[1]]
+hashtags_query <- paste(hashtags_vec, collapse = " OR ")
+tweets <- clamour_load_tweets(hashtags_query, cache_file,
+                              timezone = params$timezone, fixed = params$fixed)
+```
+
+# Introduction {.unnumbered}
+
+An analysis of tweets for the query `r hashtags_query` related to
+ABACBS Conference 2020 held virtually from `r params$start_day` to `r params$end_day`.
+A total of `r nrow(tweets)` tweets from `r  length(unique(tweets$screen_name))` users were collected using the **{rtweet}** R package.
+
+<!-- This chunk adds the template analysis -->
+```{r analysis, child = "_analysis.Rmd"}
+
+```
+
+<!-- Any additional analysis can go here -->
+
+# Session info {.unnumbered}
+
+<p>
+  <button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+    Session info
+  </button>
+</p>
+
+<div id="SessionInfo" class="collapse">  
+```{r session-info}
+sessionInfo()
+```
+</div>

@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ABACBS2020</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ABACBS2020</h1>
+<h3 class="subtitle">ABACBS Conference 2020</h3>
+<h4 class="date">Last built: 2020-11-28 09:10:34</h4>
+
+</div>
+
+
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#ABACBS2020</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2020-11-24</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2020-11-26</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#d70a14</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#EB8489</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Introduction</h1>
+<p>An analysis of tweets for the query #ABACBS2020 related to ABACBS Conference 2020 held virtually from 2020-11-24 to 2020-11-26. A total of 301 tweets from 125 users were collected using the <strong>{rtweet}</strong> R package.</p>
+<!-- This chunk adds the template analysis -->
+</div>
+<div id="timeline" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Tweets by day</h2>
+<p><img src="figures/ABACBS2020/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2020-11-24 - 2020-11-26 in the Australia/Sydney timezone.</p>
+<p><img src="figures/ABACBS2020/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills" number="2.1"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Overall</h3>
+<p><img src="figures/ABACBS2020/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Original</h3>
+<p><img src="figures/ABACBS2020/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Retweets</h3>
+<p><img src="figures/ABACBS2020/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Retweet proportion</h2>
+<p><img src="figures/ABACBS2020/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
+<p><img src="figures/ABACBS2020/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills" number="2.4"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Overall</h3>
+<div id="day-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade" number="">
+<h3 class="unnumbered tabset tabset-fade" number="">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 1</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 2</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Day 3</h4>
+<p><img src="figures/ABACBS2020/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills" number="3"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Users</h2>
+<p><img src="figures/ABACBS2020/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Tweets</h2>
+<p><img src="figures/ABACBS2020/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/ABACBS2020/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/ABACBS2020/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills" number="5.1"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/ABACBS2020/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/ABACBS2020/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+WEHI_research
+</td>
+<td style="text-align:left;">
+<p>Congratulations to bioinformatics researchers Professor Gordon Smyth, who has been awarded an <span class="citation">@ABACBS</span> Honorary Senior Fellowship, and <span class="citation">@MRitchieAu</span> who won the Open Science Open Source Award at #abacbs2020</p>
+<a href="https://t.co/4AqBtVHABN" class="uri">https://t.co/4AqBtVHABN</a> <a href="https://t.co/q93NnUXEP8" class="uri">https://t.co/q93NnUXEP8</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>The tidy RNA-seq analysis workshop at #ABACBS2020 is just 🤯</p>
+<p>Very different workflow to what I’m used to, but a lot of convenient wrapper functions.</p>
+Keen to try the Bulk RNAseq cell type deconvolution on my own data later ⬇️ <a href="https://t.co/pBNN9ISZ0H" class="uri">https://t.co/pBNN9ISZ0H</a> #Bioinformatics <a href="https://t.co/Ok1lLVlEhW" class="uri">https://t.co/Ok1lLVlEhW</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BelindaPhipson
+</td>
+<td style="text-align:left;">
+Congratulations to Prof Gordon Smyth on his #ABACBS2020 senior researcher award. I have never come across another researcher as knowledgeable in statistics and computing as he is and I learnt so much during my time as an RA and later as a PhD student with him.
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+#ABACBS2020 Day 1 starts in a couple of hours! If you havent registered already, make sure you sign up (<a href="https://t.co/xTozRiCii1" class="uri">https://t.co/xTozRiCii1</a>). If you have registered, make sure you’ve signed up to our ABACBS2020 slack team to follow all the discussion
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+.@mritchieau is the next in the list of awardees!! Huge congratulations! #ABACBS2020 <a href="https://t.co/TCJ4Y8bsyV" class="uri">https://t.co/TCJ4Y8bsyV</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Day2 of #ABACBS2020 starts with a parallel session on PhylOVID with the first keynote talk by <span class="citation">@torstenseemann</span> If you have questions for him send to us via twitter/slack or live in the zoom chat! <a href="https://t.co/kKkei08eIH" class="uri">https://t.co/kKkei08eIH</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Excited to see all the innovation in single cell RNAseq at #abacbs2020! Enjoyed <span class="citation">@fabiousername</span>’s introduction of Northstar to address the time-consuming task of classifying cells in scRNAseq data while preserving novel cell populations <a href="https://t.co/Hhh8FniWGI" class="uri">https://t.co/Hhh8FniWGI</a> #bioinformatics <a href="https://t.co/XR5tpNPlU6" class="uri">https://t.co/XR5tpNPlU6</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Visualising cell clusters in scRNA-seq data in 3D! 🤩</p>
+<p>From Part 2 of the #ABACBS2020 Tidy Transcriptomics workshop by <span class="citation">@steman_research</span> and <span class="citation">@mard113</span> which uses tidyseurat to bring tidyverse functionality to Seurat: <a href="https://t.co/cfiCKEkh9b" class="uri">https://t.co/cfiCKEkh9b</a></p>
+#Bioinformatics <span class="citation">@plotlygraphs</span> <a href="https://t.co/qqn9nMnzou" class="uri">https://t.co/qqn9nMnzou</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Wonderful to see my former PhD student <span class="citation">@hdashnow</span> be awarded the outstanding PhD prize in bioinformatics and computation biology by <span class="citation">@abacbs</span>. Excellent recognition of a wonderful student #proud #abacbs2020
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+<p>Another provoking talk in the session with an extremely important message by <span class="citation">@ee_reh_neh</span></p>
+<p>Southeast Asia makes 80% of the world’s population but their genetic information is highly represented in global; genetic databanks.</p>
+#ABACBS2020 <a href="https://t.co/eqwrUvBfFz" class="uri">https://t.co/eqwrUvBfFz</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most retweeted</h3>
+<p><img src="figures/ABACBS2020/most-retweeted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills" number="5.2"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/ABACBS2020/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/ABACBS2020/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>The tidy RNA-seq analysis workshop at #ABACBS2020 is just 🤯</p>
+<p>Very different workflow to what I’m used to, but a lot of convenient wrapper functions.</p>
+Keen to try the Bulk RNAseq cell type deconvolution on my own data later ⬇️ <a href="https://t.co/pBNN9ISZ0H" class="uri">https://t.co/pBNN9ISZ0H</a> #Bioinformatics <a href="https://t.co/Ok1lLVlEhW" class="uri">https://t.co/Ok1lLVlEhW</a>
+</td>
+<td style="text-align:right;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WEHI_research
+</td>
+<td style="text-align:left;">
+<p>Congratulations to bioinformatics researchers Professor Gordon Smyth, who has been awarded an <span class="citation">@ABACBS</span> Honorary Senior Fellowship, and <span class="citation">@MRitchieAu</span> who won the Open Science Open Source Award at #abacbs2020</p>
+<a href="https://t.co/4AqBtVHABN" class="uri">https://t.co/4AqBtVHABN</a> <a href="https://t.co/q93NnUXEP8" class="uri">https://t.co/q93NnUXEP8</a>
+</td>
+<td style="text-align:right;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BelindaPhipson
+</td>
+<td style="text-align:left;">
+Congratulations to Prof Gordon Smyth on his #ABACBS2020 senior researcher award. I have never come across another researcher as knowledgeable in statistics and computing as he is and I learnt so much during my time as an RA and later as a PhD student with him.
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Wonderful to see my former PhD student <span class="citation">@hdashnow</span> be awarded the outstanding PhD prize in bioinformatics and computation biology by <span class="citation">@abacbs</span>. Excellent recognition of a wonderful student #proud #abacbs2020
+</td>
+<td style="text-align:right;">
+77
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Congratulations to my PhD student <span class="citation">@_tyronechen</span> <span class="citation">@tyagilab</span> <span class="citation">@MonashBiol</span> <span class="citation">@Monash_Science</span> for winning the best Async Talk award <span class="citation">@abacbs</span> conference 2020 #ABACBS2020 #proudsupervisor
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing insights on the integration of omics data from <span class="citation">@mixOmics_team</span> at #abacbs2020. Data integration is emerging as a major challenge in #Bioinformatics in recent years and it is incredible to see how far we have come with approaches like DIABLO <a href="https://t.co/vaZIBK5lft" class="uri">https://t.co/vaZIBK5lft</a> <span class="citation">@abacbs</span> <a href="https://t.co/d8jytJSpgA" class="uri">https://t.co/d8jytJSpgA</a>
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MarioniLab
+</td>
+<td style="text-align:left;">
+Huge congratulations to our post-doc <span class="citation">@_andrianyang</span> for winning the Outstanding PhD Thesis Award from the Australian Bioinformatics and Computational Biology Society overnight! #abacbs2020 <span class="citation">@joshuawkho</span>
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Thanks everyone for making #abacbs2020 such an amazing event. Special thanks goes to the organising committee and <span class="citation">@EduEyras</span> and <span class="citation">@koadman</span> for doing a fantastic job.
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+davisjmcc
+</td>
+<td style="text-align:left;">
+<p>Wait, for #abacbs2020 you need to have watched <em>all</em> of the talks beforehand? Even the “live sessions” won’t be any live talks?</p>
+Oh no…. <a href="https://t.co/doTmphKvnO" class="uri">https://t.co/doTmphKvnO</a>
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Day2 of #ABACBS2020 starts with a parallel session on PhylOVID with the first keynote talk by <span class="citation">@torstenseemann</span> If you have questions for him send to us via twitter/slack or live in the zoom chat! <a href="https://t.co/kKkei08eIH" class="uri">https://t.co/kKkei08eIH</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most likes</h3>
+<p><img src="figures/ABACBS2020/most-favorited-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills" number="5.3"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Proportion</h3>
+<p><img src="figures/ABACBS2020/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Count</h3>
+<p><img src="figures/ABACBS2020/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Day1 of <span class="citation">@abacbs</span> virtual conference today #abacbs2020 <a href="https://t.co/lItz6OiER1" class="uri">https://t.co/lItz6OiER1</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JiaZhou0116
+</td>
+<td style="text-align:left;">
+Amazing talks for metagenomics session this morning #abacbs2020 <a href="https://t.co/bk1whnH99u" class="uri">https://t.co/bk1whnH99u</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Still a good joke #abacbs2020 <a href="https://t.co/3lAqKlHdxv" class="uri">https://t.co/3lAqKlHdxv</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+The countdown has started! #ABACBS2020 <a href="https://t.co/VIYCrUD3NS" class="uri">https://t.co/VIYCrUD3NS</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Make sure to sign up for Talks, social cafe and trivia night via <span class="citation">@use_remo</span> #ABACBS2020 <a href="https://t.co/C1sTLU8ouK" class="uri">https://t.co/C1sTLU8ouK</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+slimsuite
+</td>
+<td style="text-align:left;">
+Hear about some of our snake, starling, and waratah genomics research at #ABACBS2020, all from the comfort of your own home/office/wherever. <a href="https://t.co/9xBPJQH5jT" class="uri">https://t.co/9xBPJQH5jT</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Mandatory etch-a-sketchs per table in irl conferences #abacbs2020 <a href="https://t.co/Ce6djypSmo" class="uri">https://t.co/Ce6djypSmo</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Hey #ABACBS2020! You can find me in Remo, table 24 in an hour (1:30 AEDT). Come chat to me about antimicrobial peptides or developing R packages or using machine learning in biology! <a href="https://t.co/R2jRaYXGtz" class="uri">https://t.co/R2jRaYXGtz</a> <a href="https://t.co/T8nXLawY2s" class="uri">https://t.co/T8nXLawY2s</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ramialison_lab
+</td>
+<td style="text-align:left;">
+Congratulations to our very own <span class="citation">@GulrezChahal</span> for presenting at <span class="citation">@abacbs</span> #abacbs2020 <a href="https://t.co/FfUgWgFUA3" class="uri">https://t.co/FfUgWgFUA3</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Looking forward! enjoyed your pre-recorded video! #abacbs2020 <a href="https://t.co/DxzZdSFbfR" class="uri">https://t.co/DxzZdSFbfR</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered" number="">
+<h3 class="unnumbered" number="">Most quoted</h3>
+<p><img src="figures/ABACBS2020/most-quoted-1.png" width="258" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills" number="6"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Proportion</h2>
+<p><img src="figures/ABACBS2020/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered" number="">
+<h2 class="unnumbered" number="">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>The tidy RNA-seq analysis workshop at #ABACBS2020 is just 🤯</p>
+<p>Very different workflow to what I’m used to, but a lot of convenient wrapper functions.</p>
+Keen to try the Bulk RNAseq cell type deconvolution on my own data later ⬇️ <a href="https://t.co/pBNN9ISZ0H" class="uri">https://t.co/pBNN9ISZ0H</a> #Bioinformatics <a href="https://t.co/Ok1lLVlEhW" class="uri">https://t.co/Ok1lLVlEhW</a>
+</td>
+<td style="text-align:right;">
+105
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WEHI_research
+</td>
+<td style="text-align:left;">
+<p>Congratulations to bioinformatics researchers Professor Gordon Smyth, who has been awarded an <span class="citation">@ABACBS</span> Honorary Senior Fellowship, and <span class="citation">@MRitchieAu</span> who won the Open Science Open Source Award at #abacbs2020</p>
+<a href="https://t.co/4AqBtVHABN" class="uri">https://t.co/4AqBtVHABN</a> <a href="https://t.co/q93NnUXEP8" class="uri">https://t.co/q93NnUXEP8</a>
+</td>
+<td style="text-align:right;">
+97
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing insights on the integration of omics data from <span class="citation">@mixOmics_team</span> at #abacbs2020. Data integration is emerging as a major challenge in #Bioinformatics in recent years and it is incredible to see how far we have come with approaches like DIABLO <a href="https://t.co/vaZIBK5lft" class="uri">https://t.co/vaZIBK5lft</a> <span class="citation">@abacbs</span> <a href="https://t.co/d8jytJSpgA" class="uri">https://t.co/d8jytJSpgA</a>
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+davisjmcc
+</td>
+<td style="text-align:left;">
+<p>Wait, for #abacbs2020 you need to have watched <em>all</em> of the talks beforehand? Even the “live sessions” won’t be any live talks?</p>
+Oh no…. <a href="https://t.co/doTmphKvnO" class="uri">https://t.co/doTmphKvnO</a>
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Day2 of #ABACBS2020 starts with a parallel session on PhylOVID with the first keynote talk by <span class="citation">@torstenseemann</span> If you have questions for him send to us via twitter/slack or live in the zoom chat! <a href="https://t.co/kKkei08eIH" class="uri">https://t.co/kKkei08eIH</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+#abacbs2020 is live in Adelaide 🎉 <a href="https://t.co/NeY6VzZjuZ" class="uri">https://t.co/NeY6VzZjuZ</a>
+</td>
+<td style="text-align:right;">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+#abacbs2020 Congratulations to <span class="citation">@markjcowley</span> and <span class="citation">@jessicacmar</span> 👏 <a href="https://t.co/C9EVBtALMG" class="uri">https://t.co/C9EVBtALMG</a>
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+.@mritchieau is the next in the list of awardees!! Huge congratulations! #ABACBS2020 <a href="https://t.co/TCJ4Y8bsyV" class="uri">https://t.co/TCJ4Y8bsyV</a>
+</td>
+<td style="text-align:right;">
+22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Excited to see all the innovation in single cell RNAseq at #abacbs2020! Enjoyed <span class="citation">@fabiousername</span>’s introduction of Northstar to address the time-consuming task of classifying cells in scRNAseq data while preserving novel cell populations <a href="https://t.co/Hhh8FniWGI" class="uri">https://t.co/Hhh8FniWGI</a> #bioinformatics <a href="https://t.co/XR5tpNPlU6" class="uri">https://t.co/XR5tpNPlU6</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Visualising cell clusters in scRNA-seq data in 3D! 🤩</p>
+<p>From Part 2 of the #ABACBS2020 Tidy Transcriptomics workshop by <span class="citation">@steman_research</span> and <span class="citation">@mard113</span> which uses tidyseurat to bring tidyverse functionality to Seurat: <a href="https://t.co/cfiCKEkh9b" class="uri">https://t.co/cfiCKEkh9b</a></p>
+#Bioinformatics <span class="citation">@plotlygraphs</span> <a href="https://t.co/qqn9nMnzou" class="uri">https://t.co/qqn9nMnzou</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore" number="">
+<h1 class="unnumbered toc-ignore" number=""></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/Enyuy1xVgAI8xod.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/ABACBS2020/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hashtags" class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/ABACBS2020/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/ABACBS2020/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2 number="7.4"><span class="header-section-number">7.4</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/ABACBS2020/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2 number="7.5"><span class="header-section-number">7.5</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/ABACBS2020/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade" number="7.5.1"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+TeamVCGS
+</td>
+<td style="text-align:left;">
+Our Head of Clinical Bioinformatics Dr Simon Sadedin is presenting at the <span class="citation">@abacbs</span> conference, on his work exploring models to improve accuracy of detecting copy number variants in exomes. Registered for the conference? Don’t miss Simon’s talk at 15.20 AEST on 25 Nov. #ABACBS2020
+</td>
+<td style="text-align:right;">
+0.9957013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+#abacbs2020 has started! You can view my 16 min talk on ampir: an R package for fast genome-wide prediction of antimicrobial peptides at <a href="https://t.co/HuViMHAL5Y" class="uri">https://t.co/HuViMHAL5Y</a> and my 10 min discussion / Q&amp;amp;A time is tomorrow (Wednesday 25th Nov) at 15:30 AEDT <span class="citation">@abacbs</span>
+</td>
+<td style="text-align:right;">
+0.9952942
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Day2 of #ABACBS2020 starts with a parallel session on PhylOVID with the first keynote talk by <span class="citation">@torstenseemann</span> If you have questions for him send to us via twitter/slack or live in the zoom chat! <a href="https://t.co/kKkei08eIH" class="uri">https://t.co/kKkei08eIH</a>
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Next up, its time to get extremely jealous of Legana (JCU) who is presenting from beautiful North Queensland! “ampir: an R package for fast genome-wide prediction of antimicrobial peptides”. #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LeganaFingerhut
+</td>
+<td style="text-align:left;">
+Hey #ABACBS2020! You can find me in Remo, table 24 in an hour (1:30 AEDT). Come chat to me about antimicrobial peptides or developing R packages or using machine learning in biology! <a href="https://t.co/R2jRaYXGtz" class="uri">https://t.co/R2jRaYXGtz</a> <a href="https://t.co/T8nXLawY2s" class="uri">https://t.co/T8nXLawY2s</a>
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+#ABACBS2020 Day 1 starts in a couple of hours! If you havent registered already, make sure you sign up (<a href="https://t.co/xTozRiCii1" class="uri">https://t.co/xTozRiCii1</a>). If you have registered, make sure you’ve signed up to our ABACBS2020 slack team to follow all the discussion
+</td>
+<td style="text-align:right;">
+0.9929612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Pleased that the virtual format has retained the traditional of the best talk winner from <span class="citation">@combine_au</span> from #combine2020 giving a talk at #abacbs2020 - congratulations <span class="citation">@renzobalb</span>
+</td>
+<td style="text-align:right;">
+0.9917996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+technadele
+</td>
+<td style="text-align:left;">
+Not sure a real 🦇 has ever been on the #abacbs2020 conference bingo. <span class="citation">@LeganaFingerhut</span> breaking new ground here as she talks about ampir - an antimicrobial peptide genome prediction R package
+</td>
+<td style="text-align:right;">
+0.9917996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+koadman
+</td>
+<td style="text-align:left;">
+Jamming out to science this morning, listening to #ABACBS2020 talks on <a href="https://t.co/mqb3MByZSp" class="uri">https://t.co/mqb3MByZSp</a>. Stunning how much strong bioinformatics work is happening here in Aus.
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+StevenJMorg
+</td>
+<td style="text-align:left;">
+If you’re at #ABACBS2020, don’t miss <span class="citation">@loic_thibaut</span>’s talk. I really appreciated the overview of gene intolerance metrics and how powerSFS stacks up <span class="citation">@abacbs</span> <a href="https://t.co/XicfTPGnJu" class="uri">https://t.co/XicfTPGnJu</a>
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ahmed_Microbes
+</td>
+<td style="text-align:left;">
+That moment when it’s Philly sleep time &amp;amp; you see a tweet about #ABACBS2020 &amp;amp; you hit the link to join &amp;amp; found myself assigned to a random virtual table with the lovely <span class="citation">@torstenseemann</span> who introduced/trained me on microbial genomics 7 years ago &amp;amp; chat for 15 min. 2020 is smiling.
+</td>
+<td style="text-align:right;">
+0.9957013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mdziemann
+</td>
+<td style="text-align:left;">
+Just finished up 90 hrs of intensive lab based teaching over the past 3 weeks, completing experiments initially scheduled for March and April Unfortunately I missed #abacbs2020 :( but looking forward to getting back to research next week
+</td>
+<td style="text-align:right;">
+0.9945151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BelindaPhipson
+</td>
+<td style="text-align:left;">
+Congratulations to Prof Gordon Smyth on his #ABACBS2020 senior researcher award. I have never come across another researcher as knowledgeable in statistics and computing as he is and I learnt so much during my time as an RA and later as a PhD student with him.
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+Wonderful to see my former PhD student <span class="citation">@hdashnow</span> be awarded the outstanding PhD prize in bioinformatics and computation biology by <span class="citation">@abacbs</span>. Excellent recognition of a wonderful student #proud #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+WEHI_research
+</td>
+<td style="text-align:left;">
+<p>Congratulations to bioinformatics researchers Professor Gordon Smyth, who has been awarded an <span class="citation">@ABACBS</span> Honorary Senior Fellowship, and <span class="citation">@MRitchieAu</span> who won the Open Science Open Source Award at #abacbs2020</p>
+<a href="https://t.co/4AqBtVHABN" class="uri">https://t.co/4AqBtVHABN</a> <a href="https://t.co/q93NnUXEP8" class="uri">https://t.co/q93NnUXEP8</a>
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+allPowerde
+</td>
+<td style="text-align:left;">
+Thank you <span class="citation">@abacbs</span> for the recognition of the unique #Bioinformatics work the <span class="citation">@TBioinf</span> group is doing. Congratulations also to the other #abacbs2020 award recipients: Gordon Smyth, <span class="citation">@hdashnow</span>, Adrian Yang, Yu Lin, <span class="citation">@jessicacmar</span>, <span class="citation">@markjcowley</span>, and <span class="citation">@mritchieau</span>. <a href="https://t.co/Vs62lN39nd" class="uri">https://t.co/Vs62lN39nd</a>
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+Looking forward to #ABACBS2020 this week! We’re proud to sponsor Aussie bioinformatics on show (online) and hope to connect for a chat. Thanks <span class="citation">@abacbs</span> for the ‘booth’ - pls come and say hello during the networking sessions! <a href="https://t.co/dMHzg2IX3Q" class="uri">https://t.co/dMHzg2IX3Q</a>
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Alex Brown is giving a very inspiring talk on indigenous genomics needing its due attention, and how bioinformatics can help fill the gap!! #ABACBS2020 <a href="https://t.co/FZ7PRKnLVR" class="uri">https://t.co/FZ7PRKnLVR</a>
+</td>
+<td style="text-align:right;">
+0.9924247
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+markjcowley
+</td>
+<td style="text-align:left;">
+Many congratulations to all the very worthy #abacbs2020 award winners, Gordon Smyth, <span class="citation">@jessicacmar</span>, <span class="citation">@allPowerde</span> <span class="citation">@mritchieau</span>, Yu Lin, <span class="citation">@hdashnow</span>, Adrian Yang
+</td>
+<td style="text-align:right;">
+0.9917996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+KandhariNitika
+</td>
+<td style="text-align:left;">
+“Finding signatures of alternative polyadenylation as cancer biomarkers”- Let’s catch up over coffee at Table #120 in #liveremo #networking #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Excited to see all the innovation in single cell RNAseq at #abacbs2020! Enjoyed <span class="citation">@fabiousername</span>’s introduction of Northstar to address the time-consuming task of classifying cells in scRNAseq data while preserving novel cell populations <a href="https://t.co/Hhh8FniWGI" class="uri">https://t.co/Hhh8FniWGI</a> #bioinformatics <a href="https://t.co/XR5tpNPlU6" class="uri">https://t.co/XR5tpNPlU6</a>
+</td>
+<td style="text-align:right;">
+0.9957013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Hey #ABACBS2020 - Let’s have a chat on Table #57 on all things viral recombination, non-model, or how Arya Stark’s character development was slept on in season 2. You can check out my 5 min talk on <a href="https://t.co/ZeroZdvgcJ" class="uri">https://t.co/ZeroZdvgcJ</a>
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dr_njarmstrong
+</td>
+<td style="text-align:left;">
+Seriously considering booking myself into a local hotel for the next virtual conference - end of semester marking and kids play havoc with good intentions of attending live sessions… #ABACBS2020
+</td>
+<td style="text-align:right;">
+0.9929612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Yingxin Lin is up next talking about transfer learning methods for data integration of single-cell RNA-seq and ATAC-seq. #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9929612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+danielagaiagaio
+</td>
+<td style="text-align:left;">
+immune-mediated diseases &amp;amp; microbiome: STOP looking at single-omics data (when you have n&amp;gt;1 omics dataset) <span class="citation">@abacbs</span> #abacbs2020 <a href="https://t.co/QJ8nVwKLG2" class="uri">https://t.co/QJ8nVwKLG2</a>
+</td>
+<td style="text-align:right;">
+0.9917996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+hani_jieun
+</td>
+<td style="text-align:left;">
+Another exciting method from <span class="citation">@LinYingxin</span> to integrate #scRNAseq and #ATACseq data! Check out her talk at #abacbs2020 <a href="https://t.co/7Mv4uKi7ZI" class="uri">https://t.co/7Mv4uKi7ZI</a> <a href="https://t.co/cvC1u10Urv" class="uri">https://t.co/cvC1u10Urv</a>
+</td>
+<td style="text-align:right;">
+0.9901788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Katarina_Stuart
+</td>
+<td style="text-align:left;">
+Am growing to love online conferences, and all the things I can do while listening to the talks. I’ve never been so on top of my folding and ironing… #ABACBS2020
+</td>
+<td style="text-align:right;">
+0.9891019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Virtually at the Canberra cafe via <span class="citation">@use_remo</span> before the program for day1 starts at <span class="citation">@abacbs</span> #ABACBS2020 <a href="https://t.co/B0JcDBiBls" class="uri">https://t.co/B0JcDBiBls</a>
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_tyronechen
+</td>
+<td style="text-align:left;">
+If you are interested in multi-omics data harmonisation, visit table 19 at #abacbs2020 for more information <span class="citation">@tyagilab</span> <a href="https://t.co/1WghjcdDPA" class="uri">https://t.co/1WghjcdDPA</a>
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Local legend <span class="citation">@Feargal_Ryan</span> now talking about Microbiota and Whole-blood Transcriptional Responses to Immunisation #ABACBS2020
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+<p>Another provoking talk in the session with an extremely important message by <span class="citation">@ee_reh_neh</span></p>
+<p>Southeast Asia makes 80% of the world’s population but their genetic information is highly represented in global; genetic databanks.</p>
+#ABACBS2020 <a href="https://t.co/eqwrUvBfFz" class="uri">https://t.co/eqwrUvBfFz</a>
+</td>
+<td style="text-align:right;">
+0.9948019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+davisjmcc
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@Psy_Fer_</span> Haven’t tried out Remo yet (again with time crunch issues for me), but it looks cool; I like the idea a lot.</p>
+Overall, I absolutely commend the #abacbs2020 organisers for thinking hard about how to make an online conference work better. Some issues remain, but a great effort!
+</td>
+<td style="text-align:right;">
+0.9945151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@abacbs</span> #abacbs2020 looks to be a great meeting with all (most?) content up and available for delegates. Won’t be able to concentrate on work now. But I spy LongReads session which is the first! Sign of the times maybe? <span class="citation">@nanopore</span> <span class="citation">@PacBio</span> <span class="citation">@bionanogenomics</span> #notonlyabioinformatician <a href="https://t.co/oHVj9Ibgso" class="uri">https://t.co/oHVj9Ibgso</a>
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Great talk from Harman Singh on “eMST, a scalable and interpretable method for Phylogenetic analysis of hundreds and thousands of SARS-CoV-2 genomes”. Great visualisations #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Next up in the Methods session is Simon Sadedin talking about Exome sequencing in genetic testing and exploring Neural Network models for CNV detection #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+angel_bee2018
+</td>
+<td style="text-align:left;">
+In a short while, at 1:40pm Sydney time today I will be on table #49 at #ABACBS2020 Come along for discussion if you are interested in RNA splicing or stem cells/differentiation
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Session 3 on regulation has begun. Our keynote speaker <span class="citation">@ppgardne</span> is giving a talk on Functional Genes features. <span class="citation">@abacbs</span> #ABACBS2020 <a href="https://t.co/J4nddxg7fO" class="uri">https://t.co/J4nddxg7fO</a>
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+danielagaiagaio
+</td>
+<td style="text-align:left;">
+Last-minute catching up on async talks 🙈 <span class="citation">@ABACBS</span> #ABACBS2020 A very cool and very well structured virtual conference! <a href="https://t.co/3CTqAEo1F6" class="uri">https://t.co/3CTqAEo1F6</a>
+</td>
+<td style="text-align:right;">
+0.9891019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fredjaya1
+</td>
+<td style="text-align:left;">
+Tuning in to the legendary Felsenstein at the #phylomania2020 Sydney hub! Same room as last years #abacbs2020 talks, different conference. <a href="https://t.co/90wxVNoUJ7" class="uri">https://t.co/90wxVNoUJ7</a>
+</td>
+<td style="text-align:right;">
+0.9891019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Make sure to sign up for Talks, social cafe and trivia night via <span class="citation">@use_remo</span> #ABACBS2020 <a href="https://t.co/C1sTLU8ouK" class="uri">https://t.co/C1sTLU8ouK</a>
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PNgsabrina
+</td>
+<td style="text-align:left;">
+Sad to missed this year’s #ABACBS2020 but looking forward to checking out this really cool workflow <a href="https://t.co/cS5UPNWsp6" class="uri">https://t.co/cS5UPNWsp6</a>
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Visualising cell clusters in scRNA-seq data in 3D! 🤩</p>
+<p>From Part 2 of the #ABACBS2020 Tidy Transcriptomics workshop by <span class="citation">@steman_research</span> and <span class="citation">@mard113</span> which uses tidyseurat to bring tidyverse functionality to Seurat: <a href="https://t.co/cfiCKEkh9b" class="uri">https://t.co/cfiCKEkh9b</a></p>
+#Bioinformatics <span class="citation">@plotlygraphs</span> <a href="https://t.co/qqn9nMnzou" class="uri">https://t.co/qqn9nMnzou</a>
+</td>
+<td style="text-align:right;">
+0.9950603
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing insights on the integration of omics data from <span class="citation">@mixOmics_team</span> at #abacbs2020. Data integration is emerging as a major challenge in #Bioinformatics in recent years and it is incredible to see how far we have come with approaches like DIABLO <a href="https://t.co/vaZIBK5lft" class="uri">https://t.co/vaZIBK5lft</a> <span class="citation">@abacbs</span> <a href="https://t.co/d8jytJSpgA" class="uri">https://t.co/d8jytJSpgA</a>
+</td>
+<td style="text-align:right;">
+0.9945151
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+At #ABACBS2020? Come visit <span class="citation">@Katarina_Stuart</span> at table 106 today: Whole transcripts in genome assembly, annotation, and assessment: the draft genome assembly of the globally invasive common starling, Sturnus vulgaris <a href="https://t.co/5b2src6Fs7" class="uri">https://t.co/5b2src6Fs7</a>
+</td>
+<td style="text-align:right;">
+0.9941947
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MarioniLab
+</td>
+<td style="text-align:left;">
+Huge congratulations to our post-doc <span class="citation">@_andrianyang</span> for winning the Outstanding PhD Thesis Award from the Australian Bioinformatics and Computational Biology Society overnight! #abacbs2020 <span class="citation">@joshuawkho</span>
+</td>
+<td style="text-align:right;">
+0.9938345
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+.@wessidepraxis asked Gordon about the secret of successful Bioinformatics group. Gordon: invest in young Bioinformatics group leader. When he started at WEHI he had no track record in medicine as he came from mathematics background. #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9934267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RentinoAnn
+</td>
+<td style="text-align:left;">
+<span class="citation">@mariebal22</span> Dba noh…kahit walang franchise d Nila mapigilan Ang kapamilya kc da best talaga Ang #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9929612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+StevenJMorg
+</td>
+<td style="text-align:left;">
+Read length and variant caller influence the number of pesky recurrent miscalls 😈 when using short-read data. From <span class="citation">@mattfield100</span> #ABACBS2020 <span class="citation">@abacbs</span> <a href="https://t.co/NytYxgCAd0" class="uri">https://t.co/NytYxgCAd0</a>
+</td>
+<td style="text-align:right;">
+0.9924247
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+<p>Heartiest Congratulations to <span class="citation">@_tyronechen</span> for winning the best Async Talk Award at the #ABACBS2020 conference!</p>
+<p>We are all very proud of you!!</p>
+<p><span class="citation">@tsonika</span> <span class="citation">@MonashBiol</span> <span class="citation">@Monash_Science</span></p>
+#tyagilab #phdchat #AcademicTwitter <a href="https://t.co/lsoFcjFv2b" class="uri">https://t.co/lsoFcjFv2b</a>
+</td>
+<td style="text-align:right;">
+0.9924247
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Ok so now the bat-less <span class="citation">@tpq__</span> talking about the vary sharply named “HyperXpair” (the Hyper-parameter eXplainable Motif Pair framework) #abacbs2020
+</td>
+<td style="text-align:right;">
+0.9917996
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+<span class="citation">@abacbs</span> Suite of software form the Smyth lab. edgeR was being developed before RNAseq became available (for CAGE analysis) #ABACBS2020 <a href="https://t.co/GOoW0lHQmD" class="uri">https://t.co/GOoW0lHQmD</a>
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+linsalrob
+</td>
+<td style="text-align:left;">
+First up in day 2 of #abacbs2020 is <span class="citation">@torstenseemann</span> describing the heroic work of the team to sequence every #COVID19 isolate in Australia and the implications for #publichealth
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+Congratulations to my PhD student <span class="citation">@_tyronechen</span> <span class="citation">@tyagilab</span> <span class="citation">@MonashBiol</span> <span class="citation">@Monash_Science</span> for winning the best Async Talk award <span class="citation">@abacbs</span> conference 2020 #ABACBS2020 #proudsupervisor
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered" number="">
+<h4 class="unnumbered" number="">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Clara_J_Jiang
+</td>
+<td style="text-align:left;">
+I will be giving a talk titled “Integrated transcription factor profiling with transcriptome analysis: identification of L1PA2 transposons as global regulatory modulators in a breast cancer model” at #ABACBS2020! Check out the pre-recorded talk here <a href="https://t.co/V8pcrErvU9" class="uri">https://t.co/V8pcrErvU9</a>
+</td>
+<td style="text-align:right;">
+0.9957013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>The tidy RNA-seq analysis workshop at #ABACBS2020 is just 🤯</p>
+<p>Very different workflow to what I’m used to, but a lot of convenient wrapper functions.</p>
+Keen to try the Bulk RNAseq cell type deconvolution on my own data later ⬇️ <a href="https://t.co/pBNN9ISZ0H" class="uri">https://t.co/pBNN9ISZ0H</a> #Bioinformatics <a href="https://t.co/Ok1lLVlEhW" class="uri">https://t.co/Ok1lLVlEhW</a>
+</td>
+<td style="text-align:right;">
+0.9950603
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+paulfharrison
+</td>
+<td style="text-align:left;">
+<span class="citation">@KandhariNitika</span> in Traude Beilharz’s lab, talking about alternative polyadenylation in cancer cell lines with gene-knockouts of RNA cleavage machinery. Pooling data produces more results! #abacbs2020 <a href="https://t.co/9sGI3LYuqN" class="uri">https://t.co/9sGI3LYuqN</a>
+</td>
+<td style="text-align:right;">
+0.9948019
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+xiaotuhuihui
+</td>
+<td style="text-align:left;">
+In Tidy Transcriptomics workshop, Maria Doyle talked about bulk RNA-seq analysis, cell type deconvolution and differential abundance analysis👍#abacbs2020 <a href="https://t.co/gV9vrflFX3" class="uri">https://t.co/gV9vrflFX3</a>
+</td>
+<td style="text-align:right;">
+0.9941947
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+Come visit Stephanie at table 38 today! #ABACBS2020: Unsupervised orthologous gene tree enrichment for cost-effective phylogenomic analysis and a test case on waratahs (Telopea spp.) <a href="https://t.co/iUhkcpJd86" class="uri">https://t.co/iUhkcpJd86</a>
+</td>
+<td style="text-align:right;">
+0.9941947
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Clara_J_Jiang
+</td>
+<td style="text-align:left;">
+<p>#ABACBS2020 is on now! Come check out my talk in the “Regulation” section :)</p>
+Integrated transcription factor profiling with transcriptome analysis: identification of L1PA2 transposons as… <a href="https://t.co/V8pcrEJ6LH" class="uri">https://t.co/V8pcrEJ6LH</a>
+</td>
+<td style="text-align:right;">
+0.9929612
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+If you are at #ABACBS2020, come and talk to Jack at Remo table 119: The role of gene duplication in the evolution of snake venoms <a href="https://t.co/M0RSuISCdR" class="uri">https://t.co/M0RSuISCdR</a>
+</td>
+<td style="text-align:right;">
+0.9910621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+I love the way that the #ABACBS2020 author affiliations start counting at 0. Nice binfie touch there, <span class="citation">@abacbs</span>
+</td>
+<td style="text-align:right;">
+0.9877596
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tsonika
+</td>
+<td style="text-align:left;">
+You can upload your slides/poster to <span class="citation">@abacbs</span> collection on <span class="citation">@F1000Research</span> too #ABACBS2020 <a href="https://t.co/nMVgUfq675" class="uri">https://t.co/nMVgUfq675</a> <a href="https://t.co/6AKBr1EeeO" class="uri">https://t.co/6AKBr1EeeO</a>
+</td>
+<td style="text-align:right;">
+0.9860403
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SWbioinf
+</td>
+<td style="text-align:left;">
+Keen to try out propeller tool for comparing cell type proportion changes being presented now by <span class="citation">@BelindaPhipson</span> at #ABACBS2020
+</td>
+<td style="text-align:right;">
+0.9860403
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="links" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="right">Tweets</th>
+<th align="right">Retweets</th>
+<th align="left">Type</th>
+<th align="left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">tidybulk.html</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">Bioc</td>
+<td align="left"><a href="https://bioconductor.org/packages/tidybulk.html">bioconductor.org/packages/tidybulk.html</a></td>
+</tr>
+<tr class="even">
+<td align="left">tidyseurat</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">CRAN</td>
+<td align="left"><a href="https://CRAN.R-project.org/package=tidyseurat">CRAN.R-project.org/package=tidyseurat</a></td>
+</tr>
+</tbody>
+</table>
+<!-- Any additional analysis can go here -->
+</div>
+<div id="session-info" class="section level1 unnumbered" number="">
+<h1 class="unnumbered" number="">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.7
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.5.0           here_0.1           kableExtra_1.3.1   knitr_1.30        
+##  [5] magick_2.5.2       webshot_0.5.2      viridis_0.5.1      viridisLite_0.3.0 
+##  [9] wordcloud_2.6      RColorBrewer_1.1-2 ggtext_0.1.0       ggraph_2.0.3      
+## [13] ggrepel_0.8.2      ggplot2_3.3.2      emo_0.0.0.9000     rvest_0.3.6       
+## [17] xml2_1.3.2         topicmodels_0.2-11 tidytext_0.2.6     igraph_1.2.6      
+## [21] stringr_1.4.0      purrr_0.3.4        forcats_0.5.0      lubridate_1.7.9.2 
+## [25] tidyr_1.1.2        dplyr_1.0.2        rtweet_0.7.0       clamour_0.1.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bitops_1.0-6       usethis_1.6.3      httr_1.4.2         rprojroot_2.0.2   
+##  [5] SnowballC_0.7.0    tools_4.0.0        utf8_1.1.4         R6_2.5.0          
+##  [9] colorspace_2.0-0   withr_2.3.0        tidyselect_1.1.0   gridExtra_2.3     
+## [13] processx_3.4.4     curl_4.3           compiler_4.0.0     cli_2.2.0         
+## [17] NLP_0.2-1          labeling_0.4.2     slam_0.1-47        scales_1.1.1      
+## [21] tm_0.7-7           callr_3.5.1        askpass_1.1        digest_0.6.27     
+## [25] rmarkdown_2.5      pkgconfig_2.0.3    htmltools_0.5.0    highr_0.8         
+## [29] rlang_0.4.8        rstudioapi_0.13    farver_2.0.3       generics_0.1.0    
+## [33] jsonlite_1.7.1     tokenizers_0.2.1   RCurl_1.98-1.2     magrittr_2.0.1    
+## [37] modeltools_0.2-23  Matrix_1.2-18      Rcpp_1.0.5         munsell_0.5.0     
+## [41] fansi_0.4.1        lifecycle_0.2.0    stringi_1.5.3      yaml_2.2.1        
+## [45] MASS_7.3-53        plyr_1.8.6         grid_4.0.0         parallel_4.0.0    
+## [49] crayon_1.3.4       lattice_0.20-41    graphlayouts_0.7.1 gridtext_0.1.1    
+## [53] ps_1.4.0           pillar_1.4.7       markdown_1.1       reshape2_1.4.4    
+## [57] stats4_4.0.0       glue_1.4.2         evaluate_0.14      vctrs_0.3.5       
+## [61] png_0.1-7          tweenr_1.0.1       selectr_0.4-2      gtable_0.3.0      
+## [65] openssl_1.4.3      polyclip_1.10-0    assertthat_0.2.1   xfun_0.19         
+## [69] ggforce_0.3.2      tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.0.4      
+## [73] ellipsis_0.3.1</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
