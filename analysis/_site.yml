@@ -11,6 +11,8 @@ navbar:
           href: Bioc2019.html
         - text: "Bioc2020"
           href: Bioc2020.html
+        - text: "EuroBioc2020"
+          href: EuroBioc2020.html
   right:
     - text: "About"
       href: about.html
