@@ -7,7 +7,7 @@ params:
     # Times
     start_day: "2020-12-14"
     end_day: "2020-12-18"
-    timezone: "America/New_York"
+    timezone: "Europe/Rome"
     # Plot theme and colours
     theme: "theme_light"
     accent: "#0092ac"
