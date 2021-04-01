@@ -17,7 +17,7 @@ params:
     topics_k: 6
     bigram_filter: 3
     # Dataset fixed, set true to stop adding new tweets
-    fixed: FALSE
+    fixed: TRUE
     # Random seed
     seed: 1
 ---
