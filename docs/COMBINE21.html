@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>COMBINE21</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">COMBINE21</h1>
+<h3 class="subtitle">COMBINE Symposium 2021</h3>
+<h4 class="date">Last built: 2021-11-22 11:08:45</h4>
+
+</div>
+
+
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#COMBINE21</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2021-11-22</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2021-11-22</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#127bb3</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#050708</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1 class="unnumbered">Introduction</h1>
+<p>An analysis of tweets for the query #COMBINE21 related to COMBINE Symposium 2021 from 2021-11-22 to 2021-11-22. A total of 162 tweets from 55 users were collected using the <strong>{rtweet}</strong> R package.</p>
+<!-- This chunk adds the template analysis -->
+</div>
+<div id="timeline" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tweets by day</h2>
+<p><img src="figures/COMBINE21/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2021-11-22 - 2021-11-22 in the Australia/Sydney timezone.</p>
+<p><img src="figures/COMBINE21/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3 class="unnumbered">Overall</h3>
+<p><img src="figures/COMBINE21/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3 class="unnumbered">Original</h3>
+<p><img src="figures/COMBINE21/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3 class="unnumbered">Retweets</h3>
+<p><img src="figures/COMBINE21/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Retweet proportion</h2>
+<p><img src="figures/COMBINE21/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
+<p><img src="figures/COMBINE21/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/COMBINE21/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/COMBINE21/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/COMBINE21/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered">
+<h2 class="unnumbered">Users</h2>
+<p><img src="figures/COMBINE21/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered">
+<h2 class="unnumbered">Tweets</h2>
+<p><img src="figures/COMBINE21/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+</div>
+<div id="mentions" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/COMBINE21/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/COMBINE21/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/COMBINE21/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Only a few days left to register for the #COMBINE21 Symposium! We are looking forward to a great selection of talks on all things bioinformatics! Register now at <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+#bioinformatics #phdlife
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing talk by Hugh Cottingham from <span class="citation">@DrKatHolt</span> lab who presented an effective demonstration of using a CRISPR-Cas9 approach with Oxford Nanopore sequencing to target and enrich sequences of interest in complex bacterial mixtures. #COMBINE21 #Bioinformatics <a href="https://t.co/0UhDrt5icf" class="uri">https://t.co/0UhDrt5icf</a>
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Congratulations to all of our prize winners for best talk, best flash talk and people’s choice awards!</p>
+Hats off to a truly great #COMBINE21 Symposium and to all of the amazing #Bioinformatics research being done in Australia 🙌 <a href="https://t.co/P7iRzllgRT" class="uri">https://t.co/P7iRzllgRT</a>
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>SO excited for this years #COMBINE21 Symposium 🤩 now less than 24 hours away!</p>
+<p>Not registered yet? No problem, register now at <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+#Bioinformatics #phdlife
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Pan-genomes explained using Pac-Man ghosts! 👻</p>
+<p>The most creative and effective explanation of pan-genomes I have seen. Great work Chelsea! <span class="citation">@bioinfocharls</span></p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/fRNHjeEIDZ" class="uri">https://t.co/fRNHjeEIDZ</a>
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>"I wanted to do something that could make a difference to people, that took me on a career path towards #Bioinformatics."</p>
+<ul>
+<li>Prof. <span class="citation">@AliciaOshlack</span> speaking at the #COMBINE21 Symposium</li>
+</ul>
+<span class="citation">@combine_au</span> <a href="https://t.co/wlILWfhZu0" class="uri">https://t.co/wlILWfhZu0</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Our #COMBINE21 Symposium is about to begin!</p>
+<p>Check out our program to find out today’s session topics and selected talks! <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+See you all at 10:30AM AEDT 🤩
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>The #COMBINE21 annual bioinformatics conference is underway with the Genomics session! Check out the link below for access (through the booklet) and come support the Australian #bioinformatics student community with <span class="citation">@combine_au</span></p>
+<a href="https://t.co/K2WJQBF3Fy" class="uri">https://t.co/K2WJQBF3Fy</a> <a href="https://t.co/qzCToUfSEm" class="uri">https://t.co/qzCToUfSEm</a>
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>We are looking forward to an amazing selection of talks for our upcoming Translational #Bioinformatics session.</p>
+<p>Beginning at 3:15PM after our break. See you soon!</p>
+#COMBINE21 <a href="https://t.co/dVe8wLwYXM" class="uri">https://t.co/dVe8wLwYXM</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+<p>We have an excellent line-up of talks on Genomics, Transcriptomics and Translational Bioinformatics!</p>
+<p>The keynote address will be given by Prof. <span class="citation">@AliciaOshlack</span> on "Transcriptomics: Past, present and future".</p>
+#COMBINE21 #Bioinformatics #phdlife #PhD <a href="https://t.co/wPhTeWILkv" class="uri">https://t.co/wPhTeWILkv</a>
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3 class="unnumbered">Most retweeted</h3>
+<p><img src="figures/COMBINE21/most-retweeted-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/COMBINE21/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/COMBINE21/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Pan-genomes explained using Pac-Man ghosts! 👻</p>
+<p>The most creative and effective explanation of pan-genomes I have seen. Great work Chelsea! <span class="citation">@bioinfocharls</span></p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/fRNHjeEIDZ" class="uri">https://t.co/fRNHjeEIDZ</a>
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+We’re off for the week with #COMBINE21! I’ll be tweeting from beautiful Hobart 😀
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Outstanding Keynote Talk from <span class="citation">@AliciaOshlack</span>, the perfect primer for our upcoming #COMBINE21 transcriptomics session - Pun courtesy of <span class="citation">@_AJSethi</span></p>
+Featuring a shout out of her longstanding support of <span class="citation">@combine_au</span> and supervising many of our past presidents! <a href="https://t.co/eoWWme9QUc" class="uri">https://t.co/eoWWme9QUc</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Powerful presentation by Anushi Shah at #COMBINE21 about a meta-analytic approach that combines 4 different methods to detect de novo mutations from genomic data.</p>
+#Bioinformatics <a href="https://t.co/ghbRNkpLP8" class="uri">https://t.co/ghbRNkpLP8</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>"I wanted to do something that could make a difference to people, that took me on a career path towards #Bioinformatics."</p>
+<ul>
+<li>Prof. <span class="citation">@AliciaOshlack</span> speaking at the #COMBINE21 Symposium</li>
+</ul>
+<span class="citation">@combine_au</span> <a href="https://t.co/wlILWfhZu0" class="uri">https://t.co/wlILWfhZu0</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+<p>We have an excellent line-up of talks on Genomics, Transcriptomics and Translational Bioinformatics!</p>
+<p>The keynote address will be given by Prof. <span class="citation">@AliciaOshlack</span> on "Transcriptomics: Past, present and future".</p>
+#COMBINE21 #Bioinformatics #phdlife #PhD <a href="https://t.co/wPhTeWILkv" class="uri">https://t.co/wPhTeWILkv</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing talk by Hugh Cottingham from <span class="citation">@DrKatHolt</span> lab who presented an effective demonstration of using a CRISPR-Cas9 approach with Oxford Nanopore sequencing to target and enrich sequences of interest in complex bacterial mixtures. #COMBINE21 #Bioinformatics <a href="https://t.co/0UhDrt5icf" class="uri">https://t.co/0UhDrt5icf</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+urwahnawaz
+</td>
+<td style="text-align:left;">
+This is the first time I’ve actually gained something thanks to Chai 😭literally going to use the prize $$ to replace the extension cord he’s chewed #COMBINE21 <a href="https://t.co/qUa4XBRnHi" class="uri">https://t.co/qUa4XBRnHi</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Nora <span class="citation">@Wenjun_nora</span> from <span class="citation">@drmcrl</span> lab introduced the eternal dilemma faced by bioinformaticians analysing transcriptomic data - it is difficult to interpret differentially expressed genes and enriched pathways.</p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/RnZTvijAA4" class="uri">https://t.co/RnZTvijAA4</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>The #COMBINE21 annual bioinformatics conference is underway with the Genomics session! Check out the link below for access (through the booklet) and come support the Australian #bioinformatics student community with <span class="citation">@combine_au</span></p>
+<a href="https://t.co/K2WJQBF3Fy" class="uri">https://t.co/K2WJQBF3Fy</a> <a href="https://t.co/qzCToUfSEm" class="uri">https://t.co/qzCToUfSEm</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3 class="unnumbered">Most likes</h3>
+<p><img src="figures/COMBINE21/most-favorited-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/COMBINE21/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/COMBINE21/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+We are live!! #COMBINE21 <a href="https://t.co/QaLpdggRNI" class="uri">https://t.co/QaLpdggRNI</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P_AgudeloRomero
+</td>
+<td style="text-align:left;">
+#COMBINE21 Symposium for bioinformatics students <a href="https://t.co/0NMVarldAX" class="uri">https://t.co/0NMVarldAX</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+A great program and the committee behind it. Enjoy your day at #COMBINE21 <a href="https://t.co/J8FrXtK7vy" class="uri">https://t.co/J8FrXtK7vy</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+What is the future of RNA in discovery science and translational research? Join prof. <span class="citation">@AliciaOshlack</span>‘s keynote lecture at <span class="citation">@combine_au</span> #COMBINE21, ’Transcriptomics: Past, present and future’ to learn more. Live now! <a href="https://t.co/aFojipaKWr" class="uri">https://t.co/aFojipaKWr</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+Excellent talks and questions during the #genomics session. Looking forward to Keynote address at 1:10 pm #COMBINE21 <a href="https://t.co/TZsxhItzsK" class="uri">https://t.co/TZsxhItzsK</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+<p>We have an excellent line-up of talks on Genomics, Transcriptomics and Translational Bioinformatics!</p>
+<p>The keynote address will be given by Prof. <span class="citation">@AliciaOshlack</span> on "Transcriptomics: Past, present and future".</p>
+#COMBINE21 #Bioinformatics #phdlife #PhD <a href="https://t.co/wPhTeWILkv" class="uri">https://t.co/wPhTeWILkv</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+We’re so proud of our organising committee for #COMBINE21! Loving all the talks so far 😍 <a href="https://t.co/aDKTTTcfej" class="uri">https://t.co/aDKTTTcfej</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wenjun_nora
+</td>
+<td style="text-align:left;">
+Loved this flask talk on pan-genomes! So creative and still so easy to follow. Excellent work Chelsea! <span class="citation">@bioinfocharls</span> #COMBINE21 <a href="https://t.co/PnZXm1qKJ0" class="uri">https://t.co/PnZXm1qKJ0</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giulia__iacono
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@himal2007</span> I can only imagine the headache you got when you saw that your data was not correlating at the beginning! Great job on your findings and super interesting research!</p>
+#COMBINE21 <a href="https://t.co/1PvnAfn5VU" class="uri">https://t.co/1PvnAfn5VU</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+Be there to learn more about career pathways!!! #COMBINE21 <a href="https://t.co/8ARa3MR9aH" class="uri">https://t.co/8ARa3MR9aH</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3 class="unnumbered">Most quoted</h3>
+<p><img src="figures/COMBINE21/most-quoted-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2 class="unnumbered">Proportion</h2>
+<p><img src="figures/COMBINE21/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2 class="unnumbered">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Pan-genomes explained using Pac-Man ghosts! 👻</p>
+<p>The most creative and effective explanation of pan-genomes I have seen. Great work Chelsea! <span class="citation">@bioinfocharls</span></p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/fRNHjeEIDZ" class="uri">https://t.co/fRNHjeEIDZ</a>
+</td>
+<td style="text-align:right;">
+33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Outstanding Keynote Talk from <span class="citation">@AliciaOshlack</span>, the perfect primer for our upcoming #COMBINE21 transcriptomics session - Pun courtesy of <span class="citation">@_AJSethi</span></p>
+Featuring a shout out of her longstanding support of <span class="citation">@combine_au</span> and supervising many of our past presidents! <a href="https://t.co/eoWWme9QUc" class="uri">https://t.co/eoWWme9QUc</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Powerful presentation by Anushi Shah at #COMBINE21 about a meta-analytic approach that combines 4 different methods to detect de novo mutations from genomic data.</p>
+#Bioinformatics <a href="https://t.co/ghbRNkpLP8" class="uri">https://t.co/ghbRNkpLP8</a>
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>"I wanted to do something that could make a difference to people, that took me on a career path towards #Bioinformatics."</p>
+<ul>
+<li>Prof. <span class="citation">@AliciaOshlack</span> speaking at the #COMBINE21 Symposium</li>
+</ul>
+<span class="citation">@combine_au</span> <a href="https://t.co/wlILWfhZu0" class="uri">https://t.co/wlILWfhZu0</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing talk by Hugh Cottingham from <span class="citation">@DrKatHolt</span> lab who presented an effective demonstration of using a CRISPR-Cas9 approach with Oxford Nanopore sequencing to target and enrich sequences of interest in complex bacterial mixtures. #COMBINE21 #Bioinformatics <a href="https://t.co/0UhDrt5icf" class="uri">https://t.co/0UhDrt5icf</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Nora <span class="citation">@Wenjun_nora</span> from <span class="citation">@drmcrl</span> lab introduced the eternal dilemma faced by bioinformaticians analysing transcriptomic data - it is difficult to interpret differentially expressed genes and enriched pathways.</p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/RnZTvijAA4" class="uri">https://t.co/RnZTvijAA4</a>
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>The #COMBINE21 annual bioinformatics conference is underway with the Genomics session! Check out the link below for access (through the booklet) and come support the Australian #bioinformatics student community with <span class="citation">@combine_au</span></p>
+<a href="https://t.co/K2WJQBF3Fy" class="uri">https://t.co/K2WJQBF3Fy</a> <a href="https://t.co/qzCToUfSEm" class="uri">https://t.co/qzCToUfSEm</a>
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Congratulations to all of our prize winners for best talk, best flash talk and people’s choice awards!</p>
+Hats off to a truly great #COMBINE21 Symposium and to all of the amazing #Bioinformatics research being done in Australia 🙌 <a href="https://t.co/P7iRzllgRT" class="uri">https://t.co/P7iRzllgRT</a>
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+urwahnawaz
+</td>
+<td style="text-align:left;">
+You may hear my bunny trying to dig through a cardboard box (?) in the background during my flash talk #COMBINE21 <a href="https://t.co/zFiIuHizHB" class="uri">https://t.co/zFiIuHizHB</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+And that’s a wrap for #COMBINE21! Thanks to my incredible co-chair <span class="citation">@sachintha_wije</span> &amp;amp; our committee, our speakers, career panelists, Prof. <span class="citation">@AliciaOshlack</span>, and finally, all our attendees. Proudly supported by <span class="citation">@PawseyCentre</span> <span class="citation">@IntersectAust</span> <span class="citation">@MelBioInf</span> <span class="citation">@SA_genomics</span>. Onto #ABACBS2021!! <a href="https://t.co/G0LjAhaF0Y" class="uri">https://t.co/G0LjAhaF0Y</a>
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1 class="unnumbered toc-ignore"></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/FEwuTsjUUAAA0HV.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/COMBINE21/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hashtags" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/COMBINE21/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/COMBINE21/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/COMBINE21/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/COMBINE21/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>A BIG thank you to <span class="citation">@IntersectAust</span> for sponsoring today’s #COMBINE21 Genomics session (starting now!)</p>
+<p>As a not-for-profit, Intersect offers research support to meet the specific needs of researchers and enhance research productivity.</p>
+Check them out at <a href="https://t.co/4xgcXKVUnj" class="uri">https://t.co/4xgcXKVUnj</a>
+</td>
+<td style="text-align:right;">
+0.9961023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Outstanding Keynote Talk from <span class="citation">@AliciaOshlack</span>, the perfect primer for our upcoming #COMBINE21 transcriptomics session - Pun courtesy of <span class="citation">@_AJSethi</span></p>
+Featuring a shout out of her longstanding support of <span class="citation">@combine_au</span> and supervising many of our past presidents! <a href="https://t.co/eoWWme9QUc" class="uri">https://t.co/eoWWme9QUc</a>
+</td>
+<td style="text-align:right;">
+0.9961023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>The #COMBINE21 annual bioinformatics conference is underway with the Genomics session! Check out the link below for access (through the booklet) and come support the Australian #bioinformatics student community with <span class="citation">@combine_au</span></p>
+<a href="https://t.co/K2WJQBF3Fy" class="uri">https://t.co/K2WJQBF3Fy</a> <a href="https://t.co/qzCToUfSEm" class="uri">https://t.co/qzCToUfSEm</a>
+</td>
+<td style="text-align:right;">
+0.9958741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+IntersectAust
+</td>
+<td style="text-align:left;">
+Intersect is gearing up for the <span class="citation">@combine_au</span> Symposium conference on Monday! As a session sponsor for the #COMBINE21 conference, Intersect will present at the Genomics session at 10:45am. There are still a few more days to register as a participant here: <a href="https://t.co/YmlhvbrJP9" class="uri">https://t.co/YmlhvbrJP9</a>
+</td>
+<td style="text-align:right;">
+0.9956176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Congratulations to all of our prize winners for best talk, best flash talk and people’s choice awards!</p>
+Hats off to a truly great #COMBINE21 Symposium and to all of the amazing #Bioinformatics research being done in Australia 🙌 <a href="https://t.co/P7iRzllgRT" class="uri">https://t.co/P7iRzllgRT</a>
+</td>
+<td style="text-align:right;">
+0.9956176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>What a great first #genomics 🧬session. We will be back at 1:10pm after the lunch break.</p>
+<p>Our #COMBINE21 Keynote Speech will be given by Prof. <span class="citation">@AliciaOshlack</span> and will be titled “Transcriptomics, past, present and future”.</p>
+We are truly excited for this one! 🤩
+</td>
+<td style="text-align:right;">
+0.9946128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>We are now starting #COMBINE21’s 2nd session on Transcriptomics!</p>
+<a href="https://t.co/K2WJQBF3Fy" class="uri">https://t.co/K2WJQBF3Fy</a> <a href="https://t.co/Et5DsR3NWf" class="uri">https://t.co/Et5DsR3NWf</a>
+</td>
+<td style="text-align:right;">
+0.9884152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+<p>We have an excellent line-up of talks on Genomics, Transcriptomics and Translational Bioinformatics!</p>
+<p>The keynote address will be given by Prof. <span class="citation">@AliciaOshlack</span> on “Transcriptomics: Past, present and future”.</p>
+#COMBINE21 #Bioinformatics #phdlife #PhD <a href="https://t.co/wPhTeWILkv" class="uri">https://t.co/wPhTeWILkv</a>
+</td>
+<td style="text-align:right;">
+0.6825103
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+Our honours student Rachel did a fantastic job presenting her project disTIL: a turnkey approach to profile the immune landscape in cancer at #COMBINE21! Representing the <span class="citation">@KidsCancerInst</span> CompBio lab 🤗 <span class="citation">@markjcowley</span> <a href="https://t.co/evjuG3KaX4" class="uri">https://t.co/evjuG3KaX4</a>
+</td>
+<td style="text-align:right;">
+0.9963065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+What is the future of RNA in discovery science and translational research? Join prof. <span class="citation">@AliciaOshlack</span>‘s keynote lecture at <span class="citation">@combine_au</span> #COMBINE21, ’Transcriptomics: Past, present and future’ to learn more. Live now! <a href="https://t.co/aFojipaKWr" class="uri">https://t.co/aFojipaKWr</a>
+</td>
+<td style="text-align:right;">
+0.9958741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Only a few days left to register for the #COMBINE21 Symposium! We are looking forward to a great selection of talks on all things bioinformatics! Register now at <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+#bioinformatics #phdlife
+</td>
+<td style="text-align:right;">
+0.9941670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giulia__iacono
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@himal2007</span> I can only imagine the headache you got when you saw that your data was not correlating at the beginning! Great job on your findings and super interesting research!</p>
+#COMBINE21 <a href="https://t.co/1PvnAfn5VU" class="uri">https://t.co/1PvnAfn5VU</a>
+</td>
+<td style="text-align:right;">
+0.9930102
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+giulia__iacono
+</td>
+<td style="text-align:left;">
+<p>What a great selection of talks and novel approaches presented today at the #COMBINE21 Symposium!</p>
+<p>Great day for #Bioinformatics research 🧬</p>
+<span class="citation">@combine_au</span> <span class="citation">@abacbs</span> <a href="https://t.co/QmmQdUvSZz" class="uri">https://t.co/QmmQdUvSZz</a>
+</td>
+<td style="text-align:right;">
+0.9922408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>SO excited for this years #COMBINE21 Symposium 🤩 now less than 24 hours away!</p>
+<p>Not registered yet? No problem, register now at <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+#Bioinformatics #phdlife
+</td>
+<td style="text-align:right;">
+0.9912811
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+What can amazing looking committee and program at <span class="citation">@abacbs</span> <span class="citation">@combine_au</span> symposium today 👏 👏 #COMBINE21 #ABACBS2021 <a href="https://t.co/XGuD3evdwO" class="uri">https://t.co/XGuD3evdwO</a>
+</td>
+<td style="text-align:right;">
+0.9900504
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+A great program and the committee behind it. Enjoy your day at #COMBINE21 <a href="https://t.co/J8FrXtK7vy" class="uri">https://t.co/J8FrXtK7vy</a>
+</td>
+<td style="text-align:right;">
+0.9861367
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+Now onto the keynote speaker for #COMBINE21: Prof Alicia Oshlack <span class="citation">@AliciaOshlack</span> !
+</td>
+<td style="text-align:right;">
+0.9861367
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P_AgudeloRomero
+</td>
+<td style="text-align:left;">
+#COMBINE21 Symposium for bioinformatics students <a href="https://t.co/0NMVarldAX" class="uri">https://t.co/0NMVarldAX</a>
+</td>
+<td style="text-align:right;">
+0.9827427
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>A HUGE thank you shoutout to today’s #COMBINE21 Symposium PRINCIPAL Sponsor <span class="citation">@PawseyCentre</span> 🙌</p>
+<p>Pawsey is accelerating scientific breakthroughs through world-class expertise and infrastructure in supercomputing and data-intensive analysis.</p>
+Find out how at <a href="https://t.co/355XSCxLn5" class="uri">https://t.co/355XSCxLn5</a>
+</td>
+<td style="text-align:right;">
+0.9964904
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+And that’s a wrap for #COMBINE21! Thanks to my incredible co-chair <span class="citation">@sachintha_wije</span> &amp;amp; our committee, our speakers, career panelists, Prof. <span class="citation">@AliciaOshlack</span>, and finally, all our attendees. Proudly supported by <span class="citation">@PawseyCentre</span> <span class="citation">@IntersectAust</span> <span class="citation">@MelBioInf</span> <span class="citation">@SA_genomics</span>. Onto #ABACBS2021!! <a href="https://t.co/G0LjAhaF0Y" class="uri">https://t.co/G0LjAhaF0Y</a>
+</td>
+<td style="text-align:right;">
+0.9956176
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>We are super grateful to all of our invited Symposium speakers!</p>
+Thank you for coming along to today’s #COMBINE21 Symposium and for sharing your wisdom, expertise and insights into a career in #Bioinformatics! <a href="https://t.co/tzacB7uOlE" class="uri">https://t.co/tzacB7uOlE</a>
+</td>
+<td style="text-align:right;">
+0.9953271
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Pan-genomes explained using Pac-Man ghosts! 👻</p>
+<p>The most creative and effective explanation of pan-genomes I have seen. Great work Chelsea! <span class="citation">@bioinfocharls</span></p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/fRNHjeEIDZ" class="uri">https://t.co/fRNHjeEIDZ</a>
+</td>
+<td style="text-align:right;">
+0.9949953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Fabulous talk from <span class="citation">@KatherineeCaley</span> about mutation disequilibrium at #COMBINE21. Such high-quality work is being presented by students of all levels today 💪</p>
+Takes me back to my first <span class="citation">@combine_au</span> talk in 2019 as an honours student. <a href="https://t.co/NqhNSFBbuD" class="uri">https://t.co/NqhNSFBbuD</a>
+</td>
+<td style="text-align:right;">
+0.9946128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wenjun_nora
+</td>
+<td style="text-align:left;">
+Loved this flask talk on pan-genomes! So creative and still so easy to follow. Excellent work Chelsea! <span class="citation">@bioinfocharls</span> #COMBINE21 <a href="https://t.co/PnZXm1qKJ0" class="uri">https://t.co/PnZXm1qKJ0</a>
+</td>
+<td style="text-align:right;">
+0.9941670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>The workflow is fully automated using Docker and runs on the cloud. This reproducibility is very much needed in bioinformatics, particularly for complex pipelines, so it is great to see.</p>
+#COMBINE21 #Bioinformatics <a href="https://t.co/0WUhcTRVtA" class="uri">https://t.co/0WUhcTRVtA</a>
+</td>
+<td style="text-align:right;">
+0.9936408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+urwahnawaz
+</td>
+<td style="text-align:left;">
+You may hear my bunny trying to dig through a cardboard box (?) in the background during my flash talk #COMBINE21 <a href="https://t.co/zFiIuHizHB" class="uri">https://t.co/zFiIuHizHB</a>
+</td>
+<td style="text-align:right;">
+0.9922408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>“I wanted to do something that could make a difference to people, that took me on a career path towards #Bioinformatics.”</p>
+<ul>
+<li>Prof. <span class="citation">@AliciaOshlack</span> speaking at the #COMBINE21 Symposium</li>
+</ul>
+<span class="citation">@combine_au</span> <a href="https://t.co/wlILWfhZu0" class="uri">https://t.co/wlILWfhZu0</a>
+</td>
+<td style="text-align:right;">
+0.9922408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>It’s fabulous to see so many strong and engaging phylogenetics talks this year at #COMBINE21!</p>
+Perhaps this has something to do with our combined conference with <span class="citation">@phylomania</span> 🤗
+</td>
+<td style="text-align:right;">
+0.9912811
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Starting in 10 minutes (5:15pm AEDT) is the bioinformatics careers panel at #COMBINE21. What a great way to close such a good day of cutting-edge bioinformatics talks presented by students in the <span class="citation">@combine_au</span> community.</p>
+Ft. <span class="citation">@sarah_beecroft</span>, Etsuko Uno, <span class="citation">@tpq__</span> and <span class="citation">@tsonika</span> <a href="https://t.co/lUvrDe0i1J" class="uri">https://t.co/lUvrDe0i1J</a>
+</td>
+<td style="text-align:right;">
+0.9966568
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Our #COMBINE21 Careers Panel session is about to begin! 🙌</p>
+<p>Check out our Panel members: Sarah Beecroft <span class="citation">@sarah_beecroft</span> Thom Quinn <span class="citation">@tpq__</span><br />
+Etsuko Uno from <span class="citation">@WEHI_research</span> Sonika Tyagi <span class="citation">@tsonika</span></p>
+<a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a>
+</td>
+<td style="text-align:right;">
+0.9961023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+The approach taken by <span class="citation">@Wenjun_nora</span> made several improvements to the original SPIA method which is used to calculate a perturbation score to assess how pathway activity differs across samples. #Bioinformatics #COMBINE21 <a href="https://t.co/VxLXMLMpx8" class="uri">https://t.co/VxLXMLMpx8</a>
+</td>
+<td style="text-align:right;">
+0.9953271
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Our #COMBINE21 Symposium is about to begin!</p>
+<p>Check out our program to find out today’s session topics and selected talks! <a href="https://t.co/PlrttPuJvc" class="uri">https://t.co/PlrttPuJvc</a></p>
+See you all at 10:30AM AEDT 🤩
+</td>
+<td style="text-align:right;">
+0.9941670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+urwahnawaz
+</td>
+<td style="text-align:left;">
+This is the first time I’ve actually gained something thanks to Chai 😭literally going to use the prize $$ to replace the extension cord he’s chewed #COMBINE21 <a href="https://t.co/qUa4XBRnHi" class="uri">https://t.co/qUa4XBRnHi</a>
+</td>
+<td style="text-align:right;">
+0.9941670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<span class="citation">@mobeginomics</span> We are very happy to have you in attendance today at #COMBINE21 🙌 Hopefully the 7am start was worth it!
+</td>
+<td style="text-align:right;">
+0.9884152
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Nhan Trong Ly presented a new approach, AliSim, for simulating sequence alignments at #COMBINE21.</p>
+The approach makes use of an evolutionary model. It outperforms existing tools, and a tutorial is available to follow along here: <a href="https://t.co/DH3u1jgQXQ" class="uri">https://t.co/DH3u1jgQXQ</a> #Bioinformatics <a href="https://t.co/iyJMlHUxT9" class="uri">https://t.co/iyJMlHUxT9</a>
+</td>
+<td style="text-align:right;">
+0.9964904
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Nora <span class="citation">@Wenjun_nora</span> from <span class="citation">@drmcrl</span> lab introduced the eternal dilemma faced by bioinformaticians analysing transcriptomic data - it is difficult to interpret differentially expressed genes and enriched pathways.</p>
+#Bioinformatics #COMBINE21 <a href="https://t.co/RnZTvijAA4" class="uri">https://t.co/RnZTvijAA4</a>
+</td>
+<td style="text-align:right;">
+0.9963065
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+The Perth #COMBINE21 and #ABACBS2021 hub is up and running! Streaming talks from 8am-ish most days this week. There’ll be lunch today and tomorrow, with morning tea courtesy of <span class="citation">@dr_njarmstrong</span> :) <a href="https://t.co/8lltT3sMnG" class="uri">https://t.co/8lltT3sMnG</a>
+</td>
+<td style="text-align:right;">
+0.9961023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+<p>Powerful presentation by Anushi Shah at #COMBINE21 about a meta-analytic approach that combines 4 different methods to detect de novo mutations from genomic data.</p>
+#Bioinformatics <a href="https://t.co/ghbRNkpLP8" class="uri">https://t.co/ghbRNkpLP8</a>
+</td>
+<td style="text-align:right;">
+0.9958741
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+phylofred
+</td>
+<td style="text-align:left;">
+Fascinating work on constructing recombinant bacterial trees by <span class="citation">@NehlehK</span>. No brakes on the recombination train at #COMBINE21 🚅 <a href="https://t.co/ZdVgA1FWLE" class="uri">https://t.co/ZdVgA1FWLE</a>
+</td>
+<td style="text-align:right;">
+0.9930102
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+.@sarah_beecroft on the big screen!! #COMBINE21 #abacbs2021 <a href="https://t.co/y7kzFVLL61" class="uri">https://t.co/y7kzFVLL61</a>
+</td>
+<td style="text-align:right;">
+0.9827427
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+Amazing talk by Hugh Cottingham from <span class="citation">@DrKatHolt</span> lab who presented an effective demonstration of using a CRISPR-Cas9 approach with Oxford Nanopore sequencing to target and enrich sequences of interest in complex bacterial mixtures. #COMBINE21 #Bioinformatics <a href="https://t.co/0UhDrt5icf" class="uri">https://t.co/0UhDrt5icf</a>
+</td>
+<td style="text-align:right;">
+0.9966568
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NhiHin
+</td>
+<td style="text-align:left;">
+PhD student Nehleh Kargerfard presented her new method, PhiloBacteria at #COMBINE21. This tool addresses an important gap in the field - how recombination in bacteria skews the inference of a phylogenetic tree. #Bioinformatics <a href="https://t.co/5C9FEA4SI0" class="uri">https://t.co/5C9FEA4SI0</a>
+</td>
+<td style="text-align:right;">
+0.9961023
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>Brace yourself! Our upcoming Transcriptomics session is starting now.</p>
+<p>We’d also like to thank our General sponsors <span class="citation">@MelBioInf</span>, <span class="citation">@SA_genomics</span> and <span class="citation">@iscb</span> for supporting this year’s Symposium!</p>
+<p><a href="https://t.co/qjMNWjrogm" class="uri">https://t.co/qjMNWjrogm</a> <a href="https://t.co/efEDL0vTkN" class="uri">https://t.co/efEDL0vTkN</a> <a href="https://t.co/sGyC1ori9f" class="uri">https://t.co/sGyC1ori9f</a></p>
+#COMBINE21
+</td>
+<td style="text-align:right;">
+0.9949953
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>We are looking forward to an amazing selection of talks for our upcoming Translational #Bioinformatics session.</p>
+<p>Beginning at 3:15PM after our break. See you soon!</p>
+#COMBINE21 <a href="https://t.co/dVe8wLwYXM" class="uri">https://t.co/dVe8wLwYXM</a>
+</td>
+<td style="text-align:right;">
+0.9941670
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+<p>A huge thank you again to all of our sponsors <span class="citation">@PawseyCentre</span>, <span class="citation">@IntersectAust</span>, <span class="citation">@MelBioInf</span>, <span class="citation">@SA_genomics</span> and <span class="citation">@iscb</span> for sponsoring today’s Symposium!</p>
+This year’s #COMBINE21 would not have been possible without their support 👏 <a href="https://t.co/gSe5IF8of1" class="uri">https://t.co/gSe5IF8of1</a>
+</td>
+<td style="text-align:right;">
+0.9936408
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+combine_au
+</td>
+<td style="text-align:left;">
+We’re so proud of our organising committee for #COMBINE21! Loving all the talks so far 😍 <a href="https://t.co/aDKTTTcfej" class="uri">https://t.co/aDKTTTcfej</a>
+</td>
+<td style="text-align:right;">
+0.9900504
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+phylofred
+</td>
+<td style="text-align:left;">
+Swapnil kicking off #COMBINE21 with microbial recombination - woohoo! <a href="https://t.co/qgIX1CHmLb" class="uri">https://t.co/qgIX1CHmLb</a>
+</td>
+<td style="text-align:right;">
+0.9884152
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+We’re off for the week with #COMBINE21! I’ll be tweeting from beautiful Hobart 😀
+</td>
+<td style="text-align:right;">
+0.9827427
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sachintha_wije
+</td>
+<td style="text-align:left;">
+Excellent talks and questions during the #genomics session. Looking forward to Keynote address at 1:10 pm #COMBINE21 <a href="https://t.co/TZsxhItzsK" class="uri">https://t.co/TZsxhItzsK</a>
+</td>
+<td style="text-align:right;">
+0.5262234
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="links" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
+<!-- Any additional analysis can go here -->
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1 class="unnumbered">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## R version 4.1.0 Patched (2021-05-19 r80339)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.7
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.5.0           here_1.0.1         kableExtra_1.3.4   knitr_1.36        
+##  [5] magick_2.7.3       webshot_0.5.2      viridis_0.6.2      viridisLite_0.4.0 
+##  [9] wordcloud_2.6      RColorBrewer_1.1-2 ggtext_0.1.1       ggraph_2.0.5      
+## [13] ggrepel_0.9.1      ggplot2_3.3.5      emo_0.0.0.9000     rvest_1.0.2       
+## [17] topicmodels_0.2-12 tidytext_0.3.2     igraph_1.2.8       stringr_1.4.0     
+## [21] purrr_0.3.4        forcats_0.5.1      lubridate_1.8.0    tidyr_1.1.4       
+## [25] dplyr_1.0.7        rtweet_0.7.0       clamour_0.1.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bitops_1.0-7       usethis_2.1.3      httr_1.4.2         rprojroot_2.0.2   
+##  [5] SnowballC_0.7.0    tools_4.1.0        bslib_0.3.1        utf8_1.2.2        
+##  [9] R6_2.5.1           DBI_1.1.1          colorspace_2.0-2   withr_2.4.2       
+## [13] processx_3.5.2     tidyselect_1.1.1   gridExtra_2.3      curl_4.3.2        
+## [17] compiler_4.1.0     cli_3.1.0          xml2_1.3.2         NLP_0.2-1         
+## [21] labeling_0.4.2     slam_0.1-49        sass_0.4.0         scales_1.1.1      
+## [25] tm_0.7-8           callr_3.7.0.9000   askpass_1.1        systemfonts_1.0.3 
+## [29] digest_0.6.28      rmarkdown_2.11     svglite_2.0.0      pkgconfig_2.0.3   
+## [33] htmltools_0.5.2    fastmap_1.1.0      highr_0.9          rlang_0.4.12      
+## [37] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0       generics_0.1.1    
+## [41] jsonlite_1.7.2     tokenizers_0.2.1   RCurl_1.98-1.5     magrittr_2.0.1    
+## [45] modeltools_0.2-23  Matrix_1.3-4       Rcpp_1.0.7         munsell_0.5.0     
+## [49] fansi_0.5.0        lifecycle_1.0.1    stringi_1.7.5      yaml_2.2.1        
+## [53] MASS_7.3-54        plyr_1.8.6         grid_4.1.0         parallel_4.1.0    
+## [57] crayon_1.4.2       lattice_0.20-45    graphlayouts_0.7.2 gridtext_0.1.4    
+## [61] ps_1.6.0           pillar_1.6.4       markdown_1.1       reshape2_1.4.4    
+## [65] stats4_4.1.0       glue_1.5.0         evaluate_0.14      selectr_0.4-2     
+## [69] png_0.1-7          vctrs_0.3.8        tweenr_1.0.2       gtable_0.3.0      
+## [73] openssl_1.4.5      polyclip_1.10-0    assertthat_0.2.1   xfun_0.28         
+## [77] ggforce_0.3.3      tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.1.6      
+## [81] ellipsis_0.3.2</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
