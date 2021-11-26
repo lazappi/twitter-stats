@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ABACBS2021</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">lazappi's Twitter stats</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="https://github.com/lazappi/twitter-stats">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">ABACBS2021</h1>
+<h3 class="subtitle">ABACBS Conference 2021</h3>
+<h4 class="date">Last built: 2021-11-26 17:04:32</h4>
+
+</div>
+
+
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#Parameters">
+Parameters
+</button>
+</p>
+<div id="Parameters" class="collapse">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">hashtag</td>
+<td align="left">#ABACBS2021</td>
+</tr>
+<tr class="even">
+<td align="left">start_day</td>
+<td align="left">2021-11-23</td>
+</tr>
+<tr class="odd">
+<td align="left">end_day</td>
+<td align="left">2021-11-25</td>
+</tr>
+<tr class="even">
+<td align="left">timezone</td>
+<td align="left">Australia/Sydney</td>
+</tr>
+<tr class="odd">
+<td align="left">theme</td>
+<td align="left">theme_light</td>
+</tr>
+<tr class="even">
+<td align="left">accent</td>
+<td align="left">#d70a14</td>
+</tr>
+<tr class="odd">
+<td align="left">accent2</td>
+<td align="left">#EB8489</td>
+</tr>
+<tr class="even">
+<td align="left">kcore</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">topics_k</td>
+<td align="left">6</td>
+</tr>
+<tr class="even">
+<td align="left">bigram_filter</td>
+<td align="left">3</td>
+</tr>
+<tr class="odd">
+<td align="left">fixed</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">seed</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="introduction" class="section level1 unnumbered">
+<h1 class="unnumbered">Introduction</h1>
+<p>An analysis of tweets for the query #ABACBS2021 related to ABACBS Conference 2021 from 2021-11-23 to 2021-11-25. A total of 222 tweets from 76 users were collected using the <strong>{rtweet}</strong> R package.</p>
+<!-- This chunk adds the template analysis -->
+</div>
+<div id="timeline" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Timeline</h1>
+<div id="tweets-by-day" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tweets by day</h2>
+<p><img src="figures/ABACBS2021/tweets-by-day-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets-by-day-and-time" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Tweets by day and time</h2>
+<p>Filtered for dates 2021-11-23 - 2021-11-25 in the Australia/Sydney timezone.</p>
+<p><img src="figures/ABACBS2021/tweets-by-day-hour-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="users" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Users</h1>
+<div id="top-tweeters" class="section level2 tabset tabset-pills" number="2.1">
+<h2 class="tabset tabset-pills"><span class="header-section-number">2.1</span> Top tweeters</h2>
+<div id="overall" class="section level3 unnumbered">
+<h3 class="unnumbered">Overall</h3>
+<p><img src="figures/ABACBS2021/tweets-top-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="original" class="section level3 unnumbered">
+<h3 class="unnumbered">Original</h3>
+<p><img src="figures/ABACBS2021/tweets-top-users-orig-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="retweets" class="section level3 unnumbered">
+<h3 class="unnumbered">Retweets</h3>
+<p><img src="figures/ABACBS2021/tweets-top-users-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweet-proportion" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Retweet proportion</h2>
+<p><img src="figures/ABACBS2021/tweets-retweet-prop-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-timeline" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Top tweeters timeline</h2>
+<p><img src="figures/ABACBS2021/tweets-top-users-time-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-tweeters-by-day" class="section level2 tabset tabset-pills" number="2.4">
+<h2 class="tabset tabset-pills"><span class="header-section-number">2.4</span> Top tweeters by day</h2>
+<div id="overall-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Overall</h3>
+<div id="day-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 2</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 3</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="original-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Original</h3>
+<div id="day-1-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-orig-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 2</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-orig-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 3</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-orig-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="retweets-1" class="section level3 unnumbered tabset tabset-fade">
+<h3 class="unnumbered tabset tabset-fade">Retweets</h3>
+<div id="day-1-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 1</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-retweets-day1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-2-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 2</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-retweets-day2-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="day-3-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Day 3</h4>
+<p><img src="figures/ABACBS2021/tweets-top-users-retweets-day3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+</div>
+<div id="sources" class="section level1 tabset tabset-pills" number="3">
+<h1 class="tabset tabset-pills"><span class="header-section-number">3</span> Sources</h1>
+<div id="users-1" class="section level2 unnumbered">
+<h2 class="unnumbered">Users</h2>
+<p><img src="figures/ABACBS2021/tweets-top-sources-users-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="tweets" class="section level2 unnumbered">
+<h2 class="unnumbered">Tweets</h2>
+<p><img src="figures/ABACBS2021/tweets-top-sources-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="networks" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Networks</h1>
+<div id="replies" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Replies</h2>
+<p>The “replies network”, composed from users who reply directly to one another, coloured by PageRank.</p>
+<p><img src="figures/ABACBS2021/reply-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mentions" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Mentions</h2>
+<p>The “mentions network”, where users mention other users in their tweets. Filtered for a k-core of 2. Node colour and size adjusted according to PageRank score.</p>
+<p><img src="figures/ABACBS2021/mentions-network-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="tweet-types" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Tweet types</h1>
+<div id="retweets-2" class="section level2 tabset tabset-pills" number="5.1">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.1</span> Retweets</h2>
+<div id="proportion" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/ABACBS2021/is-retweet-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/ABACBS2021/retweet-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+retweet_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+If you can find a quiet moment during #ABACBS2021 #Phylomania and you’re into single cell omics, please complete our short survey about what research infrastructure you need. We’ll work with our partners to try to ease your #Bioinformatics pain points <a href="https://t.co/7ZgozOJC4a" class="uri">https://t.co/7ZgozOJC4a</a> <a href="https://t.co/tkXr8C38Sx" class="uri">https://t.co/tkXr8C38Sx</a>
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+We have come a long way since this was newsworthy. I love it that it’s now so accepted to have kids interrupting meetings and talks #ABACBS2021 <a href="https://t.co/tPAnA6q0pe" class="uri">https://t.co/tPAnA6q0pe</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>Congratulations to Andreas Halman from my group who won best poster at #ABACBS2021</p>
+<p>For his work on STRipy: Genotyping pathogenic STRs.</p>
+<p>I think you can see why he won…</p>
+Publication: <a href="https://t.co/qNEw6nFIdq" class="uri">https://t.co/qNEw6nFIdq</a> <a href="https://t.co/JI8am2YQMj" class="uri">https://t.co/JI8am2YQMj</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Outstanding PhD thesis award 2021 goes to <span class="citation">@Hasindu2008</span></p>
+<p>Congratulations!!</p>
+#ABACBS2021 #combine21
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Mindblown. Multiscale PHATE, isn’t maths beautiful? I just don’t have the brain to understand the formulae #notonlyabioinformatician #ABACBS2021 <span class="citation">@abacbs</span> Smita Krishnaswamy giving a stellar plenary. Is it time to jump on the single cell bandwagon? <span class="citation">@MonashBioinfo</span> Topological Viz <a href="https://t.co/80zj7wFuqJ" class="uri">https://t.co/80zj7wFuqJ</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dr_njarmstrong
+</td>
+<td style="text-align:left;">
+<p>Up now <span class="citation">@pabloacera91</span> detecting RNA methylation using Nanopore sequencing</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+The Perth #COMBINE21 and #ABACBS2021 hub is up and running! Streaming talks from 8am-ish most days this week. There’ll be lunch today and tomorrow, with morning tea courtesy of <span class="citation">@dr_njarmstrong</span> :) <a href="https://t.co/8lltT3sMnG" class="uri">https://t.co/8lltT3sMnG</a>
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ArianeNMora
+</td>
+<td style="text-align:left;">
+Great invited talk by Dr Ben Woodcroft yesterday at #ABACBS2021 feat some awesome work <span class="citation">@rhysnewell</span> <a href="https://t.co/D08vPDprHM" class="uri">https://t.co/D08vPDprHM</a>
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+Our first (very early) Keynote of #ABACBS2021 is presented by Roser Vento-Tormo (Sanger Institute, UK): "Mapping tissues in vivo and in vitro". So excited to see her talk! (FYI it will be recorded for the Perth guys) #singlecell #bioinformatics #scRNAseq
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Now <span class="citation">@ijbeasley</span> telling us how important it is not to just focus on Europeans!</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-retweeted" class="section level3 unnumbered">
+<h3 class="unnumbered">Most retweeted</h3>
+<p><img src="figures/ABACBS2021/most-retweeted-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="likes" class="section level2 tabset tabset-pills" number="5.2">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.2</span> Likes</h2>
+<div id="proportion-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/ABACBS2021/has-favorite-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/ABACBS2021/favorite-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-1" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+We have come a long way since this was newsworthy. I love it that it’s now so accepted to have kids interrupting meetings and talks #ABACBS2021 <a href="https://t.co/tPAnA6q0pe" class="uri">https://t.co/tPAnA6q0pe</a>
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Outstanding PhD thesis award 2021 goes to <span class="citation">@Hasindu2008</span></p>
+<p>Congratulations!!</p>
+#ABACBS2021 #combine21
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>Congratulations to Andreas Halman from my group who won best poster at #ABACBS2021</p>
+<p>For his work on STRipy: Genotyping pathogenic STRs.</p>
+<p>I think you can see why he won…</p>
+Publication: <a href="https://t.co/qNEw6nFIdq" class="uri">https://t.co/qNEw6nFIdq</a> <a href="https://t.co/JI8am2YQMj" class="uri">https://t.co/JI8am2YQMj</a>
+</td>
+<td style="text-align:right;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anna_t_g
+</td>
+<td style="text-align:left;">
+Flattered to be invited speaker this year at ABACBS and looking forward to talking about our work with prostate cancer rapid autopsy samples! #ABACBS2021 <span class="citation">@PeterMacRes</span> <span class="citation">@PearsonLab1</span> <span class="citation">@PMPostdocs</span>
+</td>
+<td style="text-align:right;">
+41
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Just a boy, standing in front of a poster, asking you… to talk about exon deletions in RNA-seq #ABACBS2021 <a href="https://t.co/nrrBUR7CWg" class="uri">https://t.co/nrrBUR7CWg</a>
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+A bit late, but congrats to my MSc Bioinformatics student Holly for her talk at <span class="citation">@combine_au</span> on Monday. Awesome work! #ABACBS2021 🤟 <a href="https://t.co/cwpTepJGIN" class="uri">https://t.co/cwpTepJGIN</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Mindblown. Multiscale PHATE, isn’t maths beautiful? I just don’t have the brain to understand the formulae #notonlyabioinformatician #ABACBS2021 <span class="citation">@abacbs</span> Smita Krishnaswamy giving a stellar plenary. Is it time to jump on the single cell bandwagon? <span class="citation">@MonashBioinfo</span> Topological Viz <a href="https://t.co/80zj7wFuqJ" class="uri">https://t.co/80zj7wFuqJ</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Only half an hour to go (12:10 AEDT) until I’m kicking off the abstract talks at #ABACBS2021 in the transcriptomics session! 😱</p>
+<a href="https://t.co/z669hlv2uG" class="uri">https://t.co/z669hlv2uG</a> <a href="https://t.co/vWodSme1g1" class="uri">https://t.co/vWodSme1g1</a>
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wenjun_nora
+</td>
+<td style="text-align:left;">
+So many fantastic talks this year at #COMBINE21 and #ABACBS2021. I feel truly inspired and it’s always good to get together with other bioinformaticians in Adelaide! Thank you <span class="citation">@combine_au</span> for giving me the opportunity to present my work. It has been a great weak! <a href="https://t.co/pt5p0NL2ru" class="uri">https://t.co/pt5p0NL2ru</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Big big thank you to <span class="citation">@abacbs</span> for the prize and for putting on #ABACBS2021</p>
+I couldn’t have done it without my amazing collaborator <span class="citation">@tpq__</span> and my SUPER supervisors <span class="citation">@markjcowley</span> and <span class="citation">@MarkPinese</span> 🤗 <a href="https://t.co/aoCtl4ja0X" class="uri">https://t.co/aoCtl4ja0X</a>
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-likes" class="section level3 unnumbered">
+<h3 class="unnumbered">Most likes</h3>
+<p><img src="figures/ABACBS2021/most-favorited-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="quotes" class="section level2 tabset tabset-pills" number="5.3">
+<h2 class="tabset tabset-pills"><span class="header-section-number">5.3</span> Quotes</h2>
+<div id="proportion-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Proportion</h3>
+<p><img src="figures/ABACBS2021/is-quote-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="count-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Count</h3>
+<p><img src="figures/ABACBS2021/quotes-count-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-2" class="section level3 unnumbered">
+<h3 class="unnumbered">Top 10</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+quote_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Some great science happening <span class="citation">@abacbs</span> #abacbs2021 still buzzing with Math #notonlyabioinformatician <a href="https://t.co/p41zq1UETO" class="uri">https://t.co/p41zq1UETO</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Day 2 of #abacbs2021 normal ops to resume soon <a href="https://t.co/pA8HjrnydY" class="uri">https://t.co/pA8HjrnydY</a>
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+markjcowley
+</td>
+<td style="text-align:left;">
+Yes, I’m sorry to announce that the Clinical Informatics Symposium won’t be on this year. Enjoy #abacbs2021 and we’ll see you face to face or hybrid next year! <a href="https://t.co/8M3eSpdi8A" class="uri">https://t.co/8M3eSpdi8A</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+What I want to know, is where is this medicial cannibis conference? Sounds interesting #notonlyabioinformatician #ABACBS2021 <a href="https://t.co/FdngezRg6M" class="uri">https://t.co/FdngezRg6M</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Not our premier. #IStandWithDan #ABACBS2021 #notonlyabioinformatician <a href="https://t.co/nSnqwIyGi1" class="uri">https://t.co/nSnqwIyGi1</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gabefoley
+</td>
+<td style="text-align:left;">
+<p>Day 1 of #ABACBS2021</p>
+😀😀😀 <a href="https://t.co/7Nvr5DkcdO" class="uri">https://t.co/7Nvr5DkcdO</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Hard to find a quiet moment with so much awesome science going on, maybe there should be a widget for this in GatherTown, nevertheless a worthy survey to fill in <span class="citation">@ozsinglecells</span> <span class="citation">@abacbs</span> #ABACBS2021 #notonlyabioinformatician <a href="https://t.co/e3N8K0Apng" class="uri">https://t.co/e3N8K0Apng</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+<span class="citation">@ACBDresearch</span> <span class="citation">@MonashCCS</span> #REPRESENT #ABACBS2021 <span class="citation">@abacbs</span> Talk about to go live soon. #notonlyabioinformatician <a href="https://t.co/Uu7K6KOH3m" class="uri">https://t.co/Uu7K6KOH3m</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+amarinder_thind
+</td>
+<td style="text-align:left;">
+<p>First step towards translational research… will be presenting tomorrow #cSCC #ABACBS2021 #COMBINE2021 #Phylomania</p>
+<a href="https://t.co/mw32yFgWHk" class="uri">https://t.co/mw32yFgWHk</a> <a href="https://t.co/AjwINsnmqy" class="uri">https://t.co/AjwINsnmqy</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Big big thank you to <span class="citation">@abacbs</span> for the prize and for putting on #ABACBS2021</p>
+I couldn’t have done it without my amazing collaborator <span class="citation">@tpq__</span> and my SUPER supervisors <span class="citation">@markjcowley</span> and <span class="citation">@MarkPinese</span> 🤗 <a href="https://t.co/aoCtl4ja0X" class="uri">https://t.co/aoCtl4ja0X</a>
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="most-quoted" class="section level3 unnumbered">
+<h3 class="unnumbered">Most quoted</h3>
+<p><img src="figures/ABACBS2021/most-quoted-1.png" width="394" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="media" class="section level1 tabset tabset-pills" number="6">
+<h1 class="tabset tabset-pills"><span class="header-section-number">6</span> Media</h1>
+<div id="proportion-3" class="section level2 unnumbered">
+<h2 class="unnumbered">Proportion</h2>
+<p><img src="figures/ABACBS2021/has-media-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="top-10-3" class="section level2 unnumbered">
+<h2 class="unnumbered">Top 10</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+favorite_count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+We have come a long way since this was newsworthy. I love it that it’s now so accepted to have kids interrupting meetings and talks #ABACBS2021 <a href="https://t.co/tPAnA6q0pe" class="uri">https://t.co/tPAnA6q0pe</a>
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>Congratulations to Andreas Halman from my group who won best poster at #ABACBS2021</p>
+<p>For his work on STRipy: Genotyping pathogenic STRs.</p>
+<p>I think you can see why he won…</p>
+Publication: <a href="https://t.co/qNEw6nFIdq" class="uri">https://t.co/qNEw6nFIdq</a> <a href="https://t.co/JI8am2YQMj" class="uri">https://t.co/JI8am2YQMj</a>
+</td>
+<td style="text-align:right;">
+44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LonsBio
+</td>
+<td style="text-align:left;">
+Just a boy, standing in front of a poster, asking you… to talk about exon deletions in RNA-seq #ABACBS2021 <a href="https://t.co/nrrBUR7CWg" class="uri">https://t.co/nrrBUR7CWg</a>
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+A bit late, but congrats to my MSc Bioinformatics student Holly for her talk at <span class="citation">@combine_au</span> on Monday. Awesome work! #ABACBS2021 🤟 <a href="https://t.co/cwpTepJGIN" class="uri">https://t.co/cwpTepJGIN</a>
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Mindblown. Multiscale PHATE, isn’t maths beautiful? I just don’t have the brain to understand the formulae #notonlyabioinformatician #ABACBS2021 <span class="citation">@abacbs</span> Smita Krishnaswamy giving a stellar plenary. Is it time to jump on the single cell bandwagon? <span class="citation">@MonashBioinfo</span> Topological Viz <a href="https://t.co/80zj7wFuqJ" class="uri">https://t.co/80zj7wFuqJ</a>
+</td>
+<td style="text-align:right;">
+25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Only half an hour to go (12:10 AEDT) until I’m kicking off the abstract talks at #ABACBS2021 in the transcriptomics session! 😱</p>
+<a href="https://t.co/z669hlv2uG" class="uri">https://t.co/z669hlv2uG</a> <a href="https://t.co/vWodSme1g1" class="uri">https://t.co/vWodSme1g1</a>
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wenjun_nora
+</td>
+<td style="text-align:left;">
+So many fantastic talks this year at #COMBINE21 and #ABACBS2021. I feel truly inspired and it’s always good to get together with other bioinformaticians in Adelaide! Thank you <span class="citation">@combine_au</span> for giving me the opportunity to present my work. It has been a great weak! <a href="https://t.co/pt5p0NL2ru" class="uri">https://t.co/pt5p0NL2ru</a>
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+And that’s a wrap for #COMBINE21! Thanks to my incredible co-chair <span class="citation">@sachintha_wije</span> &amp;amp; our committee, our speakers, career panelists, Prof. <span class="citation">@AliciaOshlack</span>, and finally, all our attendees. Proudly supported by <span class="citation">@PawseyCentre</span> <span class="citation">@IntersectAust</span> <span class="citation">@MelBioInf</span> <span class="citation">@SA_genomics</span>. Onto #ABACBS2021!! <a href="https://t.co/G0LjAhaF0Y" class="uri">https://t.co/G0LjAhaF0Y</a>
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+What can amazing looking committee and program at <span class="citation">@abacbs</span> <span class="citation">@combine_au</span> symposium today 👏 👏 #COMBINE21 #ABACBS2021 <a href="https://t.co/XGuD3evdwO" class="uri">https://t.co/XGuD3evdwO</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Proud as punch my first <span class="citation">@MonashUni</span> #phdStudent <span class="citation">@alexyfyf</span> is about to give a talk on his work <span class="citation">@abacbs</span> #ABACBS2021 after this talk. International Teleconference calls. #notonlyabioinformatician ah no tweeting for this talk. <a href="https://t.co/5ykZH2MdRB" class="uri">https://t.co/5ykZH2MdRB</a>
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered toc-ignore">
+<h1 class="unnumbered toc-ignore"></h1>
+<div id="most-liked-image" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Most liked image</h2>
+<p><img src="http://pbs.twimg.com/media/FE1olmHUYAYgLtY.jpg" /></p>
+</div>
+</div>
+<div id="tweet-text" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Tweet text</h1>
+<div id="word-cloud" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Word cloud</h2>
+<p>The top 100 words used 3 or more times.</p>
+<p><img src="figures/ABACBS2021/count-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="hashtags" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Hashtags</h2>
+<p>Other hashtags used 5 or more times.</p>
+<p><img src="figures/ABACBS2021/hashtags-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="emojis" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Emojis</h2>
+<p><img src="figures/ABACBS2021/emojis-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bigram-graph" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Bigram graph</h2>
+<p>Words that were tweeted next to each other at least 3 times.</p>
+<p><img src="figures/ABACBS2021/bigram-graph-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="topic-modelling" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Topic modelling</h2>
+<p>Top 10 words associated with 6 topics identified by LDA.</p>
+<p><img src="figures/ABACBS2021/topics-words-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div id="representative-tweets" class="section level3 tabset tabset-fade" number="7.5.1">
+<h3 class="tabset tabset-fade"><span class="header-section-number">7.5.1</span> Representative tweets</h3>
+<p>Most representative tweets for each topic</p>
+<div id="topic-1" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 1</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mobeginomics
+</td>
+<td style="text-align:left;">
+<span class="citation">@PhilippBayer</span> is ready to pilot the genomics session from our Perth Hub. Dr. Isobel Parkin opening with the topic “Towards fully assembled plant genomes and the promise of pan-genomes”. #abacbs2021
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>For poster presenters:</p>
+<p>In the poster area, check for the ‘sign’ doc, it contains your virtual poster board number (e.g. ‘A01’). We have 2 ABACBS halls, so check both rooms!</p>
+#ABACBS2021 #COMBINE2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9931788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Final abstract talk introduces Helium - automatic variance prioritization for surfacing cancer drivers (Sabrina Yan)</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9926587
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+<p>Congratulations to Andreas Halman from my group who won best poster at #ABACBS2021</p>
+<p>For his work on STRipy: Genotyping pathogenic STRs.</p>
+<p>I think you can see why he won…</p>
+Publication: <a href="https://t.co/qNEw6nFIdq" class="uri">https://t.co/qNEw6nFIdq</a> <a href="https://t.co/JI8am2YQMj" class="uri">https://t.co/JI8am2YQMj</a>
+</td>
+<td style="text-align:right;">
+0.9926587
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Using genomics to characterise and track outbreaks. Plasmids shared across bacterial species! <span class="citation">@Joepdl</span> #ABACBS2021 <span class="citation">@abacbs</span> #longReadSequencing <span class="citation">@nanopore</span> <a href="https://t.co/GNsQfT5YWc" class="uri">https://t.co/GNsQfT5YWc</a>
+</td>
+<td style="text-align:right;">
+0.9920527
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mobeginomics
+</td>
+<td style="text-align:left;">
+A very interesting talk by HughCottingham on CRISPR-Cas9 enrichment coupled with <span class="citation">@nanopore</span> sequencing for targeted sequencing. #abacbs2021 #combine2021 #phylomania
+</td>
+<td style="text-align:right;">
+0.9913377
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Day 4 of the Bioinformatics-fest will start shortly, with Barbara Holland detecting convergent selection</p>
+#ABACBS2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9904814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>First up for Perth and the genomics session is Isobel Parker talking about assembling plant genomes</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+Some very spicy talks to kick off the Abstract seminars #ABACBS2021 #dealwithit <a href="https://t.co/Xmr0LEer2M" class="uri">https://t.co/Xmr0LEer2M</a>
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anaserrasilva
+</td>
+<td style="text-align:left;">
+Dear <span class="citation">@Windows</span>, I don’t need a reminder that I’m somehow stuck in London and jetlagged all at once! #ABACBS2021 #Phylomania <a href="https://t.co/FzZILdtrnn" class="uri">https://t.co/FzZILdtrnn</a>
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-2" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 2</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AusBiocommons
+</td>
+<td style="text-align:left;">
+If you can find a quiet moment during #ABACBS2021 #Phylomania and you’re into single cell omics, please complete our short survey about what research infrastructure you need. We’ll work with our partners to try to ease your #Bioinformatics pain points <a href="https://t.co/7ZgozOJC4a" class="uri">https://t.co/7ZgozOJC4a</a> <a href="https://t.co/tkXr8C38Sx" class="uri">https://t.co/tkXr8C38Sx</a>
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Hard to find a quiet moment with so much awesome science going on, maybe there should be a widget for this in GatherTown, nevertheless a worthy survey to fill in <span class="citation">@ozsinglecells</span> <span class="citation">@abacbs</span> #ABACBS2021 #notonlyabioinformatician <a href="https://t.co/e3N8K0Apng" class="uri">https://t.co/e3N8K0Apng</a>
+</td>
+<td style="text-align:right;">
+0.9926587
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anna_t_g
+</td>
+<td style="text-align:left;">
+Flattered to be invited speaker this year at ABACBS and looking forward to talking about our work with prostate cancer rapid autopsy samples! #ABACBS2021 <span class="citation">@PeterMacRes</span> <span class="citation">@PearsonLab1</span> <span class="citation">@PMPostdocs</span>
+</td>
+<td style="text-align:right;">
+0.9913377
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Psy_Fer_
+</td>
+<td style="text-align:left;">
+<p>Listening to talks with techno/drum&amp;amp;bass in the background really lifts virtual conferences. Highly recommend.</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9913377
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ArianeNMora
+</td>
+<td style="text-align:left;">
+Great invited talk by Dr Ben Woodcroft yesterday at #ABACBS2021 feat some awesome work <span class="citation">@rhysnewell</span> <a href="https://t.co/D08vPDprHM" class="uri">https://t.co/D08vPDprHM</a>
+</td>
+<td style="text-align:right;">
+0.9904814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Big big thank you to <span class="citation">@abacbs</span> for the prize and for putting on #ABACBS2021</p>
+I couldn’t have done it without my amazing collaborator <span class="citation">@tpq__</span> and my SUPER supervisors <span class="citation">@markjcowley</span> and <span class="citation">@MarkPinese</span> 🤗 <a href="https://t.co/aoCtl4ja0X" class="uri">https://t.co/aoCtl4ja0X</a>
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Slight change in program - first up <span class="citation">@rebecca_poulos</span> talking about the pan-cancer proteomic map</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Final abstract talk for #ABACBS2021 is Nicholas Fountain-Jones on hunting and large carnivores!</p>
+#ABACBS2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Outstanding PhD thesis award 2021 goes to <span class="citation">@Hasindu2008</span></p>
+<p>Congratulations!!</p>
+#ABACBS2021 #combine21
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Final lightning talks are from <span class="citation">@_tyronechen</span> <span class="citation">@ArianeNMora</span> <span class="citation">@jarnychoi</span> and Nehleh-Fatemeh Kargarfard</p>
+#ABACBS2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-3" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 3</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+_AJSethi
+</td>
+<td style="text-align:left;">
+And that’s a wrap for #COMBINE21! Thanks to my incredible co-chair <span class="citation">@sachintha_wije</span> &amp;amp; our committee, our speakers, career panelists, Prof. <span class="citation">@AliciaOshlack</span>, and finally, all our attendees. Proudly supported by <span class="citation">@PawseyCentre</span> <span class="citation">@IntersectAust</span> <span class="citation">@MelBioInf</span> <span class="citation">@SA_genomics</span>. Onto #ABACBS2021!! <a href="https://t.co/G0LjAhaF0Y" class="uri">https://t.co/G0LjAhaF0Y</a>
+</td>
+<td style="text-align:right;">
+0.9949630
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Conference alert!</p>
+<p>The Zoom &amp;amp; <a href="https://t.co/9G8gcLHPNz" class="uri">https://t.co/9G8gcLHPNz</a> links for the conference can be accessed here, login with the ORCID you’ve provided during registration, then password authenticate: <a href="https://t.co/AdvIH4tpX4" class="uri">https://t.co/AdvIH4tpX4</a></p>
+#ABACBS2021 #COMBINE2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+phylomania
+</td>
+<td style="text-align:left;">
+#abacbs2021 day 2, day three of the hybrid conf with #combine21 and #phylomania… and the Hobart hub is finally in our proper videoconferencing room! Let’s hope the tech keeps playing nice 🙂🤞 <a href="https://t.co/LJGuFRxrtN" class="uri">https://t.co/LJGuFRxrtN</a>
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+This GatherTown thing is pretty cool, but it’s not the same awkwardly standing in front of the poster and the presenter reading it virtually! Lol #ABACBS2021 #notonlyabioinformatician <a href="https://t.co/Mnvo3xyU7Q" class="uri">https://t.co/Mnvo3xyU7Q</a>
+</td>
+<td style="text-align:right;">
+0.9931788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wenjun_nora
+</td>
+<td style="text-align:left;">
+So many fantastic talks this year at #COMBINE21 and #ABACBS2021. I feel truly inspired and it’s always good to get together with other bioinformaticians in Adelaide! Thank you <span class="citation">@combine_au</span> for giving me the opportunity to present my work. It has been a great weak! <a href="https://t.co/pt5p0NL2ru" class="uri">https://t.co/pt5p0NL2ru</a>
+</td>
+<td style="text-align:right;">
+0.9920527
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PatSullivann
+</td>
+<td style="text-align:left;">
+<p>Only half an hour to go (12:10 AEDT) until I’m kicking off the abstract talks at #ABACBS2021 in the transcriptomics session! 😱</p>
+<a href="https://t.co/z669hlv2uG" class="uri">https://t.co/z669hlv2uG</a> <a href="https://t.co/vWodSme1g1" class="uri">https://t.co/vWodSme1g1</a>
+</td>
+<td style="text-align:right;">
+0.9904814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+looks like we have lost the speaker…..glitch in the matrix, but they are back, checking <span class="citation">@zoom</span> #stats for #ABACBS2021 <span class="citation">@abacbs</span> not the #NBN this time. <a href="https://t.co/NxjRZs8GKv" class="uri">https://t.co/NxjRZs8GKv</a>
+</td>
+<td style="text-align:right;">
+0.9904814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Session 2 #ABACBS2021 Jill Moore talking ENCODE <span class="citation">@abacbs</span> investigating regulatory elements. <a href="https://t.co/arRaTNs8wq" class="uri">https://t.co/arRaTNs8wq</a>
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+gabefoley
+</td>
+<td style="text-align:left;">
+<p>Brisbane hub ready for the first day of #ABACBS2021 / #Phylomania after a great day of #COMBINE21 yesterday!</p>
+<span class="citation">@abacbs</span> <span class="citation">@combine_au</span> <span class="citation">@phylomania</span> <a href="https://t.co/nZ2xsjr1kS" class="uri">https://t.co/nZ2xsjr1kS</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+Next up, Matthew Lewsey talking about gene regulatory dynamics in plants #ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+I love codon usage bias. (It was my first attempt at bioinfiormatics as an undergrad.) #abacbs2021
+</td>
+<td style="text-align:right;">
+0.9864683
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-4" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 4</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Mindblown. Multiscale PHATE, isn’t maths beautiful? I just don’t have the brain to understand the formulae #notonlyabioinformatician #ABACBS2021 <span class="citation">@abacbs</span> Smita Krishnaswamy giving a stellar plenary. Is it time to jump on the single cell bandwagon? <span class="citation">@MonashBioinfo</span> Topological Viz <a href="https://t.co/80zj7wFuqJ" class="uri">https://t.co/80zj7wFuqJ</a>
+</td>
+<td style="text-align:right;">
+0.9958346
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+Our first (very early) Keynote of #ABACBS2021 is presented by Roser Vento-Tormo (Sanger Institute, UK): “Mapping tissues in vivo and in vitro”. So excited to see her talk! (FYI it will be recorded for the Perth guys) #singlecell #bioinformatics #scRNAseq
+</td>
+<td style="text-align:right;">
+0.9952134
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PhilippBayer
+</td>
+<td style="text-align:left;">
+The Perth #COMBINE21 and #ABACBS2021 hub is up and running! Streaming talks from 8am-ish most days this week. There’ll be lunch today and tomorrow, with morning tea courtesy of <span class="citation">@dr_njarmstrong</span> :) <a href="https://t.co/8lltT3sMnG" class="uri">https://t.co/8lltT3sMnG</a>
+</td>
+<td style="text-align:right;">
+0.9943744
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Love the visualisations but more importantly, I am starting to understand this stuff…..maybe. PHATE, Smita Krishnaswamy, love the cameo during her talk. Pretty pictures. #ABACBS2021 <span class="citation">@abacbs</span> #notonlyabioinformatician <span class="citation">@MonashBioinfo</span> <a href="https://t.co/Rx7FuCGqNb" class="uri">https://t.co/Rx7FuCGqNb</a>
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Left or right? <span class="citation">@illumina</span> or <span class="citation">@nanopore</span> ? #redPill #bluePill ? #gathertown <span class="citation">@abacbs</span> #ABACBS2021 #notonlyabioinformatician they are private spaces, and GatherTown says NO! <a href="https://t.co/Q0kB7Z8FfT" class="uri">https://t.co/Q0kB7Z8FfT</a>
+</td>
+<td style="text-align:right;">
+0.9913377
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Dan Andrews - phenotypic variation in old-school single cell mouse data</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Wonderful end to the session on genomics with 4 great lightning talks. Time now for a break (&amp;amp; lunch in Perth!)</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9894372
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JasonJinxin
+</td>
+<td style="text-align:left;">
+First day of #ABACBS2021. <span class="citation">@abacbs</span> Kicks off with an exciting talk from Prof. Smita Krishnaswamy #Phylomania <a href="https://t.co/n8D3QdY0oL" class="uri">https://t.co/n8D3QdY0oL</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Final talk of the day is Aaron Chuah estimating protein stability.</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Gathertown isn’t too bad, having a group chat with some regular good guys. <span class="citation">@bach_warren</span> <span class="citation">@Psy_Fer_</span> <span class="citation">@cabbagesofdoom</span> #abacbs2021 <span class="citation">@abacbs</span> #notonlyabioinformatician <a href="https://t.co/FBJlJ2DwNu" class="uri">https://t.co/FBJlJ2DwNu</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+amarinder_thind
+</td>
+<td style="text-align:left;">
+<p>First step towards translational research… will be presenting tomorrow #cSCC #ABACBS2021 #COMBINE2021 #Phylomania</p>
+<a href="https://t.co/mw32yFgWHk" class="uri">https://t.co/mw32yFgWHk</a> <a href="https://t.co/AjwINsnmqy" class="uri">https://t.co/AjwINsnmqy</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-5" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 5</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+dr_njarmstrong
+</td>
+<td style="text-align:left;">
+<p>Not long to go until the start of the conference!</p>
+<p>Have you registered? Checked directions to your local hub or made sure you have the zoom link at home? Joined the slack channels? Put your poster in <a href="https://t.co/9usCp0h3ED" class="uri">https://t.co/9usCp0h3ED</a>? Got the hashtags?</p>
+#ABACBS2021 #COMBINE2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9943744
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+phylomania
+</td>
+<td style="text-align:left;">
+Excitement is building at the Hobart hub for the official start of #abacbs2021 ! Our game of musical rooms (aka avoiding the tech troubles) continues… home for today is Humanities346. 🌞🌞 <a href="https://t.co/kN0gjZkR3N" class="uri">https://t.co/kN0gjZkR3N</a>
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Complex data can be decomposed into latent space. Smita Krishnaswamy kicking off #ABACBS2021 <span class="citation">@abacbs</span> Conference I need to get up to speed with math, in some ways it is good to have <span class="citation">@LazyPardalote</span> at hand for my stupid questions #notonlyabioinformatician <span class="citation">@MonashBioinfo</span> <a href="https://t.co/SGuAhrC9ZE" class="uri">https://t.co/SGuAhrC9ZE</a>
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Putant, a putative mutant, using massive cellular data to make sense of clinical outputs, Dan Andrews from #ANU not in Government #notonlyabioinformatician #ABACBS2021 <span class="citation">@abacbs</span> <a href="https://t.co/xUz3LPpx6R" class="uri">https://t.co/xUz3LPpx6R</a>
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>We start again at 8am/11am tomorrow morning. Poster session on now via <a href="https://t.co/6qk6InXZUB" class="uri">https://t.co/6qk6InXZUB</a></p>
+<p>Questions for speakers - pop them in the slack channels!</p>
+#ABACBS2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9926587
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Excellent first session on transcriptomics run by Melbourne to start the conference. Next up is Perth!</p>
+<p>Meanwhile, posters are up in <a href="https://t.co/6qk6InXZUB" class="uri">https://t.co/6qk6InXZUB</a> for viewing during the break.</p>
+#ABACBS2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9920527
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>And that’s a wrap for the official #ABACBS2021 conference. Continuing on as #Phylomania until Friday afternoon.</p>
+<p>Thanks to everyone for attending, organising and enjoying the week so far!</p>
+2022 will be back in Melbourne!
+</td>
+<td style="text-align:right;">
+0.9920527
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>And conference slack channels have now been created on the ABACBS channel. Search for conf2021.</p>
+#ABACBS2021 #COMBINE2021 #Phylomania
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AliciaOshlack
+</td>
+<td style="text-align:left;">
+We have come a long way since this was newsworthy. I love it that it’s now so accepted to have kids interrupting meetings and talks #ABACBS2021 <a href="https://t.co/tPAnA6q0pe" class="uri">https://t.co/tPAnA6q0pe</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+<span class="citation">@abacbs</span> <span class="citation">@Psy_Fer_</span> <span class="citation">@Dr_KLai</span> <span class="citation">@Hasindu2008</span> All Syndey folks. Shame we couldn’t have a hub! Stupid #COVID19 #ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Up now: Nicolas Canete, spicyR - spatial analysis of in situ cytometry data</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+abacbs
+</td>
+<td style="text-align:left;">
+<p>Next method is SPIAT, Yuzhou Feng - also analysing (&amp;amp; simulating) spatial data</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+bioinfocharls
+</td>
+<td style="text-align:left;">
+Thank you! And thanks very much to all of the people involved in organising ABACBS and making it run so smoothly. Your efforts are very much appreciated! <span class="citation">@abacbs</span> #abacbs2021 <a href="https://t.co/v7mlXztRnC" class="uri">https://t.co/v7mlXztRnC</a>
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="topic-6" class="section level4 unnumbered">
+<h4 class="unnumbered">Topic 6</h4>
+<table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+screen_name
+</th>
+<th style="text-align:left;">
+text
+</th>
+<th style="text-align:right;">
+gamma
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+that is the cool thing about #ABACBS2021 where Bioinformatics spans all sorts of things, including Cane Toads. Interesting approach to work out the genome size using BUSCO Richard Edward with his lightning talk. #notonlyabioinformatician <span class="citation">@abacbs</span> <a href="https://t.co/1XrVnuXwVT" class="uri">https://t.co/1XrVnuXwVT</a>
+</td>
+<td style="text-align:right;">
+0.9943744
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+The conversation continues with <span class="citation">@LazyPardalote</span> and the plenary speaker. Talk of vietoris rips, non-chaotic dynamics, non-chaotic dynamics…..what are these things? Math is cool #STEM #ABACBS2021 <span class="citation">@abacbs</span> <span class="citation">@zoom</span> #notonlyabioinformatician
+</td>
+<td style="text-align:right;">
+0.9940253
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+Proud as punch my first <span class="citation">@MonashUni</span> #phdStudent <span class="citation">@alexyfyf</span> is about to give a talk on his work <span class="citation">@abacbs</span> #ABACBS2021 after this talk. International Teleconference calls. #notonlyabioinformatician ah no tweeting for this talk. <a href="https://t.co/5ykZH2MdRB" class="uri">https://t.co/5ykZH2MdRB</a>
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cabbagesofdoom
+</td>
+<td style="text-align:left;">
+Coming up! #ABACBS2021 Lightning talk - DepthSizer and DepthKopy: genome size and copy number prediction using single-copy long-read depth profiles <a href="https://t.co/vCmsYe217v" class="uri">https://t.co/vCmsYe217v</a>
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+on now as a lightning talk, Sooshi! Suzie and her family, love the storytelling Angel Liang. <span class="citation">@UNSW</span> #ABACBS2021 <span class="citation">@abacbs</span> Interesting problem too transcript structures and id’s #notonlyabioinformatician <a href="https://t.co/OI5PIJheVw" class="uri">https://t.co/OI5PIJheVw</a>
+</td>
+<td style="text-align:right;">
+0.9936300
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+tyagilab
+</td>
+<td style="text-align:left;">
+<p>Late post:</p>
+<p>Congratulations to <span class="citation">@GulrezChahal</span> for her selected talk at the <span class="citation">@combine_au</span> #COMBINE21 earlier this week <span class="citation">@ramialison_lab</span></p>
+<p>and good luck to <span class="citation">@_tyronechen</span> for his presentation today <span class="citation">@abacbs</span> #ABACBS2021</p>
+Best wishes 🎉 <a href="https://t.co/MN5c5CsQgQ" class="uri">https://t.co/MN5c5CsQgQ</a>
+</td>
+<td style="text-align:right;">
+0.9931788
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+wessidepraxis
+</td>
+<td style="text-align:left;">
+A bit late, but congrats to my MSc Bioinformatics student Holly for her talk at <span class="citation">@combine_au</span> on Monday. Awesome work! #ABACBS2021 🤟 <a href="https://t.co/cwpTepJGIN" class="uri">https://t.co/cwpTepJGIN</a>
+</td>
+<td style="text-align:right;">
+0.9913377
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+methylnick
+</td>
+<td style="text-align:left;">
+important part of conferences is support from sponsors, CSL and Spot some familiar faces in this video, will it be on <span class="citation">@YouTube</span> <span class="citation">@abacbs</span> #ABACBS2021 Thank you, #notonlyabioinformatician <a href="https://t.co/eMjWFKqKVD" class="uri">https://t.co/eMjWFKqKVD</a>
+</td>
+<td style="text-align:right;">
+0.9904814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+dr_njarmstrong
+</td>
+<td style="text-align:left;">
+<p><span class="citation">@wwood</span> is the next national speaker talking about community profiling of shotgun metagenomes.</p>
+#ABACBS2021
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+anna_t_g
+</td>
+<td style="text-align:left;">
+Great talk by <span class="citation">@yuzhou_feng</span> at #ABACBS2021 on the spatial analysis tools our team is currently working on! Watch this space!
+</td>
+<td style="text-align:right;">
+0.9881357
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="links" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Links</h1>
+<p>Links to GitHub, GitLab, BitBucket, Bioconductor or CRAN mentioned in Tweets.</p>
+<!-- Any additional analysis can go here -->
+</div>
+<div id="session-info" class="section level1 unnumbered">
+<h1 class="unnumbered">Session info</h1>
+<p>
+<button class="btn btn-primary" data-toggle="collapse" data-target="#SessionInfo">
+Session info
+</button>
+</p>
+<div id="SessionInfo" class="collapse">
+<pre><code>## R version 4.1.0 Patched (2021-05-19 r80339)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.7
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] fs_1.5.0           here_1.0.1         kableExtra_1.3.4   knitr_1.36        
+##  [5] magick_2.7.3       webshot_0.5.2      viridis_0.6.2      viridisLite_0.4.0 
+##  [9] wordcloud_2.6      RColorBrewer_1.1-2 ggtext_0.1.1       ggraph_2.0.5      
+## [13] ggrepel_0.9.1      ggplot2_3.3.5      emo_0.0.0.9000     rvest_1.0.2       
+## [17] topicmodels_0.2-12 tidytext_0.3.2     igraph_1.2.8       stringr_1.4.0     
+## [21] purrr_0.3.4        forcats_0.5.1      lubridate_1.8.0    tidyr_1.1.4       
+## [25] dplyr_1.0.7        rtweet_0.7.0       clamour_0.1.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] bitops_1.0-7       usethis_2.1.3      httr_1.4.2         rprojroot_2.0.2   
+##  [5] SnowballC_0.7.0    tools_4.1.0        bslib_0.3.1        utf8_1.2.2        
+##  [9] R6_2.5.1           DBI_1.1.1          colorspace_2.0-2   withr_2.4.2       
+## [13] processx_3.5.2     tidyselect_1.1.1   gridExtra_2.3      curl_4.3.2        
+## [17] compiler_4.1.0     cli_3.1.0          xml2_1.3.2         NLP_0.2-1         
+## [21] labeling_0.4.2     slam_0.1-49        sass_0.4.0         scales_1.1.1      
+## [25] tm_0.7-8           callr_3.7.0.9000   askpass_1.1        systemfonts_1.0.3 
+## [29] digest_0.6.28      rmarkdown_2.11     svglite_2.0.0      pkgconfig_2.0.3   
+## [33] htmltools_0.5.2    fastmap_1.1.0      highr_0.9          rlang_0.4.12      
+## [37] rstudioapi_0.13    jquerylib_0.1.4    farver_2.1.0       generics_0.1.1    
+## [41] jsonlite_1.7.2     tokenizers_0.2.1   RCurl_1.98-1.5     magrittr_2.0.1    
+## [45] modeltools_0.2-23  Matrix_1.3-4       Rcpp_1.0.7         munsell_0.5.0     
+## [49] fansi_0.5.0        lifecycle_1.0.1    stringi_1.7.5      yaml_2.2.1        
+## [53] MASS_7.3-54        plyr_1.8.6         grid_4.1.0         parallel_4.1.0    
+## [57] crayon_1.4.2       lattice_0.20-45    graphlayouts_0.7.2 gridtext_0.1.4    
+## [61] ps_1.6.0           pillar_1.6.4       markdown_1.1       reshape2_1.4.4    
+## [65] stats4_4.1.0       glue_1.5.0         evaluate_0.14      selectr_0.4-2     
+## [69] png_0.1-7          vctrs_0.3.8        tweenr_1.0.2       gtable_0.3.0      
+## [73] openssl_1.4.5      polyclip_1.10-0    assertthat_0.2.1   xfun_0.28         
+## [77] ggforce_0.3.3      tidygraph_1.2.0    janeaustenr_0.1.5  tibble_3.1.6      
+## [81] ellipsis_0.3.2</code></pre>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
